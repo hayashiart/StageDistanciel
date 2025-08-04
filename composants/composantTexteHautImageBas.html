@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Composant avec Texte en Haut et Image en Bas</title>
+    <style>
+        .texteHautImageBas-container {
+            width: 400px;
+            height: auto;
+            min-height: 540px;
+            background-color: #f0ecc8;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+
+        .texteHautImageBas-text-box {
+            background-color: rgba(250, 248, 247, 0.7);
+            padding: 20px;
+            margin: 20px;
+            border-radius: 20px;
+            box-sizing: border-box;
+            height: 200px;
+            overflow-y: auto;
+        }
+
+        .texteHautImageBas-text-box p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            overflow-wrap: break-word;
+            white-space: normal;
+        }
+
+        .texteHautImageBas-header-image {
+            width: calc(100% - 40px);
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin: 0 20px 20px 20px;
+            box-sizing: border-box;
+        }
+
+        /* Media query pour tablettes (≤ 768px) */
+        @media screen and (max-width: 768px) {
+            .texteHautImageBas-container {
+                width: 320px;
+                height: auto;
+                min-height: 350px;
+            }
+
+            .texteHautImageBas-text-box {
+                padding: 15px;
+                margin: 15px;
+                height: 120px;
+            }
+
+            .texteHautImageBas-text-box p {
+                font-size: 14px;
+            }
+
+            .texteHautImageBas-header-image {
+                width: calc(100% - 30px);
+                height: 200px;
+                margin: 0 15px 15px 15px;
+                box-sizing: border-box;
+            }
+        }
+
+        /* Media query pour téléphones (≤ 480px) */
+        @media screen and (max-width: 480px) {
+            .texteHautImageBas-container {
+                width: 280px;
+                height: auto;
+                min-height: 260px;
+            }
+
+            .texteHautImageBas-text-box {
+                padding: 10px;
+                margin: 10px;
+                height: 90px;
+            }
+
+            .texteHautImageBas-text-box p {
+                font-size: 12px;
+            }
+
+            .texteHautImageBas-header-image {
+                width: calc(100% - 20px);
+                height: 150px;
+                margin: 0 10px 10px 10px;
+                box-sizing: border-box;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="texteHautImageBas-container">
+        <div class="texteHautImageBas-text-box">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incidid Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                minim veniam, quis nostrud exer
+            </p>
+        </div>
+        <img src="../images/region.jpg" alt="Image en bas" class="texteHautImageBas-header-image">
+    </div>
+</body>
+</html>

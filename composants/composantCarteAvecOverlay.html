@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carte avec overlay</title>
+  <style>
+    /* ===========================
+       Composant 1 : Carte avec overlay
+    =========================== */
+    .carteAvecOverlay-custom-card {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      background-image: url('https://picsum.photos/300/200');
+      background-size: cover;
+      background-position: center;
+      margin: 20px auto;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    /* Zoom léger au survol */
+    .carteAvecOverlay-custom-card:hover {
+      transform: scale(1.03);
+    }
+
+    /* Overlay semi-transparent */
+    .carteAvecOverlay-custom-card .carteAvecOverlay-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background-color: rgba(255, 0, 0, 0.4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 1.2em;
+      text-align: center;
+      padding: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Changement de couleur au survol */
+    .carteAvecOverlay-custom-card:hover .carteAvecOverlay-overlay {
+      background-color: rgba(255, 0, 0, 0.6);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .carteAvecOverlay-custom-card {
+        width: 90%;
+        height: 180px;
+      }
+
+      .carteAvecOverlay-custom-card .carteAvecOverlay-overlay {
+        width: 100%;
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Composant 1 -->
+  <div class="carteAvecOverlay-custom-card">
+    <div class="carteAvecOverlay-overlay">
+      <p>Qwerty ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+  </div>
+</body>
+</html>

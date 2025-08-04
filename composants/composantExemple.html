@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Composant Exemple</title>
+    <style>
+        .exemple-container {
+            width: 600px;
+            height: auto;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            border-radius: 20px;
+            box-sizing: border-box;
+            background: #F1F0E9;
+        }
+
+        .exemple-left-rectangle {
+            width: 70px;
+            min-height: inherit;
+            background: #B3CAE3;
+            flex-shrink: 0;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .exemple-right-content {
+            flex: 1;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .exemple-scroll-text {
+            height: auto;
+        }
+
+        .exemple-title {
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin: 0 !important;
+            text-align: flex-start;
+        }
+
+        .exemple-text {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1;
+            color: #333;
+            text-align: left;
+            margin: 0 !important;
+        }
+
+        /* Media query pour tablettes (≤ 768px) */
+        @media screen and (max-width: 768px) {
+            .exemple-container {
+                width: 450px;
+                height: auto;
+                border-radius: 15px;
+            }
+
+            .exemple-left-rectangle {
+                width: 50px;
+                min-height: inherit;
+                background: #B3CAE3;
+                flex-shrink: 0;
+                border-top-left-radius: 15px;
+                border-bottom-left-radius: 15px;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            .exemple-right-content {
+                padding: 5px;
+            }
+
+            .exemple-scroll-text {
+                height: auto;
+            }
+
+            .exemple-title {
+                font-size: 14px;
+                margin: 0 !important;
+                text-align: flex-start;
+            }
+
+            .exemple-text {
+                font-size: 12px;
+                margin: 0 !important;
+            }
+        }
+
+        /* Media query pour téléphones (≤ 480px) */
+        @media screen and (max-width: 480px) {
+            .exemple-container {
+                width: 300px;
+                height: auto;
+                border-radius: 10px;
+            }
+
+            .exemple-left-rectangle {
+                width: 40px;
+                min-height: inherit;
+                background: #B3CAE3;
+                flex-shrink: 0;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            .exemple-right-content {
+                padding: 4px;
+            }
+
+            .exemple-scroll-text {
+                height: auto;
+            }
+
+            .exemple-title {
+                font-size: 12px;
+                margin: 0 !important;
+                text-align: flex-start;
+            }
+
+            .exemple-text {
+                font-size: 10px;
+                margin: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="exemple-container">
+        <div class="exemple-left-rectangle"></div>
+        <div class="exemple-right-content">
+            <h1 class="exemple-title">Exemple</h1>
+            <div class="exemple-scroll-text">
+                <p class="exemple-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet ligula sed est vestibulum congue.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet ligula sed est vestibulum congue.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet ligula sed est vestibulum congue.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet ligula sed est vestibulum congue.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

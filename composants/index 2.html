@@ -1,0 +1,5438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIBLIOTHEQUE CODE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./responsive.css">
+    <style>
+        * {
+            word-break: break-word;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--gray-color7);
+        }
+
+        /* Variables */
+
+        :root {
+
+            --main-font: "Poppins", serif;
+
+            /* Sizes */
+
+            --font-size12: 12px;
+            --font-size14: 14px;
+            --font-size16: 16px;
+            --font-size18: 18px;
+            --font-size20: 20px;
+            --font-size22: 22px;
+            --font-size24: 24px;
+            --font-size28: 28px;
+            --font-size30: 30px;
+            --font-size32: 32px;
+            --font-size40: 40px;
+            --font-size48: 48px;
+            --font-size64: 64px;
+
+
+
+            /* Primary colors */
+            --primary-color: #9747FF;
+            --primary-color1: #B485FF;
+            --primary-color2: #CCB1FF;
+            --primary-color3: #E1D4FF;
+            --primary-color4: #EFE8FF;
+            --primary-color5: #F7F2FF;
+
+            /* Secondary colors */
+            --secondary-color: #0074C0;
+            --secondary-color1: #99D6FF;
+            --secondary-color2: #CCE5FF;
+
+            /* Tertiary colors */
+            --tertiary-color: #F69D35;
+            --tertiary-color1: #F8B351;
+            --tertiary-color2: #FAD08D;
+            --tertiary-color3: #FDE8C8;
+            --tertiary-color4: #FFF3DC;
+            --tertiary-color5: #FEF8EC;
+            --tertiary-color6: #FEFBF5;
+
+            /* Gray colors */
+            --gray-color: #514B4B;
+            --gray-color1: #757575;
+            --gray-color2: #999999;
+            --gray-color3: #ADADAD;
+            --gray-color4: #C8C8C8;
+            --gray-color5: #DADADA;
+            --gray-color6: #EDEDED;
+            --gray-color7: #F7F7F7;
+
+            /* Blue colors */
+            --blue-color: #002147;
+            --blue-color1: #1A385C;
+            --blue-color2: #334F71;
+            --blue-color3: #003D6F;
+            --blue-color4: #4D6686;
+            --blue-color5: #667D9B;
+            --blue-color6: #8094B0;
+            --blue-color7: #99ABC5;
+            --blue-color8: #B3C2DA;
+            --blue-color9: #CCD9EF;
+            --blue-color10: #E6F0FF;
+
+            /* Black & White colors */
+            --white-color: #ffffff;
+            --black-color: #000000;
+        }
+
+        /* Container */
+
+        .container {
+            width: 100%;
+            max-width: 1600px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+            border-radius: 20px;
+            background-color: var(--white-color);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Sidebar */
+        .wrap-container {
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--primary-color5);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            font-family: var(--main-font);
+            font-size: var(--font-size18);
+        }
+
+        .sidebar ul li:hover {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+        }
+
+        .sidebar ul li:hover a {
+            color: var(--white-color);
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: var(--gray-color);
+            display: block;
+            padding: 0.5rem 0;
+            transition: color 0.2s;
+        }
+
+
+        /* Content */
+
+        .content {
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        /* colors */
+
+        /* Primary colors */
+        .primary-color {
+            color: var(--primary-color) !important;
+        }
+
+        .primary-color1 {
+            color: var(--primary-color1) !important;
+        }
+
+        .primary-color2 {
+            color: var(--primary-color2) !important;
+        }
+
+        .primary-color3 {
+            color: var(--primary-color3) !important;
+        }
+
+        .primary-color4 {
+            color: var(--primary-color4) !important;
+        }
+
+        .primary-color5 {
+            color: var(--primary-color5) !important;
+        }
+
+        /* Primary BG colors */
+        .bg-primary-color {
+            background-color: var(--primary-color) !important;
+        }
+
+        .bg-primary-color1 {
+            background-color: var(--primary-color1) !important;
+        }
+
+        .bg-primary-color2 {
+            background-color: var(--primary-color2) !important;
+        }
+
+        .bg-primary-color3 {
+            background-color: var(--primary-color3) !important;
+        }
+
+        .bg-primary-color4 {
+            background-color: var(--primary-color4) !important;
+        }
+
+        .bg-primary-color5 {
+            background-color: var(--primary-color5) !important;
+        }
+
+        /* Primary BORDER colors */
+        .b-primary-color {
+            border-color: var(--primary-color) !important;
+        }
+
+        .b-primary-color1 {
+            border-color: var(--primary-color1) !important;
+        }
+
+        .b-primary-color2 {
+            border-color: var(--primary-color2) !important;
+        }
+
+        .b-primary-color3 {
+            border-color: var(--primary-color3) !important;
+        }
+
+        .b-primary-color4 {
+            border-color: var(--primary-color4) !important;
+        }
+
+        .b-primary-color5 {
+            border-color: var(--primary-color5) !important;
+        }
+
+        /*  Top border */
+        .bt-primary-color {
+            border-top-color: var(--primary-color) !important;
+        }
+
+        .bt-primary-color1 {
+            border-top-color: var(--primary-color1) !important;
+        }
+
+        .bt-primary-color2 {
+            border-top-color: var(--primary-color2) !important;
+        }
+
+        .bt-primary-color3 {
+            border-top-color: var(--primary-color3) !important;
+        }
+
+        .bt-primary-color4 {
+            border-top-color: var(--primary-color4) !important;
+        }
+
+        .bt-primary-color5 {
+            border-top-color: var(--primary-color5) !important;
+        }
+
+        /*  Bottom border */
+        .bb-primary-color {
+            border-bottom-color: var(--primary-color) !important;
+        }
+
+        .bb-primary-color1 {
+            border-bottom-color: var(--primary-color1) !important;
+        }
+
+        .bb-primary-color2 {
+            border-bottom-color: var(--primary-color2) !important;
+        }
+
+        .bb-primary-color3 {
+            border-bottom-color: var(--primary-color3) !important;
+        }
+
+        .bb-primary-color4 {
+            border-bottom-color: var(--primary-color4) !important;
+        }
+
+        .bb-primary-color5 {
+            border-bottom-color: var(--primary-color5) !important;
+        }
+
+        /*  Left border */
+        .bl-primary-color {
+            border-left-color: var(--primary-color) !important;
+        }
+
+        .bl-primary-color1 {
+            border-left-color: var(--primary-color1) !important;
+        }
+
+        .bl-primary-color2 {
+            border-left-color: var(--primary-color2) !important;
+        }
+
+        .bl-primary-color3 {
+            border-left-color: var(--primary-color3) !important;
+        }
+
+        .bl-primary-color4 {
+            border-left-color: var(--primary-color4) !important;
+        }
+
+        .bl-primary-color5 {
+            border-left-color: var(--primary-color5) !important;
+        }
+
+        /*  Right border */
+        .br-primary-color {
+            border-right-color: var(--primary-color) !important;
+        }
+
+        .br-primary-color1 {
+            border-right-color: var(--primary-color1) !important;
+        }
+
+        .br-primary-color2 {
+            border-right-color: var(--primary-color2) !important;
+        }
+
+        .br-primary-color3 {
+            border-right-color: var(--primary-color3) !important;
+        }
+
+        .br-primary-color4 {
+            border-right-color: var(--primary-color4) !important;
+        }
+
+        .br-primary-color5 {
+            border-right-color: var(--primary-color5) !important;
+        }
+
+        /* Secondary colors */
+        .secondary-color {
+            color: var(--secondary-color) !important;
+        }
+
+        .secondary-color1 {
+            color: var(--secondary-color1) !important;
+        }
+
+        .secondary-color2 {
+            color: var(--secondary-color2) !important;
+        }
+
+        /* secondary BG colors */
+        .bg-secondary-color {
+            background-color: var(--secondary-color) !important;
+        }
+
+        .bg-secondary-color1 {
+            background-color: var(--secondary-color1) !important;
+        }
+
+        .bg-secondary-color2 {
+            background-color: var(--secondary-color2) !important;
+        }
+
+        /* secondary BORDER colors */
+        .b-secondary-color {
+            border-color: var(--secondary-color) !important;
+        }
+
+        .b-secondary-color1 {
+            border-color: var(--secondary-color1) !important;
+        }
+
+        .b-secondary-color2 {
+            border-color: var(--secondary-color2) !important;
+        }
+
+        /*  Top border */
+        .bt-secondary-color {
+            border-top-color: var(--secondary-color) !important;
+        }
+
+        .bt-secondary-color1 {
+            border-top-color: var(--secondary-color1) !important;
+        }
+
+        .bt-secondary-color2 {
+            border-top-color: var(--secondary-color2) !important;
+        }
+
+        /*  Bottom border */
+        .bb-secondary-color {
+            border-bottom-color: var(--secondary-color) !important;
+        }
+
+        .bb-secondary-color1 {
+            border-bottom-color: var(--secondary-color1) !important;
+        }
+
+        .bb-secondary-color2 {
+            border-bottom-color: var(--secondary-color2) !important;
+        }
+
+        /*  Left border */
+        .bl-secondary-color {
+            border-left-color: var(--secondary-color) !important;
+        }
+
+        .bl-secondary-color1 {
+            border-left-color: var(--secondary-color1) !important;
+        }
+
+        .bl-secondary-color2 {
+            border-left-color: var(--secondary-color2) !important;
+        }
+
+        /*  Right border */
+        .br-secondary-color {
+            border-right-color: var(--secondary-color) !important;
+        }
+
+        .br-secondary-color1 {
+            border-right-color: var(--secondary-color1) !important;
+        }
+
+        .br-secondary-color2 {
+            border-right-color: var(--secondary-color2) !important;
+        }
+
+        /* tertiary colors */
+        .tertiary-color {
+            color: var(--tertiary-color) !important;
+        }
+
+        .tertiary-color1 {
+            color: var(--tertiary-color1) !important;
+        }
+
+        .tertiary-color2 {
+            color: var(--tertiary-color2) !important;
+        }
+
+        .tertiary-color3 {
+            color: var(--tertiary-color3) !important;
+        }
+
+        .tertiary-color4 {
+            color: var(--tertiary-color4) !important;
+        }
+
+        .tertiary-color5 {
+            color: var(--tertiary-color5) !important;
+        }
+
+        .tertiary-color6 {
+            color: var(--tertiary-color6) !important;
+        }
+
+        /* tertiary BG colors */
+        .bg-tertiary-color {
+            background-color: var(--tertiary-color) !important;
+        }
+
+        .bg-tertiary-color1 {
+            background-color: var(--tertiary-color1) !important;
+        }
+
+        .bg-tertiary-color2 {
+            background-color: var(--tertiary-color2) !important;
+        }
+
+        .bg-tertiary-color3 {
+            background-color: var(--tertiary-color3) !important;
+        }
+
+        .bg-tertiary-color4 {
+            background-color: var(--tertiary-color4) !important;
+        }
+
+        .bg-tertiary-color5 {
+            background-color: var(--tertiary-color5) !important;
+        }
+
+        .bg-tertiary-color6 {
+            background-color: var(--tertiary-color6) !important;
+        }
+
+
+        /* tertiary BORDER colors */
+        .b-tertiary-color {
+            border-color: var(--tertiary-color) !important;
+        }
+
+        .b-tertiary-color1 {
+            border-color: var(--tertiary-color1) !important;
+        }
+
+        .b-tertiary-color2 {
+            border-color: var(--tertiary-color2) !important;
+        }
+
+        .b-tertiary-color3 {
+            border-color: var(--tertiary-color3) !important;
+        }
+
+        .b-tertiary-color4 {
+            border-color: var(--tertiary-color4) !important;
+        }
+
+        .b-tertiary-color5 {
+            border-color: var(--tertiary-color5) !important;
+        }
+
+        .b-tertiary-color6 {
+            border-color: var(--tertiary-color6) !important;
+        }
+
+        /*  Top border */
+        .bt-tertiary-color {
+            border-top-color: var(--tertiary-color) !important;
+        }
+
+        .bt-tertiary-color1 {
+            border-top-color: var(--tertiary-color1) !important;
+        }
+
+        .bt-tertiary-color2 {
+            border-top-color: var(--tertiary-color2) !important;
+        }
+
+        .bt-tertiary-color3 {
+            border-top-color: var(--tertiary-color3) !important;
+        }
+
+        .bt-tertiary-color4 {
+            border-top-color: var(--tertiary-color4) !important;
+        }
+
+        .bt-tertiary-color5 {
+            border-top-color: var(--tertiary-color5) !important;
+        }
+
+        .bt-tertiary-color6 {
+            border-top-color: var(--tertiary-color6) !important;
+        }
+
+        /*  Bottom border */
+        .bb-tertiary-color {
+            border-bottom-color: var(--tertiary-color) !important;
+        }
+
+        .bb-tertiary-color1 {
+            border-bottom-color: var(--tertiary-color1) !important;
+        }
+
+        .bb-tertiary-color2 {
+            border-bottom-color: var(--tertiary-color2) !important;
+        }
+
+        .bb-tertiary-color3 {
+            border-bottom-color: var(--tertiary-color3) !important;
+        }
+
+        .bb-tertiary-color4 {
+            border-bottom-color: var(--tertiary-color4) !important;
+        }
+
+        .bb-tertiary-color5 {
+            border-bottom-color: var(--tertiary-color5) !important;
+        }
+
+        .bb-tertiary-color6 {
+            border-bottom-color: var(--tertiary-color6) !important;
+        }
+
+        /*  Left border */
+        .bl-tertiary-color {
+            border-left-color: var(--tertiary-color) !important;
+        }
+
+        .bl-tertiary-color1 {
+            border-left-color: var(--tertiary-color1) !important;
+        }
+
+        .bl-tertiary-color2 {
+            border-left-color: var(--tertiary-color2) !important;
+        }
+
+        .bl-tertiary-color3 {
+            border-left-color: var(--tertiary-color3) !important;
+        }
+
+        .bl-tertiary-color4 {
+            border-left-color: var(--tertiary-color4) !important;
+        }
+
+        .bl-tertiary-color5 {
+            border-left-color: var(--tertiary-color5) !important;
+        }
+
+        .bl-tertiary-color6 {
+            border-left-color: var(--tertiary-color6) !important;
+        }
+
+        /*  Right border */
+        .br-tertiary-color {
+            border-right-color: var(--tertiary-color) !important;
+        }
+
+        .br-tertiary-color1 {
+            border-right-color: var(--tertiary-color1) !important;
+        }
+
+        .br-tertiary-color2 {
+            border-right-color: var(--tertiary-color2) !important;
+        }
+
+        .br-tertiary-color3 {
+            border-right-color: var(--tertiary-color3) !important;
+        }
+
+        .br-tertiary-color4 {
+            border-right-color: var(--tertiary-color4) !important;
+        }
+
+        .br-tertiary-color5 {
+            border-right-color: var(--tertiary-color5) !important;
+        }
+
+        .br-tertiary-color6 {
+            border-right-color: var(--tertiary-color6) !important;
+        }
+
+        /* Gray colors */
+        .gray-color {
+            color: var(--gray-color) !important;
+        }
+
+        .gray-color1 {
+            color: var(--gray-color1) !important;
+        }
+
+        .gray-color2 {
+            color: var(--gray-color2) !important;
+        }
+
+        .gray-color3 {
+            color: var(--gray-color3) !important;
+        }
+
+        .gray-color4 {
+            color: var(--gray-color4) !important;
+        }
+
+        .gray-color5 {
+            color: var(--gray-color5) !important;
+        }
+
+        .gray-color6 {
+            color: var(--gray-color6) !important;
+        }
+
+        .gray-color7 {
+            color: var(--gray-color7) !important;
+        }
+
+        /* gray BG colors */
+        .bg-gray-color {
+            background-color: var(--gray-color) !important;
+        }
+
+        .bg-gray-color1 {
+            background-color: var(--gray-color1) !important;
+        }
+
+        .bg-gray-color2 {
+            background-color: var(--gray-color2) !important;
+        }
+
+        .bg-gray-color3 {
+            background-color: var(--gray-color3) !important;
+        }
+
+        .bg-gray-color4 {
+            background-color: var(--gray-color4) !important;
+        }
+
+        .bg-gray-color5 {
+            background-color: var(--gray-color5) !important;
+        }
+
+        .bg-gray-color6 {
+            background-color: var(--gray-color6) !important;
+        }
+
+        .bg-gray-color7 {
+            background-color: var(--gray-color7) !important;
+        }
+
+
+        /* gray BORDER colors */
+        .b-gray-color {
+            border-color: var(--gray-color) !important;
+        }
+
+        .b-gray-color1 {
+            border-color: var(--gray-color1) !important;
+        }
+
+        .b-gray-color2 {
+            border-color: var(--gray-color2) !important;
+        }
+
+        .b-gray-color3 {
+            border-color: var(--gray-color3) !important;
+        }
+
+        .b-gray-color4 {
+            border-color: var(--gray-color4) !important;
+        }
+
+        .b-gray-color5 {
+            border-color: var(--gray-color5) !important;
+        }
+
+        .b-gray-color6 {
+            border-color: var(--gray-color6) !important;
+        }
+
+        .b-gray-color7 {
+            border-color: var(--gray-color7) !important;
+        }
+
+        /*  Top border */
+        .bt-gray-color {
+            border-top-color: var(--gray-color) !important;
+        }
+
+        .bt-gray-color1 {
+            border-top-color: var(--gray-color1) !important;
+        }
+
+        .bt-gray-color2 {
+            border-top-color: var(--gray-color2) !important;
+        }
+
+        .bt-gray-color3 {
+            border-top-color: var(--gray-color3) !important;
+        }
+
+        .bt-gray-color4 {
+            border-top-color: var(--gray-color4) !important;
+        }
+
+        .bt-gray-color5 {
+            border-top-color: var(--gray-color5) !important;
+        }
+
+        .bt-gray-color6 {
+            border-top-color: var(--gray-color6) !important;
+        }
+
+        .bt-gray-color7 {
+            border-top-color: var(--gray-color7) !important;
+        }
+
+        /*  Bottom border */
+        .bb-gray-color {
+            border-bottom-color: var(--gray-color) !important;
+        }
+
+        .bb-gray-color1 {
+            border-bottom-color: var(--gray-color1) !important;
+        }
+
+        .bb-gray-color2 {
+            border-bottom-color: var(--gray-color2) !important;
+        }
+
+        .bb-gray-color3 {
+            border-bottom-color: var(--gray-color3) !important;
+        }
+
+        .bb-gray-color4 {
+            border-bottom-color: var(--gray-color4) !important;
+        }
+
+        .bb-gray-color5 {
+            border-bottom-color: var(--gray-color5) !important;
+        }
+
+        .bb-gray-color6 {
+            border-bottom-color: var(--gray-color6) !important;
+        }
+
+        .bb-gray-color7 {
+            border-bottom-color: var(--gray-color7) !important;
+        }
+
+        /*  Left border */
+        .bl-gray-color {
+            border-left-color: var(--gray-color) !important;
+        }
+
+        .bl-gray-color1 {
+            border-left-color: var(--gray-color1) !important;
+        }
+
+        .bl-gray-color2 {
+            border-left-color: var(--gray-color2) !important;
+        }
+
+        .bl-gray-color3 {
+            border-left-color: var(--gray-color3) !important;
+        }
+
+        .bl-gray-color4 {
+            border-left-color: var(--gray-color4) !important;
+        }
+
+        .bl-gray-color5 {
+            border-left-color: var(--gray-color5) !important;
+        }
+
+        .bl-gray-color6 {
+            border-left-color: var(--gray-color6) !important;
+        }
+
+        .bl-gray-color7 {
+            border-left-color: var(--gray-color7) !important;
+        }
+
+        /*  Right border */
+        .br-gray-color {
+            border-right-color: var(--gray-color) !important;
+        }
+
+        .br-gray-color1 {
+            border-right-color: var(--gray-color1) !important;
+        }
+
+        .br-gray-color2 {
+            border-right-color: var(--gray-color2) !important;
+        }
+
+        .br-gray-color3 {
+            border-right-color: var(--gray-color3) !important;
+        }
+
+        .br-gray-color4 {
+            border-right-color: var(--gray-color4) !important;
+        }
+
+        .br-gray-color5 {
+            border-right-color: var(--gray-color5) !important;
+        }
+
+        .br-gray-color6 {
+            border-right-color: var(--gray-color6) !important;
+        }
+
+        .br-gray-color7 {
+            border-right-color: var(--gray-color7) !important;
+        }
+
+        /* blue colors */
+        .blue-color {
+            color: var(--blue-color) !important;
+        }
+
+        .blue-color1 {
+            color: var(--blue-color1) !important;
+        }
+
+        .blue-color2 {
+            color: var(--blue-color2) !important;
+        }
+
+        .blue-color3 {
+            color: var(--blue-color3) !important;
+        }
+
+        .blue-color4 {
+            color: var(--blue-color4) !important;
+        }
+
+        .blue-color5 {
+            color: var(--blue-color5) !important;
+        }
+
+        .blue-color6 {
+            color: var(--blue-color6) !important;
+        }
+
+        .blue-color7 {
+            color: var(--blue-color7) !important;
+        }
+
+        .blue-color8 {
+            color: var(--blue-color8) !important;
+        }
+
+        .blue-color9 {
+            color: var(--blue-color9) !important;
+        }
+
+        .blue-color10 {
+            color: var(--blue-color10) !important;
+        }
+
+        /* blue BG colors */
+        .bg-blue-color {
+            background-color: var(--blue-color) !important;
+        }
+
+        .bg-blue-color1 {
+            background-color: var(--blue-color1) !important;
+        }
+
+        .bg-blue-color2 {
+            background-color: var(--blue-color2) !important;
+        }
+
+        .bg-blue-color3 {
+            background-color: var(--blue-color3) !important;
+        }
+
+        .bg-blue-color4 {
+            background-color: var(--blue-color4) !important;
+        }
+
+        .bg-blue-color5 {
+            background-color: var(--blue-color5) !important;
+        }
+
+        .bg-blue-color6 {
+            background-color: var(--blue-color6) !important;
+        }
+
+        .bg-blue-color7 {
+            background-color: var(--blue-color7) !important;
+        }
+
+        .bg-blue-color8 {
+            background-color: var(--blue-color8) !important;
+        }
+
+        .bg-blue-color9 {
+            background-color: var(--blue-color9) !important;
+        }
+
+        .bg-blue-color10 {
+            background-color: var(--blue-color10) !important;
+        }
+
+
+        /* blue BORDER colors */
+        .b-blue-color {
+            border-color: var(--blue-color) !important;
+        }
+
+        .b-blue-color1 {
+            border-color: var(--blue-color1) !important;
+        }
+
+        .b-blue-color2 {
+            border-color: var(--blue-color2) !important;
+        }
+
+        .b-blue-color3 {
+            border-color: var(--blue-color3) !important;
+        }
+
+        .b-blue-color4 {
+            border-color: var(--blue-color4) !important;
+        }
+
+        .b-blue-color5 {
+            border-color: var(--blue-color5) !important;
+        }
+
+        .b-blue-color6 {
+            border-color: var(--blue-color6) !important;
+        }
+
+        .b-blue-color7 {
+            border-color: var(--blue-color7) !important;
+        }
+
+        .b-blue-color8 {
+            border-color: var(--blue-color8) !important;
+        }
+
+        .b-blue-color9 {
+            border-color: var(--blue-color9) !important;
+        }
+
+        .b-blue-color10 {
+            border-color: var(--blue-color10) !important;
+        }
+
+        /*  Top border */
+        .bt-blue-color {
+            border-top-color: var(--blue-color) !important;
+        }
+
+        .bt-blue-color1 {
+            border-top-color: var(--blue-color1) !important;
+        }
+
+        .bt-blue-color2 {
+            border-top-color: var(--blue-color2) !important;
+        }
+
+        .bt-blue-color3 {
+            border-top-color: var(--blue-color3) !important;
+        }
+
+        .bt-blue-color4 {
+            border-top-color: var(--blue-color4) !important;
+        }
+
+        .bt-blue-color5 {
+            border-top-color: var(--blue-color5) !important;
+        }
+
+        .bt-blue-color6 {
+            border-top-color: var(--blue-color6) !important;
+        }
+
+        .bt-blue-color7 {
+            border-top-color: var(--blue-color7) !important;
+        }
+
+        .bt-blue-color8 {
+            border-top-color: var(--blue-color8) !important;
+        }
+
+        .bt-blue-color9 {
+            border-top-color: var(--blue-color9) !important;
+        }
+
+        .bt-blue-color10 {
+            border-top-color: var(--blue-color10) !important;
+        }
+
+        /*  Bottom border */
+        .bb-blue-color {
+            border-bottom-color: var(--blue-color) !important;
+        }
+
+        .bb-blue-color1 {
+            border-bottom-color: var(--blue-color1) !important;
+        }
+
+        .bb-blue-color2 {
+            border-bottom-color: var(--blue-color2) !important;
+        }
+
+        .bb-blue-color3 {
+            border-bottom-color: var(--blue-color3) !important;
+        }
+
+        .bb-blue-color4 {
+            border-bottom-color: var(--blue-color4) !important;
+        }
+
+        .bb-blue-color5 {
+            border-bottom-color: var(--blue-color5) !important;
+        }
+
+        .bb-blue-color6 {
+            border-bottom-color: var(--blue-color6) !important;
+        }
+
+        .bb-blue-color7 {
+            border-bottom-color: var(--blue-color7) !important;
+        }
+
+        .bb-blue-color8 {
+            border-bottom-color: var(--blue-color8) !important;
+        }
+
+        .bb-blue-color9 {
+            border-bottom-color: var(--blue-color9) !important;
+        }
+
+        .bb-blue-color10 {
+            border-bottom-color: var(--blue-color10) !important;
+        }
+
+        /*  Left border */
+        .bl-blue-color {
+            border-left-color: var(--blue-color) !important;
+        }
+
+        .bl-blue-color1 {
+            border-left-color: var(--blue-color1) !important;
+        }
+
+        .bl-blue-color2 {
+            border-left-color: var(--blue-color2) !important;
+        }
+
+        .bl-blue-color3 {
+            border-left-color: var(--blue-color3) !important;
+        }
+
+        .bl-blue-color4 {
+            border-left-color: var(--blue-color4) !important;
+        }
+
+        .bl-blue-color5 {
+            border-left-color: var(--blue-color5) !important;
+        }
+
+        .bl-blue-color6 {
+            border-left-color: var(--blue-color6) !important;
+        }
+
+        .bl-blue-color7 {
+            border-left-color: var(--blue-color7) !important;
+        }
+
+        .bl-blue-color8 {
+            border-left-color: var(--blue-color8) !important;
+        }
+
+        .bl-blue-color9 {
+            border-left-color: var(--blue-color9) !important;
+        }
+
+        .bl-blue-color10 {
+            border-left-color: var(--blue-color10) !important;
+        }
+
+        /*  Right border */
+        .br-blue-color {
+            border-right-color: var(--blue-color) !important;
+        }
+
+        .br-blue-color1 {
+            border-right-color: var(--blue-color1) !important;
+        }
+
+        .br-blue-color2 {
+            border-right-color: var(--blue-color2) !important;
+        }
+
+        .br-blue-color3 {
+            border-right-color: var(--blue-color3) !important;
+        }
+
+        .br-blue-color4 {
+            border-right-color: var(--blue-color4) !important;
+        }
+
+        .br-blue-color5 {
+            border-right-color: var(--blue-color5) !important;
+        }
+
+        .br-blue-color6 {
+            border-right-color: var(--blue-color6) !important;
+        }
+
+        .br-blue-color7 {
+            border-right-color: var(--blue-color7) !important;
+        }
+
+        .br-blue-color8 {
+            border-right-color: var(--blue-color8) !important;
+        }
+
+        .br-blue-color9 {
+            border-right-color: var(--blue-color9) !important;
+        }
+
+        .br-blue-color10 {
+            border-right-color: var(--blue-color10) !important;
+        }
+
+        /* white color */
+        .white-color {
+            color: var(--white-color) !important;
+        }
+
+        /* white BG colors */
+        .bg-white-color {
+            background-color: var(--white-color) !important;
+        }
+
+        /* black color */
+        .black-color {
+            color: var(--black-color) !important;
+        }
+
+        /* black BG colors */
+        .bg-black-color {
+            background-color: var(--black-color) !important;
+        }
+
+        /* Font Sizes */
+
+        .font-size12 {
+            font-size: var(--font-size12) !important;
+        }
+
+        .font-size14 {
+            font-size: var(--font-size14) !important;
+        }
+
+        .font-size16 {
+            font-size: var(--font-size16) !important;
+        }
+
+        .font-size18 {
+            font-size: var(--font-size18) !important;
+        }
+
+        .font-size20 {
+            font-size: var(--font-size20) !important;
+        }
+
+        .font-size22 {
+            font-size: var(--font-size22) !important;
+        }
+
+        .font-size24 {
+            font-size: var(--font-size24) !important;
+        }
+
+        .font-size28 {
+            font-size: var(--font-size28) !important;
+        }
+
+        .font-size30 {
+            font-size: var(--font-size30) !important;
+        }
+
+        .font-size32 {
+            font-size: var(--font-size32) !important;
+        }
+
+        .font-size40 {
+            font-size: var(--font-size40) !important;
+        }
+
+        .font-size48 {
+            font-size: var(--font-size48) !important;
+        }
+
+        .font-size64 {
+            font-size: var(--font-size64) !important;
+        }
+
+        /* Alignment */
+
+        .has-text-centered {
+            text-align: center !important;
+        }
+
+        .has-text-justified {
+            text-align: justify !important;
+        }
+
+        .has-text-left {
+            text-align: left !important;
+        }
+
+        .has-text-right {
+            text-align: right !important;
+        }
+
+        /* Text transformation */
+
+        .is-capitalized {
+            text-transform: capitalize;
+        }
+
+        .is-uppercase {
+            text-transform: uppercase;
+        }
+
+        .is-italic {
+            text-transform: italic;
+        }
+
+        .is-underlined {
+            text-transform: underline;
+        }
+
+        /* Text weight */
+
+        .has-text-weight-light {
+            font-weight: 200 !important;
+        }
+
+        .has-text-weight-normal {
+            font-weight: 400 !important;
+        }
+
+        .has-text-weight-medium {
+            font-weight: 500 !important;
+        }
+
+        .has-text-weight-semibold {
+            font-weight: 600 !important;
+        }
+
+        .has-text-weight-bold {
+            font-weight: 700 !important;
+        }
+
+        /* Margins */
+
+        .m-0 {
+            margin: 0 !important;
+        }
+
+        .m-1 {
+            margin: 4px !important;
+        }
+
+        .m-2 {
+            margin: 8px !important;
+        }
+
+        .m-3 {
+            margin: 12px !important;
+        }
+
+        .m-4 {
+            margin: 16px !important;
+        }
+
+        .m-5 {
+            margin: 24px !important;
+        }
+
+        .m-6 {
+            margin: 48px !important;
+        }
+
+        .m-auto {
+            margin: auto !important;
+        }
+
+        /* Margins Top */
+
+        .mt-0 {
+            margin-top: 0 !important;
+        }
+
+        .mt-1 {
+            margin-top: 4px !important;
+        }
+
+        .mt-2 {
+            margin-top: 8px !important;
+        }
+
+        .mt-3 {
+            margin-top: 12px !important;
+        }
+
+        .mt-4 {
+            margin-top: 16px !important;
+        }
+
+        .mt-5 {
+            margin-top: 24px !important;
+        }
+
+        .mt-6 {
+            margin-top: 48px !important;
+        }
+
+        .mt-auto {
+            margin-top: auto !important;
+        }
+
+        /* Margins Bottom */
+
+        .mb-0 {
+            margin-bottom: 0 !important;
+        }
+
+        .mb-1 {
+            margin-bottom: 4px !important;
+        }
+
+        .mb-2 {
+            margin-bottom: 8px !important;
+        }
+
+        .mb-3 {
+            margin-bottom: 12px !important;
+        }
+
+        .mb-4 {
+            margin-bottom: 16px !important;
+        }
+
+        .mb-5 {
+            margin-bottom: 24px !important;
+        }
+
+        .mb-6 {
+            margin-bottom: 48px !important;
+        }
+
+        .mb-auto {
+            margin-bottom: auto !important;
+        }
+
+        /* Margins Left */
+
+        .ml-0 {
+            margin-left: 0 !important;
+        }
+
+        .ml-1 {
+            margin-left: 4px !important;
+        }
+
+        .ml-2 {
+            margin-left: 8px !important;
+        }
+
+        .ml-3 {
+            margin-left: 12px !important;
+        }
+
+        .ml-4 {
+            margin-left: 16px !important;
+        }
+
+        .ml-5 {
+            margin-left: 24px !important;
+        }
+
+        .ml-6 {
+            margin-left: 48px !important;
+        }
+
+        .ml-auto {
+            margin-left: auto !important;
+        }
+
+        /* Margins Right */
+
+        .mr-0 {
+            margin-right: 0 !important;
+        }
+
+        .mr-1 {
+            margin-right: 4px !important;
+        }
+
+        .mr-2 {
+            margin-right: 8px !important;
+        }
+
+        .mr-3 {
+            margin-right: 12px !important;
+        }
+
+        .mr-4 {
+            margin-right: 16px !important;
+        }
+
+        .mr-5 {
+            margin-right: 24px !important;
+        }
+
+        .mr-6 {
+            margin-right: 48px !important;
+        }
+
+        .mr-auto {
+            margin-right: auto !important;
+        }
+
+        /* Margins Right & Left */
+
+        .mx-0 {
+            margin-right: 0 !important;
+            margin-left: 0 !important;
+        }
+
+        .mx-1 {
+            margin-right: 4px !important;
+            margin-left: 4px !important;
+        }
+
+        .mx-2 {
+            margin-right: 8px !important;
+            margin-left: 8px !important;
+        }
+
+        .mx-3 {
+            margin-right: 12px !important;
+            margin-left: 12px !important;
+        }
+
+        .mx-4 {
+            margin-right: 16px !important;
+            margin-left: 16px !important;
+        }
+
+        .mx-5 {
+            margin-right: 24px !important;
+            margin-left: 24px !important;
+        }
+
+        .mx-6 {
+            margin-right: 48px !important;
+            margin-left: 48px !important;
+        }
+
+        .mx-auto {
+            margin-right: auto !important;
+            margin-left: auto !important;
+        }
+
+        /* Margins TOP & BOTTOM */
+
+        .my-0 {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        .my-1 {
+            margin-top: 4px !important;
+            margin-bottom: 4px !important;
+        }
+
+        .my-2 {
+            margin-top: 8px !important;
+            margin-bottom: 8px !important;
+        }
+
+        .my-3 {
+            margin-top: 12px !important;
+            margin-bottom: 12px !important;
+        }
+
+        .my-4 {
+            margin-top: 16px !important;
+            margin-bottom: 16px !important;
+        }
+
+        .my-5 {
+            margin-top: 24px !important;
+            margin-bottom: 24px !important;
+        }
+
+        .my-6 {
+            margin-top: 48px !important;
+            margin-bottom: 48px !important;
+        }
+
+        .my-auto {
+            margin-top: auto !important;
+            margin-bottom: auto !important;
+        }
+
+        /* Padding */
+
+        .p-0 {
+            padding: 0 !important;
+        }
+
+        .p-1 {
+            padding: 4px !important;
+        }
+
+        .p-2 {
+            padding: 8px !important;
+        }
+
+        .p-3 {
+            padding: 12px !important;
+        }
+
+        .p-4 {
+            padding: 16px !important;
+        }
+
+        .p-5 {
+            padding: 24px !important;
+        }
+
+        .p-6 {
+            padding: 48px !important;
+        }
+
+        .p-auto {
+            padding: auto !important;
+        }
+
+        /* Padding Top */
+
+        .pt-0 {
+            padding-top: 0 !important;
+        }
+
+        .pt-1 {
+            padding-top: 4px !important;
+        }
+
+        .pt-2 {
+            padding-top: 8px !important;
+        }
+
+        .pt-3 {
+            padding-top: 12px !important;
+        }
+
+        .pt-4 {
+            padding-top: 16px !important;
+        }
+
+        .pt-5 {
+            padding-top: 24px !important;
+        }
+
+        .pt-6 {
+            padding-top: 48px !important;
+        }
+
+        .pt-auto {
+            padding-top: auto !important;
+        }
+
+        /* Padding Bottom */
+
+        .pb-0 {
+            padding-bottom: 0 !important;
+        }
+
+        .pb-1 {
+            padding-bottom: 4px !important;
+        }
+
+        .pb-2 {
+            padding-bottom: 8px !important;
+        }
+
+        .pb-3 {
+            padding-bottom: 12px !important;
+        }
+
+        .pb-4 {
+            padding-bottom: 16px !important;
+        }
+
+        .pb-5 {
+            padding-bottom: 24px !important;
+        }
+
+        .pb-6 {
+            padding-bottom: 48px !important;
+        }
+
+        .pb-auto {
+            padding-bottom: auto !important;
+        }
+
+        /* Padding Left */
+
+        .pl-0 {
+            padding-left: 0 !important;
+        }
+
+        .pl-1 {
+            padding-left: 4px !important;
+        }
+
+        .pl-2 {
+            padding-left: 8px !important;
+        }
+
+        .pl-3 {
+            padding-left: 12px !important;
+        }
+
+        .pl-4 {
+            padding-left: 16px !important;
+        }
+
+        .pl-5 {
+            padding-left: 24px !important;
+        }
+
+        .pl-6 {
+            padding-left: 48px !important;
+        }
+
+        .pl-auto {
+            padding-left: auto !important;
+        }
+
+        /* Padding Right */
+
+        .pr-0 {
+            padding-right: 0 !important;
+        }
+
+        .pr-1 {
+            padding-right: 4px !important;
+        }
+
+        .pr-2 {
+            padding-right: 8px !important;
+        }
+
+        .pr-3 {
+            padding-right: 12px !important;
+        }
+
+        .pr-4 {
+            padding-right: 16px !important;
+        }
+
+        .pr-5 {
+            padding-right: 24px !important;
+        }
+
+        .pr-6 {
+            padding-right: 48px !important;
+        }
+
+        .pr-auto {
+            padding-right: auto !important;
+        }
+
+        /* Padding Right & Left */
+
+        .px-0 {
+            padding-right: 0 !important;
+            padding-left: 0 !important;
+        }
+
+        .px-1 {
+            padding-right: 4px !important;
+            padding-left: 4px !important;
+        }
+
+        .px-2 {
+            padding-right: 8px !important;
+            padding-left: 8px !important;
+        }
+
+        .px-3 {
+            padding-right: 12px !important;
+            padding-left: 12px !important;
+        }
+
+        .px-4 {
+            padding-right: 16px !important;
+            padding-left: 16px !important;
+        }
+
+        .px-5 {
+            padding-right: 24px !important;
+            padding-left: 24px !important;
+        }
+
+        .px-6 {
+            padding-right: 48px !important;
+            padding-left: 48px !important;
+        }
+
+        .px-auto {
+            padding-right: auto !important;
+            padding-left: auto !important;
+        }
+
+        /* Padding TOP & BOTTOM */
+
+        .py-0 {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        .py-1 {
+            padding-top: 4px !important;
+            padding-bottom: 4px !important;
+        }
+
+        .py-2 {
+            padding-top: 8px !important;
+            padding-bottom: 8px !important;
+        }
+
+        .py-3 {
+            padding-top: 12px !important;
+            padding-bottom: 12px !important;
+        }
+
+        .py-4 {
+            padding-top: 16px !important;
+            padding-bottom: 16px !important;
+        }
+
+        .py-5 {
+            padding-top: 24px !important;
+            padding-bottom: 24px !important;
+        }
+
+        .py-6 {
+            padding-top: 48px !important;
+            padding-bottom: 48px !important;
+        }
+
+        .py-auto {
+            padding-top: auto !important;
+            padding-bottom: auto !important;
+        }
+
+        /* Visibility */
+        .is-flex {
+            display: flex;
+        }
+
+        .is-block {
+            display: block;
+        }
+
+        .is-inline {
+            display: inline;
+        }
+
+        .is-inline-block {
+            display: inline-block;
+        }
+
+        .is-inline-flex {
+            display: inline-flex;
+        }
+
+        /* Flex direction */
+
+        .is-flex-direction-row {
+            flex-direction: row;
+        }
+
+        .is-flex-direction-row-reverse {
+            flex-direction: row-reverse;
+        }
+
+        .is-flex-direction-column {
+            flex-direction: column;
+        }
+
+        .is-flex-direction-column-reverse {
+            flex-direction: column-reverse;
+        }
+
+        /* Flex wrap */
+
+        .is-flex-wrap-nowrap {
+            flex-wrap: nowrap;
+        }
+
+        .is-flex-wrap-wrap {
+            flex-wrap: wrap;
+        }
+
+        .is-flex-wrap-wrap-reverse {
+            flex-wrap: wrap-reverse;
+        }
+
+        /* Justify content */
+
+        .is-justify-content-flex-start {
+            justify-content: flex-start;
+        }
+
+        .is-justify-content-flex-end {
+            justify-content: flex-end;
+        }
+
+        .is-justify-content-center {
+            justify-content: center;
+        }
+
+        .is-justify-content-space-between {
+            justify-content: space-between;
+        }
+
+        .is-justify-content-space-around {
+            justify-content: space-around;
+        }
+
+        .is-justify-content-space-evenly {
+            justify-content: space-evenly;
+        }
+
+        /* Align content */
+
+        .is-align-content-flex-start {
+            align-content: flex-start;
+        }
+
+        .is-align-content-flex-end {
+            align-content: flex-end;
+        }
+
+        .is-align-content-center {
+            align-content: center;
+        }
+
+        .is-align-content-space-between {
+            align-content: space-between;
+        }
+
+        .is-align-content-space-around {
+            align-content: space-around;
+        }
+
+        .is-align-content-space-evenly {
+            align-content: space-evenly;
+        }
+
+        .is-align-content-stretch {
+            align-content: stretch;
+        }
+
+        /* Align items */
+
+        .is-align-items-flex-start {
+            align-items: flex-start;
+        }
+
+        .is-align-items-flex-end {
+            align-items: flex-end;
+        }
+
+        .is-align-items-center {
+            align-items: center;
+        }
+
+        .is-align-items-stretch {
+            align-items: stretch;
+        }
+
+        /* Other */
+
+        .is-radiusless {
+            border-radius: none;
+        }
+
+        .is-shadowless {
+            box-shadow: none;
+        }
+
+        .is-relative {
+            position: relative;
+        }
+
+        .is-absolute {
+            position: absolute;
+        }
+
+        .is-overlay {
+            z-index: 1;
+        }
+
+        /* Min heights */
+        .min-height-100 {
+            min-height: 100px;
+        }
+
+        .min-height-150 {
+            min-height: 150px;
+        }
+
+        .min-height-200 {
+            min-height: 200px;
+        }
+
+        .min-height-250 {
+            min-height: 250px;
+        }
+
+        .min-height-300 {
+            min-height: 300px;
+        }
+
+        .min-height-350 {
+            min-height: 350px;
+        }
+
+        .min-height-400 {
+            min-height: 400px;
+        }
+
+        .min-height-450 {
+            min-height: 450px;
+        }
+
+        .min-height-500 {
+            min-height: 500px;
+        }
+
+        .min-height-550 {
+            min-height: 550px;
+        }
+
+        .min-height-600 {
+            min-height: 600px;
+        }
+
+        /* Border Radius */
+
+        .b-radius-1 {
+            border-radius: 10px;
+        }
+
+        .b-radius-2 {
+            border-radius: 20px;
+        }
+
+        .b-radius-3 {
+            border-radius: 30px;
+        }
+
+        .b-radius-rounded {
+            border-radius: 50%;
+        }
+
+        .bt-radius-1 {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .bt-radius-2 {
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .bt-radius-3 {
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+        }
+
+        .bl-radius-1 {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        .bl-radius-2 {
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+
+        .bl-radius-3 {
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+        }
+
+        .br-radius-1 {
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .br-radius-2 {
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .br-radius-3 {
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+
+        .bb-radius-1 {
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .bb-radius-2 {
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .bb-radius-3 {
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+
+
+        /* Border width */
+
+        .b-2 {
+            border-bottom-width: 2px;
+            border-bottom-style: solid;
+            border-top-width: 2px;
+            border-top-style: solid;
+            border-left-width: 2px;
+            border-left-style: solid;
+            border-right-width: 2px;
+            border-right-style: solid;
+        }
+
+        .b-dashed-2 {
+            border-top-color: var(--gray-color);
+            border-top-width: 2px;
+            border-top-style: dashed;
+            border-bottom-color: var(--gray-color);
+            border-bottom-width: 2px;
+            border-bottom-style: dashed;
+            border-left-color: var(--gray-color);
+            border-left-width: 2px;
+            border-left-style: dashed;
+            border-right-color: var(--gray-color);
+            border-right-width: 2px;
+            border-right-style: dashed;
+        }
+
+        .bb-2 {
+            border-bottom-width: 2px;
+            border-bottom-style: solid;
+        }
+
+        .bt-2 {
+            border-top-width: 2px;
+            border-top-style: solid;
+        }
+
+        .bl-2 {
+            border-left-width: 2px;
+            border-left-style: solid;
+        }
+
+        .br-2 {
+            border-right-width: 2px;
+            border-right-style: solid;
+        }
+
+        .b-3 {
+            border-bottom-width: 3px;
+            border-bottom-style: solid;
+            border-top-width: 3px;
+            border-top-style: solid;
+            border-left-width: 3px;
+            border-left-style: solid;
+            border-right-width: 3px;
+            border-right-style: solid;
+        }
+
+        .bb-3 {
+            border-bottom-width: 3px;
+            border-bottom-style: solid;
+        }
+
+        .bt-3 {
+            border-top-width: 3px;
+            border-top-style: solid;
+        }
+
+        .bl-3 {
+            border-left-width: 3px;
+            border-left-style: solid;
+        }
+
+        .br-3 {
+            border-right-width: 3px;
+            border-right-style: solid;
+        }
+
+        .b-4 {
+            border-bottom-width: 4px;
+            border-bottom-style: solid;
+            border-top-width: 4px;
+            border-top-style: solid;
+            border-left-width: 4px;
+            border-left-style: solid;
+            border-right-width: 4px;
+            border-right-style: solid;
+        }
+
+        .bb-4 {
+            border-bottom-width: 4px;
+            border-bottom-style: solid;
+        }
+
+        .bt-4 {
+            border-top-width: 4px;
+            border-top-style: solid;
+        }
+
+        .bl-4 {
+            border-left-width: 4px;
+            border-left-style: solid;
+        }
+
+        .br-4 {
+            border-right-width: 4px;
+            border-right-style: solid;
+        }
+
+        .b-8 {
+            border-bottom-width: 8px;
+            border-bottom-style: solid;
+            border-top-width: 8px;
+            border-top-style: solid;
+            border-left-width: 8px;
+            border-left-style: solid;
+            border-right-width: 8px;
+            border-right-style: solid;
+        }
+
+        .bb-8 {
+            border-bottom-width: 8px;
+            border-bottom-style: solid;
+        }
+
+        .bt-8 {
+            border-top-width: 8px;
+            border-top-style: solid;
+        }
+
+        .bl-8 {
+            border-left-width: 8px;
+            border-left-style: solid;
+        }
+
+        .br-8 {
+            border-right-width: 8px;
+            border-right-style: solid;
+        }
+
+        .b-14 {
+            border-bottom-width: 14px;
+            border-bottom-style: solid;
+            border-top-width: 14px;
+            border-top-style: solid;
+            border-left-width: 14px;
+            border-left-style: solid;
+            border-right-width: 14px;
+            border-right-style: solid;
+        }
+
+        .bb-14 {
+            border-bottom-width: 14px;
+            border-bottom-style: solid;
+        }
+
+        .bt-14 {
+            border-top-width: 14px;
+            border-top-style: solid;
+        }
+
+        .bl-14 {
+            border-left-width: 14px;
+            border-left-style: solid;
+        }
+
+        .br-14 {
+            border-right-width: 14px;
+            border-right-style: solid;
+        }
+
+        /* Box Shadow */
+        .box-shadow {
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Columns */
+        .col-12 {
+            width: 100%;
+        }
+
+        .col-11 {
+            width: 91.666667%;
+        }
+
+        .col-10 {
+            width: 83.333333%;
+        }
+
+        .col-9 {
+
+            width: 75%;
+        }
+
+        .col-8 {
+
+            width: 66.666667%;
+        }
+
+        .col-7 {
+
+            width: 58.333333%;
+        }
+
+        .col-6 {
+
+            width: 50%;
+        }
+
+        .col-5 {
+
+            width: 41.666667%;
+        }
+
+        .col-4 {
+
+            width: 33.333333%;
+        }
+
+        .col-3 {
+
+            width: 25%;
+        }
+
+        .col-2 {
+
+            width: 16.666667%;
+        }
+
+        .col-1 {
+
+            width: 8.333333%;
+        }
+
+        /* Columns gap */
+        .is-flex-gap {
+            gap: 24px;
+        }
+
+        .is-gapless {
+            gap: 0;
+        }
+
+        /* Seperator block */
+        .block:not(:last-child),
+        .block:not(:last-child) {
+            margin-bottom: 24px;
+        }
+
+        /* Video styles */
+
+        .video {
+            width: 100%;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Liste */
+        ul.check-list {
+            list-style-type: none;
+            padding-top: 0px;
+            padding-right: 0px;
+            padding-bottom: 0px;
+            padding-left: 0px;
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+            margin-left: 0px;
+        }
+
+        ul.check-list li {
+            font-size: var(--font-size18);
+            font-family: var(--main-font);
+            color: var(--gray-color);
+            text-align: justify;
+            position: relative;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-left: 25px;
+        }
+
+        ul.check-list li::before {
+            content: "";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            margin-right: 10px;
+            position: absolute;
+            left: 0px;
+            top: 25px;
+        }
+
+        ul.puce-purple li::before {
+            color: var(--primary-color);
+        }
+
+        ul.puce-grey li::before {
+            color: var(--gray-color1);
+        }
+
+        ul.puce-blue li::before {
+            color: var(--secondary-color);
+        }
+
+        ul.puce-yellow li::before {
+            color: var(--tertiary-color);
+        }
+
+
+        /* Paragraphe */
+
+        .paragraphe {
+            text-align: justify;
+            color: var(--gray-color1);
+            font-family: var(--main-font);
+            font-size: var(--font-size18);
+            font-weight: 400;
+        }
+
+        /* Table styles */
+        .table-wrapper {
+            width: 100%;
+            display: block;
+            overflow-x: auto;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        table {
+            width: 100%;
+            min-width: max-content;
+            border-collapse: collapse;
+        }
+
+        thead tr {
+            background-color: var(--primary-color3);
+        }
+
+        thead tr th:not(:last-child) {
+            border-right: 10px solid var(--white-color);
+        }
+
+        tbody tr {
+            background-color: var(--gray-color7);
+        }
+
+        tbody tr:not(:last-child) {
+            border-bottom: 8px solid var(--white-color);
+        }
+
+        tbody tr:hover {
+            background-color: var(--gray-color6);
+            transition: background-color 0.2s ease;
+        }
+
+        th,
+        td {
+            font-family: var(--main-font);
+            color: var(--gray-color1);
+            padding: 12px 16px;
+            text-align: left;
+        }
+
+        th {
+            font-weight: 600;
+        }
+
+
+        /* Box with shadow */
+
+        .box {
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0px 4px 8px rgba(117, 117, 117, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 12px 24px rgba(117, 117, 117, 0.2);
+        }
+
+        /* Buttons */
+
+        .btn {
+            display: inline-block;
+            padding: 0.75em 1.5em;
+            background-color: rgb(0, 116, 192);
+            color: var(--white-color);
+            font-family: var(--main-font);
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 116, 192, 0.2);
+        }
+
+        .btn:hover {
+            background-color: rgba(0, 116, 192, 0.85);
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+
+        /* Titles and Subtitles */
+
+        /* Title H2 With background */
+
+        .bg-title-h2 {
+            font-family: var(--main-font);
+            color: var(--gray-color);
+            font-size: var(--font-size32);
+            font-weight: 600;
+            background-color: var(--primary-color5);
+            padding: 8px 14px;
+            border-radius: 10px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Title H2 */
+        .title-h2 {
+            margin-top: 0px;
+            align-items: stretch;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 0px;
+        }
+
+        .number-h2 {
+            height: auto;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            background-color: var(--primary-color);
+            border-top-left-radius: 15px;
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 0px;
+        }
+
+        .text-h2 {
+            min-height: 150px;
+            flex-direction: column;
+            justify-content: center;
+            background-color: var(--primary-color4);
+            border-bottom-color: var(--primary-color);
+            border-bottom-style: solid;
+            border-bottom-width: 2px;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 15px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .number-h2-p {
+            color: var(--white-color);
+            font-size: 40px;
+            margin-top: 20px;
+            text-align: center;
+            font-family: var(--main-font);
+            font-weight: 600;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+
+        .text-h2-p {
+            color: var(--primary-color);
+            font-size: var(--font-size32);
+            margin-top: 20px;
+            font-family: var(--main-font);
+            font-weight: 600;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Title H3 */
+
+        .title-h3 {
+            width: 100%;
+            row-gap: 1rem;
+            flex-wrap: wrap;
+            column-gap: 1rem;
+            align-items: center;
+        }
+
+        .parag-h3 {
+            color: var(--primary-color);
+            font-size: var(--font-size28);
+            max-width: 80%;
+            word-break: break-word;
+            font-family: var(--main-font);
+            font-weight: 600;
+            line-height: 1.5;
+            margin-left: 0px;
+            margin-right: 0px;
+            text-transform: capitalize;
+        }
+
+        .circle-line-container {
+            flex-grow: 1;
+            min-width: 0px;
+            align-items: center;
+        }
+
+        .circle-h3 {
+            width: 10px;
+            height: 10px;
+            flex-shrink: 0;
+            background-clip: initial;
+            background-size: initial;
+            background-color: var(--gray-color4);
+            background-image: initial;
+            background-origin: initial;
+            background-repeat: initial;
+            background-attachment: initial;
+            background-position-x: initial;
+            background-position-y: initial;
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+            border-bottom-left-radius: 50%;
+            border-bottom-right-radius: 50%;
+        }
+
+        .line-h3 {
+            height: 3px;
+            flex-grow: 1;
+            background-clip: initial;
+            background-size: initial;
+            background-color: var(--gray-color4);
+            background-image: initial;
+            background-origin: initial;
+            background-repeat: initial;
+            background-attachment: initial;
+            background-position-x: initial;
+            background-position-y: initial;
+        }
+
+        /* Ttile h4 */
+        .title-h4 {
+            font-family: var(--main-font);
+            font-size: var(--font-size24);
+            font-weight: 700;
+            text-transform: capitalize;
+        }
+
+        /* Title Table style */
+        .loader-title-table {
+            justify-content: center;
+        }
+
+        .loader div,
+        .loader-title-table div {
+            color: var(--primary-color);
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .title-table {
+            color: var(--gray-color1);
+            font-size: var(--font-size28);
+            font-family: var(--main-font);
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* Title schéma  */
+        .loader {
+            justify-content: center;
+        }
+
+        .title-schema {
+            color: var(--gray-color1);
+            font-size: var(--font-size28);
+            font-family: var(--main-font);
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* Images */
+
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .img-thumbnail {
+            max-width: 200px;
+            max-height: 200px;
+        }
+
+        /* Card */
+        .card {
+            background-color: var(--white-color);
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            font-family: var(--main-font);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            /* Moves the card up a bit on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            /* Stronger shadow on hover */
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: var(--font-size20);
+            color: var(--gray-color);
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        /* Card hover */
+
+        .card-hover {
+            position: relative;
+            background-color: var(--primary-color5);
+            margin-top: 50px;
+            border-radius: 20px;
+            padding: 20px;
+            transition: 0.4s ease-in-out;
+            height: 200px;
+            box-shadow: 0 3px 50px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-hover:hover {
+            height: 380px;
+        }
+
+        .cimg {
+            position: relative;
+            top: -50px;
+            z-index: 1;
+
+        }
+
+        .cimg img {
+            max-width: 100%;
+            height: 100%;
+            box-shadow: 0 3px 50px rgba(0, 0, 0, 0.05);
+        }
+
+        .cdetail {
+            position: relative;
+            margin-top: -140px;
+            padding: 10px 15px;
+            text-align: center;
+            font-family: var(--main-font);
+            font-size: var(--font-size18);
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.4s ease-in-out;
+        }
+
+        .card-hover:hover .cdetail {
+            visibility: visible;
+            opacity: 1;
+            margin-top: -60px;
+        }
+
+        /* Icon Question block */
+        .txt-icon-question {
+            font-family: var(--main-font);
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        .icon-question-wrap {
+            display: inline-flex;
+            align-items: center;
+            row-gap: 10px;
+            column-gap: 10px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+            border-bottom-left-radius: 30px;
+            background-image: initial;
+            background-position-x: initial;
+            background-position-y: initial;
+            background-size: initial;
+            background-repeat: initial;
+            background-attachment: initial;
+            background-origin: initial;
+            background-clip: initial;
+            background-color: rgb(243, 242, 242);
+            padding-top: 0px;
+            padding-right: 10px;
+            padding-bottom: 0px;
+            padding-left: 10px;
+        }
+
+        /* block anecdote styles */
+        .container-anecdote {
+            padding-top: 10px;
+            padding-right: 20px;
+            padding-bottom: 10px;
+            padding-left: 20px;
+            border-radius: 20px;
+            background-color: var(--white-color);
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
+        }
+
+
+        /* Block Link */
+        .link-container {
+            padding-top: 10px;
+            padding-right: 20px;
+            padding-bottom: 10px;
+            padding-left: 20px;
+            align-items: center;
+            border-top-left-radius: 100px;
+            border-top-right-radius: 100px;
+            border-bottom-right-radius: 100px;
+            border-bottom-left-radius: 100px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
+        }
+
+        .container-btn-link {
+            justify-content: flex-end;
+        }
+
+        /* Exemple block styles */
+
+        .txt-block-exemple {
+            border-top-left-radius: 0px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 0px;
+            background-color: var(--white-color);
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 4px 0px;
+            flex-direction: column;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .block-image-exemple {
+            border-top-left-radius: 20px;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+            border-bottom-left-radius: 20px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 4px 0px;
+            padding-top: 58px;
+            padding-right: 34px;
+            padding-bottom: 58px;
+            padding-left: 34px;
+        }
+
+        /* Quote block styles */
+        .container-quotes {
+            align-items: center;
+            justify-content: space-between;
+            row-gap: 20px;
+            column-gap: 20px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 150px;
+            border-bottom-right-radius: 150px;
+            border-bottom-left-radius: 15px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
+            padding-top: 10px;
+            padding-right: 20px;
+            padding-bottom: 10px;
+            padding-left: 20px;
+        }
+
+        /* Pour aller plus loin  */
+        .container-PAPL {
+            align-items: center;
+            justify-content: center;
+        }
+
+        .title-PAPL {
+            font-family: var(--main-font);
+            font-size: var(--font-size18);
+            font-weight: 400;
+            color: var(--gray-color1);
+        }
+
+        .parag-PAPL {
+            font-family: var(--main-font);
+            font-size: var(--font-size18);
+            color: var(--gray-color1);
+        }
+
+        .parag-PAPL a {
+            text-decoration: none;
+        }
+
+        .parag-PAPL:hover a {
+            color: var(--secondary-color);
+
+        }
+
+        .link-PAPL {
+            background-color: var(--gray-color7);
+            border-top-left-radius: 100px;
+            border-top-right-radius: 100px;
+            border-bottom-right-radius: 100px;
+            border-bottom-left-radius: 100px;
+            padding-top: 0px;
+            padding-right: 20px;
+            padding-bottom: 0px;
+            padding-left: 20px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        /* à retenir */
+        .steps {
+            padding: 20px;
+        }
+
+        .step {
+            flex-direction: column;
+            position: relative;
+            align-items: center;
+        }
+
+        .number {
+            font-size: var(--font-size24);
+            font-family: var(--main-font);
+            font-weight: bold;
+            color: var(--white-color);
+            border-radius: 50%;
+            padding: 10px;
+            background-color: var(--primary-color);
+            width: 70px;
+            height: 70px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .text {
+            font-size: var(--font-size18);
+            font-family: var(--main-font);
+            color: var(--gray-color1);
+        }
+
+        .line {
+            width: 2px;
+            height: 60px;
+            border-left-width: 2px;
+            border-left-style: dashed;
+            border-left-color: var(--gray-color1);
+            border-right-width: initial;
+            border-right-style: initial;
+            border-right-color: initial;
+            border-top-width: initial;
+            border-top-style: initial;
+            border-top-color: initial;
+            border-bottom-width: initial;
+            border-bottom-style: initial;
+            border-bottom-color: initial;
+        }
+
+        .text {
+            font-family: var(--main-font);
+            color: var(--primary-color);
+            text-align: justify;
+            font-size: var(--font-size24);
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .sub-text {
+            font-family: var(--main-font);
+            color: var(--gray-color1);
+            font-size: 18px;
+            margin: 0;
+            text-align: justify;
+        }
+
+        .steps .step-content:last-child .line {
+            display: none;
+        }
+
+
+        .title-retenir {
+            color: var(--gray-color1);
+            text-align: center;
+            font-family: var(--main-font);
+            font-size: 48px;
+            font-weight: 600;
+            line-height: normal;
+            text-transform: uppercase;
+        }
+
+        .wrap-title-retenir {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .retenir-img {
+            width: 20%;
+        }
+
+        /* Liste numero steps */
+
+ .number-list {
+            font-size: var(--font-size18);
+            font-family: var(--main-font);
+            font-weight: bold;
+            color: var(--white-color);
+            border-radius: 50%;
+            padding: 10px;
+            background-color: var(--secondary-color);
+            width: 30px;
+            height: 30px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .line-list {
+            width: 2px;
+            height: 30px;
+            border-left-width: 2px;
+            border-left-style: dashed;
+            border-left-color: var(--secondary-color);
+            border-right-width: initial;
+            border-right-style: initial;
+            border-right-color: initial;
+            border-top-width: initial;
+            border-top-style: initial;
+            border-top-color: initial;
+            border-bottom-width: initial;
+            border-bottom-style: initial;
+            border-bottom-color: initial;
+        }
+        .steps .step-content:last-child .line-list {
+            display: none;
+        }
+
+        .container-quotes-intro {
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
+            padding-top: 10px;
+            padding-right: 20px;
+            padding-bottom: 10px;
+            padding-left: 20px;
+            border-top-left-radius: 21px;
+            border-top-right-radius: 21px;
+            border-bottom-left-radius: 21px;
+            border-bottom-right-radius: 21px;
+            margin-right: -180px;
+            position: relative;
+            z-index: 1;
+            transition: margin-right 0.3s ease;
+        }
+
+        .container-quotes-intro:hover {
+            margin-right: -220px;
+        }
+
+        /* timeline */
+        .timeline {
+            position: relative;
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        /* Horizontal line (desktop) */
+        .timeline:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 6px;
+            width: 1400px;
+            background: var(--primary-color);
+            border-radius: 3px;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .timeline article {
+            display: inline-block;
+            position: relative;
+            background: var(--primary-color5);
+            padding: 15px 20px;
+            margin: 0 40px;
+            min-width: 200px;
+            max-width: 280px;
+            border-radius: 8px;
+            text-align: center;
+            vertical-align: top;
+            white-space: normal;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+        }
+
+        /* Dot connector */
+        .timeline article:before {
+            content: "";
+            position: absolute;
+            top: calc(100% + 25px);
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            z-index: 3;
+        }
+
+        /* Arrow under each block */
+        .timeline article:after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-top: 14px solid var(--primary-color5);
+            z-index: 2;
+        }
+
+        .timeline article:nth-child(even) {
+            margin-top: 120px;
+        }
+
+        .timeline article:nth-child(even):before {
+            top: auto;
+            bottom: calc(100% + 25px);
+        }
+
+        .timeline article:nth-child(even):after {
+            top: auto;
+            bottom: 100%;
+            border-top: none;
+            border-bottom: 14px solid var(--primary-color5);
+        }
+
+        /* Heading styling */
+        .timeline article h2 {
+            font-size: 18px;
+            margin: 0;
+            color: var(--primary-color);
+            line-height: 1.4;
+        }
+
+        /* Accordion styles */
+        .tabs {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.2);
+        }
+
+        .tab {
+            width: 100%;
+            color: var(--gray-color);
+            font-family: var(--main-font);
+            font-size: var(--font-size18);
+            overflow: hidden;
+        }
+
+        .tab-label {
+            display: flex;
+            justify-content: space-between;
+            padding: 1em;
+            background: var(--gray-color7);
+            font-weight: bold;
+            cursor: pointer;
+            /* Icon */
+        }
+
+        .tab-label:hover {
+            background: var(--gray-color6);
+        }
+
+        .tab-label::after {
+            content: "\f13a";
+            /* Unicode for fa-circle-chevron-down */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--primary-color);
+            width: 1em;
+            height: 1em;
+            text-align: center;
+            transition: all 0.35s;
+        }
+
+        .tab-content {
+            max-height: 0;
+            padding: 0 1em;
+            color: var(--gray-color1);
+            background: var(--gray-color7);
+            transition: all 0.35s;
+        }
+
+        .tab-close {
+            display: flex;
+            justify-content: flex-end;
+            padding: 1em;
+            font-size: 0.75em;
+            background: var(--gray-color7);
+            cursor: pointer;
+        }
+
+        .tab-close:hover {
+            background: var(--gray-color6);
+        }
+
+        input:checked+.tab-label {
+            background: var(--gray-color7);
+            border-bottom: 1px solid var(--gray-color6);
+        }
+
+        input:checked+.tab-label::after {
+            transform: rotate(180deg);
+        }
+
+        input:checked~.tab-content {
+            max-height: 100vh;
+            padding: 1em;
+        }
+
+        input {
+            position: absolute;
+            opacity: 0;
+            z-index: -1;
+        }
+
+        .circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 2rem;
+            min-width: 200px;
+            min-height: 200px;
+            width: fit-content;
+            height: fit-content;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+        }
+
+
+        /* bloc 3 avec seperator in the middle */
+        .wrap-bloc {
+            position: relative;
+        }
+
+        .wrap-bloc:not(:last-child)::after {
+            top: 50%;
+            left: 100%;
+            width: 2px;
+            height: 100px;
+            content: "";
+            position: absolute;
+            transform: translateY(-50%);
+        }
+
+        .after-gray:not(:last-child)::after {
+            background-color: var(--gray-color1);
+        }
+
+        .after-purple:not(:last-child)::after {
+            background-color: var(--primary-color);
+        }
+
+        .after-blue:not(:last-child)::after {
+            background-color: var(--secondary-color);
+        }
+
+        .after-yellow:not(:last-child)::after {
+            background-color: var(--tertiary-color);
+        }
+
+        /* bloc step violet */
+        .animation-steps {
+            flex-direction: column;
+        }
+
+        .animation-step-content {
+            margin-bottom: 20px;
+        }
+
+        .animation-step {
+            align-items: center;
+            margin-right: 20px;
+            flex-direction: column;
+        }
+
+        .animation-circle {
+            width: 30px;
+            height: 30px;
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+            border-bottom-left-radius: 50%;
+            background-color: var(--white-color);
+            border-top-width: 2px;
+            border-right-width: 2px;
+            border-bottom-width: 2px;
+            border-left-width: 2px;
+            border-top-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            border-top-color: var(--primary-color);
+            border-right-color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+            border-left-color: var(--primary-color);
+            border-image-source: initial;
+            border-image-slice: initial;
+            border-image-width: initial;
+            border-image-outset: initial;
+            border-image-repeat: initial;
+            position: relative;
+        }
+
+        .animation-circle::after {
+            content: "";
+            width: 22px;
+            height: 22px;
+            background-color: var(--primary-color);
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+            border-bottom-left-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .animation-line {
+            width: 2px;
+            background-color: var(--primary-color);
+            position: absolute;
+            top: 30px;
+        }
+
+        .animation-step-text {
+            background-color: var(--primary-color5);
+            padding-top: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            padding-left: 20px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .animation-text {
+            font-weight: 600;
+            font-family: var(--main-font);
+            font-size: var(--font-size24);
+            color: var(--gray-color1);
+            margin-bottom: 5px;
+        }
+
+        .animation-sub-text {
+            font-family: var(--main-font);
+            font-size: var(--font-size18);
+            color: var(--gray-color1);
+        }
+
+        .animation-step-content:last-child .animation-line {
+            display: none;
+        }
+
+        .animation-step-content:not(:last-child) .animation-line {
+            height: calc(100% + 0px);
+        }
+
+        .animation-step-content:not(:last-child) {
+            position: relative;
+        }
+
+        .right-bloc {
+            position: relative;
+            z-index: 1;
+            margin-right: -180px;
+            transition: margin-right 0.3s ease;
+        }
+
+        .left-bloc {
+
+            margin-left: -180px;
+            transition: margin-right 0.3s ease;
+        }
+
+        .left-bloc:hover {
+            margin-left: -220px;
+        }
+
+        .right-bloc:hover {
+            margin-right: -220px;
+        }
+
+        /* Header Styles */
+
+
+        .left-section {
+            background-color: var(--primary-color);
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-wrapper {
+            margin-right: -300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .icon-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            padding-top: 30px;
+            padding-right: 30px;
+        }
+
+
+        .middle-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            border-right: 1px solid #8F8B8B;
+            padding-left: 220px;
+            padding-right: 40px;
+        }
+
+        .title-wrapper {
+            padding: 2rem;
+            margin-top: 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .title-wrapper h1,
+        .title-wrapper p {
+            margin: 0;
+        }
+
+        .highlight-bar {
+            margin-bottom: 20px;
+            width: 148px;
+            height: 13px;
+            background: #FEBD01;
+            border-radius: 37px;
+        }
+
+        .right-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .vertical-label {
+            transform: rotate(90deg);
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            font-family: var(--main-font);
+            font-size: var(--font-size18);
+            padding: 10px 20px;
+            border-radius: 34px;
+            white-space: nowrap;
+        }
+
+        .underline-animate {
+            position: relative;
+            overflow: hidden;
+            /* Important to make it respect border-radius */
+        }
+
+        .underline-animate::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            width: 100%;
+            background-color: var(--secondary-color);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease-in, transform 0.6s ease-out;
+            pointer-events: none;
+            /* So it doesn't block clicks */
+        }
+
+        .underline-animate:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 40px;
+            height: 40px;
+            background: #9747FF;
+            color: white;
+            padding: 12px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.8;
+            transition: opacity 0.3s, transform 0.2s;
+        }
+
+        .back-to-top:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .container {
+                max-width: 540px;
+            }
+
+            .col-1,
+            .col-2,
+            .col-3,
+            .col-4,
+            .col-5,
+            .col-6,
+            .col-7,
+            .col-8,
+            .col-9,
+            .col-10,
+            .col-11,
+            .col-12 {
+                width: 100%;
+            }
+
+            .left-section {
+                padding: 50px;
+            }
+
+            .image-wrapper {
+                margin-right: 0px;
+            }
+
+            .icon-wrapper {
+                justify-content: center;
+            }
+
+
+            .middle-section {
+                justify-content: start;
+                border-right: none;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .title-wrapper {
+                margin-top: 50px;
+                gap: 0px;
+            }
+
+
+            .right-section {
+                display: none;
+            }
+
+            .title-wrapper h1,
+            .title-wrapper p {
+                margin: 10px;
+            }
+
+
+            .min-height-100 {
+                min-height: auto;
+            }
+
+            .min-height-200 {
+                min-height: auto;
+            }
+
+            .min-height-300 {
+                min-height: auto;
+            }
+
+            .min-height-400 {
+                min-height: auto;
+            }
+
+            .min-height-500 {
+                min-height: auto;
+            }
+
+            .min-height-600 {
+                min-height: auto;
+            }
+
+            .is-flex-wrap-wrap-mobile {
+                flex-wrap: wrap;
+            }
+
+            .title-h2 {
+                flex-direction: column;
+            }
+
+            .number-h2 {
+                width: 100%;
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+                border-bottom-left-radius: 0px;
+                border-bottom-right-radius: 0px;
+            }
+
+            .text-h2 {
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+            }
+
+            .wrap-title-table {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .loader-title-table {
+                align-items: center;
+                align-content: center;
+                flex-direction: row;
+            }
+
+            .title-table {
+                text-align: center;
+            }
+
+
+            .block-image-exemple {
+                width: 100%;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+                border-bottom-right-radius: 0px;
+                border-bottom-left-radius: 0px;
+                padding: 20px;
+                justify-content: center;
+            }
+
+            .txt-block-exemple {
+                width: 100%;
+                padding: 20px;
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                border-bottom-right-radius: 20px;
+                border-bottom-left-radius: 20px;
+            }
+
+            .card-hover {
+                height: 250px;
+            }
+
+            .link-container {
+                border-radius: 30px;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .container-btn-link {
+                justify-content: center;
+            }
+
+            .container-quotes {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                row-gap: 20px;
+                column-gap: 20px;
+                border-radius: 30px;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .link-PAPL {
+                flex-wrap: wrap;
+                border-top-left-radius: 30px !important;
+                border-top-right-radius: 30px !important;
+                border-bottom-right-radius: 30px !important;
+                border-bottom-left-radius: 30px !important;
+                padding-top: 20px !important;
+                padding-right: 20px !important;
+                padding-bottom: 20px !important;
+                padding-left: 20px !important;
+            }
+
+            .parag-PAPL {
+                order: 2;
+            }
+
+            .timeline {
+                display: block;
+                white-space: normal;
+                padding: 40px 10px;
+                overflow-x: hidden;
+            }
+
+            .timeline:after {
+                top: 20px;
+                bottom: 20px;
+                left: 50%;
+                height: 100%;
+                width: 6px;
+                transform: translateX(-50%);
+            }
+
+            .timeline article {
+                display: block;
+                width: calc(50% - 40px);
+                max-width: 100%;
+                margin: 40px 0;
+            }
+
+            .timeline article:nth-child(odd) {
+                margin-left: 0;
+            }
+
+            .timeline article:nth-child(even) {
+                margin-left: calc(50% + 48px);
+                margin-top: 40px;
+            }
+
+            .timeline article:before {
+                top: 20%;
+                left: calc(100% + 32px);
+                transform: none;
+            }
+
+            .timeline article:after {
+                display: none;
+            }
+
+            .timeline article:nth-child(even):before {
+                left: auto;
+                right: calc(100% + 40px);
+                top: 20%;
+            }
+
+            .timeline article:nth-child(even):after {
+                left: auto;
+                right: 100%;
+                border-left: none;
+                border-right: 16px solid #eeeeee;
+            }
+
+            .container-quotes-intro {
+                margin-right: 0;
+            }
+
+            .right-bloc {
+                margin-right: 0;
+            }
+
+            .left-bloc {
+
+                margin-left: 0;
+            }
+
+            .text,
+            .sub-text {
+                text-align: center;
+            }
+
+            .step-content {
+                margin-bottom: 24px;
+            }
+
+            .wrap-bloc:not(:last-child)::after {
+                display: none;
+            }
+
+            .animation-step-text {
+                flex-direction: column;
+            }
+
+            .animation-step {
+                display: none;
+            }
+            .steps .step-content:last-child .line, .steps .step-content:last-child .line-list{
+display: block;
+            }
+        }
+
+        /* Tablet */
+        @media (max-width: 992px) and (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+
+            .col-1,
+            .col-2,
+            .col-3,
+            .col-4,
+            .col-5,
+            .col-6,
+            .col-7,
+            .col-8,
+            .col-9,
+            .col-10,
+            .col-11,
+            .col-12 {
+                width: 100%;
+            }
+
+            .left-section {
+                padding: 50px;
+            }
+
+            .image-wrapper {
+                margin-right: 0px;
+            }
+
+            .icon-wrapper {
+                justify-content: center;
+            }
+
+
+            .middle-section {
+                justify-content: start;
+                border-right: none;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .title-wrapper {
+                margin-top: 50px;
+                gap: 0px;
+            }
+
+
+            .right-section {
+                display: none;
+            }
+
+            .title-wrapper h1,
+            .title-wrapper p {
+                margin: 10px;
+            }
+
+
+            .min-height-100 {
+                min-height: auto;
+            }
+
+            .min-height-200 {
+                min-height: auto;
+            }
+
+            .min-height-300 {
+                min-height: auto;
+            }
+
+            .min-height-400 {
+                min-height: auto;
+            }
+
+            .min-height-500 {
+                min-height: auto;
+            }
+
+            .min-height-600 {
+                min-height: auto;
+            }
+
+            .is-flex-wrap-wrap-mobile {
+                flex-wrap: wrap;
+            }
+
+            .title-h2 {
+                flex-direction: column;
+            }
+
+            .number-h2 {
+                width: 100%;
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+                border-bottom-left-radius: 0px;
+                border-bottom-right-radius: 0px;
+            }
+
+            .text-h2 {
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+            }
+
+            .wrap-title-table {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .loader-title-table {
+                align-items: center;
+                align-content: center;
+                flex-direction: row;
+            }
+
+            .title-table {
+                text-align: center;
+            }
+
+
+            .block-image-exemple {
+                width: 100%;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+                border-bottom-right-radius: 0px;
+                border-bottom-left-radius: 0px;
+                padding: 20px;
+                justify-content: center;
+            }
+
+            .txt-block-exemple {
+                width: 100%;
+                padding: 20px;
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                border-bottom-right-radius: 20px;
+                border-bottom-left-radius: 20px;
+            }
+
+            .card-hover {
+                height: 250px;
+            }
+
+            .link-container {
+                border-radius: 30px;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .container-btn-link {
+                justify-content: center;
+            }
+
+            .container-quotes {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                row-gap: 20px;
+                column-gap: 20px;
+                border-radius: 30px;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .link-PAPL {
+                flex-wrap: wrap;
+                border-top-left-radius: 30px !important;
+                border-top-right-radius: 30px !important;
+                border-bottom-right-radius: 30px !important;
+                border-bottom-left-radius: 30px !important;
+                padding-top: 20px !important;
+                padding-right: 20px !important;
+                padding-bottom: 20px !important;
+                padding-left: 20px !important;
+            }
+
+            .parag-PAPL {
+                order: 2;
+            }
+
+            .timeline {
+                display: block;
+                white-space: normal;
+                padding: 40px 10px;
+                overflow-x: hidden;
+            }
+
+            .timeline:after {
+                top: 20px;
+                bottom: 20px;
+                left: 50%;
+                height: 100%;
+                width: 6px;
+                transform: translateX(-50%);
+            }
+
+            .timeline article {
+                display: block;
+                width: calc(50% - 40px);
+                max-width: 100%;
+                margin: 40px 0;
+            }
+
+            .timeline article:nth-child(odd) {
+                margin-left: 0;
+            }
+
+            .timeline article:nth-child(even) {
+                margin-left: calc(50% + 48px);
+                margin-top: 40px;
+            }
+
+            .timeline article:before {
+                top: 20%;
+                left: calc(100% + 32px);
+                transform: none;
+            }
+
+            .timeline article:after {
+                display: none;
+            }
+
+            .timeline article:nth-child(even):before {
+                left: auto;
+                right: calc(100% + 40px);
+                top: 20%;
+            }
+
+            .timeline article:nth-child(even):after {
+                left: auto;
+                right: 100%;
+                border-left: none;
+                border-right: 16px solid #eeeeee;
+            }
+
+            .container-quotes-intro {
+                margin-right: 0;
+            }
+
+            .right-bloc {
+                margin-right: 0;
+            }
+
+            .left-bloc {
+
+                margin-left: 0;
+            }
+
+            .text,
+            .sub-text {
+                text-align: center;
+            }
+
+            .step-content {
+                margin-bottom: 24px;
+            }
+
+            .wrap-bloc:not(:last-child)::after {
+                display: none;
+            }
+
+            .animation-step-text {
+                flex-direction: column;
+            }
+
+            .animation-step {
+                display: none;
+            }
+
+            .steps .step-content:last-child .line, .steps .step-content:last-child .line-list{
+display: block;
+            }
+        }
+
+        /* Desktop */
+        @media (max-width: 1200px) and (min-width: 992px) {
+            .container {
+                max-width: 960px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap-container is-flex">
+
+        <aside class="sidebar col-2">
+
+            <nav>
+                <p class="paragraphe primary-color is-uppercase pl-5 pr-5 pt-5"><strong>Sommaire</strong></p>
+                <ul>
+                    <li class="is-capitalized pl-5 pr-5"><a href="#obj">Objectives pédagogique</a></li>
+                    <li class="is-capitalized pl-5 pr-5"><a href="#intro">Introduction</a></li>
+                    <li class="is-capitalized pl-5 pr-5"><a href="#sec1">Section 1</a></li>
+                    <li class="is-capitalized pl-5 pr-5"><a href="#sec2">Section 2</a></li>
+                    <li class="is-capitalized pl-5 pr-5"><a href="#sec3">Section 3</a></li>
+                    <li class="is-capitalized pl-5 pr-5"><a href="#sec4">Section 4</a></li>
+                    <li class="is-capitalized pl-5 pr-5"><a href="#sec5">Section 5</a></li>
+                    <li class="is-capitalized pl-5 pr-5"><a href="#PAL">Pour Aller Plus Loin</a></li>
+                    <li class="is-capitalized pl-5 pr-5"><a href="#conc">Conclusion</a></li>
+                    <li class="is-capitalized pl-5 pr-5"><a href="#retenir">à Retenir</a></li>
+                </ul>
+            </nav>
+
+        </aside>
+
+        <main class="content col-10">
+
+            <div class="container">
+                <a id="top"></a>
+                <header class="mb-6">
+                    <div class="is-flex is-flex-wrap-wrap-mobile">
+
+                        <!-- Left Section -->
+                        <div class="left-section col-3">
+                            <div class="image-wrapper">
+                                <img src="https://medias.dstanciel.com/pages/9e291542-9cb1-456f-93f8-9eade55100b2/ontGC6TiCpBa2qkNPk49RsSEwPum7HedXMj6WSVJ.png"
+                                    alt="Diagnostic Tool">
+                            </div>
+                        </div>
+
+                        <!-- Middle Section -->
+                        <div class="middle-section col-8">
+                            <div class="icon-wrapper">
+                                <img src="https://medias.dstanciel.com/pages/9e291542-9cb1-456f-93f8-9eade55100b2/5r6EnmKW2PPgn8AwGRNyfIZzGIdQvrfDQ34GB3Zz.png"
+                                    alt="icon">
+                            </div>
+                            <div class="title-wrapper">
+                                <div class="highlight-bar"></div>
+                                <h1 class="paragraphe has-text-left font-size40 has-text-weight-semibold gray-color">
+                                    S28 – Diagnostic des installations
+                                </h1>
+                                <p class="paragraphe has-text-left font-size28 gray-color">
+                                    existantes et risques électriques
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Right Section -->
+                        <div class="right-section col-1">
+                            <div class="vertical-label">
+                                CP - TP - Électricien d’équipement du bâtiment
+                            </div>
+                        </div>
+
+                    </div>
+                </header>
+                <section id="video">
+                    <div class="block">
+                        <video allowfullscreen="allowfullscreen" src="img/video2.webm" controls="" class="video">
+                        </video>
+                    </div>
+                </section>
+                <section id="obj">
+                    <div class="block">
+                        <h2 class="bg-title-h2">Objectifs pédagogiques</h2>
+                    </div>
+                    <div class="block">
+                        <!--  Liste Purple -->
+                        <ul class="check-list puce-purple">
+                            <li>Lorem ipsum dolor sit amet</li>
+                            <li>Lorem ipsum dolor sit amet</li>
+                        </ul>
+                        <!--  Liste Blue -->
+                        <ul class="check-list puce-blue">
+                            <li>Lorem ipsum dolor sit amet</li>
+                            <li>Lorem ipsum dolor sit amet</li>
+                        </ul>
+                        <!--  Liste Gray -->
+                        <ul class="check-list puce-grey">
+                            <li>Lorem ipsum dolor sit amet</li>
+                            <li>Lorem ipsum dolor sit amet</li>
+                        </ul>
+                        <!--  Liste Gray -->
+                        <ul class="check-list puce-yellow">
+                            <li>Lorem ipsum dolor sit amet</li>
+                            <li>Lorem ipsum dolor sit amet</li>
+                        </ul>
+                    </div>
+                </section>
+                <section id="intro">
+                    <div class="block">
+                        <!--  Introduction -->
+                        <!-- Title H2 With background -->
+                        <h2 class="bg-title-h2">Introduction</h2>
+                        <!--  Introduction Content -->
+                        <div class="block is-flex is-flex-wrap-wrap-mobile is-flex-gap">
+                            <div class="col-7">
+                                <p class="paragraphe">
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate eligendi eveniet
+                                    dignissimos officiis? Doloremque, eveniet odit rerum vel, praesentium magnam unde
+                                    iusto soluta, accusamus cupiditate cumque reiciendis sed. Amet, quia.
+                                </p>
+                                <p class="paragraphe">
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate eligendi eveniet
+                                    dignissimos officiis? Doloremque, eveniet odit rerum vel, praesentium magnam unde
+                                    iusto soluta, accusamus cupiditate cumque reiciendis sed. Amet, quia.
+                                </p>
+                                <p class="paragraphe">
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate eligendi eveniet
+                                    dignissimos officiis? Doloremque, eveniet odit rerum vel, praesentium magnam unde
+                                    iusto soluta, accusamus cupiditate cumque reiciendis sed. Amet, quia.
+                                </p>
+                                <div class="icon-question-wrap mb-5 mt-5">
+                                    <div class="icon-wrap">
+                                        <img alt=""
+                                            src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/AHA8v647J6fpMXNli55Bwq32rK6SEbHpk3rDXNSf.png">
+                                    </div>
+                                    <div class="txt-wrap">
+                                        <p class="txt-icon-question">Lorem ipsum dolor sit amet consectetur adipisicing
+                                            elit ?
+                                        </p>
+                                    </div>
+                                </div>
+                                <p class="paragraphe">
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate eligendi eveniet
+                                    dignissimos officiis? Doloremque, eveniet odit rerum vel, praesentium magnam unde
+                                    iusto soluta, accusamus cupiditate cumque reiciendis sed. Amet, quia.
+                                </p>
+                                <div
+                                    class="container-quotes-intro is-flex is-flex-gap is-flex-wrap-wrap-mobile margin-right-minus150 bg-white-color z-index mb-5 mt-5">
+                                    <div>
+                                        <img alt=""
+                                            src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/hjacxk4wT3y7A3xNq0JcTtfNS8lfT2iFNtgp5wrj.png">
+                                    </div>
+                                    <div class="wrap-quotes">
+                                        <p class="paragraphe paragraphe-color">
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate eligendi
+                                            eveniet dignissimos officiis? Doloremque, eveniet odit rerum vel,
+                                            praesentium magnam unde iusto soluta, accusamus cupiditate cumque reiciendis
+                                            sed. Amet, quia.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="is-flex is-justify-content-center col-5">
+                                <img alt=""
+                                    src="https://medias.dstanciel.com/pages/9e291542-9cb1-456f-93f8-9eade55100b2/778QLX0LBRYW5ZuPJ2RRrJYLhWvaahrkRaHNP7Ag.png"
+                                    class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="sec1">
+                    <div class="block">
+                        <div class="title-h2 is-flex is-flex-wrap">
+                            <div class="number-h2 is-flex col-1">
+                                <p class="number-h2-p">01
+                                </p>
+                            </div>
+                            <div class="text-h2 is-flex col-11">
+                                <p class="text-h2-p">Lorem ipsum, dolor sit amet consectetur adipisicing elit
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="title-h3 is-flex">
+                            <h3 class="parag-h3">
+                                A. Lorem ipsum, dolor sit amet consectetur adipisicing elit
+                            </h3>
+                            <div class="circle-line-container is-flex">
+                                <div class="circle-h3">
+                                </div>
+                                <div class="line-h3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <h4 class="title-h4 secondary-color">1. Lorem Ipsum</h4>
+                    </div>
+                    <div class="block is-flex is-flex-gap is-flex-wrap-wrap-mobile">
+                        <div class="col-4 box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-primary-color4">
+                            <div class="col-2 center">
+                                <img alt=""
+                                    src="https://medias.dstanciel.com/pages/d58738ae-4d37-4f5e-b524-0ed004279248/Wi6wGP0y46UWbmOQu1MJLP0hNhhVH42hoDpO9dCT.png"
+                                    class="img-fluid mt-4">
+                            </div>
+                            <div class="col-10">
+                                <p class="paragraphe primary-color">
+                                    <strong>Lorem ipsum :</strong>
+                                </p>
+                                <p class="paragraphe">Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing elit.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-4 box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-blue-color10">
+                            <div class="col-2 center">
+                                <img alt=""
+                                    src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/gnjCpeOb0yvpf2XxSu7IM0dU3CmMHBuh8JSaVFXy.png"
+                                    class="img-fluid mt-4">
+                            </div>
+                            <div class="col-10">
+                                <p class="paragraphe secondary-color">
+                                    <strong>Lorem ipsum :</strong>
+                                </p>
+                                <p class="paragraphe">Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing elit.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-4 box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-gray-color6">
+                            <div class="col-2 center">
+                                <img alt=""
+                                    src="https://medias.dstanciel.com/pages/d58738ae-4d37-4f5e-b524-0ed004279248/DlHa4F2pGLrqdwTJJjNhl1pPwEM4C3miyrcz95dP.png"
+                                    class="img-fluid mt-4">
+                            </div>
+                            <div class="col-10">
+                                <p class="paragraphe gray-color1">
+                                    <strong>Lorem ipsum :</strong>
+                                </p>
+                                <p class="paragraphe">Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing elit.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-primary-color4">
+                            <div class="col-1 center">
+                                <img alt=""
+                                    src="https://medias.dstanciel.com/pages/d58738ae-4d37-4f5e-b524-0ed004279248/Wi6wGP0y46UWbmOQu1MJLP0hNhhVH42hoDpO9dCT.png"
+                                    class="img-fluid mt-4">
+                            </div>
+                            <div class="col-11">
+                                <p class="paragraphe primary-color">
+                                    <strong>Lorem ipsum :</strong>
+                                </p>
+                                <p class="paragraphe">Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing elit. Numquam
+                                    recusandae sapiente inventore culpa molestiae alias voluptas velit totam accusantium
+                                    aspernatur quos, unde ex
+                                    repudiandae perferendis impedit delectus architecto a placeat.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-blue-color10">
+                            <div class="col-1 center">
+                                <img alt=""
+                                    src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/gnjCpeOb0yvpf2XxSu7IM0dU3CmMHBuh8JSaVFXy.png"
+                                    class="img-fluid mt-4">
+                            </div>
+                            <div class="col-11">
+                                <p class="paragraphe secondary-color">
+                                    <strong>Lorem ipsum :</strong>
+                                </p>
+                                <p class="paragraphe">Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing elit. Numquam
+                                    recusandae sapiente inventore culpa molestiae alias voluptas velit totam accusantium
+                                    aspernatur quos, unde ex
+                                    repudiandae perferendis impedit delectus architecto a placeat.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-gray-color6">
+                            <div class="col-1 center">
+                                <img alt=""
+                                    src="https://medias.dstanciel.com/pages/d58738ae-4d37-4f5e-b524-0ed004279248/DlHa4F2pGLrqdwTJJjNhl1pPwEM4C3miyrcz95dP.png"
+                                    class="img-fluid mt-4">
+                            </div>
+                            <div class="col-11">
+                                <p class="paragraphe gray-color1">
+                                    <strong>Lorem ipsum :</strong>
+                                </p>
+                                <p class="paragraphe">Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing elit. Numquam
+                                    recusandae sapiente inventore culpa molestiae alias voluptas velit totam accusantium
+                                    aspernatur quos, unde ex
+                                    repudiandae perferendis impedit delectus architecto a placeat.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="is-flex is-flex-gap is-flex-wrap-wrap-mobile">
+                            <div class="col-4 has-text-centered">
+                                <img src="https://medias.dstanciel.com/pages/2015c01b-2209-40c2-b2eb-8f142ea5fdd6/vZam6m0F5t8TPlqMeSlib6CR5A7FPT6OaHFHoW99.png"
+                                    alt="" class="img-fluid">
+                            </div>
+                            <div class="col-8">
+                                <div class="pl-5 bl-2 bl-primary-color">
+                                    <p class="paragraphe">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Suspendisse
+                                        sapien
+                                        lacus, pharetra eu felis et, vulputate laoreet elit. In et convallis nulla,
+                                        et faucibus dolor.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="wrap-title-table is-flex is-align-items-center">
+                            <div class="loader-title-table is-flex">
+                                <div>⬤
+                                </div>
+                                <div>⬤
+                                </div>
+                                <div>⬤
+                                </div>
+                            </div>
+                            <h4 class="title-table">
+                                Tableau récapitulatif
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="table-wrapper block">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Played</th>
+                                    <th>Won</th>
+                                    <th>Lost</th>
+                                    <th>Tied</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>38</td>
+                                    <td>23</td>
+                                    <td>12</td>
+                                    <td>12</td>
+                                </tr>
+                                <tr>
+                                    <td>38</td>
+                                    <td>23</td>
+                                    <td>12</td>
+                                    <td>12</td>
+                                </tr>
+                                <tr>
+                                    <td>38</td>
+                                    <td>23</td>
+                                    <td>12</td>
+                                    <td>12</td>
+                                </tr>
+                                <tr>
+                                    <td>38</td>
+                                    <td>23</td>
+                                    <td>12</td>
+                                    <td>12</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="sec2">
+                    <div class="block">
+                        <div class="title-h2 is-flex is-flex-wrap">
+                            <div class="number-h2 is-flex col-1">
+                                <p class="number-h2-p">02
+                                </p>
+                            </div>
+                            <div class="text-h2 is-flex col-11">
+                                <p class="text-h2-p">Lorem ipsum, dolor sit amet consectetur adipisicing elit
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="is-flex is-flex-gap is-flex-wrap-wrap-mobile">
+                            <div class="card bg-primary-color5 col-3">
+                                <div class="card-image has-text-centered">
+                                    <img src="https://medias.dstanciel.com/pages/9e291542-9cb1-456f-93f8-9eade55100b2/xJTcwJtZKXlT9OcuzLM8prPvv6fq4UBRoWxRYC1h.png"
+                                        alt="Image Description" class="img-fluid">
+                                </div>
+                                <div class="card-content">
+                                    <p class="card-title">Card Subtitle</p>
+                                    <p class="paragraphe">This is some content inside the card. You can add text,
+                                        images, or
+                                        any
+                                        other elements here.</p>
+                                </div>
+                            </div>
+                            <div class="card bg-tertiary-color4 col-3">
+                                <div class="card-image has-text-centered">
+                                    <img src="https://medias.dstanciel.com/pages/9e291542-9cb1-456f-93f8-9eade55100b2/xMXJeIwKqfd2EToejkW9mrtXMiwAa29g5zw1BSgD.png"
+                                        alt="Image Description" class="img-fluid">
+                                </div>
+                                <div class="card-content">
+                                    <p class="card-title">Card Subtitle</p>
+                                    <p class="paragraphe">This is some content inside the card. You can add text,
+                                        images, or
+                                        any
+                                        other elements here.</p>
+                                </div>
+                            </div>
+                            <div class="card bg-blue-color10 col-3">
+                                <div class="card-image has-text-centered">
+                                    <img src="https://medias.dstanciel.com/pages/9e291542-9cb1-456f-93f8-9eade55100b2/m14l8cPZIXBjLRBiPPs1TemnDepF8M5x1sKqa58F.png"
+                                        alt="Image Description" class="img-fluid">
+                                </div>
+                                <div class="card-content">
+                                    <p class="card-title">Card Subtitle</p>
+                                    <p class="paragraphe">This is some content inside the card. You can add text,
+                                        images, or
+                                        any
+                                        other elements here.</p>
+                                </div>
+                            </div>
+                            <div class="card bg-gray-color7 col-3">
+                                <div class="card-image has-text-centered">
+                                    <img src="https://medias.dstanciel.com/pages/9e291542-9cb1-456f-93f8-9eade55100b2/DnLHp5G1ZjrsxsIA99Loil9iQySfxmnVb98L1qtp.png"
+                                        alt="Image Description" class="img-fluid">
+                                </div>
+                                <div class="card-content">
+                                    <p class="card-title">Card Subtitle</p>
+                                    <p class="paragraphe">This is some content inside the card. You can add text,
+                                        images, or
+                                        any
+                                        other elements here.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="is-flex is-flex-gap is-flex-wrap-wrap-mobile">
+                            <div class="card-hover col-3">
+                                <div class="cimg has-text-centered">
+                                    <img src="https://medias.dstanciel.com/pages/9e291542-9cb1-456f-93f8-9eade55100b2/xJTcwJtZKXlT9OcuzLM8prPvv6fq4UBRoWxRYC1h.png"
+                                        alt="Image Description">
+                                </div>
+                                <div class="cdetail">
+                                    <h3 class="card-title">Card Title</h3>
+                                    <p class="paragraphe has-text-centered">This is the content that will appear when
+                                        you
+                                        hover over
+                                        the card. You can add more text or elements here.</p>
+                                </div>
+                            </div>
+                            <div class="card-hover col-3 bg-tertiary-color4">
+                                <div class="cimg has-text-centered">
+                                    <img src="https://medias.dstanciel.com/pages/9e291542-9cb1-456f-93f8-9eade55100b2/xMXJeIwKqfd2EToejkW9mrtXMiwAa29g5zw1BSgD.png"
+                                        alt="Image Description">
+                                </div>
+                                <div class="cdetail">
+                                    <h3 class="card-title">Card Title</h3>
+                                    <p class="paragraphe has-text-centered">This is the content that will appear when
+                                        you
+                                        hover over
+                                        the card. You can add more text or elements here.</p>
+                                </div>
+                            </div>
+                            <div class="card-hover col-3 bg-blue-color10">
+                                <div class="cimg has-text-centered">
+                                    <img src="https://medias.dstanciel.com/pages/9e291542-9cb1-456f-93f8-9eade55100b2/m14l8cPZIXBjLRBiPPs1TemnDepF8M5x1sKqa58F.png"
+                                        alt="Image Description">
+                                </div>
+                                <div class="cdetail">
+                                    <h3 class="card-title">Card Title</h3>
+                                    <p class="paragraphe has-text-centered">This is the content that will appear when
+                                        you
+                                        hover over
+                                        the card. You can add more text or elements here.</p>
+                                </div>
+                            </div>
+                            <div class="card-hover col-3 bg-gray-color6">
+                                <div class="cimg has-text-centered">
+                                    <img src="https://medias.dstanciel.com/pages/9e291542-9cb1-456f-93f8-9eade55100b2/DnLHp5G1ZjrsxsIA99Loil9iQySfxmnVb98L1qtp.png"
+                                        alt="Image Description">
+                                </div>
+                                <div class="cdetail">
+                                    <h3 class="card-title">Card Title</h3>
+                                    <p class="paragraphe has-text-centered">This is the content that will appear when
+                                        you
+                                        hover over
+                                        the card. You can add more text or elements here.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="sec3">
+                    <div class="block">
+                        <div class="title-h2 is-flex is-flex-wrap">
+                            <div class="number-h2 is-flex col-1">
+                                <p class="number-h2-p">03
+                                </p>
+                            </div>
+                            <div class="text-h2 is-flex col-11">
+                                <p class="text-h2-p">Lorem ipsum, dolor sit amet consectetur adipisicing elit
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block is-flex is-flex-gap is-flex-wrap-wrap-mobile">
+                        <div class="col-6">
+                            <div class="tabs">
+                                <div class="tab">
+                                    <input type="checkbox" id="chck1">
+                                    <label class="tab-label bg-primary-color3 gray-color" for="chck1">Lorem
+                                        ipsum</label>
+                                    <div class="tab-content is-flex is-flex-wrap-wrap-mobile is-flex-gap">
+                                        <div class="col-1 center mt-5">
+                                            <img alt="" class="img-fluid"
+                                                src="https://medias.dstanciel.com/pages/897873bd-a4d0-4eec-8ded-e9bce47602ae/NyHayPeIJ42Xc2g5B4P5fDDhISZ4L5CklbsfB6Yq.png">
+                                        </div>
+                                        <div class="col-11">
+                                            <ul>
+                                                <li class="animation-sub-text">Dolor sit amet, consectetur adipiscing
+                                                    elit. Aenean ut ipsum sem. Cras
+                                                    ac mi velit. Praesent commodo aliquet gravida. Etiam erat nisi,
+                                                    malesuada quis
+                                                </li>
+                                                <li class="animation-sub-text">Dolor sit amet, consectetur adipiscing
+                                                    elit. Aenean ut ipsum sem. Cras
+                                                    ac mi velit. Praesent commodo aliquet gravida. Etiam erat nisi,
+                                                    malesuada quis
+                                                </li>
+                                                <li class="animation-sub-text">Dolor sit amet, consectetur adipiscing
+                                                    elit. Aenean ut ipsum sem. Cras
+                                                    ac mi velit. Praesent commodo aliquet gravida. Etiam erat nisi,
+                                                    malesuada quis
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="tabs">
+                                <div class="tab">
+                                    <input type="checkbox" id="chck2">
+                                    <label class="tab-label bg-primary-color3 gray-color" for="chck2">Lorem
+                                        ipsum</label>
+                                    <div class="tab-content is-flex is-flex-wrap-wrap-mobile is-flex-gap">
+                                        <div class="col-1 center mt-5">
+                                            <img alt="" class="img-fluid"
+                                                src="https://medias.dstanciel.com/pages/897873bd-a4d0-4eec-8ded-e9bce47602ae/NyHayPeIJ42Xc2g5B4P5fDDhISZ4L5CklbsfB6Yq.png">
+                                        </div>
+                                        <div class="col-11">
+                                            <ul>
+                                                <li class="animation-sub-text">Dolor sit amet, consectetur adipiscing
+                                                    elit. Aenean ut ipsum sem. Cras
+                                                    ac mi velit. Praesent commodo aliquet gravida. Etiam erat nisi,
+                                                    malesuada quis
+                                                </li>
+                                                <li class="animation-sub-text">Dolor sit amet, consectetur adipiscing
+                                                    elit. Aenean ut ipsum sem. Cras
+                                                    ac mi velit. Praesent commodo aliquet gravida. Etiam erat nisi,
+                                                    malesuada quis
+                                                </li>
+                                                <li class="animation-sub-text">Dolor sit amet, consectetur adipiscing
+                                                    elit. Aenean ut ipsum sem. Cras
+                                                    ac mi velit. Praesent commodo aliquet gravida. Etiam erat nisi,
+                                                    malesuada quis
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div
+                            class="container-anecdote is-flex is-flex-gap is-flex-wrap-wrap-mobile is-align-items-center">
+                            <div class="img-container col-1">
+                                <img src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/QrUEuiu0N4PO4B3mXIEus9usZTFS3JQG829r6DSz.png"
+                                    alt="" class="img-fluid">
+                            </div>
+                            <div class="txt-container col-11">
+                                <h4 class="title-h4 tertiary-color">Astuce</h4>
+                                <p class="paragraphe">
+                                    Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum sem. Cras
+                                    ac mi velit. Praesent commodo aliquet gravida. Etiam erat nisi,
+                                    malesuada quis
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div
+                            class="container-anecdote is-flex is-flex-gap is-flex-wrap-wrap-mobile is-align-items-center">
+                            <div class="img-container col-1">
+                                <img src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/gnjCpeOb0yvpf2XxSu7IM0dU3CmMHBuh8JSaVFXy.png"
+                                    alt="" class="img-fluid">
+                            </div>
+                            <div class="txt-container col-11">
+                                <h4 class="title-h4 secondary-color">Anecdote</h4>
+                                <p class="paragraphe">
+                                    Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum sem. Cras
+                                    ac mi velit. Praesent commodo aliquet gravida. Etiam erat nisi,
+                                    malesuada quis
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div
+                            class="link-container is-flex-gap is-flex-wrap-wrap-mobile is-justify-content-space-between is-flex">
+                            <div class="col-10 is-flex-gap is-flex-wrap-wrap-mobile is-align-items-center is-flex">
+                                <div class="has-text-centered col-1">
+                                    <img src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/zsoouBospUWmMqQ1u6GCGU4NFAEiTsc1K11lasND.jpg"
+                                        alt="" class="img-fluid">
+                                </div>
+                                <div class="col-11">
+                                    <p class="paragraphe">
+                                        Dolor sit amet, consectetur adipiscing elit.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-2 is-flex container-btn-link">
+                                <p><a href="#" target="_blank" class="btn">Voir le lien</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="is-justify-content-center is-flex is-flex-wrap-wrap-mobile">
+                            <div
+                                class="block-image-exemple bg-secondary-color2 is-align-items-center is-justify-content-center is-flex">
+                                <img alt=""
+                                    src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/c5h0cSx6ycNsafYWeigrJRKppUeHGoqWkQs8X7zY.png"
+                                    class="img-fluid">
+                            </div>
+                            <div class="txt-block-exemple is-flex">
+                                <h4 class="title-h4 secondary-color">Exemple
+                                </h4>
+                                <p class="paragraphe">
+                                    Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum sem. Cras
+                                    ac mi velit. Praesent commodo aliquet gravida. Etiam erat nisi,
+                                    malesuada quis
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="is-justify-content-center is-flex is-flex-wrap-wrap-mobile">
+                            <div
+                                class="block-image-exemple bg-primary-color3 is-align-items-center is-justify-content-center is-flex">
+                                <img alt=""
+                                    src="https://medias.dstanciel.com/pages/25bacf14-5908-4f6e-b1bf-114d4bb0c2d1/J5Q3rBlpv5wYOHXRr7I6nxpoqS5T2B8AePZG4Jd0.png"
+                                    class="img-fluid">
+                            </div>
+                            <div class="txt-block-exemple is-flex">
+                                <h4 class="title-h4 primary-color">Avantage
+                                </h4>
+                                <p class="paragraphe">
+                                    Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum sem. Cras
+                                    ac mi velit. Praesent commodo aliquet gravida. Etiam erat nisi,
+                                    malesuada quis
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="container-quotes is-flex">
+                            <div class="wrap-quotes">
+                                <img alt=""
+                                    src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/hjacxk4wT3y7A3xNq0JcTtfNS8lfT2iFNtgp5wrj.png"
+                                    class="img-fluid">
+                                <p class="paragraphe">
+                                    Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum sem. Cras
+                                    ac mi velit. Praesent commodo aliquet gravida. Etiam erat nisi,
+                                    malesuada quis
+                                </p>
+                            </div>
+                            <div class="wrap-quote-img">
+                                <img alt=""
+                                    src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/cxdHeeCJ6HG1HJHRAuGKXOdR0O4vHUznBMqcRbWj.png">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="sec4">
+                    <div class="block">
+                        <div class="title-h2 is-flex is-flex-wrap">
+                            <div class="number-h2 is-flex col-1">
+                                <p class="number-h2-p">04
+                                </p>
+                            </div>
+                            <div class="text-h2 is-flex col-11">
+                                <p class="text-h2-p">Lorem ipsum, dolor sit amet consectetur adipisicing elit
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="timeline">
+                            <article>
+                                <h2 class="paragraphe has-text-centered">Lorem ipsum</h2>
+                            </article>
+                            <article>
+                                <h2 class="paragraphe has-text-centered">Lorem ipsum</h2>
+                            </article>
+                            <article>
+                                <h2 class="paragraphe has-text-centered">Lorem ipsum</h2>
+                            </article>
+                            <article>
+                                <h2 class="paragraphe has-text-centered">Lorem ipsum</h2>
+                            </article>
+                            <article>
+                                <h2 class="paragraphe has-text-centered">Lorem ipsum</h2>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <a href="#" class="btn">click me</a>
+                        <a href="#" class="btn bg-primary-color">click me</a>
+                        <a href="#" class="btn bg-tertiary-color">click me</a>
+                    </div>
+                    <div class="block">
+                        <div class="wrap-title-schema">
+                            <div class="loader is-flex">
+                                <div>⬤
+                                </div>
+                                <div>⬤
+                                </div>
+                                <div>⬤
+                                </div>
+                            </div>
+                            <h4 class="title-schema">
+                                Titre Schéma
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="is-flex is-flex-gap is-flex-wrap-wrap-mobile">
+                            <div class="col-4 p-4">
+                                <div class="has-text-centered">
+                                    <img src="https://medias.dstanciel.com/pages/01608475-ef8e-4190-8ce6-b4504ca8a69b/hTt24gFMKw410VwtcWvefKozS1H7qepzAAB2aBPf.png"
+                                        alt="">
+                                </div>
+                                <p class="paragraphe gray-color has-text-centered p-4 b-radius-3 bg-secondary-color2">
+                                    Lorem ipsum</p>
+                                <p class="paragraphe has-text-centered">Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit.</p>
+                            </div>
+                            <div class="col-4 p-4">
+                                <div class="has-text-centered">
+                                    <img src="https://medias.dstanciel.com/pages/01608475-ef8e-4190-8ce6-b4504ca8a69b/YLYstVouUxbuFfwtI1zQI2l5YWOIQisVxlaDspXx.png"
+                                        alt="">
+                                </div>
+                                <p class="paragraphe gray-color has-text-centered p-4 b-radius-3 bg-tertiary-color4">
+                                    Lorem ipsum</p>
+                                <p class="paragraphe has-text-centered">Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit.</p>
+                            </div>
+                            <div class="col-4 p-4">
+                                <div class="has-text-centered">
+                                    <img src="https://medias.dstanciel.com/pages/01608475-ef8e-4190-8ce6-b4504ca8a69b/1MOm14xw2z6LOH8uTuH9al74WcbKZjwh8nLeQyTk.png"
+                                        alt="">
+                                </div>
+                                <p class="paragraphe gray-color has-text-centered p-4 b-radius-3 bg-primary-color4">
+                                    Lorem ipsum</p>
+                                <p class="paragraphe has-text-centered">Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit.</p>
+                            </div>
+                            <div class="col-4 p-4">
+                                <div class="has-text-centered">
+                                    <img src="https://medias.dstanciel.com/pages/01608475-ef8e-4190-8ce6-b4504ca8a69b/hrHurnTeakRBcUAtUSy5h5HVglZkoFKbKMYU7PYg.png"
+                                        alt="">
+                                </div>
+                                <p class="paragraphe gray-color has-text-centered p-4 b-radius-3 bg-blue-color10">Lorem
+                                    ipsum</p>
+                                <p class="paragraphe has-text-centered">Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="is-flex is-flex-gap is-flex-wrap-wrap-mobile is-justify-content-center">
+                            <div class="col-3 p-4">
+                                <p class="paragraphe gray-color has-text-centered p-3 b-radius-3 bg-gray-color6">Lorem
+                                    ipsum
+                                </p>
+                                <p class="paragraphe gray-color has-text-centered">Lorem ipsum
+                                </p>
+                                <p class="paragraphe gray-color has-text-centered">Lorem ipsum
+                                </p>
+                                <p class="paragraphe gray-color has-text-centered">Lorem ipsum
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <div class="is-flex is-flex-column is-align-items-center is-justify-content-center">
+                                    <div
+                                        class="is-flex is-flex-gap is-flex-wrap-wrap-mobile is-align-items-center is-justify-content-center bg-primary-color4 p-5 circle">
+                                        <img src="https://medias.dstanciel.com/pages/6ce28180-059d-46a7-9130-466bd2f2891e/didCOtJTxVjzgwADM7U8pfEfujBYQhMhR4OJuwTg.png"
+                                            alt="">
+                                        <p class="paragraphe gray-color">Lorem ipsum
+                                        </p>
+                                    </div>
+                                </div>
+                                <p class="paragraphe gray-color has-text-centered p-3 b-radius-3 bg-gray-color6">Lorem
+                                    ipsum
+                                </p>
+                                <p class="paragraphe gray-color has-text-centered">Lorem ipsum
+                                </p>
+                                <p class="paragraphe gray-color has-text-centered">Lorem ipsum
+                                </p>
+                            </div>
+                            <div class="col-3 p-4">
+                                <p class="paragraphe gray-color has-text-centered p-3 b-radius-3 bg-gray-color6">Lorem
+                                    ipsum
+                                </p>
+                                <p class="paragraphe gray-color has-text-centered">Lorem ipsum
+                                </p>
+                                <p class="paragraphe gray-color has-text-centered">Lorem ipsum
+                                </p>
+                                <p class="paragraphe gray-color has-text-centered">Lorem ipsum
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="sec5">
+                    <div class="block">
+                        <div class="title-h2 is-flex is-flex-wrap">
+                            <div class="number-h2 is-flex col-1">
+                                <p class="number-h2-p">05
+                                </p>
+                            </div>
+                            <div class="text-h2 is-flex col-11">
+                                <p class="text-h2-p">Lorem ipsum, dolor sit amet consectetur adipisicing elit
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="is-flex is-flex-gap is-flex-wrap-wrap-mobile">
+                            <div class="box col-4 bg-primary-color5">
+                                <img src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/luT1hpXpRZYS5qwWeZtRNGp8ZKCHGKPYGmV01kwh.png"
+                                    alt="" id="inesi">
+                                <div class="p-5">
+                                    <p class="paragraphe"><strong>Titre du text</strong></p>
+                                    <p class="paragraphe">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum
+                                        sem. Cras ac mi velit. Praesent commodo aliquet gravida. Etiam erat
+                                        nisi, malesuada quis est vel, aliquam condimentum metus. Mauris
+                                        tincidunt ante vitae ante condimentum commodo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="box col-4 bg-blue-color10">
+                                <img src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/0oNPh0JJm4Runluj7NjzzyAId1TyiEaPDgxyxL8b.png"
+                                    alt="" id="igm7z">
+                                <div class="p-5">
+                                    <p class="paragraphe"><strong>Titre du text</strong></p>
+                                    <p class="paragraphe">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum
+                                        sem. Cras ac mi velit. Praesent commodo aliquet gravida. Etiam erat
+                                        nisi, malesuada quis est vel, aliquam condimentum metus. Mauris
+                                        tincidunt ante vitae ante condimentum commodo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="box col-4 bg-gray-color7">
+                                <img src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/hyhqiMYjIfh3T518P2Uk1RDZ8yvsZx4KEwaB6fxU.png"
+                                    alt="" id="iic82">
+                                <div class="p-5">
+                                    <p class="paragraphe"><strong>Titre du text</strong></p>
+                                    <p class="paragraphe">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum
+                                        sem. Cras ac mi velit. Praesent commodo aliquet gravida. Etiam erat
+                                        nisi, malesuada quis est vel, aliquam condimentum metus. Mauris
+                                        tincidunt ante vitae ante condimentum commodo.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div
+                            class="is-flex is-flex-gap is-flex-wrap-wrap-mobile has-text-centered box-shadow b-radius-2">
+                            <div class="wrap-bloc after-purple col-4 p-5">
+                                <img alt=""
+                                    src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/lSwryWaRz4VzKNRatKFIY1fQGUWpZDJsJdAarcKb.png"
+                                    id="i08e0k">
+                                <p class="paragraphe has-text-centered"><strong>1. Lorem ipsum</strong>
+                                </p>
+                                <p class="paragraphe has-text-centered">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias dignissimos
+                                    consequatur qui fugiat
+                                </p>
+                            </div>
+                            <div class="wrap-bloc after-purple col-4 p-5">
+                                <img alt=""
+                                    src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/E7ADzTZxIJh1n2cDkRLOkrNRuuMr8EXGLzovilZM.png"
+                                    id="ies347">
+                                <p class="paragraphe has-text-centered"><strong>2. Lorem ipsum</strong>
+                                </p>
+                                <p class="paragraphe has-text-centered">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias dignissimos
+                                    consequatur qui fugiat
+                                </p>
+                            </div>
+                            <div class="wrap-bloc after-purple col-4 p-5">
+                                <img alt=""
+                                    src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/sVyfKV42xF52mXTH6280jYwHmhU8Ypu04AzU8nE9.png"
+                                    id="io8m5u">
+                                <p class="paragraphe has-text-centered"><strong>3. Lorem ipsum</strong>
+                                </p>
+                                <p class="paragraphe has-text-centered">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias dignissimos
+                                    consequatur qui fugiat
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="animation-steps is-flex">
+                            <div class="animation-step-content is-flex">
+                                <div class="animation-step is-flex">
+                                    <div class="animation-circle">
+                                    </div>
+                                    <div class="animation-line">
+                                    </div>
+                                </div>
+                                <div class="animation-step-text is-flex">
+                                    <div>
+                                        <p class="paragraphe"><strong>1. Lorem ipsum</strong>
+                                        </p>
+                                        <ul>
+                                            <li class="animation-sub-text">Lorem ipsum, dolor sit amet consectetur
+                                                adipisicing elit.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <img src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/lKqAnyYVk9vwaE7ghQgad5sfaYpRjnxtVaLpV9gj.png"
+                                            alt="" id="id713l">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="animation-step-content is-flex">
+                                <div class="animation-step is-flex">
+                                    <div class="animation-circle">
+                                    </div>
+                                    <div class="animation-line">
+                                    </div>
+                                </div>
+                                <div class="animation-step-text is-flex">
+                                    <div>
+                                        <p class="paragraphe"><strong>2. Lorem ipsum</strong>
+                                        </p>
+                                        <ul>
+                                            <li class="animation-sub-text">Lorem ipsum, dolor sit amet consectetur
+                                                adipisicing elit.
+                                            </li>
+                                            <li class="animation-sub-text">Lorem ipsum, dolor sit amet consectetur
+                                                adipisicing elit.
+                                            </li>
+                                            <li class="animation-sub-text">Lorem ipsum, dolor sit amet consectetur
+                                                adipisicing elit.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <img src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/pvyQJvl3Evy2Uq5XM4KHUppYdBIxF7zS9HK5RdZQ.png"
+                                            alt="" id="ibqh1z">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="animation-step-content is-flex">
+                                <div class="animation-step is-flex">
+                                    <div class="animation-circle">
+                                    </div>
+                                    <div class="animation-line">
+                                    </div>
+                                </div>
+                                <div class="animation-step-text is-flex">
+                                    <div>
+                                        <p class="paragraphe"><strong>3. Lorem ipsum</strong>
+                                        </p>
+                                        <ul>
+                                            <li class="animation-sub-text">Lorem ipsum, dolor sit amet consectetur
+                                                adipisicing elit.
+                                            </li>
+                                            <li class="animation-sub-text">Lorem ipsum, dolor sit amet consectetur
+                                                adipisicing elit.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <img src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/AVdg1Wi4VkCfwGbKDiQHZ6MzJCZnhrhcyX2NO4Jp.png"
+                                            alt="" id="ifocqy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="is-flex is-flex-gap is-flex-wrap-wrap-mobile">
+                            <div class="box p-5 b-radius-3 col-4 bb-8 bb-primary-color">
+                                <div class="has-text-centered">
+                                    <img alt=""
+                                        src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/DEvelVhOJ7SZmven1ao9Pj0aXTcTCrNOL8TWISfk.png">
+                                </div>
+                                <h4 class="title-h4 primary-color">01</h4>
+                                <p class="paragraphe"><strong>Titre du text</strong></p>
+                                <p class="paragraphe">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum
+                                    sem. Cras ac mi velit. Praesent commodo aliquet gravida. Etiam erat
+                                    nisi, malesuada quis est vel, aliquam condimentum metus. Mauris
+                                    tincidunt ante vitae ante condimentum commodo.
+                                </p>
+                            </div>
+                            <div class="box p-5 b-radius-3 col-4 bl-14 bl-blue-color2">
+                                <div class="has-text-centered">
+                                    <img alt=""
+                                        src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/HSYWbB1ICcq1T1Gt9tgW81Z74WFFGDrzWAqIXpKR.png">
+                                </div>
+                                <h4 class="title-h4 blue-color2">02</h4>
+                                <p class="paragraphe"><strong>Titre du text</strong></p>
+                                <p class="paragraphe">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum
+                                    sem. Cras ac mi velit. Praesent commodo aliquet gravida. Etiam erat
+                                    nisi, malesuada quis est vel, aliquam condimentum metus. Mauris
+                                    tincidunt ante vitae ante condimentum commodo.
+                                </p>
+                            </div>
+                            <div class="box p-5 b-radius-3 col-4 bt-4 bt-gray-color1">
+                                <div class="has-text-centered">
+                                    <img alt=""
+                                        src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/t0qMe0mvPt3dkegAm0I8J1hdUYQO1IiflZBNHJ9y.png">
+                                </div>
+                                <h4 class="title-h4 gray-color1">03</h4>
+                                <p class="paragraphe"><strong>Titre du text</strong></p>
+                                <p class="paragraphe">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum
+                                    sem. Cras ac mi velit. Praesent commodo aliquet gravida. Etiam erat
+                                    nisi, malesuada quis est vel, aliquam condimentum metus. Mauris
+                                    tincidunt ante vitae ante condimentum commodo.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="is-flex is-flex-wrap-wrap-mobile is-flex-gap">
+                            <div class="col-5">
+                                <img src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/1kEvvnV4tNxmGqqHIGkQpUKST0JdZ7qXg60nmYG7.png"
+                                    alt="" class="img-fluid">
+                            </div>
+                            <div class="col-7 is-flex is-align-items-center">
+                                <div class="left-bloc p-5 bg-white-color b-radius-3 box-shadow">
+                                    <p class="paragraphe"> Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum
+                                        sem. Cras
+                                        ac mi velit. Praesent commodo aliquet gravida. Etiam erat nisi,
+                                        malesuada quis
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="is-flex is-flex-wrap-wrap-mobile is-flex-gap">
+
+                            <div class="col-7 is-flex is-align-items-center">
+                                <div class="right-bloc p-5 bg-white-color b-radius-3 box-shadow">
+                                    <p class="paragraphe"> Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum
+                                        sem. Cras
+                                        ac mi velit. Praesent commodo aliquet gravida. Etiam erat nisi,
+                                        malesuada quis
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <img src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/1kEvvnV4tNxmGqqHIGkQpUKST0JdZ7qXg60nmYG7.png"
+                                    alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-gray-color7 p-6 b-radius-3">
+                            <div class="box col-4 bg-white-color p-4 b-radius-3">
+                                <div class="has-text-centered mb-5">
+                                    <img src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/DEvelVhOJ7SZmven1ao9Pj0aXTcTCrNOL8TWISfk.png"
+                                        alt="">
+                                </div>
+                                <div class="bg-primary-color5 p-4 b-radius-3 bb-2 bb-primary-color">
+                                    <h4 class="title-h4 primary-color">01</h4>
+                                    <p class="paragraphe"><strong>Lorem ipsum :</strong>
+                                    </p>
+                                    <ul>
+                                        <li class="animation-sub-text">Lorem ipsum dolor, sit amet consectetur
+                                            adipisicing elit. Numquam recusandae
+                                            sapiente inventore culpa molestiae.
+                                        </li>
+                                        <li class="animation-sub-text">Lorem ipsum dolor, sit amet consectetur
+                                            adipisicing elit. Numquam recusandae
+                                            sapiente inventore culpa molestiae.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <div class="box col-4 bg-white-color p-4 b-radius-3">
+                                <div class="has-text-centered mb-5">
+                                    <img src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/HSYWbB1ICcq1T1Gt9tgW81Z74WFFGDrzWAqIXpKR.png"
+                                        alt="">
+                                </div>
+                                <div class="bg-blue-color10 p-4 b-radius-3 bb-2 bb-blue-color">
+                                    <h4 class="title-h4 blue-color">02</h4>
+                                    <p class="paragraphe"><strong>Lorem ipsum :</strong>
+                                    </p>
+                                    <ul>
+                                        <li class="animation-sub-text">Lorem ipsum dolor, sit amet consectetur
+                                            adipisicing elit. Numquam recusandae
+                                            sapiente inventore culpa molestiae.
+                                        </li>
+                                        <li class="animation-sub-text">Lorem ipsum dolor, sit amet consectetur
+                                            adipisicing elit. Numquam recusandae
+                                            sapiente inventore culpa molestiae.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="box col-4 bg-white-color p-4 b-radius-3">
+                                <div class="has-text-centered mb-5">
+                                    <img src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/t0qMe0mvPt3dkegAm0I8J1hdUYQO1IiflZBNHJ9y.png"
+                                        alt="">
+                                </div>
+                                <div class="bg-gray-color7 p-4 b-radius-3 bb-2 bb-gray-color1">
+                                    <h4 class="title-h4 gray-color1">03</h4>
+                                    <p class="paragraphe"><strong>Lorem ipsum :</strong>
+                                    </p>
+                                    <ul>
+                                        <li class="animation-sub-text">Lorem ipsum dolor, sit amet consectetur
+                                            adipisicing elit. Numquam recusandae
+                                            sapiente inventore culpa molestiae.
+                                        </li>
+                                        <li class="animation-sub-text">Lorem ipsum dolor, sit amet consectetur
+                                            adipisicing elit. Numquam recusandae
+                                            sapiente inventore culpa molestiae.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="PAL">
+                    <div class="block">
+                        <!--   Pour aller plus loin  -->
+                        <h2 class="bg-title-h2">Pour aller plus loin</h2>
+                        <div class="container-PAPL is-flex is-flex-gap is-flex-wrap-wrap-mobile">
+                            <!-- Left illustration -->
+                            <div class="has-text-centered col-2">
+                                <img alt="Lorem illustration"
+                                    src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/hL5bcV0oezQQ1c9R8agvdHHBNoGGyS0pFerb17iW.png"
+                                    class="img-fluid">
+                            </div>
+                            <!-- Right content (links) -->
+                            <div class="wrap-txt-PAPL col-10">
+                                <div>
+                                    <p class="title-PAPL">Lorem ipsum
+                                    </p>
+                                    <div class="link-PAPL is-flex underline-animate">
+                                        <p class="parag-PAPL">
+                                            <a href="#" target="_blank" class="paragraphe">Lorem ipsum dolor sit amet
+                                                consectetur
+                                                adipisicing elit. Nisi dolor neque minima asperiores soluta quisquam
+                                                eaque qui nostrum quasi. Eaque quos
+                                                a repudiandae eum quaerat ipsum dolore ut perferendis est.</a>
+                                        </p>
+                                        <a href="#" target="_blank"><img alt="Lorem lien"
+                                                src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/B8PFIuYWmLVsmFnJC0P3u2wlJgb2qHFYMrBEPMNi.png"
+                                                class="img-fluid"></a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="title-PAPL">Lorem ipsum
+                                    </p>
+                                    <div class="link-PAPL is-flex underline-animate">
+                                        <p class="parag-PAPL">
+                                            <a href="#" target="_blank" class="paragraphe">Lorem, ipsum dolor sit amet
+                                                consectetur
+                                                adipisicing elit. Iste excepturi quidem dicta esse, vero animi hic
+                                                tenetur quos cum optio voluptatibus
+                                                repudiandae rem. Voluptatem provident qui at voluptatum architecto
+                                                harum!</a>
+                                        </p>
+                                        <a href="#" target="_blank"><img alt="Lorem lien"
+                                                src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/B8PFIuYWmLVsmFnJC0P3u2wlJgb2qHFYMrBEPMNi.png"
+                                                class="img-fluid"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="conc">
+                    <div class="block">
+                        <!-- Conclusion -->
+                        <div class="container-conclusion">
+                            <h2 class="bg-title-h2">Conclusion
+                            </h2>
+                            <div class="wrap-list-conclusion is-flex is-flex-gap is-flex-wrap-wrap-mobile">
+                                <ul class="check-list puce-purple col-10">
+                                    <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo iure soluta
+                                        possimus at distinctio neque,
+                                        nobis ea accusamus, ex dolorem in sed a eius dolore! Ratione aspernatur maxime
+                                        eligendi optio?
+                                    </li>
+                                </ul>
+                                <div class="has-text-centered col-2">
+                                    <img alt=""
+                                        src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/KVyhzfatrT9Hts8WaFaLH3mVRleCUwmKNk4Bm83i.png"
+                                        class="img-fluid">
+                                </div>
+                            </div>
+                            <ul class="check-list puce-purple">
+                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis laborum ex quaerat
+                                    quis ipsa iste sunt
+                                    reprehenderit eius quo minima expedita ad officiis, iusto explicabo nobis commodi.
+                                    Excepturi, illo repellat.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section id="retenir">
+                    <div class="block">
+                        <!--  à retenir -->
+                        <div class="container-a-retenir">
+                            <div class="wrap-title-retenir is-flex is-flex-wrap-wrap-mobile">
+                                <img alt=""
+                                    src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/qB4FycrMdfpezVAj3liVV72k1MT3DTBQ8iGRWQyu.png"
+                                    class="retenir-img">
+                                <h2 class="title-retenir">à retenir
+                                </h2>
+                            </div>
+                            <div class="steps">
+                                <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                                    <div class="step col-1 is-flex">
+                                        <span class="number is-flex">01.</span>
+                                        <div class="line">
+                                        </div>
+                                    </div>
+                                    <div class="step-text col-11">
+                                        <p class="text">Lorem ipsum
+                                        </p>
+                                        <p class="sub-text">Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum
+                                            sem. Cras
+                                            ac mi velit. Praesent commodo aliquet gravida. Etiam erat nisi,
+                                            malesuada quis
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                                    <div class="step col-1 is-flex">
+                                        <span class="number is-flex">02.</span>
+                                        <div class="line">
+                                        </div>
+                                    </div>
+                                    <div class="step-text col-11">
+                                        <p class="text">Lorem ipsum
+                                        </p>
+                                        <p class="sub-text">Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum
+                                            sem. Cras
+                                            ac mi velit. Praesent commodo aliquet gravida. Etiam erat nisi,
+                                            malesuada quis
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                                    <div class="step col-1 is-flex">
+                                        <span class="number is-flex">03.</span>
+                                        <div class="line">
+                                        </div>
+                                    </div>
+                                    <div class="step-text col-11">
+                                        <p class="text">Lorem ipsum
+                                        </p>
+                                        <p class="sub-text">Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum
+                                            sem. Cras
+                                            ac mi velit. Praesent commodo aliquet gravida. Etiam erat nisi,
+                                            malesuada quis
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                                    <div class="step col-1 is-flex">
+                                        <span class="number is-flex">04.</span>
+                                        <div class="line">
+                                        </div>
+                                    </div>
+                                    <div class="step-text col-11">
+                                        <p class="text">Lorem ipsum
+                                        </p>
+                                        <p class="sub-text">Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum
+                                            sem. Cras
+                                            ac mi velit. Praesent commodo aliquet gravida. Etiam erat nisi,
+                                            malesuada quis
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                                    <div class="step col-1 is-flex">
+                                        <span class="number is-flex">05.</span>
+                                        <div class="line">
+                                        </div>
+                                    </div>
+                                    <div class="step-text col-11">
+                                        <p class="text">Lorem ipsum
+                                        </p>
+                                        <p class="sub-text">Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum
+                                            sem. Cras
+                                            ac mi velit. Praesent commodo aliquet gravida. Etiam erat nisi,
+                                            malesuada quis
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <a href="#top" class="back-to-top">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

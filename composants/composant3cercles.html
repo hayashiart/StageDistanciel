@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Composant avec Trois Cercles Jaunes</title>
+    <style>
+        .cercles-container {
+            width: 500px;
+            height: 600px;
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .cercles-circle {
+            border-radius: 50% !important;
+            box-sizing: border-box;
+            position: relative;
+            text-decoration: none;
+            perspective: 1000px;
+        }
+
+        .cercles-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .cercles-circle:hover .cercles-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .cercles-card-front, .cercles-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 50% !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+            background: #f0ecc8;
+            border: 2px solid #999;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            color: #333;
+        }
+
+        .cercles-card-front {
+            background: #f0ecc8;
+            border: 2px solid #999;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            color: #333;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .cercles-card-back {
+            background: #e6f0fb;
+            color: #333;
+            transform: rotateY(180deg);
+            font-size: 0.8rem;
+            overflow-y: auto;
+            scrollbar-width: none;
+            border: 2px solid #999;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            clip-path: circle(50% at 50% 50%);
+        }
+
+        .cercles-card-back::before {
+            content: "";
+            width: 0;
+            height: 0;
+            shape-outside: circle(50% at 50% 50%);
+            shape-margin: 25px;
+            margin: 0 auto;
+            float: none;
+        }
+
+        .cercles-card-back::after {
+            content: "";
+        }
+
+        .cercles-card-back p {
+            margin: 0;
+            hyphens: auto;
+        }
+
+        .cercles-card-back::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cercles-scroll-container {
+            width: 100%;
+            height: 100%;
+            padding-top: 200px;
+            padding-bottom: 0px;
+        }
+
+        .cercles-scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cercles-top-circle {
+            width: 250px;
+            height: 250px;
+            margin-top: 10px;
+        }
+
+        .cercles-bottom-circles {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            gap: 10px;
+        }
+
+        .cercles-bottom-circle {
+            width: 250px;
+            height: 250px;
+        }
+
+        /* Media query pour tablettes (≤ 768px) */
+        @media screen and (max-width: 768px) {
+            .cercles-container {
+                width: 310px;
+                height: 350px;
+            }
+
+            .cercles-top-circle {
+                width: 150px;
+                height: 150px;
+                font-size: 14px;
+            }
+
+            .cercles-bottom-circles {
+                margin-top: 8px;
+                gap: 8px;
+            }
+
+            .cercles-bottom-circle {
+                width: 150px;
+                height: 150px;
+                font-size: 14px;
+            }
+
+            .cercles-card-front, .cercles-card-back {
+                padding: 20px;
+            }
+
+            .cercles-card-back::before {
+                shape-margin: 15px;
+            }
+
+            .cercles-card-back {
+                font-size: 0.6rem;
+            }
+
+            .cercles-scroll-container {
+                clip-path: circle(50% at 50% 50%);
+                scrollbar-width: none;
+                padding-top: 30px;
+                padding-bottom: 30px;
+            }
+
+            .cercles-scroll-container::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        /* Media query pour téléphones (≤ 480px) */
+        @media screen and (max-width: 480px) {
+            .cercles-container {
+                width: 220px;
+                height: 230px;
+                padding: 5px;
+            }
+
+            .cercles-top-circle {
+                width: 100px;
+                height: 100px;
+                font-size: 12px;
+            }
+
+            .cercles-bottom-circles {
+                margin-top: 3px;
+                padding: 0 5px;
+                gap: 5px;
+            }
+
+            .cercles-bottom-circle {
+                width: 100px;
+                height: 100px;
+                font-size: 12px;
+            }
+
+            .cercles-card-front, .cercles-card-back {
+                padding: 15px;
+            }
+
+            .cercles-card-back::before {
+                shape-margin: 10px;
+            }
+
+            .cercles-card-back {
+                font-size: 0.5rem;
+            }
+
+            .cercles-scroll-container {
+                clip-path: circle(50% at 50% 50%);
+                scrollbar-width: none;
+                padding-top: 25px;
+                padding-bottom: 25px;
+            }
+
+            .cercles-scroll-container::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cercles-container">
+        <a class="cercles-circle cercles-top-circle" href="#cercles-top-circle">
+            <div class="cercles-card-inner">
+                <div class="cercles-card-front"><p>Lorem ipsum</p></div>
+                <div class="cercles-card-back">
+                    <div class="cercles-scroll-container">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet ligula sed est vestibulum congue. Mauris vehicula ante tellus, at viverra purus elementum non. In accumsan lectus a ex vulputate ullamcorper. Vestibulum blandit porttitor enim,</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <div class="cercles-bottom-circles">
+            <a class="cercles-circle cercles-bottom-circle" href="#cercles-bottom-circle-left">
+                <div class="cercles-card-inner">
+                    <div class="cercles-card-front"><p>Lorem ipsum</p></div>
+                    <div class="cercles-card-back">
+                        <div class="cercles-scroll-container">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet ligula sed est vestibulum congue. Mauris vehicula ante tellus, at viverra purus elementum non. In accumsan lectus a ex vulputate ullamcorper. Vestibulum blandit porttitor enim,</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a class="cercles-circle cercles-bottom-circle" href="#cercles-bottom-circle-right">
+                <div class="cercles-card-inner">
+                    <div class="cercles-card-front"><p>Lorem ipsum</p></div>
+                    <div class="cercles-card-back">
+                        <div class="cercles-scroll-container">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet ligula sed est vestibulum congue. Mauris vehicula ante tellus, at viverra purus elementum non. In accumsan lectus a ex vulputate ullamcorper. Vestibulum blandit porttitor enim,</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Composant Grosse Box</title>
+    <style>
+        .box2lignes-container {
+            width: 600px;
+            margin: 0 auto;
+            background: #F0ECC8;
+            border-radius: 20px;
+            box-sizing: border-box;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .box2lignes-row {
+            width: 100%;
+            min-height: 80px;
+            height: auto;
+            background: #F7F5E9;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: row;
+            box-sizing: border-box;
+        }
+
+        .box2lignes-image {
+            width: 174px;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border-radius: 8px;
+            margin-right: 10px;
+        }
+
+        .box2lignes-text-content {
+            flex: 1;
+            box-sizing: border-box;
+            display: contents;
+        }
+
+        .box2lignes-text {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #333;
+            text-align: left;
+            margin: 0;
+            line-height: 1.4;
+            padding: 10px;
+            box-sizing: border-box;
+            flex: 1;
+        }
+
+        /* Media query pour tablettes (≤ 768px) */
+        @media screen and (max-width: 768px) {
+            .box2lignes-container {
+                width: 450px;
+                padding: 8px;
+                border-radius: 15px;
+                gap: 5px;
+            }
+
+            .box2lignes-row {
+                width: 100%;
+                min-height: 80px;
+                height: auto;
+                border-radius: 6px;
+                box-sizing: border-box;
+            }
+
+            .box2lignes-image {
+                width: 130px;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 6px;
+                margin-right: 8px;
+            }
+
+            .box2lignes-text-content {
+                display: contents;
+            }
+
+            .box2lignes-text {
+                font-size: 12px;
+                margin: 0;
+                line-height: 1.3;
+                padding: 8px;
+                box-sizing: border-box;
+                flex: 1;
+            }
+        }
+
+        /* Media query pour téléphones (≤ 480px) */
+        @media screen and (max-width: 480px) {
+            .box2lignes-container {
+                width: 300px;
+                padding: 5px;
+                border-radius: 10px;
+                gap: 5px;
+            }
+
+            .box2lignes-row {
+                width: 100%;
+                min-height: 80px;
+                height: auto;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+
+            .box2lignes-image {
+                width: 87px;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 4px;
+                margin-right: 5px;
+            }
+
+            .box2lignes-text-content {
+                display: contents;
+            }
+
+            .box2lignes-text {
+                font-size: 10px;
+                margin: 0;
+                line-height: 1.2;
+                padding: 5px;
+                box-sizing: border-box;
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box2lignes-container">
+        <div class="box2lignes-row">
+            <img class="box2lignes-image" src="../images/region.jpg" alt="Région">
+            <div class="box2lignes-text-content">
+                <p class="box2lignes-text">
+                    Lorem ipsum dolng elit. Prt viverra purus elementum non.
+                </p>
+            </div>
+        </div>
+        <div class="box2lignes-row">
+            <img class="box2lignes-image" src="../images/region.jpg" alt="Région">
+            <div class="box2lignes-text-content">
+                <p class="box2lignes-text">
+                    Lorem ipsum dolor sit amet, c Lorem ipsum dolor sit amet, consectetur adipisci. Mauris vehicula ante tellus, at viverra purus elementum non.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

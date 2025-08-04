@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Composant avec Image à Gauche et Texte à Droite</title>
+    <style>
+        .imageGaucheTexteDroit-container {
+            width: 700px;
+            height: 250px;
+            background-color: #f0ecc8;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: row;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .imageGaucheTexteDroit-header-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            flex: 0 0 200px;
+            padding-right: 10px;
+        }
+
+        .imageGaucheTexteDroit-text-box {
+            background-color: rgba(250, 248, 247, 0.7);
+            padding: 20px;
+            margin: 0;
+            border-radius: 20px;
+            box-sizing: border-box;
+            flex: 0 0 460px;
+            height: 100%;
+            min-width: 460px;
+            overflow-y: auto;
+        }
+
+        .imageGaucheTexteDroit-text-box p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            overflow-wrap: break-word;
+            white-space: normal;
+        }
+
+        /* Media query pour tablettes (≤ 768px) */
+        @media screen and (max-width: 768px) {
+            .imageGaucheTexteDroit-container {
+                width: 500px;
+                height: 200px;
+                padding: 15px;
+            }
+
+            .imageGaucheTexteDroit-header-image {
+                flex: 0 0 150px;
+                padding-right: 8px;
+            }
+
+            .imageGaucheTexteDroit-text-box {
+                flex: 0 0 312px;
+                min-width: 312px;
+                padding: 15px;
+            }
+
+            .imageGaucheTexteDroit-text-box p {
+                font-size: 14px;
+            }
+        }
+
+        /* Media query pour téléphones (≤ 480px) */
+        @media screen and (max-width: 480px) {
+            .imageGaucheTexteDroit-container {
+                width: 300px;
+                height: 150px;
+                padding: 10px;
+            }
+
+            .imageGaucheTexteDroit-header-image {
+                flex: 0 0 100px;
+                padding-right: 5px;
+            }
+
+            .imageGaucheTexteDroit-text-box {
+                flex: 0 0 175px;
+                min-width: 175px;
+                padding: 10px;
+            }
+
+            .imageGaucheTexteDroit-text-box p {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="imageGaucheTexteDroit-container">
+        <img src="../images/region.jpg" alt="Image à gauche" class="imageGaucheTexteDroit-header-image">
+        <div class="imageGaucheTexteDroit-text-box">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incidid Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                minim veniam, quis nostrud exer
+            </p>
+        </div>
+    </div>
+</body>
+</html>

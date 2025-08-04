@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Composant Trois Rectangles</title>
+    <style>
+        .colonnes3-container {
+            width: 380px;
+            height: 400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 10px;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .colonnes3-rectangle-container {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .colonnes3-rectangle {
+            width: 120px;
+            height: 40px;
+            background: #B3CAE3;
+            border-radius: 8px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .colonnes3-yellow-rectangle {
+            width: 120px;
+            height: 0;
+            background: #F0ECC8;
+            border-radius: 8px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            overflow: hidden;
+            transition: height 0.3s ease;
+        }
+
+        .colonnes3-scroll-content {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            scrollbar-width: none;
+            max-height: 340px;
+            scroll-behavior: smooth;
+        }
+
+        .colonnes3-scroll-content::-webkit-scrollbar {
+            display: none;
+        }
+
+        .colonnes3-toggle:checked + .colonnes3-rectangle + .colonnes3-yellow-rectangle {
+            height: 340px;
+        }
+
+        .colonnes3-yellow-text {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #333;
+            text-align: center;
+            margin: 10px;
+            line-height: 1.4;
+        }
+
+        .colonnes3-scroll-indicator {
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            display: none;
+            margin: 0;
+            padding: 0;
+            z-index: 10;
+        }
+
+        .colonnes3-toggle:checked + .colonnes3-rectangle + .colonnes3-yellow-rectangle .colonnes3-scroll-indicator {
+            display: block;
+        }
+
+        .colonnes3-scroll-link {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            color: white;
+            font-size: 16px;
+            opacity: 1;
+            text-decoration: none;
+        }
+
+        .colonnes3-content-end {
+            height: 0;
+        }
+
+        .colonnes3-title {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            margin: 0;
+        }
+
+        .colonnes3-toggle {
+            display: none;
+        }
+
+        /* Media query pour tablettes (≤ 768px) */
+        @media screen and (max-width: 768px) {
+            .colonnes3-container {
+                width: 280px;
+                height: 300px;
+                gap: 5px;
+                padding: 8px;
+            }
+
+            .colonnes3-rectangle {
+                width: 90px;
+                height: 30px;
+                border-radius: 6px;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            .colonnes3-title {
+                font-size: 12px;
+            }
+
+            .colonnes3-yellow-rectangle {
+                width: 90px;
+                height: 0;
+                border-radius: 6px;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+                position: absolute;
+                top: 30px;
+                left: 0;
+                overflow: hidden;
+                transition: height 0.3s ease;
+            }
+
+            .colonnes3-scroll-content {
+                width: 100%;
+                height: 100%;
+                overflow-y: auto;
+                scrollbar-width: none;
+                max-height: 254px;
+                scroll-behavior: smooth;
+            }
+
+            .colonnes3-scroll-content::-webkit-scrollbar {
+                display: none;
+            }
+
+            .colonnes3-toggle:checked + .colonnes3-rectangle + .colonnes3-yellow-rectangle {
+                height: 254px;
+            }
+
+            .colonnes3-scroll-indicator {
+                position: absolute;
+                bottom: 5px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 16px;
+                height: 16px;
+                display: none;
+                margin: 0;
+                padding: 0;
+                z-index: 10;
+            }
+
+            .colonnes3-toggle:checked + .colonnes3-rectangle + .colonnes3-yellow-rectangle .colonnes3-scroll-indicator {
+                display: block;
+            }
+
+            .colonnes3-scroll-link {
+                display: block;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                color: white;
+                font-size: 12px;
+                opacity: 1;
+                text-decoration: none;
+            }
+
+            .colonnes3-yellow-text {
+                font-size: 12px;
+                margin: 8px;
+                line-height: 1.3;
+            }
+
+            .colonnes3-content-end {
+                height: 0;
+            }
+        }
+
+        /* Media query pour téléphones (≤ 480px) */
+        @media screen and (max-width: 480px) {
+            .colonnes3-container {
+                width: 205px;
+                height: 200px;
+                gap: 5px;
+                padding: 5px;
+            }
+
+            .colonnes3-rectangle {
+                width: 65px;
+                height: 25px;
+                border-radius: 4px;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            .colonnes3-title {
+                font-size: 10px;
+            }
+
+            .colonnes3-yellow-rectangle {
+                width: 65px;
+                height: 0;
+                border-radius: 4px;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+                position: absolute;
+                top: 25px;
+                left: 0;
+                overflow: hidden;
+                transition: height 0.3s ease;
+            }
+
+            .colonnes3-scroll-content {
+                width: 100%;
+                height: 100%;
+                overflow-y: auto;
+                scrollbar-width: none;
+                max-height: 165px;
+                scroll-behavior: smooth;
+            }
+
+            .colonnes3-scroll-content::-webkit-scrollbar {
+                display: none;
+            }
+
+            .colonnes3-toggle:checked + .colonnes3-rectangle + .colonnes3-yellow-rectangle {
+                height: 165px;
+            }
+
+            .colonnes3-scroll-indicator {
+                position: absolute;
+                bottom: 5px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 12px;
+                height: 12px;
+                display: none;
+                margin: 0;
+                padding: 0;
+                z-index: 10;
+            }
+
+            .colonnes3-toggle:checked + .colonnes3-rectangle + .colonnes3-yellow-rectangle .colonnes3-scroll-indicator {
+                display: block;
+            }
+
+            .colonnes3-scroll-link {
+                display: block;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                color: white;
+                font-size: 10px;
+                opacity: 1;
+                text-decoration: none;
+            }
+
+            .colonnes3-yellow-text {
+                font-size: 10px;
+                margin: 5px;
+                line-height: 1.2;
+            }
+
+            .colonnes3-content-end {
+                height: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="colonnes3-container">
+        <div class="colonnes3-rectangle-container">
+            <input type="checkbox" class="colonnes3-toggle" id="colonnes3-toggle-1">
+            <label for="colonnes3-toggle-1" class="colonnes3-rectangle">
+                <h1 class="colonnes3-title">Lorem ipsum</h1>
+            </label>
+            <div class="colonnes3-yellow-rectangle">
+                <div class="colonnes3-scroll-content">
+                    <p class="colonnes3-yellow-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet ligula sed est vestibulum congue. Mauris vehicula ante tellus, at viverra purus elementum non. In accumsan lectus a ex vulputate ullamcorper. Vestibulum blandit porttitor enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet ligula sed est vestibulum congue. Mauris vehicula ante tellus, at viverra purus elementum non.
+                        <div class="colonnes3-content-end" id="colonnes3-end-1"></div>
+                    </p>
+                </div>
+                <div class="colonnes3-scroll-indicator">
+                    <a href="#colonnes3-end-1" class="colonnes3-scroll-link">▼</a>
+                </div>
+            </div>
+        </div>
+        <div class="colonnes3-rectangle-container">
+            <input type="checkbox" class="colonnes3-toggle" id="colonnes3-toggle-2">
+            <label for="colonnes3-toggle-2" class="colonnes3-rectangle">
+                <h1 class="colonnes3-title">Lorem ipsum</h1>
+            </label>
+            <div class="colonnes3-yellow-rectangle">
+                <div class="colonnes3-scroll-content">
+                    <p class="colonnes3-yellow-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet ligula sed est vestibulum congue. Mauris vehicula ante tellus, at viverra purus elementum non. In accumsan lectus a ex vulputate ullamcorper. Vestibulum blandit porttitor enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet ligula sed est vestibulum congue. Mauris vehicula ante tellus, at viverra purus elementum non.
+                        <div class="colonnes3-content-end" id="colonnes3-end-2"></div>
+                    </p>
+                </div>
+                <div class="colonnes3-scroll-indicator">
+                    <a href="#colonnes3-end-2" class="colonnes3-scroll-link">▼</a>
+                </div>
+            </div>
+        </div>
+        <div class="colonnes3-rectangle-container">
+            <input type="checkbox" class="colonnes3-toggle" id="colonnes3-toggle-3">
+            <label for="colonnes3-toggle-3" class="colonnes3-rectangle">
+                <h1 class="colonnes3-title">Lorem ipsum</h1>
+            </label>
+            <div class="colonnes3-yellow-rectangle">
+                <div class="colonnes3-scroll-content">
+                    <p class="colonnes3-yellow-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet ligula sed est vestibulum congue. Mauris vehicula ante tellus, at viverra purus elementum non. In accumsan lectus a ex vulputate ullamcorper. Vestibulum blandit porttitor enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet ligula sed est vestibulum congue. Mauris vehicula ante tellus, at viverra purus elementum non.
+                        <div class="colonnes3-content-end" id="colonnes3-end-3"></div>
+                    </p>
+                </div>
+                <div class="colonnes3-scroll-indicator">
+                    <a href="#colonnes3-end-3" class="colonnes3-scroll-link">▼</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
