@@ -1,0 +1,256 @@
+<!-- Composant Header -->
+<header class="mb-6">
+  <div class="is-flex is-flex-wrap-wrap-mobile">
+    <!-- Left Section -->
+    <div class="left-section col-3">
+      <div class="image-wrapper">
+        <img
+          src="https://medias.dstanciel.com/pages/9e291542-9cb1-456f-93f8-9eade55100b2/ontGC6TiCpBa2qkNPk49RsSEwPum7HedXMj6WSVJ.png"
+          alt="Diagnostic Tool"
+        />
+      </div>
+    </div>
+
+    <!-- Middle Section -->
+    <div class="middle-section col-8">
+      <div class="icon-wrapper">
+        <img
+          src="https://medias.dstanciel.com/pages/9e291542-9cb1-456f-93f8-9eade55100b2/5r6EnmKW2PPgn8AwGRNyfIZzGIdQvrfDQ34GB3Zz.png"
+          alt="icon"
+        />
+      </div>
+      <div class="title-wrapper">
+        <div class="highlight-bar"></div>
+        <h1
+          class="paragraphe has-text-left font-size40 has-text-weight-semibold gray-color"
+        >
+          S28 – Diagnostic des installations
+        </h1>
+        <p class="paragraphe has-text-left font-size28 gray-color">
+          existantes et risques électriques
+        </p>
+      </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="right-section col-1">
+      <div class="vertical-label">
+        CP - TP - Électricien d'équipement du bâtiment
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* Variables CSS nécessaires */
+  :root {
+    --main-font: "Poppins", serif;
+    --font-size18: 18px;
+    --font-size28: 28px;
+    --font-size40: 40px;
+    --primary-color: #9747ff;
+    --white-color: #ffffff;
+    --gray-color: #514b4b;
+  }
+
+  /* Styles de base */
+  * {
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
+  /* Classes utilitaires */
+  .is-flex {
+    display: flex;
+  }
+
+  .is-flex-wrap-wrap-mobile {
+    flex-wrap: wrap;
+  }
+
+  .col-1 {
+    width: 8.333333%;
+  }
+  .col-3 {
+    width: 25%;
+  }
+  .col-8 {
+    width: 66.666667%;
+  }
+
+  .mb-6 {
+    margin-bottom: 48px !important;
+  }
+
+  .has-text-left {
+    text-align: left !important;
+  }
+
+  .font-size28 {
+    font-size: var(--font-size28) !important;
+  }
+
+  .font-size40 {
+    font-size: var(--font-size40) !important;
+  }
+
+  .has-text-weight-semibold {
+    font-weight: 600 !important;
+  }
+
+  .gray-color {
+    color: var(--gray-color) !important;
+  }
+
+  /* Paragraphe */
+  .paragraphe {
+    text-align: justify;
+    color: var(--gray-color1);
+    font-family: var(--main-font);
+    font-size: var(--font-size18);
+    font-weight: 400;
+  }
+
+  /* Header Styles */
+  .left-section {
+    background-color: var(--primary-color);
+    padding: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .image-wrapper {
+    margin-right: -300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .icon-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 30px;
+    padding-right: 30px;
+  }
+
+  .middle-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    border-right: 1px solid #8f8b8b;
+    padding-left: 220px;
+    padding-right: 40px;
+  }
+
+  .title-wrapper {
+    padding: 2rem;
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .title-wrapper h1,
+  .title-wrapper p {
+    margin: 0;
+  }
+
+  .highlight-bar {
+    margin-bottom: 20px;
+    width: 148px;
+    height: 13px;
+    background: #febd01;
+    border-radius: 37px;
+  }
+
+  .right-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .vertical-label {
+    transform: rotate(90deg);
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-family: var(--main-font);
+    font-size: var(--font-size18);
+    padding: 10px 20px;
+    border-radius: 34px;
+    white-space: nowrap;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .left-section {
+      padding: 50px;
+    }
+
+    .image-wrapper {
+      margin-right: 0px;
+    }
+
+    .icon-wrapper {
+      justify-content: center;
+    }
+
+    .middle-section {
+      justify-content: start;
+      border-right: none;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .title-wrapper {
+      margin-top: 50px;
+      gap: 0px;
+    }
+
+    .right-section {
+      display: none;
+    }
+
+    .title-wrapper h1,
+    .title-wrapper p {
+      margin: 10px;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 992px) and (min-width: 768px) {
+    .left-section {
+      padding: 50px;
+    }
+
+    .image-wrapper {
+      margin-right: 0px;
+    }
+
+    .icon-wrapper {
+      justify-content: center;
+    }
+
+    .middle-section {
+      justify-content: start;
+      border-right: none;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .title-wrapper {
+      margin-top: 50px;
+      gap: 0px;
+    }
+
+    .right-section {
+      display: none;
+    }
+
+    .title-wrapper h1,
+    .title-wrapper p {
+      margin: 10px;
+    }
+  }
+</style>

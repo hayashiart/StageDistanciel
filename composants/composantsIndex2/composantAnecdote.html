@@ -1,0 +1,109 @@
+<!-- Composant Anecdote -->
+<div class="block">
+  <div
+    class="container-anecdote is-flex is-flex-gap is-flex-wrap-wrap-mobile is-align-items-center"
+  >
+    <div class="img-container col-1">
+      <img
+        src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/QrUEuiu0N4PO4B3mXIEus9usZTFS3JQG829r6DSz.png"
+        alt=""
+        class="img-fluid"
+      />
+    </div>
+    <div class="txt-container col-11">
+      <h4 class="title-h4 tertiary-color">Astuce</h4>
+      <p class="paragraphe">
+        Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum sem. Cras
+        ac mi velit. Praesent commodo aliquet gravida. Etiam erat nisi,
+        malesuada quis
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Variables CSS nécessaires */
+  :root {
+    --main-font: "Poppins", serif;
+    --font-size18: 18px;
+    --font-size24: 24px;
+    --gray-color1: #757575;
+    --tertiary-color: #f69d35;
+    --white-color: #ffffff;
+  }
+
+  /* Styles de base */
+  * {
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
+  /* Classes utilitaires */
+  .is-flex {
+    display: flex;
+  }
+
+  .is-flex-gap {
+    gap: 24px;
+  }
+
+  .is-flex-wrap-wrap-mobile {
+    flex-wrap: wrap;
+  }
+
+  .is-align-items-center {
+    align-items: center;
+  }
+
+  .col-1 {
+    width: 8.333333%;
+  }
+  .col-11 {
+    width: 91.666667%;
+  }
+
+  /* Block */
+  .block:not(:last-child),
+  .block:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  /* block anecdote styles */
+  .container-anecdote {
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    border-radius: 20px;
+    background-color: var(--white-color);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
+  }
+
+  /* Images */
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Title h4 */
+  .title-h4 {
+    font-family: var(--main-font);
+    font-size: var(--font-size24);
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+
+  /* Paragraphe */
+  .paragraphe {
+    text-align: justify;
+    color: var(--gray-color1);
+    font-family: var(--main-font);
+    font-size: var(--font-size18);
+    font-weight: 400;
+  }
+
+  /* Colors */
+  .tertiary-color {
+    color: var(--tertiary-color) !important;
+  }
+</style>

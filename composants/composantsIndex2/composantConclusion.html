@@ -1,0 +1,258 @@
+<!-- Composant Conclusion -->
+<section id="conc">
+  <div class="block">
+    <h2 class="bg-title-h2">Conclusion</h2>
+    <div class="container-a-retenir">
+      <div class="wrap-title-retenir is-flex is-flex-wrap-wrap-mobile">
+        <img
+          alt=""
+          src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/qB4FycrMdfpezVAj3liVV72k1MT3DTBQ8iGRWQyu.png"
+          class="retenir-img"
+        />
+        <h2 class="title-retenir">à retenir</h2>
+      </div>
+      <div class="steps">
+        <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+          <div class="step col-1 is-flex">
+            <span class="number is-flex">01.</span>
+            <div class="line"></div>
+          </div>
+          <div class="step-text col-11">
+            <p class="text">Lorem ipsum</p>
+            <p class="sub-text">
+              Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum sem.
+              Cras ac mi velit. Praesent commodo aliquet gravida. Etiam erat
+              nisi, malesuada quis
+            </p>
+          </div>
+        </div>
+        <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+          <div class="step col-1 is-flex">
+            <span class="number is-flex">02.</span>
+            <div class="line"></div>
+          </div>
+          <div class="step-text col-11">
+            <p class="text">Lorem ipsum</p>
+            <p class="sub-text">
+              Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum sem.
+              Cras ac mi velit. Praesent commodo aliquet gravida. Etiam erat
+              nisi, malesuada quis
+            </p>
+          </div>
+        </div>
+        <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+          <div class="step col-1 is-flex">
+            <span class="number is-flex">03.</span>
+            <div class="line"></div>
+          </div>
+          <div class="step-text col-11">
+            <p class="text">Lorem ipsum</p>
+            <p class="sub-text">
+              Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum sem.
+              Cras ac mi velit. Praesent commodo aliquet gravida. Etiam erat
+              nisi, malesuada quis
+            </p>
+          </div>
+        </div>
+        <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+          <div class="step col-1 is-flex">
+            <span class="number is-flex">04.</span>
+            <div class="line"></div>
+          </div>
+          <div class="step-text col-11">
+            <p class="text">Lorem ipsum</p>
+            <p class="sub-text">
+              Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum sem.
+              Cras ac mi velit. Praesent commodo aliquet gravida. Etiam erat
+              nisi, malesuada quis
+            </p>
+          </div>
+        </div>
+        <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+          <div class="step col-1 is-flex">
+            <span class="number is-flex">05.</span>
+            <div class="line"></div>
+          </div>
+          <div class="step-text col-11">
+            <p class="text">Lorem ipsum</p>
+            <p class="sub-text">
+              Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum sem.
+              Cras ac mi velit. Praesent commodo aliquet gravida. Etiam erat
+              nisi, malesuada quis
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Variables CSS nécessaires */
+  :root {
+    --main-font: "Poppins", serif;
+    --font-size18: 18px;
+    --font-size24: 24px;
+    --font-size32: 32px;
+    --font-size48: 48px;
+    --primary-color: #9747ff;
+    --gray-color1: #757575;
+    --white-color: #ffffff;
+  }
+
+  /* Styles de base */
+  * {
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
+  /* Classes utilitaires */
+  .is-flex {
+    display: flex;
+  }
+
+  .is-flex-wrap-wrap-mobile {
+    flex-wrap: wrap;
+  }
+
+  .col-1 {
+    width: 8.333333%;
+  }
+  .col-11 {
+    width: 91.666667%;
+  }
+
+  /* Block */
+  .block:not(:last-child),
+  .block:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  /* Title H2 With background */
+  .bg-title-h2 {
+    font-family: var(--main-font);
+    color: var(--gray-color);
+    font-size: var(--font-size32);
+    font-weight: 600;
+    background-color: var(--primary-color5);
+    padding: 8px 14px;
+    border-radius: 10px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* à retenir */
+  .steps {
+    padding: 20px;
+  }
+
+  .step {
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+  }
+
+  .number {
+    font-size: var(--font-size24);
+    font-family: var(--main-font);
+    font-weight: bold;
+    color: var(--white-color);
+    border-radius: 50%;
+    padding: 10px;
+    background-color: var(--primary-color);
+    width: 70px;
+    height: 70px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .text {
+    font-family: var(--main-font);
+    color: var(--primary-color);
+    text-align: justify;
+    font-size: var(--font-size24);
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .sub-text {
+    font-family: var(--main-font);
+    color: var(--gray-color1);
+    font-size: 18px;
+    margin: 0;
+    text-align: justify;
+  }
+
+  .line {
+    width: 2px;
+    height: 60px;
+    border-left-width: 2px;
+    border-left-style: dashed;
+    border-left-color: var(--gray-color1);
+    border-right-width: initial;
+    border-right-style: initial;
+    border-right-color: initial;
+    border-top-width: initial;
+    border-top-style: initial;
+    border-top-color: initial;
+    border-bottom-width: initial;
+    border-bottom-style: initial;
+    border-bottom-color: initial;
+  }
+
+  .steps .step-content:last-child .line {
+    display: none;
+  }
+
+  .title-retenir {
+    color: var(--gray-color1);
+    text-align: center;
+    font-family: var(--main-font);
+    font-size: 48px;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+
+  .wrap-title-retenir {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .retenir-img {
+    width: 20%;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .text,
+    .sub-text {
+      text-align: center;
+    }
+
+    .step-content {
+      margin-bottom: 24px;
+    }
+
+    .steps .step-content:last-child .line {
+      display: block;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 992px) and (min-width: 768px) {
+    .text,
+    .sub-text {
+      text-align: center;
+    }
+
+    .step-content {
+      margin-bottom: 24px;
+    }
+
+    .steps .step-content:last-child .line {
+      display: block;
+    }
+  }
+</style>

@@ -1,0 +1,100 @@
+<!-- Composant Back to Top -->
+<a href="#top" class="back-to-top">
+  <i class="fas fa-arrow-up"></i>
+</a>
+
+<style>
+  /* Variables CSS nécessaires */
+  :root {
+    --primary-color: #9747ff;
+    --white-color: #ffffff;
+  }
+
+  /* Styles de base */
+  * {
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
+  /* Back to top button */
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(151, 71, 255, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+  }
+
+  .back-to-top:hover {
+    background-color: #7a3acc;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(151, 71, 255, 0.4);
+  }
+
+  .back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .back-to-top i {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .back-to-top {
+      bottom: 20px;
+      right: 20px;
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 992px) and (min-width: 768px) {
+    .back-to-top {
+      bottom: 25px;
+      right: 25px;
+      width: 48px;
+      height: 48px;
+    }
+  }
+</style>
+
+<script>
+  // Script pour afficher/masquer le bouton back to top
+  window.addEventListener("scroll", function () {
+    const backToTop = document.querySelector(".back-to-top");
+    if (window.scrollY > 300) {
+      backToTop.classList.add("show");
+    } else {
+      backToTop.classList.remove("show");
+    }
+  });
+
+  // Animation smooth scroll vers le haut
+  document
+    .querySelector(".back-to-top")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+</script>

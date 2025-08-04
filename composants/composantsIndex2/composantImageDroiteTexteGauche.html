@@ -1,0 +1,135 @@
+<!-- Composant Image Droite Texte Gauche -->
+<div class="block">
+  <div class="is-flex is-flex-wrap-wrap-mobile is-flex-gap">
+    <div class="col-7 is-flex is-align-items-center">
+      <div class="right-bloc p-5 bg-white-color b-radius-3 box-shadow">
+        <p class="paragraphe">
+          Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum sem. Cras
+          ac mi velit. Praesent commodo aliquet gravida. Etiam erat nisi,
+          malesuada quis
+        </p>
+      </div>
+    </div>
+    <div class="col-5">
+      <img
+        src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/1kEvvnV4tNxmGqqHIGkQpUKST0JdZ7qXg60nmYG7.png"
+        alt=""
+        class="img-fluid"
+      />
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Variables CSS nécessaires */
+  :root {
+    --main-font: "Poppins", serif;
+    --font-size18: 18px;
+    --gray-color1: #757575;
+    --white-color: #ffffff;
+  }
+
+  /* Styles de base */
+  * {
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
+  /* Classes utilitaires */
+  .is-flex {
+    display: flex;
+  }
+
+  .is-flex-wrap-wrap-mobile {
+    flex-wrap: wrap;
+  }
+
+  .is-flex-gap {
+    gap: 24px;
+  }
+
+  .is-align-items-center {
+    align-items: center;
+  }
+
+  .col-5 {
+    width: 41.666667%;
+  }
+  .col-7 {
+    width: 58.333333%;
+  }
+
+  .p-5 {
+    padding: 24px !important;
+  }
+
+  .b-radius-3 {
+    border-radius: 12px !important;
+  }
+
+  .bg-white-color {
+    background-color: var(--white-color) !important;
+  }
+
+  /* Block */
+  .block:not(:last-child),
+  .block:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  /* Box shadow */
+  .box-shadow {
+    box-shadow: 0px 4px 8px rgba(117, 117, 117, 0.15);
+  }
+
+  /* Images */
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Paragraphe */
+  .paragraphe {
+    text-align: justify;
+    color: var(--gray-color1);
+    font-family: var(--main-font);
+    font-size: var(--font-size18);
+    font-weight: 400;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-12 {
+      width: 100%;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 992px) and (min-width: 768px) {
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-12 {
+      width: 100%;
+    }
+  }
+</style>

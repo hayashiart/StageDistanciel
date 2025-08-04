@@ -1,0 +1,154 @@
+<!-- Composant Titre H2 -->
+<div class="block">
+  <div class="title-h2 is-flex is-flex-wrap">
+    <div class="number-h2 is-flex col-1">
+      <p class="number-h2-p">01</p>
+    </div>
+    <div class="text-h2 is-flex col-11">
+      <p class="text-h2-p">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Variables CSS nécessaires */
+  :root {
+    --main-font: "Poppins", serif;
+    --font-size32: 32px;
+    --primary-color: #9747ff;
+    --primary-color4: #efe8ff;
+    --white-color: #ffffff;
+  }
+
+  /* Styles de base */
+  * {
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
+  /* Classes utilitaires */
+  .is-flex {
+    display: flex;
+  }
+
+  .is-flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  .col-1 {
+    width: 8.333333%;
+  }
+  .col-11 {
+    width: 91.666667%;
+  }
+
+  /* Block */
+  .block:not(:last-child),
+  .block:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  /* Title H2 */
+  .title-h2 {
+    margin-top: 0px;
+    align-items: stretch;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+  }
+
+  .number-h2 {
+    height: auto;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--primary-color);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .text-h2 {
+    min-height: 150px;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--primary-color4);
+    border-bottom-color: var(--primary-color);
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 15px;
+  }
+
+  .number-h2-p {
+    color: var(--white-color);
+    font-size: 40px;
+    margin-top: 20px;
+    text-align: center;
+    font-family: var(--main-font);
+    font-weight: 600;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+
+  .text-h2-p {
+    color: var(--primary-color);
+    font-size: var(--font-size32);
+    margin-top: 20px;
+    font-family: var(--main-font);
+    font-weight: 600;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .title-h2 {
+      flex-direction: column;
+    }
+
+    .number-h2 {
+      width: 100%;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+
+    .text-h2 {
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 992px) and (min-width: 768px) {
+    .title-h2 {
+      flex-direction: column;
+    }
+
+    .number-h2 {
+      width: 100%;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+
+    .text-h2 {
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+  }
+</style>

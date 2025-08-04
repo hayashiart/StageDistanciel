@@ -1,0 +1,219 @@
+<!-- Composant Box avec Bordures -->
+<div class="block">
+  <div class="is-flex is-flex-gap is-flex-wrap-wrap-mobile">
+    <div class="box p-5 b-radius-3 col-4 bb-8 bb-primary-color">
+      <div class="has-text-centered">
+        <img
+          alt=""
+          src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/DEvelVhOJ7SZmven1ao9Pj0aXTcTCrNOL8TWISfk.png"
+        />
+      </div>
+      <h4 class="title-h4 primary-color">01</h4>
+      <p class="paragraphe"><strong>Titre du text</strong></p>
+      <p class="paragraphe">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum
+        sem. Cras ac mi velit. Praesent commodo aliquet gravida. Etiam erat
+        nisi, malesuada quis est vel, aliquam condimentum metus. Mauris
+        tincidunt ante vitae ante condimentum commodo.
+      </p>
+    </div>
+    <div class="box p-5 b-radius-3 col-4 bl-14 bl-blue-color2">
+      <div class="has-text-centered">
+        <img
+          alt=""
+          src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/HSYWbB1ICcq1T1Gt9tgW81Z74WFFGDrzWAqIXpKR.png"
+        />
+      </div>
+      <h4 class="title-h4 blue-color2">02</h4>
+      <p class="paragraphe"><strong>Titre du text</strong></p>
+      <p class="paragraphe">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum
+        sem. Cras ac mi velit. Praesent commodo aliquet gravida. Etiam erat
+        nisi, malesuada quis est vel, aliquam condimentum metus. Mauris
+        tincidunt ante vitae ante condimentum commodo.
+      </p>
+    </div>
+    <div class="box p-5 b-radius-3 col-4 bt-4 bt-gray-color1">
+      <div class="has-text-centered">
+        <img
+          alt=""
+          src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/t0qMe0mvPt3dkegAm0I8J1hdUYQO1IiflZBNHJ9y.png"
+        />
+      </div>
+      <h4 class="title-h4 gray-color1">03</h4>
+      <p class="paragraphe"><strong>Titre du text</strong></p>
+      <p class="paragraphe">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum
+        sem. Cras ac mi velit. Praesent commodo aliquet gravida. Etiam erat
+        nisi, malesuada quis est vel, aliquam condimentum metus. Mauris
+        tincidunt ante vitae ante condimentum commodo.
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Variables CSS nécessaires */
+  :root {
+    --main-font: "Poppins", serif;
+    --font-size18: 18px;
+    --font-size24: 24px;
+    --gray-color1: #757575;
+    --primary-color: #9747ff;
+    --blue-color2: #0074c0;
+  }
+
+  /* Styles de base */
+  * {
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
+  /* Classes utilitaires */
+  .is-flex {
+    display: flex;
+  }
+
+  .is-flex-gap {
+    gap: 24px;
+  }
+
+  .is-flex-wrap-wrap-mobile {
+    flex-wrap: wrap;
+  }
+
+  .col-4 {
+    width: 33.333333%;
+  }
+
+  .p-5 {
+    padding: 24px !important;
+  }
+
+  .b-radius-3 {
+    border-radius: 12px !important;
+  }
+
+  .has-text-centered {
+    text-align: center !important;
+  }
+
+  /* Block */
+  .block:not(:last-child),
+  .block:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  /* Box with shadow */
+  .box {
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(117, 117, 117, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 12px 24px rgba(117, 117, 117, 0.2);
+  }
+
+  /* Images */
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Title h4 */
+  .title-h4 {
+    font-family: var(--main-font);
+    font-size: var(--font-size24);
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+
+  /* Paragraphe */
+  .paragraphe {
+    text-align: justify;
+    color: var(--gray-color1);
+    font-family: var(--main-font);
+    font-size: var(--font-size18);
+    font-weight: 400;
+  }
+
+  /* Colors */
+  .primary-color {
+    color: var(--primary-color) !important;
+  }
+
+  .blue-color2 {
+    color: var(--blue-color2) !important;
+  }
+
+  .gray-color1 {
+    color: var(--gray-color1) !important;
+  }
+
+  /* Border utilities */
+  .bb-8 {
+    border-bottom-width: 8px !important;
+    border-bottom-style: solid !important;
+  }
+
+  .bb-primary-color {
+    border-bottom-color: var(--primary-color) !important;
+  }
+
+  .bl-14 {
+    border-left-width: 14px !important;
+    border-left-style: solid !important;
+  }
+
+  .bl-blue-color2 {
+    border-left-color: var(--blue-color2) !important;
+  }
+
+  .bt-4 {
+    border-top-width: 4px !important;
+    border-top-style: solid !important;
+  }
+
+  .bt-gray-color1 {
+    border-top-color: var(--gray-color1) !important;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-12 {
+      width: 100%;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 992px) and (min-width: 768px) {
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-12 {
+      width: 100%;
+    }
+  }
+</style>

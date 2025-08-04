@@ -1,0 +1,269 @@
+<!-- Composant Timeline -->
+<div class="block">
+  <div class="timeline">
+    <article>
+      <h2 class="paragraphe has-text-centered">Lorem ipsum</h2>
+    </article>
+    <article>
+      <h2 class="paragraphe has-text-centered">Lorem ipsum</h2>
+    </article>
+    <article>
+      <h2 class="paragraphe has-text-centered">Lorem ipsum</h2>
+    </article>
+    <article>
+      <h2 class="paragraphe has-text-centered">Lorem ipsum</h2>
+    </article>
+    <article>
+      <h2 class="paragraphe has-text-centered">Lorem ipsum</h2>
+    </article>
+  </div>
+</div>
+
+<style>
+  /* Variables CSS nécessaires */
+  :root {
+    --main-font: "Poppins", serif;
+    --font-size18: 18px;
+    --primary-color: #9747ff;
+    --primary-color5: #f7f2ff;
+    --gray-color1: #757575;
+  }
+
+  /* Styles de base */
+  * {
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
+  /* Classes utilitaires */
+  .is-flex {
+    display: flex;
+  }
+
+  .has-text-centered {
+    text-align: center !important;
+  }
+
+  /* Block */
+  .block:not(:last-child),
+  .block:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  /* Paragraphe */
+  .paragraphe {
+    text-align: justify;
+    color: var(--gray-color1);
+    font-family: var(--main-font);
+    font-size: var(--font-size18);
+    font-weight: 400;
+  }
+
+  /* timeline */
+  .timeline {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  /* Horizontal line (desktop) */
+  .timeline:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 6px;
+    width: 1400px;
+    background: var(--primary-color);
+    border-radius: 3px;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+
+  .timeline article {
+    display: inline-block;
+    position: relative;
+    background: var(--primary-color5);
+    padding: 15px 20px;
+    margin: 0 40px;
+    min-width: 200px;
+    max-width: 280px;
+    border-radius: 8px;
+    text-align: center;
+    vertical-align: top;
+    white-space: normal;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+  }
+
+  /* Dot connector */
+  .timeline article:before {
+    content: "";
+    position: absolute;
+    top: calc(100% + 25px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    z-index: 3;
+  }
+
+  /* Arrow under each block */
+  .timeline article:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 14px solid var(--primary-color5);
+    z-index: 2;
+  }
+
+  .timeline article:nth-child(even) {
+    margin-top: 120px;
+  }
+
+  .timeline article:nth-child(even):before {
+    top: auto;
+    bottom: calc(100% + 25px);
+  }
+
+  .timeline article:nth-child(even):after {
+    top: auto;
+    bottom: 100%;
+    border-top: none;
+    border-bottom: 14px solid var(--primary-color5);
+  }
+
+  /* Heading styling */
+  .timeline article h2 {
+    font-size: 18px;
+    margin: 0;
+    color: var(--primary-color);
+    line-height: 1.4;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .timeline {
+      display: block;
+      white-space: normal;
+      padding: 40px 10px;
+      overflow-x: hidden;
+    }
+
+    .timeline:after {
+      top: 20px;
+      bottom: 20px;
+      left: 50%;
+      height: 100%;
+      width: 6px;
+      transform: translateX(-50%);
+    }
+
+    .timeline article {
+      display: block;
+      width: calc(50% - 40px);
+      max-width: 100%;
+      margin: 40px 0;
+    }
+
+    .timeline article:nth-child(odd) {
+      margin-left: 0;
+    }
+
+    .timeline article:nth-child(even) {
+      margin-left: calc(50% + 48px);
+      margin-top: 40px;
+    }
+
+    .timeline article:before {
+      top: 20%;
+      left: calc(100% + 32px);
+      transform: none;
+    }
+
+    .timeline article:after {
+      display: none;
+    }
+
+    .timeline article:nth-child(even):before {
+      left: auto;
+      right: calc(100% + 40px);
+      top: 20%;
+    }
+
+    .timeline article:nth-child(even):after {
+      left: auto;
+      right: 100%;
+      border-left: none;
+      border-right: 16px solid #eeeeee;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 992px) and (min-width: 768px) {
+    .timeline {
+      display: block;
+      white-space: normal;
+      padding: 40px 10px;
+      overflow-x: hidden;
+    }
+
+    .timeline:after {
+      top: 20px;
+      bottom: 20px;
+      left: 50%;
+      height: 100%;
+      width: 6px;
+      transform: translateX(-50%);
+    }
+
+    .timeline article {
+      display: block;
+      width: calc(50% - 40px);
+      max-width: 100%;
+      margin: 40px 0;
+    }
+
+    .timeline article:nth-child(odd) {
+      margin-left: 0;
+    }
+
+    .timeline article:nth-child(even) {
+      margin-left: calc(50% + 48px);
+      margin-top: 40px;
+    }
+
+    .timeline article:before {
+      top: 20%;
+      left: calc(100% + 32px);
+      transform: none;
+    }
+
+    .timeline article:after {
+      display: none;
+    }
+
+    .timeline article:nth-child(even):before {
+      left: auto;
+      right: calc(100% + 40px);
+      top: 20%;
+    }
+
+    .timeline article:nth-child(even):after {
+      left: auto;
+      right: 100%;
+      border-left: none;
+      border-right: 16px solid #eeeeee;
+    }
+  }
+</style>

@@ -1,0 +1,165 @@
+<!-- Composant Exemple -->
+<div class="block">
+  <div class="is-justify-content-center is-flex is-flex-wrap-wrap-mobile">
+    <div
+      class="block-image-exemple bg-secondary-color2 is-align-items-center is-justify-content-center is-flex"
+    >
+      <img
+        alt=""
+        src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/c5h0cSx6ycNsafYWeigrJRKppUeHGoqWkQs8X7zY.png"
+        class="img-fluid"
+      />
+    </div>
+    <div class="txt-block-exemple is-flex">
+      <h4 class="title-h4 secondary-color">Exemple</h4>
+      <p class="paragraphe">
+        Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum sem. Cras
+        ac mi velit. Praesent commodo aliquet gravida. Etiam erat nisi,
+        malesuada quis
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Variables CSS nécessaires */
+  :root {
+    --main-font: "Poppins", serif;
+    --font-size18: 18px;
+    --font-size24: 24px;
+    --gray-color1: #757575;
+    --secondary-color: #0074c0;
+    --secondary-color2: #cce5ff;
+    --white-color: #ffffff;
+  }
+
+  /* Styles de base */
+  * {
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
+  /* Classes utilitaires */
+  .is-flex {
+    display: flex;
+  }
+
+  .is-justify-content-center {
+    justify-content: center;
+  }
+
+  .is-flex-wrap-wrap-mobile {
+    flex-wrap: wrap;
+  }
+
+  .is-align-items-center {
+    align-items: center;
+  }
+
+  /* Block */
+  .block:not(:last-child),
+  .block:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  /* Exemple block styles */
+  .txt-block-exemple {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 0px;
+    background-color: var(--white-color);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 4px 0px;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+  }
+
+  .block-image-exemple {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 4px 0px;
+    padding-top: 58px;
+    padding-right: 34px;
+    padding-bottom: 58px;
+    padding-left: 34px;
+  }
+
+  /* Images */
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Title h4 */
+  .title-h4 {
+    font-family: var(--main-font);
+    font-size: var(--font-size24);
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+
+  /* Paragraphe */
+  .paragraphe {
+    text-align: justify;
+    color: var(--gray-color1);
+    font-family: var(--main-font);
+    font-size: var(--font-size18);
+    font-weight: 400;
+  }
+
+  /* Colors */
+  .secondary-color {
+    color: var(--secondary-color) !important;
+  }
+
+  .bg-secondary-color2 {
+    background-color: var(--secondary-color2) !important;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .block-image-exemple {
+      width: 100%;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      padding: 20px;
+      justify-content: center;
+    }
+
+    .txt-block-exemple {
+      width: 100%;
+      padding: 20px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 20px;
+      border-bottom-left-radius: 20px;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 992px) and (min-width: 768px) {
+    .block-image-exemple {
+      width: 100%;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      padding: 20px;
+      justify-content: center;
+    }
+
+    .txt-block-exemple {
+      width: 100%;
+      padding: 20px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 20px;
+      border-bottom-left-radius: 20px;
+    }
+  }
+</style>

@@ -1,0 +1,138 @@
+<!-- Composant Sidebar -->
+<aside class="sidebar col-2">
+  <nav>
+    <p class="paragraphe primary-color is-uppercase pl-5 pr-5 pt-5">
+      <strong>Sommaire</strong>
+    </p>
+    <ul>
+      <li class="is-capitalized pl-5 pr-5">
+        <a href="#obj">Objectives pédagogique</a>
+      </li>
+      <li class="is-capitalized pl-5 pr-5">
+        <a href="#intro">Introduction</a>
+      </li>
+      <li class="is-capitalized pl-5 pr-5"><a href="#sec1">Section 1</a></li>
+      <li class="is-capitalized pl-5 pr-5"><a href="#sec2">Section 2</a></li>
+      <li class="is-capitalized pl-5 pr-5"><a href="#sec3">Section 3</a></li>
+      <li class="is-capitalized pl-5 pr-5"><a href="#sec4">Section 4</a></li>
+      <li class="is-capitalized pl-5 pr-5"><a href="#sec5">Section 5</a></li>
+      <li class="is-capitalized pl-5 pr-5">
+        <a href="#PAL">Pour Aller Plus Loin</a>
+      </li>
+      <li class="is-capitalized pl-5 pr-5"><a href="#conc">Conclusion</a></li>
+      <li class="is-capitalized pl-5 pr-5"><a href="#retenir">à Retenir</a></li>
+    </ul>
+  </nav>
+</aside>
+
+<style>
+  /* Variables CSS nécessaires */
+  :root {
+    --main-font: "Poppins", serif;
+    --font-size18: 18px;
+    --primary-color: #9747ff;
+    --gray-color1: #757575;
+  }
+
+  /* Styles de base */
+  * {
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
+  /* Classes utilitaires */
+  .col-2 {
+    width: 16.666667%;
+  }
+
+  .pl-5 {
+    padding-left: 20px !important;
+  }
+
+  .pr-5 {
+    padding-right: 20px !important;
+  }
+
+  .pt-5 {
+    padding-top: 20px !important;
+  }
+
+  .is-uppercase {
+    text-transform: uppercase !important;
+  }
+
+  .is-capitalized {
+    text-transform: capitalize !important;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    background-color: #f8f9fa;
+    border-right: 1px solid #e9ecef;
+    min-height: 100vh;
+    position: sticky;
+    top: 0;
+  }
+
+  .sidebar nav {
+    padding: 20px 0;
+  }
+
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar li {
+    margin-bottom: 10px;
+  }
+
+  .sidebar a {
+    text-decoration: none;
+    color: var(--gray-color1);
+    font-family: var(--main-font);
+    font-size: var(--font-size18);
+    transition: color 0.3s ease;
+  }
+
+  .sidebar a:hover {
+    color: var(--primary-color);
+  }
+
+  /* Paragraphe */
+  .paragraphe {
+    text-align: justify;
+    color: var(--gray-color1);
+    font-family: var(--main-font);
+    font-size: var(--font-size18);
+    font-weight: 400;
+  }
+
+  /* Colors */
+  .primary-color {
+    color: var(--primary-color) !important;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .sidebar {
+      position: static;
+      min-height: auto;
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #e9ecef;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 992px) and (min-width: 768px) {
+    .sidebar {
+      position: static;
+      min-height: auto;
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #e9ecef;
+    }
+  }
+</style>

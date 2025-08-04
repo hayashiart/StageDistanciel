@@ -1,0 +1,210 @@
+<!-- Composant Box 3 Colonnes -->
+<div class="block is-flex is-flex-gap is-flex-wrap-wrap-mobile">
+  <div
+    class="col-4 box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-primary-color4"
+  >
+    <div class="col-2 center">
+      <img
+        alt=""
+        src="https://medias.dstanciel.com/pages/d58738ae-4d37-4f5e-b524-0ed004279248/Wi6wGP0y46UWbmOQu1MJLP0hNhhVH42hoDpO9dCT.png"
+        class="img-fluid mt-4"
+      />
+    </div>
+    <div class="col-10">
+      <p class="paragraphe primary-color">
+        <strong>Lorem ipsum :</strong>
+      </p>
+      <p class="paragraphe">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+      </p>
+    </div>
+  </div>
+  <div
+    class="col-4 box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-blue-color10"
+  >
+    <div class="col-2 center">
+      <img
+        alt=""
+        src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/gnjCpeOb0yvpf2XxSu7IM0dU3CmMHBuh8JSaVFXy.png"
+        class="img-fluid mt-4"
+      />
+    </div>
+    <div class="col-10">
+      <p class="paragraphe secondary-color">
+        <strong>Lorem ipsum :</strong>
+      </p>
+      <p class="paragraphe">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+      </p>
+    </div>
+  </div>
+  <div
+    class="col-4 box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-gray-color6"
+  >
+    <div class="col-2 center">
+      <img
+        alt=""
+        src="https://medias.dstanciel.com/pages/d58738ae-4d37-4f5e-b524-0ed004279248/DlHa4F2pGLrqdwTJJjNhl1pPwEM4C3miyrcz95dP.png"
+        class="img-fluid mt-4"
+      />
+    </div>
+    <div class="col-10">
+      <p class="paragraphe gray-color1">
+        <strong>Lorem ipsum :</strong>
+      </p>
+      <p class="paragraphe">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Variables CSS nécessaires */
+  :root {
+    --main-font: "Poppins", serif;
+    --font-size18: 18px;
+    --primary-color: #9747ff;
+    --secondary-color: #0074c0;
+    --gray-color1: #757575;
+    --primary-color4: #efe8ff;
+    --blue-color10: #e6f0ff;
+    --gray-color6: #ededed;
+  }
+
+  /* Styles de base */
+  * {
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
+  /* Classes utilitaires */
+  .is-flex {
+    display: flex;
+  }
+
+  .is-flex-gap {
+    gap: 24px;
+  }
+
+  .is-flex-wrap-wrap-mobile {
+    flex-wrap: wrap;
+  }
+
+  .col-2 {
+    width: 16.666667%;
+  }
+  .col-4 {
+    width: 33.333333%;
+  }
+  .col-10 {
+    width: 83.333333%;
+  }
+
+  .p-5 {
+    padding: 24px !important;
+  }
+
+  .mt-4 {
+    margin-top: 16px !important;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  /* Block */
+  .block:not(:last-child),
+  .block:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  /* Box with shadow */
+  .box {
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(117, 117, 117, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 12px 24px rgba(117, 117, 117, 0.2);
+  }
+
+  /* Images */
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Paragraphe */
+  .paragraphe {
+    text-align: justify;
+    color: var(--gray-color1);
+    font-family: var(--main-font);
+    font-size: var(--font-size18);
+    font-weight: 400;
+  }
+
+  /* Colors */
+  .primary-color {
+    color: var(--primary-color) !important;
+  }
+
+  .secondary-color {
+    color: var(--secondary-color) !important;
+  }
+
+  .gray-color1 {
+    color: var(--gray-color1) !important;
+  }
+
+  .bg-primary-color4 {
+    background-color: var(--primary-color4) !important;
+  }
+
+  .bg-blue-color10 {
+    background-color: var(--blue-color10) !important;
+  }
+
+  .bg-gray-color6 {
+    background-color: var(--gray-color6) !important;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-12 {
+      width: 100%;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 992px) and (min-width: 768px) {
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-12 {
+      width: 100%;
+    }
+  }
+</style>

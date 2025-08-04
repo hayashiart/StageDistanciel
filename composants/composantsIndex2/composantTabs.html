@@ -1,0 +1,238 @@
+<!-- Composant Tabs -->
+<div class="block is-flex is-flex-gap is-flex-wrap-wrap-mobile">
+  <div class="col-6">
+    <div class="tabs">
+      <div class="tab">
+        <input type="checkbox" id="chck1" />
+        <label class="tab-label bg-primary-color3 gray-color" for="chck1"
+          >Lorem ipsum</label
+        >
+        <div class="tab-content is-flex is-flex-wrap-wrap-mobile is-flex-gap">
+          <div class="col-1 center mt-5">
+            <img
+              alt=""
+              class="img-fluid"
+              src="https://medias.dstanciel.com/pages/897873bd-a4d0-4eec-8ded-e9bce47602ae/NyHayPeIJ42Xc2g5B4P5fDDhISZ4L5CklbsfB6Yq.png"
+            />
+          </div>
+          <div class="col-11">
+            <ul>
+              <li class="animation-sub-text">
+                Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum
+                sem. Cras ac mi velit. Praesent commodo aliquet gravida. Etiam
+                erat nisi, malesuada quis
+              </li>
+              <li class="animation-sub-text">
+                Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum
+                sem. Cras ac mi velit. Praesent commodo aliquet gravida. Etiam
+                erat nisi, malesuada quis
+              </li>
+              <li class="animation-sub-text">
+                Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum
+                sem. Cras ac mi velit. Praesent commodo aliquet gravida. Etiam
+                erat nisi, malesuada quis
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="tabs">
+      <div class="tab">
+        <input type="checkbox" id="chck2" />
+        <label class="tab-label bg-primary-color3 gray-color" for="chck2"
+          >Lorem ipsum</label
+        >
+        <div class="tab-content is-flex is-flex-wrap-wrap-mobile is-flex-gap">
+          <div class="col-1 center mt-5">
+            <img
+              alt=""
+              class="img-fluid"
+              src="https://medias.dstanciel.com/pages/897873bd-a4d0-4eec-8ded-e9bce47602ae/NyHayPeIJ42Xc2g5B4P5fDDhISZ4L5CklbsfB6Yq.png"
+            />
+          </div>
+          <div class="col-11">
+            <ul>
+              <li class="animation-sub-text">
+                Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum
+                sem. Cras ac mi velit. Praesent commodo aliquet gravida. Etiam
+                erat nisi, malesuada quis
+              </li>
+              <li class="animation-sub-text">
+                Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum
+                sem. Cras ac mi velit. Praesent commodo aliquet gravida. Etiam
+                erat nisi, malesuada quis
+              </li>
+              <li class="animation-sub-text">
+                Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum
+                sem. Cras ac mi velit. Praesent commodo aliquet gravida. Etiam
+                erat nisi, malesuada quis
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Variables CSS nécessaires */
+  :root {
+    --main-font: "Poppins", serif;
+    --font-size18: 18px;
+    --primary-color: #9747ff;
+    --primary-color3: #e1d4ff;
+    --gray-color: #514b4b;
+    --gray-color1: #757575;
+    --gray-color6: #ededed;
+    --gray-color7: #f7f7f7;
+  }
+
+  /* Styles de base */
+  * {
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
+  /* Classes utilitaires */
+  .is-flex {
+    display: flex;
+  }
+
+  .is-flex-gap {
+    gap: 24px;
+  }
+
+  .is-flex-wrap-wrap-mobile {
+    flex-wrap: wrap;
+  }
+
+  .col-1 {
+    width: 8.333333%;
+  }
+  .col-6 {
+    width: 50%;
+  }
+  .col-11 {
+    width: 91.666667%;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .mt-5 {
+    margin-top: 24px !important;
+  }
+
+  /* Block */
+  .block:not(:last-child),
+  .block:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  /* Accordion styles */
+  .tabs {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.2);
+  }
+
+  .tab {
+    width: 100%;
+    color: var(--gray-color);
+    font-family: var(--main-font);
+    font-size: var(--font-size18);
+    overflow: hidden;
+  }
+
+  .tab-label {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    background: var(--gray-color7);
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .tab-label:hover {
+    background: var(--gray-color6);
+  }
+
+  .tab-label::after {
+    content: "\f13a";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: var(--primary-color);
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    transition: all 0.35s;
+  }
+
+  .tab-content {
+    max-height: 0;
+    padding: 0 1em;
+    color: var(--gray-color1);
+    background: var(--gray-color7);
+    transition: all 0.35s;
+  }
+
+  .tab-close {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em;
+    font-size: 0.75em;
+    background: var(--gray-color7);
+    cursor: pointer;
+  }
+
+  .tab-close:hover {
+    background: var(--gray-color6);
+  }
+
+  input:checked + .tab-label {
+    background: var(--gray-color7);
+    border-bottom: 1px solid var(--gray-color6);
+  }
+
+  input:checked + .tab-label::after {
+    transform: rotate(180deg);
+  }
+
+  input:checked ~ .tab-content {
+    max-height: 100vh;
+    padding: 1em;
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  /* Images */
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Animation sub text */
+  .animation-sub-text {
+    font-family: var(--main-font);
+    font-size: var(--font-size18);
+    color: var(--gray-color1);
+  }
+
+  /* Colors */
+  .gray-color {
+    color: var(--gray-color) !important;
+  }
+
+  .bg-primary-color3 {
+    background-color: var(--primary-color3) !important;
+  }
+</style>

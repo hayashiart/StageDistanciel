@@ -1,0 +1,188 @@
+<!-- Composant Tableau -->
+<div class="block">
+  <div class="wrap-title-table is-flex is-align-items-center">
+    <div class="loader-title-table is-flex">
+      <div>⬤</div>
+      <div>⬤</div>
+      <div>⬤</div>
+    </div>
+    <h4 class="title-table">Tableau récapitulatif</h4>
+  </div>
+</div>
+<div class="table-wrapper block">
+  <table>
+    <thead>
+      <tr>
+        <th>Played</th>
+        <th>Won</th>
+        <th>Lost</th>
+        <th>Tied</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>38</td>
+        <td>23</td>
+        <td>12</td>
+        <td>12</td>
+      </tr>
+      <tr>
+        <td>38</td>
+        <td>23</td>
+        <td>12</td>
+        <td>12</td>
+      </tr>
+      <tr>
+        <td>38</td>
+        <td>23</td>
+        <td>12</td>
+        <td>12</td>
+      </tr>
+      <tr>
+        <td>38</td>
+        <td>23</td>
+        <td>12</td>
+        <td>12</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<style>
+  /* Variables CSS nécessaires */
+  :root {
+    --main-font: "Poppins", serif;
+    --font-size28: 28px;
+    --primary-color: #9747ff;
+    --primary-color3: #e1d4ff;
+    --gray-color1: #757575;
+    --gray-color6: #ededed;
+    --gray-color7: #f7f7f7;
+    --white-color: #ffffff;
+  }
+
+  /* Styles de base */
+  * {
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
+  /* Classes utilitaires */
+  .is-flex {
+    display: flex;
+  }
+
+  .is-align-items-center {
+    align-items: center;
+  }
+
+  /* Block */
+  .block:not(:last-child),
+  .block:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  /* Title Table style */
+  .loader-title-table {
+    justify-content: center;
+  }
+
+  .loader div,
+  .loader-title-table div {
+    color: var(--primary-color);
+    display: inline-block;
+    margin-right: 20px;
+  }
+
+  .title-table {
+    color: var(--gray-color1);
+    font-size: var(--font-size28);
+    font-family: var(--main-font);
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  /* Table styles */
+  .table-wrapper {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  table {
+    width: 100%;
+    min-width: max-content;
+    border-collapse: collapse;
+  }
+
+  thead tr {
+    background-color: var(--primary-color3);
+  }
+
+  thead tr th:not(:last-child) {
+    border-right: 10px solid var(--white-color);
+  }
+
+  tbody tr {
+    background-color: var(--gray-color7);
+  }
+
+  tbody tr:not(:last-child) {
+    border-bottom: 8px solid var(--white-color);
+  }
+
+  tbody tr:hover {
+    background-color: var(--gray-color6);
+    transition: background-color 0.2s ease;
+  }
+
+  th,
+  td {
+    font-family: var(--main-font);
+    color: var(--gray-color1);
+    padding: 12px 16px;
+    text-align: left;
+  }
+
+  th {
+    font-weight: 600;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .wrap-title-table {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .loader-title-table {
+      align-items: center;
+      align-content: center;
+      flex-direction: row;
+    }
+
+    .title-table {
+      text-align: center;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 992px) and (min-width: 768px) {
+    .wrap-title-table {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .loader-title-table {
+      align-items: center;
+      align-content: center;
+      flex-direction: row;
+    }
+
+    .title-table {
+      text-align: center;
+    }
+  }
+</style>

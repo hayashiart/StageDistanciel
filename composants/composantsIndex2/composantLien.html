@@ -1,0 +1,166 @@
+<!-- Composant Lien -->
+<div class="block">
+  <div
+    class="link-container is-flex-gap is-flex-wrap-wrap-mobile is-justify-content-space-between is-flex"
+  >
+    <div
+      class="col-10 is-flex-gap is-flex-wrap-wrap-mobile is-align-items-center is-flex"
+    >
+      <div class="has-text-centered col-1">
+        <img
+          src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/zsoouBospUWmMqQ1u6GCGU4NFAEiTsc1K11lasND.jpg"
+          alt=""
+          class="img-fluid"
+        />
+      </div>
+      <div class="col-11">
+        <p class="paragraphe">Dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </div>
+    <div class="col-2 is-flex container-btn-link">
+      <p><a href="#" target="_blank" class="btn">Voir le lien</a></p>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Variables CSS nécessaires */
+  :root {
+    --main-font: "Poppins", serif;
+    --font-size18: 18px;
+    --gray-color1: #757575;
+    --white-color: #ffffff;
+  }
+
+  /* Styles de base */
+  * {
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
+  /* Classes utilitaires */
+  .is-flex {
+    display: flex;
+  }
+
+  .is-flex-gap {
+    gap: 24px;
+  }
+
+  .is-flex-wrap-wrap-mobile {
+    flex-wrap: wrap;
+  }
+
+  .is-justify-content-space-between {
+    justify-content: space-between;
+  }
+
+  .is-align-items-center {
+    align-items: center;
+  }
+
+  .col-1 {
+    width: 8.333333%;
+  }
+  .col-2 {
+    width: 16.666667%;
+  }
+  .col-10 {
+    width: 83.333333%;
+  }
+  .col-11 {
+    width: 91.666667%;
+  }
+
+  .has-text-centered {
+    text-align: center !important;
+  }
+
+  /* Block */
+  .block:not(:last-child),
+  .block:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  /* Block Link */
+  .link-container {
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    align-items: center;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
+  }
+
+  .container-btn-link {
+    justify-content: flex-end;
+  }
+
+  /* Images */
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Paragraphe */
+  .paragraphe {
+    text-align: justify;
+    color: var(--gray-color1);
+    font-family: var(--main-font);
+    font-size: var(--font-size18);
+    font-weight: 400;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    padding: 0.75em 1.5em;
+    background-color: rgb(0, 116, 192);
+    color: var(--white-color);
+    font-family: var(--main-font);
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 116, 192, 0.2);
+  }
+
+  .btn:hover {
+    background-color: rgba(0, 116, 192, 0.85);
+    transform: translateY(-2px);
+  }
+
+  .btn:active {
+    transform: translateY(0);
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .link-container {
+      border-radius: 30px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container-btn-link {
+      justify-content: center;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 992px) and (min-width: 768px) {
+    .link-container {
+      border-radius: 30px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container-btn-link {
+      justify-content: center;
+    }
+  }
+</style>

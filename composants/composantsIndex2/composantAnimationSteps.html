@@ -1,0 +1,242 @@
+<!-- Composant Animation Steps -->
+<div class="block">
+  <div class="animation-steps is-flex">
+    <div class="animation-step-content is-flex">
+      <div class="animation-step is-flex">
+        <div class="animation-circle"></div>
+        <div class="animation-line"></div>
+      </div>
+      <div class="animation-step-text is-flex">
+        <div>
+          <p class="paragraphe"><strong>1. Lorem ipsum</strong></p>
+          <ul>
+            <li class="animation-sub-text">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            </li>
+          </ul>
+        </div>
+        <div>
+          <img
+            src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/lKqAnyYVk9vwaE7ghQgad5sfaYpRjnxtVaLpV9gj.png"
+            alt=""
+            id="id713l"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="animation-step-content is-flex">
+      <div class="animation-step is-flex">
+        <div class="animation-circle"></div>
+        <div class="animation-line"></div>
+      </div>
+      <div class="animation-step-text is-flex">
+        <div>
+          <p class="paragraphe"><strong>2. Lorem ipsum</strong></p>
+          <ul>
+            <li class="animation-sub-text">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            </li>
+            <li class="animation-sub-text">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            </li>
+            <li class="animation-sub-text">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            </li>
+          </ul>
+        </div>
+        <div>
+          <img
+            src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/pvyQJvl3Evy2Uq5XM4KHUppYdBIxF7zS9HK5RdZQ.png"
+            alt=""
+            id="ibqh1z"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="animation-step-content is-flex">
+      <div class="animation-step is-flex">
+        <div class="animation-circle"></div>
+        <div class="animation-line"></div>
+      </div>
+      <div class="animation-step-text is-flex">
+        <div>
+          <p class="paragraphe"><strong>3. Lorem ipsum</strong></p>
+          <ul>
+            <li class="animation-sub-text">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            </li>
+            <li class="animation-sub-text">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            </li>
+          </ul>
+        </div>
+        <div>
+          <img
+            src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/AVdg1Wi4VkCfwGbKDiQHZ6MzJCZnhrhcyX2NO4Jp.png"
+            alt=""
+            id="ifocqy"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Variables CSS nécessaires */
+  :root {
+    --main-font: "Poppins", serif;
+    --font-size18: 18px;
+    --font-size24: 24px;
+    --gray-color1: #757575;
+    --primary-color: #9747ff;
+    --primary-color5: #f7f2ff;
+    --white-color: #ffffff;
+  }
+
+  /* Styles de base */
+  * {
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
+  /* Classes utilitaires */
+  .is-flex {
+    display: flex;
+  }
+
+  /* Block */
+  .block:not(:last-child),
+  .block:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  /* bloc step violet */
+  .animation-steps {
+    flex-direction: column;
+  }
+
+  .animation-step-content {
+    margin-bottom: 20px;
+  }
+
+  .animation-step {
+    align-items: center;
+    margin-right: 20px;
+    flex-direction: column;
+  }
+
+  .animation-circle {
+    width: 30px;
+    height: 30px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    background-color: var(--white-color);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: var(--primary-color);
+    border-right-color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+    border-left-color: var(--primary-color);
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    position: relative;
+  }
+
+  .animation-circle::after {
+    content: "";
+    width: 22px;
+    height: 22px;
+    background-color: var(--primary-color);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .animation-line {
+    width: 2px;
+    background-color: var(--primary-color);
+    position: absolute;
+    top: 30px;
+  }
+
+  .animation-step-text {
+    background-color: var(--primary-color5);
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .animation-text {
+    font-weight: 600;
+    font-family: var(--main-font);
+    font-size: var(--font-size24);
+    color: var(--gray-color1);
+    margin-bottom: 5px;
+  }
+
+  .animation-sub-text {
+    font-family: var(--main-font);
+    font-size: var(--font-size18);
+    color: var(--gray-color1);
+  }
+
+  .animation-step-content:last-child .animation-line {
+    display: none;
+  }
+
+  /* Paragraphe */
+  .paragraphe {
+    text-align: justify;
+    color: var(--gray-color1);
+    font-family: var(--main-font);
+    font-size: var(--font-size18);
+    font-weight: 400;
+  }
+
+  /* Images */
+  img {
+    max-width: 100px;
+    height: auto;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .animation-step-text {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 992px) and (min-width: 768px) {
+    .animation-step-text {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>

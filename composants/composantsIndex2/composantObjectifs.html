@@ -1,0 +1,119 @@
+<!-- Composant Objectifs -->
+<section id="obj">
+  <div class="block">
+    <h2 class="bg-title-h2">Objectifs pédagogiques</h2>
+  </div>
+  <div class="block">
+    <!--  Liste Purple -->
+    <ul class="check-list puce-purple">
+      <li>Lorem ipsum dolor sit amet</li>
+      <li>Lorem ipsum dolor sit amet</li>
+    </ul>
+    <!--  Liste Blue -->
+    <ul class="check-list puce-blue">
+      <li>Lorem ipsum dolor sit amet</li>
+      <li>Lorem ipsum dolor sit amet</li>
+    </ul>
+    <!--  Liste Gray -->
+    <ul class="check-list puce-grey">
+      <li>Lorem ipsum dolor sit amet</li>
+      <li>Lorem ipsum dolor sit amet</li>
+    </ul>
+    <!--  Liste Yellow -->
+    <ul class="check-list puce-yellow">
+      <li>Lorem ipsum dolor sit amet</li>
+      <li>Lorem ipsum dolor sit amet</li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* Variables CSS nécessaires */
+  :root {
+    --main-font: "Poppins", serif;
+    --font-size18: 18px;
+    --font-size32: 32px;
+    --primary-color: #9747ff;
+    --primary-color5: #f7f2ff;
+    --secondary-color: #0074c0;
+    --tertiary-color: #f69d35;
+    --gray-color: #514b4b;
+    --gray-color1: #757575;
+  }
+
+  /* Styles de base */
+  * {
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
+  /* Block */
+  .block:not(:last-child),
+  .block:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  /* Title H2 With background */
+  .bg-title-h2 {
+    font-family: var(--main-font);
+    color: var(--gray-color);
+    font-size: var(--font-size32);
+    font-weight: 600;
+    background-color: var(--primary-color5);
+    padding: 8px 14px;
+    border-radius: 10px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Liste */
+  ul.check-list {
+    list-style-type: none;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+
+  ul.check-list li {
+    font-size: var(--font-size18);
+    font-family: var(--main-font);
+    color: var(--gray-color);
+    text-align: justify;
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 25px;
+  }
+
+  ul.check-list li::before {
+    content: "";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 10px;
+    position: absolute;
+    left: 0px;
+    top: 25px;
+  }
+
+  ul.puce-purple li::before {
+    color: var(--primary-color);
+  }
+
+  ul.puce-grey li::before {
+    color: var(--gray-color1);
+  }
+
+  ul.puce-blue li::before {
+    color: var(--secondary-color);
+  }
+
+  ul.puce-yellow li::before {
+    color: var(--tertiary-color);
+  }
+</style>

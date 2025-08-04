@@ -1,0 +1,226 @@
+<!-- Composant Cartes Hover -->
+<div class="block">
+  <div class="is-flex is-flex-gap is-flex-wrap-wrap-mobile">
+    <div class="card-hover col-3">
+      <div class="cimg has-text-centered">
+        <img
+          src="https://medias.dstanciel.com/pages/9e291542-9cb1-456f-93f8-9eade55100b2/xJTcwJtZKXlT9OcuzLM8prPvv6fq4UBRoWxRYC1h.png"
+          alt="Image Description"
+        />
+      </div>
+      <div class="cdetail">
+        <h3 class="card-title">Card Title</h3>
+        <p class="paragraphe has-text-centered">
+          This is the content that will appear when you hover over the card. You
+          can add more text or elements here.
+        </p>
+      </div>
+    </div>
+    <div class="card-hover col-3 bg-tertiary-color4">
+      <div class="cimg has-text-centered">
+        <img
+          src="https://medias.dstanciel.com/pages/9e291542-9cb1-456f-93f8-9eade55100b2/xMXJeIwKqfd2EToejkW9mrtXMiwAa29g5zw1BSgD.png"
+          alt="Image Description"
+        />
+      </div>
+      <div class="cdetail">
+        <h3 class="card-title">Card Title</h3>
+        <p class="paragraphe has-text-centered">
+          This is the content that will appear when you hover over the card. You
+          can add more text or elements here.
+        </p>
+      </div>
+    </div>
+    <div class="card-hover col-3 bg-blue-color10">
+      <div class="cimg has-text-centered">
+        <img
+          src="https://medias.dstanciel.com/pages/9e291542-9cb1-456f-93f8-9eade55100b2/m14l8cPZIXBjLRBiPPs1TemnDepF8M5x1sKqa58F.png"
+          alt="Image Description"
+        />
+      </div>
+      <div class="cdetail">
+        <h3 class="card-title">Card Title</h3>
+        <p class="paragraphe has-text-centered">
+          This is the content that will appear when you hover over the card. You
+          can add more text or elements here.
+        </p>
+      </div>
+    </div>
+    <div class="card-hover col-3 bg-gray-color6">
+      <div class="cimg has-text-centered">
+        <img
+          src="https://medias.dstanciel.com/pages/9e291542-9cb1-456f-93f8-9eade55100b2/DnLHp5G1ZjrsxsIA99Loil9iQySfxmnVb98L1qtp.png"
+          alt="Image Description"
+        />
+      </div>
+      <div class="cdetail">
+        <h3 class="card-title">Card Title</h3>
+        <p class="paragraphe has-text-centered">
+          This is the content that will appear when you hover over the card. You
+          can add more text or elements here.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Variables CSS nécessaires */
+  :root {
+    --main-font: "Poppins", serif;
+    --font-size18: 18px;
+    --font-size20: 20px;
+    --gray-color: #514b4b;
+    --gray-color1: #757575;
+    --primary-color5: #f7f2ff;
+    --tertiary-color4: #fff3dc;
+    --blue-color10: #e6f0ff;
+    --gray-color6: #ededed;
+  }
+
+  /* Styles de base */
+  * {
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
+  /* Classes utilitaires */
+  .is-flex {
+    display: flex;
+  }
+
+  .is-flex-gap {
+    gap: 24px;
+  }
+
+  .is-flex-wrap-wrap-mobile {
+    flex-wrap: wrap;
+  }
+
+  .col-3 {
+    width: 25%;
+  }
+
+  /* Block */
+  .block:not(:last-child),
+  .block:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  /* Card hover */
+  .card-hover {
+    position: relative;
+    background-color: var(--primary-color5);
+    margin-top: 50px;
+    border-radius: 20px;
+    padding: 20px;
+    transition: 0.4s ease-in-out;
+    height: 200px;
+    box-shadow: 0 3px 50px rgba(0, 0, 0, 0.05);
+  }
+
+  .card-hover:hover {
+    height: 380px;
+  }
+
+  .cimg {
+    position: relative;
+    top: -50px;
+    z-index: 1;
+  }
+
+  .cimg img {
+    max-width: 100%;
+    height: 100%;
+    box-shadow: 0 3px 50px rgba(0, 0, 0, 0.05);
+  }
+
+  .cdetail {
+    position: relative;
+    margin-top: -140px;
+    padding: 10px 15px;
+    text-align: center;
+    font-family: var(--main-font);
+    font-size: var(--font-size18);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s ease-in-out;
+  }
+
+  .card-hover:hover .cdetail {
+    visibility: visible;
+    opacity: 1;
+    margin-top: -60px;
+  }
+
+  /* Card title */
+  .card-title {
+    font-size: var(--font-size20);
+    color: var(--gray-color);
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  /* Images */
+  .has-text-centered {
+    text-align: center !important;
+  }
+
+  /* Paragraphe */
+  .paragraphe {
+    text-align: justify;
+    color: var(--gray-color1);
+    font-family: var(--main-font);
+    font-size: var(--font-size18);
+    font-weight: 400;
+  }
+
+  /* Background colors */
+  .bg-tertiary-color4 {
+    background-color: var(--tertiary-color4) !important;
+  }
+
+  .bg-blue-color10 {
+    background-color: var(--blue-color10) !important;
+  }
+
+  .bg-gray-color6 {
+    background-color: var(--gray-color6) !important;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-12 {
+      width: 100%;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 992px) and (min-width: 768px) {
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-12 {
+      width: 100%;
+    }
+  }
+</style>

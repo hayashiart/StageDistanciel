@@ -1,0 +1,211 @@
+<!-- Composant Cartes -->
+<div class="block">
+  <div class="is-flex is-flex-gap is-flex-wrap-wrap-mobile">
+    <div class="card bg-primary-color5 col-3">
+      <div class="card-image has-text-centered">
+        <img
+          src="https://medias.dstanciel.com/pages/9e291542-9cb1-456f-93f8-9eade55100b2/xJTcwJtZKXlT9OcuzLM8prPvv6fq4UBRoWxRYC1h.png"
+          alt="Image Description"
+          class="img-fluid"
+        />
+      </div>
+      <div class="card-content">
+        <p class="card-title">Card Subtitle</p>
+        <p class="paragraphe">
+          This is some content inside the card. You can add text, images, or any
+          other elements here.
+        </p>
+      </div>
+    </div>
+    <div class="card bg-tertiary-color4 col-3">
+      <div class="card-image has-text-centered">
+        <img
+          src="https://medias.dstanciel.com/pages/9e291542-9cb1-456f-93f8-9eade55100b2/xMXJeIwKqfd2EToejkW9mrtXMiwAa29g5zw1BSgD.png"
+          alt="Image Description"
+          class="img-fluid"
+        />
+      </div>
+      <div class="card-content">
+        <p class="card-title">Card Subtitle</p>
+        <p class="paragraphe">
+          This is some content inside the card. You can add text, images, or any
+          other elements here.
+        </p>
+      </div>
+    </div>
+    <div class="card bg-blue-color10 col-3">
+      <div class="card-image has-text-centered">
+        <img
+          src="https://medias.dstanciel.com/pages/9e291542-9cb1-456f-93f8-9eade55100b2/m14l8cPZIXBjLRBiPPs1TemnDepF8M5x1sKqa58F.png"
+          alt="Image Description"
+          class="img-fluid"
+        />
+      </div>
+      <div class="card-content">
+        <p class="card-title">Card Subtitle</p>
+        <p class="paragraphe">
+          This is some content inside the card. You can add text, images, or any
+          other elements here.
+        </p>
+      </div>
+    </div>
+    <div class="card bg-gray-color7 col-3">
+      <div class="card-image has-text-centered">
+        <img
+          src="https://medias.dstanciel.com/pages/9e291542-9cb1-456f-93f8-9eade55100b2/DnLHp5G1ZjrsxsIA99Loil9iQySfxmnVb98L1qtp.png"
+          alt="Image Description"
+          class="img-fluid"
+        />
+      </div>
+      <div class="card-content">
+        <p class="card-title">Card Subtitle</p>
+        <p class="paragraphe">
+          This is some content inside the card. You can add text, images, or any
+          other elements here.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Variables CSS nécessaires */
+  :root {
+    --main-font: "Poppins", serif;
+    --font-size18: 18px;
+    --font-size20: 20px;
+    --gray-color: #514b4b;
+    --gray-color1: #757575;
+    --primary-color5: #f7f2ff;
+    --tertiary-color4: #fff3dc;
+    --blue-color10: #e6f0ff;
+    --gray-color7: #f7f7f7;
+  }
+
+  /* Styles de base */
+  * {
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
+  /* Classes utilitaires */
+  .is-flex {
+    display: flex;
+  }
+
+  .is-flex-gap {
+    gap: 24px;
+  }
+
+  .is-flex-wrap-wrap-mobile {
+    flex-wrap: wrap;
+  }
+
+  .col-3 {
+    width: 25%;
+  }
+
+  /* Block */
+  .block:not(:last-child),
+  .block:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  /* Card */
+  .card {
+    background-color: var(--white-color);
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    font-family: var(--main-font);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .card-title {
+    font-size: var(--font-size20);
+    color: var(--gray-color);
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  /* Images */
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .has-text-centered {
+    text-align: center !important;
+  }
+
+  /* Paragraphe */
+  .paragraphe {
+    text-align: justify;
+    color: var(--gray-color1);
+    font-family: var(--main-font);
+    font-size: var(--font-size18);
+    font-weight: 400;
+  }
+
+  /* Background colors */
+  .bg-primary-color5 {
+    background-color: var(--primary-color5) !important;
+  }
+
+  .bg-tertiary-color4 {
+    background-color: var(--tertiary-color4) !important;
+  }
+
+  .bg-blue-color10 {
+    background-color: var(--blue-color10) !important;
+  }
+
+  .bg-gray-color7 {
+    background-color: var(--gray-color7) !important;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-12 {
+      width: 100%;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 992px) and (min-width: 768px) {
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-12 {
+      width: 100%;
+    }
+  }
+</style>

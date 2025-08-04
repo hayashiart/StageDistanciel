@@ -1,0 +1,210 @@
+<!-- Composant Pour Aller Plus Loin -->
+<section id="PAL">
+  <div class="block">
+    <!--   Pour aller plus loin  -->
+    <h2 class="bg-title-h2">Pour aller plus loin</h2>
+    <div class="container-PAPL is-flex is-flex-gap is-flex-wrap-wrap-mobile">
+      <!-- Left illustration -->
+      <div class="has-text-centered col-2">
+        <img
+          alt="Lorem illustration"
+          src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/hL5bcV0oezQQ1c9R8agvdHHBNoGGyS0pFerb17iW.png"
+          class="img-fluid"
+        />
+      </div>
+      <!-- Right content (links) -->
+      <div class="wrap-txt-PAPL col-10">
+        <div>
+          <p class="title-PAPL">Lorem ipsum</p>
+          <div class="link-PAPL is-flex underline-animate">
+            <p class="parag-PAPL">
+              <a href="#" target="_blank" class="paragraphe"
+                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+                dolor neque minima asperiores soluta quisquam eaque qui nostrum
+                quasi. Eaque quos a repudiandae eum quaerat ipsum dolore ut
+                perferendis est.</a
+              >
+            </p>
+            <a href="#" target="_blank"
+              ><img
+                alt="Lorem lien"
+                src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/B8PFIuYWmLVsmFnJC0P3u2wlJgb2qHFYMrBEPMNi.png"
+                class="img-fluid"
+            /></a>
+          </div>
+        </div>
+        <div>
+          <p class="title-PAPL">Lorem ipsum</p>
+          <div class="link-PAPL is-flex underline-animate">
+            <p class="parag-PAPL">
+              <a href="#" target="_blank" class="paragraphe"
+                >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste
+                excepturi quidem dicta esse, vero animi hic tenetur quos cum
+                optio voluptatibus repudiandae rem. Voluptatem provident qui at
+                voluptatum architecto harum!</a
+              >
+            </p>
+            <a href="#" target="_blank"
+              ><img
+                alt="Lorem lien"
+                src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/B8PFIuYWmLVsmFnJC0P3u2wlJgb2qHFYMrBEPMNi.png"
+                class="img-fluid"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Variables CSS nécessaires */
+  :root {
+    --main-font: "Poppins", serif;
+    --font-size18: 18px;
+    --font-size32: 32px;
+    --gray-color1: #757575;
+    --primary-color5: #f7f2ff;
+    --gray-color7: #f7f7f7;
+  }
+
+  /* Styles de base */
+  * {
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
+  /* Classes utilitaires */
+  .is-flex {
+    display: flex;
+  }
+
+  .is-flex-gap {
+    gap: 24px;
+  }
+
+  .is-flex-wrap-wrap-mobile {
+    flex-wrap: wrap;
+  }
+
+  .col-2 {
+    width: 16.666667%;
+  }
+  .col-10 {
+    width: 83.333333%;
+  }
+
+  .has-text-centered {
+    text-align: center !important;
+  }
+
+  /* Block */
+  .block:not(:last-child),
+  .block:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  /* Title H2 With background */
+  .bg-title-h2 {
+    font-family: var(--main-font);
+    color: var(--gray-color);
+    font-size: var(--font-size32);
+    font-weight: 600;
+    background-color: var(--primary-color5);
+    padding: 8px 14px;
+    border-radius: 10px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Pour aller plus loin  */
+  .container-PAPL {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title-PAPL {
+    font-family: var(--main-font);
+    font-size: var(--font-size18);
+    font-weight: 400;
+    color: var(--gray-color1);
+  }
+
+  .parag-PAPL {
+    font-family: var(--main-font);
+    font-size: var(--font-size18);
+    color: var(--gray-color1);
+  }
+
+  .parag-PAPL a {
+    text-decoration: none;
+  }
+
+  .parag-PAPL:hover a {
+    color: var(--secondary-color);
+  }
+
+  .link-PAPL {
+    background-color: var(--gray-color7);
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    padding-top: 0px;
+    padding-right: 20px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+  }
+
+  /* Images */
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Paragraphe */
+  .paragraphe {
+    text-align: justify;
+    color: var(--gray-color1);
+    font-family: var(--main-font);
+    font-size: var(--font-size18);
+    font-weight: 400;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-12 {
+      width: 100%;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 992px) and (min-width: 768px) {
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-12 {
+      width: 100%;
+    }
+  }
+</style>
