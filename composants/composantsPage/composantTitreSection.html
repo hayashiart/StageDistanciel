@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Composant Titre Section</title>
+    <style>
+      /* ======= Titre de section avec numéro ======= */
+      .titre-section-header {
+        display: inline-flex;
+        align-items: center;
+        background-color: #e6f0fb;
+        border-radius: 8px;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        border: 2px solid #3b6ea5e3;
+        margin-bottom: 1.5rem;
+        width: 70%;
+        margin-left: 5%;
+        margin-top: 10%;
+      }
+
+      .titre-section-number {
+        background-color: #3b6ea5;
+        color: white;
+        font-weight: bold;
+        font-size: clamp(14px, 2vw, 20px);
+        padding: 9px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .titre-section-title {
+        color: #3b6ea5;
+        font-size: clamp(12px, 2vw, 20px);
+        font-weight: 600;
+        padding: 6px 16px;
+        margin-left: 10%;
+      }
+
+      /* ======= Sous-titre ======= */
+      .titre-section-subtitle h3 {
+        font-size: 1.3rem;
+        color: #0055a5;
+        margin-bottom: 1.6rem;
+        margin-left: 5%;
+      }
+
+      @media (max-width: 768px) {
+        .titre-section-header {
+          margin-left: 2%;
+          width: 90%;
+        }
+
+        .titre-section-number {
+          font-size: clamp(16px, 3vw, 18px);
+          padding: 12px 10px;
+        }
+
+        .titre-section-title {
+          font-size: clamp(14px, 3vw, 16px);
+          padding: 8px 12px;
+          margin-left: 5%;
+        }
+
+        .titre-section-subtitle h3 {
+          font-size: 1.1rem;
+          margin-left: 2%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!--================================= Titre de section ================================================-->
+    <section class="titre-section-header">
+      <div class="titre-section-number">01</div>
+      <div class="titre-section-title">Titre de la section</div>
+    </section>
+
+    <!--=================================== Sous-titre ==============================================-->
+    <div class="titre-section-subtitle">
+      <h3>Sous-titre de la section</h3>
+    </div>
+  </body>
+</html>

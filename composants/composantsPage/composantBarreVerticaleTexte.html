@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Composant Barre Verticale Texte</title>
+    <style>
+      /* ===========================
+       SECTION BANDE VERTICALE
+    =========================== */
+      /* La section principale */
+      .barre-verticale-texte-section {
+        position: relative;
+        padding: 50px 20px;
+        z-index: 1; /* un contexte d'empilement */
+      }
+
+      /* Bande verticale colorée */
+      .barre-verticale-texte-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 25%;
+        height: 100%;
+        background-color: #f5e7c4; /* couleur de la barre */
+        z-index: -1; /* sous le contenu de la section mais au-dessus du fond global */
+      }
+
+      .barre-verticale-texte-content {
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .barre-verticale-texte-content h3 {
+        margin-top: 40px;
+        font-size: 1.8rem;
+        font-weight: bold;
+      }
+
+      .barre-verticale-texte-content p {
+        font-size: 1rem;
+        margin-bottom: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <!--================================ Section Barre Verticale Texte =======================================-->
+
+    <!-- SECTION BANDE VERTICALE -->
+    <section class="barre-verticale-texte-section">
+      <div class="barre-verticale-texte-content">
+        <h3>Premier bloc de texte</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </p>
+
+        <h3>Deuxième bloc de texte</h3>
+        <p>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est
+          laborum.
+        </p>
+
+        <h3>Troisième bloc de texte</h3>
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
+          ab illo inventore veritatis et quasi architecto beatae vitae dicta
+          sunt explicabo.
+        </p>
+      </div>
+    </section>
+  </body>
+</html>

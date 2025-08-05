@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Composant Image Gauche Box Droit Texte</title>
+    <style>
+
+      /* ===========================
+       CONTENEUR IMAGE + TEXTE
+    ============================ */
+      .image-gauche-box-texte-container {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 10%;
+      }
+
+      .image-gauche-box-texte-img {
+        flex: 1;
+        max-width: 250px;
+      }
+
+      .image-gauche-box-texte-img img {
+        width: 105%;
+        height: 90%;
+        margin-left: 30%;
+      }
+
+      .image-gauche-box-texte-text {
+        flex: 2;
+        min-width: 300px;
+      }
+
+      .image-gauche-box-texte-highlight {
+        background: #f8f8e8;
+        padding: 30px;
+        border-radius: 8px;
+        font-size: 1rem;
+        line-height: 1.8;
+        width: 70%;
+        margin-left: 15%;
+      }
+
+      /* ===========================
+       RESPONSIVE
+    ============================ */
+      @media (max-width: 768px) {
+        .image-gauche-box-texte-container {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .image-gauche-box-texte-img {
+          max-width: 200px;
+          margin-bottom: 15px;
+        }
+
+        .image-gauche-box-texte-img img {
+          width: 90%;
+          height: 90%;
+          margin-left: -50%;
+        }
+
+        .image-gauche-box-texte-text {
+          text-align: left;
+        }
+
+        .image-gauche-box-texte-title {
+          font-size: 1rem;
+          color: #0055a5;
+          margin-bottom: 1.6rem;
+          margin-left: 0%;
+        }
+
+        .image-gauche-box-texte-intro {
+          font-size: 0.8rem;
+          margin-bottom: 30px;
+          margin-left: 0%;
+        }
+
+        .image-gauche-box-texte-highlight {
+          background: #f8f8e8;
+          padding: 30px;
+          border-radius: 8px;
+          font-size: 0.9rem;
+          line-height: 1.8;
+          width: 70%;
+          margin-left: 0%;
+        }
+
+        .image-gauche-box-texte-details {
+          font-size: 0.8rem;
+          margin-top: 10%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!--========================================= Section Image Gauche Box Droit Texte =========================================-->
+    <section class="image-gauche-box-texte-section">
+      <!-- CONTENEUR PRINCIPAL -->
+      <div class="image-gauche-box-texte-container">
+        <!-- IMAGE À GAUCHE -->
+        <div class="image-gauche-box-texte-img">
+          <img src="./images/image.png" alt="Illustration" />
+        </div>
+
+        <!-- TEXTE DANS BOX À DROITE -->
+        <div class="image-gauche-box-texte-text">
+          <div class="image-gauche-box-texte-highlight">
+            <p>
+              <strong>Lorem ipsum dolor sit amet</strong>, consectetur
+              adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+              exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate
+              velit esse cillum dolore eu fugiat nulla pariatur.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

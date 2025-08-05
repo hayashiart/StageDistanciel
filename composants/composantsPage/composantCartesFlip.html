@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Composant Cartes Flip</title>
+    <style>
+      /* ======= SECTION CARTES FLIP ======= */
+      .cartes-flip-section p {
+        margin-bottom: 10%;
+      }
+
+      .cartes-flip-list {
+        display: flex;
+        justify-content: center;
+        gap: 2.9rem;
+        flex-wrap: wrap;
+      }
+
+      .carte-flip {
+        width: 170px;
+        height: 100px;
+        perspective: 1000px;
+      }
+
+      .carte-flip-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        cursor: pointer;
+      }
+
+      .carte-flip:hover .carte-flip-inner {
+        transform: rotateY(180deg);
+      }
+
+      .carte-flip-front,
+      .carte-flip-back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        text-align: center;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .carte-flip-front {
+        background: #f5eec2;
+        color: #333;
+        transform: rotateY(0deg);
+      }
+
+      .carte-flip-back {
+        background: #003366;
+        color: white;
+        transform: rotateY(180deg);
+        font-size: 0.8rem;
+      }
+
+      @media (max-width: 768px) {
+        .cartes-flip-list {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!--======================================== Cartes Flip ==============================================-->
+    <div class="cartes-flip-section">
+      <div class="cartes-flip-list">
+        <div class="carte-flip">
+          <div class="carte-flip-inner">
+            <div class="carte-flip-front">Première carte</div>
+            <div class="carte-flip-back">Description de la première carte</div>
+          </div>
+        </div>
+        <div class="carte-flip">
+          <div class="carte-flip-inner">
+            <div class="carte-flip-front">Deuxième carte</div>
+            <div class="carte-flip-back">Description de la deuxième carte</div>
+          </div>
+        </div>
+        <div class="carte-flip">
+          <div class="carte-flip-inner">
+            <div class="carte-flip-front">Troisième carte</div>
+            <div class="carte-flip-back">Description de la troisième carte</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon module de formation</title>
+  <style>
+    /*  CSS maman  */
+
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+    }
+    .module-container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 9px 15px rgba(0, 0, 0, 0.189);
+      padding: 30px;
+    }
+
+
+
+
+
+
+        /* ===========================
+       GLOBAL
+    =========================== */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #333;
+      text-align: center;
+      padding: 2rem;
+    }
+
+
+/*---========================================Sommaire==================================================---*/
+
+
+
+:root {
+  --main-font: Arial, sans-serif;
+  --primary-color: #739AC5;
+  --gray-color1: #464646;
+  --font-size18: 18px;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: var(--main-font);
+  background: #fff;
+  color: var(--gray-color1);
+}
+
+
+/* ======== BANNIÈRE FIXE ======== */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+
+.top-bar-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+
+/* ======== BURGER ======== */
+.menu-toggle-checkbox {
+  display: none;
+}
+
+
+.menu-toggle {
+  display: block;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+
+.menu-toggle span {
+  display: block;
+  height: 4px;
+  background: var(--gray-color1);
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+
+/* ======== MENU ======== */
+.menu {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f8f9fa;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+  padding: 20px;
+  z-index: 999;
+}
+
+
+.menu nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+
+.menu-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+
+.menu-list {
+  list-style: none;
+  text-align: center;
+}
+
+
+.menu-list li {
+  margin: 15px 0;
+}
+
+
+.menu a {
+  text-decoration: none;
+  color: var(--gray-color1);
+  font-size: var(--font-size18);
+  transition: color 0.3s ease;
+}
+
+
+.menu a:hover {
+  color: var(--primary-color);
+}
+
+
+/* Animation burger -> croix */
+.menu-toggle-checkbox:checked + .menu-toggle span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+
+.menu-toggle-checkbox:checked + .menu-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+
+.menu-toggle-checkbox:checked + .menu-toggle span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+
+/* Affichage du menu quand coché */
+.menu-toggle-checkbox:checked ~ .menu {
+  transform: translateY(0);
+}
+
+
+/* Contenu principal */
+main {
+  padding: 80px 20px;
+}
+
+
+
+
+
+
+    /* ===========================
+       TITRE PRINCIPAL
+    =========================== */
+    .main-title-fr-unique {
+      font-size: 1.8rem;
+      color: #3b6ea5;
+      font-weight: bold;
+      text-decoration: underline;
+      margin-bottom: 2rem;
+    }
+
+
+    /* ===========================
+       VIDÉO
+    =========================== */
+    .video-container-fr-unique {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 10%;
+    }
+
+
+    .video-container-fr-unique video {
+      width: 80%;
+      max-width: 900px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+
+    /* ===========================
+       RESPONSIVE DESIGN
+    =========================== */
+    @media (max-width: 768px) {
+      .main-title-fr-unique {
+        font-size: 1.5rem;
+        
+      }
+
+
+      .video-container-fr-unique video {
+        width: 95%;
+      }
+    }
+
+
+
+
+
+    
+  .main-content-unique {
+    margin-left: 270px;
+    padding: 2rem;
+    max-width: 1000px;
+  }
+
+
+  @media (max-width: 900px) {
+    .main-content-unique {
+      margin-left: 0;
+      padding: 1rem;
+    }
+  }
+
+
+  
+
+
+ /* ======= Sous titre ======= */
+
+
+ .section-header-unique {
+    display: inline-flex;
+    align-items: center;
+    background-color: #e6f0fb;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid #3b6ea5e3;
+    margin-bottom: 1.5rem;
+    width: 70%;
+    margin-left: -20%;
+    margin-top: 10%;
+ 
+  }
+
+
+
+
+  .section-number-unique {
+    background-color: #3b6ea5;
+    color: white;
+    font-weight: bold;
+    font-size: clamp(14px, 2vw, 20px);
+    padding: 9px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+  }
+
+
+  .section-title-unique {
+    color: #3b6ea5;
+    font-size: clamp(12px, 2vw, 20px);
+    font-weight: 600;
+    padding: 6px 16px;
+    margin-left: 10%;
+   
+ 
+  }
+
+
+
+  @media (max-width: 768px) {
+    .section-header-unique {
+     margin-left: -2%;
+      }
+    
+        
+      }
+    
+  
+  @media (max-width: 768px) {
+    .section-number-unique {
+      font-size: clamp(20px, 1vw, 10px);
+      padding: 20px 2px;
+      }
+      .section-header-unique {
+        
+      }
+    }
+  
+
+
+/* ======= Sous (sous) titre ======= */
+  .sub-section-unique h3 {
+      font-size: 1.3rem;
+      color: #0055a5;
+      margin-bottom: 1.6rem;
+      margin-left: -50%;
+    }
+
+    @media (max-width: 768px) {
+      .sub-section-unique h3 {
+        font-size: 1.0rem;
+        margin-left: -10%;
+      }
+    }
+
+
+/* ======= Le cadre politique ======= */
+    .content-container-fr-001 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 10%;
+      width: 90%;
+      margin-left: 7%;
+      margin-top: 10%;
+
+    }
+
+
+    .text-box-fr-001 {
+      flex: 2;
+      background: #f0f7ff;
+      padding: 1.2rem;
+      border-radius: 8px;
+      border: 1px solid #d0e0f0;
+      font-size: 1rem;
+      line-height: 1.6;
+  
+     
+    }
+
+
+    .image-box-fr-001 {
+      flex: 1;
+      text-align: center;
+    }
+
+
+    .image-box-fr-001 img {
+      width: 170px;
+      height: auto;
+      
+    }
+
+
+    @media (max-width: 768px) {
+      .content-container-fr-001 {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .image-box-fr-001 img {
+      width: 120px;
+      height: auto;
+    }
+    }
+
+
+
+
+
+
+
+    /* ======= SECTION POUVOIRS UNIQUES ======= */
+    .powers-section-unique p {
+      
+    
+      margin-bottom: 10%;
+    }
+
+
+    .powers-list-unique {
+      display: flex;
+      justify-content: center;
+      gap: 2.9rem;
+      flex-wrap: wrap;
+    }
+
+
+    .power-card-unique {
+      width: 170px;
+      height: 100px;
+      perspective: 1000px;
+      
+    }
+
+
+    .card-inner-unique {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+
+
+    .power-card-unique:hover .card-inner-unique {
+      transform: rotateY(180deg);
+    }
+
+
+    .card-front-unique,
+    .card-back-unique {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      text-align: center;
+      padding: 10px;
+    }
+
+
+    .card-front-unique {
+      background: #f5eec2;
+      color: #333;
+    }
+
+
+    .card-back-unique {
+      background: #003366;
+      color: white;
+      transform: rotateY(180deg);
+      font-size: 0.8rem;
+    }
+
+
+    @media (max-width: 768px) {
+      .powers-list-unique {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+
+
+
+
+
+    
+    /* ===========================
+       SECTION : REGIME PARLEMENTAIRE
+    ============================ */
+    .regime-section-unique {
+      max-width: 1200px;
+      margin: 0 auto;
+      margin-top: 20%;
+    }
+
+
+    .regime-title-unique {
+      font-size: 1.3rem;
+      color: #0055a5;
+      margin-bottom: 1.6rem;
+      margin-left: -35%;
+    }
+
+
+    .regime-intro-unique {
+      font-size: 1.0rem;
+      margin-bottom: 30px;
+      margin-left: -12%;
+    }
+
+
+    /* ===========================
+       CONTENEUR IMAGE + TEXTE
+    ============================ */
+    .regime-container-unique {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 10%;
+     
+    }
+
+
+    .regime-img-unique {
+      flex: 1;
+      max-width: 250px;
+    }
+
+
+    .regime-img-unique img {
+      width: 105%;
+      height: 90%;
+      margin-left: 30%;
+    }
+
+
+    .regime-text-unique {
+      flex: 2;
+      min-width: 300px;
+    }
+
+
+    .regime-highlight-unique {
+      background: #f8f8e8;
+      padding: 30px;
+      border-radius: 8px;
+      font-size: 1rem;
+      line-height: 1.8;
+      width: 70%;
+      margin-left: 15%;
+    }
+
+
+    /* ===========================
+       TEXTE COMPLÉMENTAIRE
+    ============================ */
+    .regime-details-unique {
+      font-size: 1rem;
+      margin-top: 15px;
+      margin-bottom: 5%;
+    }
+
+
+    /* ===========================
+       RESPONSIVE
+    ============================ */
+    @media (max-width: 768px) {
+      .regime-container-unique {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+
+      .regime-img-unique {
+        max-width: 200px;
+        margin-bottom: 15px;
+      }
+
+
+
+
+      .regime-img-unique img {
+      width: 90%;
+      height: 90%;
+      margin-left: -50%;
+    }
+
+      .regime-text-unique {
+        text-align: left;
+      }
+
+
+      .regime-title-unique {
+      font-size: 1.0rem;
+      color: #0055a5;
+      margin-bottom: 1.6rem;
+      margin-left: 0%;
+    }
+
+
+
+    .regime-intro-unique {
+      font-size: 0.8rem;
+      margin-bottom: 30px;
+      margin-left: 0%;
+    }
+
+
+    .regime-highlight-unique {
+      background: #f8f8e8;
+      padding: 30px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      line-height: 1.8;
+      width: 70%;
+      margin-left: 0%;
+    }
+
+    .regime-details-unique {
+      font-size: 0.8rem;
+      margin-top: 10%;
+    }
+
+    }
+
+
+
+
+    
+
+    /* ===========================
+       le cadre administratif fr 
+    ============================ */
+
+
+    .admin-header-unique {
+      display: inline-flex;
+    align-items: center;
+    background-color: #e6f0fb;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid #3b6ea5e3;
+    margin-bottom: 1.5rem;
+    width: 70%;
+    margin-left: -20%;
+    margin-top: 10%;
+  }
+
+    .admin-number-unique {
+      background-color: #3b6ea5;
+    color: white;
+    font-weight: bold;
+    font-size: clamp(14px, 2vw, 20px);
+    padding: 9px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+    }
+
+
+    .admin-title-unique {
+      color: #3b6ea5;
+    font-size: clamp(12px, 2vw, 20px);
+    font-weight: 600;
+    padding: 6px 16px;
+    margin-left: 10%;
+   
+    }
+
+
+    /* ===========================
+       SOUS-TITRE
+    ============================ */
+    .admin-subtitle-unique {
+      color: #5F8BBC;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin: 1rem 2rem 0.5rem 2rem;
+      margin-left: -40%;
+      margin-bottom: 10%;
+    }
+
+
+    /* ===========================
+       TEXTE INTRODUCTION ENCADRÉ
+    ============================ */
+    .admin-intro-unique {
+      max-width: 800px;
+      margin: 0 2rem 2rem 2rem;
+      background-color: #f9f9f9;
+      padding: 1rem 1.5rem;
+      border-radius: 6px;
+      margin-bottom: 10%;
+     
+    }
+
+
+    .admin-intro-unique p {
+      margin: 0.5rem 0;
+    }
+
+
+    /* ===========================
+       CONTENEUR PRINCIPAL (cartes)
+    ============================ */
+    .admin-container-unique {
+      background-color: #F0ECC8;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem;
+      
+    }
+
+
+    .admin-cards-unique {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+
+    .admin-card-unique {
+      flex: 1;
+      min-width: 200px;
+      text-align: center;
+      background-color: #F0ECC8;
+    }
+
+
+    .admin-card-unique img {
+      width: 100%;
+      max-width: 200px;
+      margin-bottom: 1rem;
+    }
+
+
+    .admin-card-title-unique {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+
+    .admin-card-text-unique {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #333;
+    }
+
+
+    /* ===========================
+       RESPONSIVE MOBILE
+    ============================ */
+    @media (max-width: 768px) {
+
+
+      .admin-subtitle-unique {
+      color: #5F8BBC;
+      font-weight: bold;
+      font-size: 1.0rem;
+      margin: 1rem 1rem 0.5rem 2rem;
+      margin-left: 0%;
+      margin-bottom: 10%;
+    }
+
+
+
+
+    .admin-card-text-unique {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #333;
+      margin-left: -5%;
+    }
+
+
+
+
+      .admin-cards-unique {
+        flex-direction: column;
+        align-items: center;
+      
+      }
+
+
+      .admin-card-unique {
+        max-width: 90%;
+      }
+
+
+      .admin-header-unique {
+       width: 80%;
+       margin-left: 0%;
+      
+       
+      }
+    
+
+      .admin-number-unique {
+        border-radius: 4px 0px 0 0;
+        width: 0%;
+        font-size: clamp(25px, 1vw, 20px);
+      padding: 20px 20px;
+      
+      }
+
+      .admin-container-unique {
+      background-color: #F0ECC8;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: -1rem;
+    }
+
+
+    .admin-cards-unique {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+
+    .admin-card-unique {
+      flex: 1;
+      min-width: 200px;
+      text-align: center;
+      background-color: #F0ECC8;
+    }
+
+
+    .admin-card-unique img {
+      width: 100%;
+      max-width: 200px;
+      margin-bottom: 1rem;
+    }
+
+
+      }
+
+
+      .admin-title-unique {
+        border-radius: 0 0 8px 8px;
+        width: 100%;
+        padding: 8px;
+        
+      }
+    
+
+
+
+
+     /* ===========================Un Etat decentralisé =========================== */
+
+
+    /* ===========================
+       SOUS-TITRE BLEU
+    =========================== */
+    h2.decentralisation-subtitle {
+      color: #5F8BBC;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin: 1rem 2rem 0.5rem 2rem;
+      margin-left: -55%;
+      margin-bottom: 10%;
+    }
+     
+    
+
+
+    .decentralisation-intro-text {
+      max-width: 800px;
+      margin: 0 20px 30px 20px;
+      text-align: left;
+      font-size: 0.9rem;
+      margin-bottom: 10%;
+    }
+
+
+
+    
+    @media (max-width: 600px) {
+    h2.decentralisation-subtitle {
+      color: #5F8BBC;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin: 1rem 2rem 0.5rem 2rem;
+      margin-left: 5%;
+      margin-bottom: 10%;
+      margin-top: 20%;
+    }
+    .decentralisation-intro-text {
+      max-width: 900px;
+      margin: 0 0px 60px 0px;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+  }
+    /* ===========================
+       SECTION BANDE BEIGE
+    =========================== */
+ /* La section principale */
+.decentralisation-highlight-section {
+  position: relative;
+  padding: 50px 20px;
+  z-index: 1; /* un contexte d'empilement */
+}
+
+
+/* Bande beige */
+.decentralisation-highlight-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 25%;
+  height: 100%;
+  background-color: #f5e7c4; /* beige */
+  z-index: -1; /* sous le contenu de la section mais au-dessus du fond global */
+}
+
+
+
+
+    .decentralisation-content {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+
+    .decentralisation-content h3 {
+      margin-top: 40px;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+
+    .decentralisation-content p {
+      font-size: 1rem;
+      margin-bottom: 40px;
+    }
+
+
+
+/* A retenir*/
+
+  /* =========================== A RETENIR - Conteneur principal =========================== */
+    .gjs-a-retenir-container {
+      margin-top: 10%;
+      max-width: 800px;
+      margin: 40px auto;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    
+    }
+
+
+    .gjs-a-retenir-image {
+      max-width: 150px;
+      margin: 0 auto 20px;
+      display: block;
+    }
+
+
+    .gjs-a-retenir-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #333;
+      text-transform: uppercase;
+    }
+
+
+    /* ===========================
+       Responsive
+    =========================== */
+    @media (max-width: 600px) {
+      .gjs-a-retenir-container {
+        padding: 10px;
+        margin-top: 20%;
+      }
+      .gjs-a-retenir-image {
+        max-width: 100px;
+      }
+      .gjs-a-retenir-title {
+        font-size: 18px;
+       
+      }
+
+    }
+
+
+ /* ===========================
+       Composant a retenir : Liste
+    =========================== */
+    .gjs-a-retenir-list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      text-align: left;
+      max-width: 800px;
+      margin: 40px auto;
+      font-family: Arial, sans-serif;
+      padding: 0 20px;
+    }
+
+
+    .gjs-a-retenir-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+
+    /* Numéro */
+    .gjs-a-retenir-number {
+      background-color: #3b6ea5;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+
+    /* Ligne verticale entre les numéros */
+    .gjs-a-retenir-item:not(:last-child) .gjs-a-retenir-number::after {
+      content: "";
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 25px;
+      background-color: #cbd6e2;
+    }
+
+
+    /* Texte */
+    .gjs-a-retenir-content {
+      flex: 1;
+      margin-bottom: 2%;
+    }
+
+
+    .gjs-a-retenir-content h4 {
+      margin: 0;
+      font-size: 1em;
+      color: #2b5d92;
+      margin-bottom: 2%;
+    }
+
+
+    .gjs-a-retenir-content p {
+      margin: 4px 0 0;
+      font-size: 14px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+
+    /* ===========================
+       Responsive
+    =========================== */
+    @media (max-width: 600px) {
+      .gjs-a-retenir-content h4 {
+        font-size: 14px;
+        margin-bottom: 5%;
+      }
+      .gjs-a-retenir-content p {
+        font-size: 13px;
+      }
+      /* Texte */
+    .gjs-a-retenir-content {
+    
+      margin-bottom: 10%;
+    }
+
+    }
+    
+  </style>
+</head>
+<body>
+  
+
+      <!--================================ Sommaire ===========================================-->
+
+     
+      
+      
+
+      <!--================================ Contenaire maman ===========================================-->
+  <div class="module-container">
+
+    <!--====================================== composants ==============================================-->
+    <header class="top-bar">
+      <div class="top-bar-title"></div>
+      <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
+      <label for="menu-toggle" class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </header>
+    
+    
+    <!-- Le menu doit être au même niveau que la checkbox -->
+    <div class="menu">
+      <nav>
+        <p class="menu-title">Sommaire</p>
+        <ul class="menu-list">
+          <li><a href="#sec1">1 - Le système politique français</a></li>
+          <li><a href="#gjs-section-1a">A - Un pouvoir politique unitaire</a></li>
+          <li><a href="#gjs-section-1b">B - Régime parlementaire et présidentiel</a></li>
+          <li><a href="#sec2">2 - Le cadre administratif français</a></li>
+          <li><a href="#gjs-section-2a">A - Un cadre administratif déconcentré</a></li>
+          <li><a href="#gjs-section-2b">B - Un État décentralisé</a></li>
+        </ul>
+      </nav>
+    </div>
+    
+
+   <!--========================================= Titre ==============================================-->
+    <h1 class="main-title-fr-unique">Le cadre politique et administratif de la France</h1>
+
+
+    <div class="video-container-fr-unique">
+      <video controls>
+        <img src="./image/video.png" type="video/mp4">
+     
+      </video>
+    </div>
+  
+     <!--================================= Sous titre ================================================-->
+
+    <section id="section-1-unique" class="section-a-unique">
+      <div class="section-header-unique">
+        <div class="section-number-unique">01</div>
+        <div class="section-title-unique">Le système politique Français</div>
+      </div>
+    </section>
+
+ <!--=================================== Sous (sous) titre ==============================================-->
+
+ <div id="section-1a-unique" class="sub-section-unique">
+  <h3>A. Un pouvoir politique unitaire</h3>
+</div>
+
+
+
+ 
+ <!--================================= Le cadre politique  ===================================================-->
+
+ <div id="section-1a-fr-001" class="sub-section-fr-001">
+  <div class="content-container-fr-001">
+    <div class="text-box-fr-001">
+      <p>
+        Le cadre politique de la France est unitaire : les lois sont les mêmes pour tous.
+        Le système judiciaire est semblable sur tout le territoire.
+        La France est « une République, indivisible, laïque, démocratique et sociale ».
+      </p>
+    </div>
+    <div class="image-box-fr-001">
+      <img src="./image/imagedrapeau.png" alt="Drapeau français" >
+    </div>
+  </div>
+</div>
+
+   
+
+
+ <!--======================================== Le pouvoir ==============================================-->
+
+
+    <div class="powers-section-unique">
+      <p>Le pouvoir politique est défini par la Constitution, détaillant les trois pouvoirs :</p>
+      <div class="powers-list-unique">
+        <div class="power-card-unique">
+          <div class="card-inner-unique">
+            <div class="card-front-unique">Pouvoir exécutif</div>
+            <div class="card-back-unique">Chargé d'appliquer les lois et de diriger l'administration.</div>
+          </div>
+        </div>
+        <div class="power-card-unique">
+          <div class="card-inner-unique">
+            <div class="card-front-unique">Pouvoir législatif</div>
+            <div class="card-back-unique">Élabore et vote les lois applicables dans tout le pays.</div>
+          </div>
+        </div>
+        <div class="power-card-unique">
+          <div class="card-inner-unique">
+            <div class="card-front-unique">Pouvoir judiciaire</div>
+            <div class="card-back-unique">Interprète les lois et rend la justice en toute indépendance.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+<!--========================================= Regime parlementaire =========================================-->
+
+    <section class="regime-section-unique">
+      <!-- TITRE DE LA SECTION -->
+      <h2 class="regime-title-unique">B. Régime parlementaire et présidentiel</h2>
+      <p class="regime-intro-unique">
+        La Vème république organise un régime à la fois présidentiel et parlementaire.
+      </p>
+  
+  
+      <!-- CONTENEUR PRINCIPAL -->
+      <div class="regime-container-unique">
+        <!-- IMAGE DU PRÉSIDENT -->
+        <div class="regime-img-unique">
+          <img src="./image/imagePresident.png" alt="Illustration du Président">
+        </div>
+  
+  
+        <!-- TEXTE DU PRÉSIDENT -->
+        <div class="regime-text-unique">
+          <div class="regime-highlight-unique">
+            <p>
+              <strong>Le président de la République</strong> est chef de l’État et chef des armées et une figure centrale du régime.
+              Il assure, par son arbitrage, « le fonctionnement régulier des pouvoirs publics ».
+              Son autorité s’est progressivement renforcée.
+              Le président de la République est élu pour 5 ans au suffrage universel direct.
+              Il nomme son premier-ministre qui forme le gouvernement avec les ministres et les secrétaires d’État.
+              Le Premier ministre dirige l’action du Gouvernement qui « détermine et conduit la politique de la Nation ».
+            </p>
+          </div>
+        </div>
+      </div>
+  
+  
+      <!-- TEXTE COMPLÉMENTAIRE -->
+      <p class="regime-details-unique">
+        Le régime politique français est aussi parlementaire. Il y a une séparation des pouvoirs entre l’exécutif et le législatif (ainsi que le judiciaire).
+        <strong>Le pouvoir législatif est composé de deux chambres : l’Assemblée Nationale et le Sénat qui votent les lois.</strong>
+      </p>
+  
+  
+      <p class="regime-details-unique">
+        L’État décline son organisation unitaire dans un cadre administratif déconcentré et décentralisé.
+      </p>
+    </section>
+  
+
+
+
+
+
+
+<!-- ====================== Le cadre administratif francais ============================== -->
+
+
+
+  <!-- TITRE PRINCIPAL -->
+  <div class="admin-header-unique">
+    <div class="admin-number-unique">02</div>
+    <div class="admin-title-unique">Le cadre administratif français</div>
+  </div>
+
+
+  <!-- SOUS-TITRE -->
+  <h3 class="admin-subtitle-unique">A. Un cadre administratif déconcentré</h3>
+
+
+  <!-- TEXTE D'INTRODUCTION ENCADRÉ -->
+  <div class="admin-intro-unique">
+    <p>La déconcentration est la déclinaison des pouvoirs à un niveau local de l’État.</p>
+    <p>Les agents de l’État qui disposent de ce pouvoir sont à la tête de circonscriptions administratives comme la région, le département et les mairies.</p>
+    <p>Il existe actuellement en France trois niveaux de collectivités territoriales et de circonscriptions d’action de l’État (dont les représentants sont respectivement le maire, le préfet et le préfet de région) :</p>
+  </div>
+
+
+  <!-- CONTENEUR DES CARTES -->
+  <div class="admin-container-unique">
+    <div class="admin-cards-unique">
+      <div class="admin-card-unique">
+        <img src="./image/imageRegion.png" alt="Carte Région">
+        <div class="admin-card-title-unique">Régions (22)</div>
+        <div class="admin-card-text-unique">
+          Le préfet de région gère les services déconcentrés de l’État dans la région :
+          police nationale, direction régionale de la jeunesse…
+        </div>
+      </div>
+
+
+      <div class="admin-card-unique">
+        <img src="./image/imageDepartement.png" alt="Carte Département">
+        <div class="admin-card-title-unique">Département (101)</div>
+        <div class="admin-card-text-unique">
+          Le préfet de département est le représentant de l’État.
+          Il dirige les services extérieurs de l’État.
+        </div>
+      </div>
+
+
+      <div class="admin-card-unique">
+        <img src="./image/imageMairie.png" alt="Carte Mairie">
+        <div class="admin-card-title-unique">Mairies (36 000)</div>
+        <div class="admin-card-text-unique">
+          Le maire, élu par le conseil municipal, est un représentant de l’État dans la commune
+          et le détenteur du pouvoir exécutif local.
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+   <!--================================ Un Etat decentralisé =======================================-->
+
+
+
+   <!-- SOUS-TITRE BLEU + TEXTE INTRO -->
+  <h2 class="decentralisation-subtitle">B. Un Etat décentralisé</h2>
+  <p class="decentralisation-intro-text">
+    La décentralisation est différente de la déconcentration car le pouvoir accordé à la collectivité décentralisée est indépendant du pouvoir de l’État. Le pouvoir est alors partagé.
+  </p>
+
+
+  <!-- SECTION BANDE BEIGE -->
+  <section class="decentralisation-highlight-section">
+    <div class="decentralisation-content">
+      <h3>La Commune</h3>
+      <p>La mairie gère l’administration des services communaux : entretien de la voirie, service d’action sociale (CCAS), etc.</p>
+
+
+      <h3>Le Département</h3>
+      <p>Le conseil départemental est indépendant pour la construction et le financement des collèges, la gestion de l’action sociale (Aide sociale à l’enfance, Protection Maternelle et Infantile, aide sociale aux familles, aides aux personnes âgées et handicapées).</p>
+
+
+      <h3>La Région</h3>
+      <p>Le conseil régional coordonne les actions dans le domaine économique, le schéma régional de transport, les lycées, la formation professionnelle, les politiques de formation des travailleurs sociaux et professions paramédicales.</p>
+    </div>
+  </section>
+
+
+
+
+
+
+
+     <!--======================================= A RETENIR ===========================================-->
+
+     
+
+  <div class="gjs-a-retenir-container">
+    <img src="./image/aretenir.png" alt="Lecture" class="gjs-a-retenir-image">
+    <div class="gjs-a-retenir-title">A RETENIR</div>
+  </div>
+
+ 
+
+
+
+
+  <!-- ======================================= Liste d'éléments =========================================== -->
+
+
+  <div class="gjs-a-retenir-list">
+
+
+    <!-- Élément 1 -->
+    <div class="gjs-a-retenir-item">
+      <div class="gjs-a-retenir-number">01</div>
+      <div class="gjs-a-retenir-content">
+        <h4>L’État français est composé d’une nation et d’un territoire délimité.</h4>
+        <p>L’État français dispose d’un système politique unitaire qui fonctionne grâce à un régime parlementaire et présidentiel. Ce régime a été défini dans le cadre de la constitution de la Vème République (1958).</p>
+      </div>
+    </div>
+
+
+    <!-- Élément 2 -->
+    <div class="gjs-a-retenir-item">
+      <div class="gjs-a-retenir-number">02</div>
+      <div class="gjs-a-retenir-content">
+        <h4>Le cadre politique de la France est unitaire</h4>
+        <p>Les lois sont les mêmes pour tous. Le système judiciaire est semblable sur tout le territoire. La France est « une République, indivisible, laïque, démocratique et sociale ».</p>
+      </div>
+    </div>
+
+
+    <!-- Élément 3 -->
+    <div class="gjs-a-retenir-item">
+      <div class="gjs-a-retenir-number">03</div>
+      <div class="gjs-a-retenir-content">
+        <h4>Le pouvoir politique est défini par la Constitution</h4>
+        <p>Détaillant les trois pouvoirs : exécutif, législatif et judiciaire.</p>
+      </div>
+    </div>
+
+
+    <!-- Élément 4 -->
+    <div class="gjs-a-retenir-item">
+      <div class="gjs-a-retenir-number">04</div>
+      <div class="gjs-a-retenir-content">
+        <h4>La décentralisation est différente de la déconcentration</h4>
+        <p>Le pouvoir accordé à la collectivité décentralisée est indépendant du pouvoir de l’État. Le pouvoir est alors partagé.</p>
+      </div>
+    </div>
+
+
+</body>
+</html>

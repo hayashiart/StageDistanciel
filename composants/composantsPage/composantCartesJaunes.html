@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Composant Cartes Jaunes</title>
+    <style>
+      /* ===========================
+       CONTENEUR PRINCIPAL (cartes)
+    ============================ */
+      .cartes-jaunes-container {
+        background-color: #f0ecc8;
+        padding: 2rem;
+        border-radius: 12px;
+        margin: 2rem;
+      }
+
+      .cartes-jaunes-list {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .carte-jaune {
+        flex: 1;
+        min-width: 200px;
+        text-align: center;
+        background-color: #f0ecc8;
+      }
+
+      .carte-jaune img {
+        width: 100%;
+        max-width: 200px;
+        margin-bottom: 1rem;
+      }
+
+      .carte-jaune-title {
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .carte-jaune-text {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: #333;
+      }
+
+      /* ===========================
+       RESPONSIVE MOBILE
+    ============================ */
+      @media (max-width: 768px) {
+        .cartes-jaunes-container {
+          padding: 1.5rem;
+          margin: 1rem;
+        }
+
+        .cartes-jaunes-list {
+          flex-direction: column;
+          align-items: center;
+          gap: 2rem;
+        }
+
+        .carte-jaune {
+          max-width: 90%;
+          min-width: 250px;
+        }
+
+        .carte-jaune img {
+          max-width: 150px;
+        }
+
+        .carte-jaune-title {
+          font-size: 1.1rem;
+        }
+
+        .carte-jaune-text {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- CONTENEUR DES CARTES JAUNES -->
+    <div class="cartes-jaunes-container">
+      <div class="cartes-jaunes-list">
+        <div class="carte-jaune">
+          <img src="./images/image1.png" alt="Image 1" />
+          <div class="carte-jaune-title">Première carte</div>
+          <div class="carte-jaune-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </div>
+        </div>
+
+        <div class="carte-jaune">
+          <img src="./images/image2.png" alt="Image 2" />
+          <div class="carte-jaune-title">Deuxième carte</div>
+          <div class="carte-jaune-text">
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat.
+          </div>
+        </div>
+
+        <div class="carte-jaune">
+          <img src="./images/image3.png" alt="Image 3" />
+          <div class="carte-jaune-title">Troisième carte</div>
+          <div class="carte-jaune-text">
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur.
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
