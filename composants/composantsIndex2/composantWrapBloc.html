@@ -1,0 +1,181 @@
+<!-- Composant Wrap Bloc -->
+<div class="block">
+  <div
+    class="is-flex is-flex-gap is-flex-wrap-wrap-mobile has-text-centered box-shadow b-radius-2"
+  >
+    <div class="wrap-bloc-component after-purple col-4 p-5">
+      <img
+        alt=""
+        src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/lSwryWaRz4VzKNRatKFIY1fQGUWpZDJsJdAarcKb.png"
+        id="i08e0k"
+      />
+      <p class="paragraphe has-text-centered">
+        <strong>1. Lorem ipsum</strong>
+      </p>
+      <p class="paragraphe has-text-centered">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias
+        dignissimos consequatur qui fugiat
+      </p>
+    </div>
+    <div class="wrap-bloc-component after-purple col-4 p-5">
+      <img
+        alt=""
+        src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/E7ADzTZxIJh1n2cDkRLOkrNRuuMr8EXGLzovilZM.png"
+        id="ies347"
+      />
+      <p class="paragraphe has-text-centered">
+        <strong>2. Lorem ipsum</strong>
+      </p>
+      <p class="paragraphe has-text-centered">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias
+        dignissimos consequatur qui fugiat
+      </p>
+    </div>
+    <div class="wrap-bloc-component after-purple col-4 p-5">
+      <img
+        alt=""
+        src="https://medias.dstanciel.com/pages/baf235b8-829b-419b-bd55-602854ff8921/sVyfKV42xF52mXTH6280jYwHmhU8Ypu04AzU8nE9.png"
+        id="io8m5u"
+      />
+      <p class="paragraphe has-text-centered">
+        <strong>3. Lorem ipsum</strong>
+      </p>
+      <p class="paragraphe has-text-centered">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias
+        dignissimos consequatur qui fugiat
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Variables CSS nécessaires */
+  :root {
+    --main-font: "Poppins", serif;
+    --font-size18: 18px;
+    --gray-color1: #757575;
+    --primary-color: #9747ff;
+  }
+
+  /* Styles de base */
+  * {
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
+  /* Classes utilitaires */
+  .is-flex {
+    display: flex;
+  }
+
+  .is-flex-gap {
+    gap: 24px;
+  }
+
+  .is-flex-wrap-wrap-mobile {
+    flex-wrap: wrap;
+  }
+
+  .col-4 {
+    width: 33.333333%;
+  }
+
+  .p-5 {
+    padding: 20px !important;
+  }
+
+  .has-text-centered {
+    text-align: center !important;
+  }
+
+  .b-radius-2 {
+    border-radius: 8px !important;
+  }
+
+  /* Block */
+  .block:not(:last-child),
+  .block:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  /* Box shadow */
+  .box-shadow {
+    box-shadow: 0px 4px 8px rgba(117, 117, 117, 0.15);
+  }
+
+  /* Wrap bloc */
+  .wrap-bloc-component {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(117, 117, 117, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .wrap-bloc-component:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(117, 117, 117, 0.2);
+  }
+
+  .wrap-bloc-component img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 16px;
+  }
+
+  /* After purple */
+  .after-purple::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 0 0 8px 8px;
+  }
+
+  /* Paragraphe */
+  .paragraphe {
+    text-align: justify;
+    color: var(--gray-color1);
+    font-family: var(--main-font);
+    font-size: var(--font-size18);
+    font-weight: 400;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-12 {
+      width: 100%;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 992px) and (min-width: 768px) {
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-12 {
+      width: 100%;
+    }
+  }
+</style>

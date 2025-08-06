@@ -1,6 +1,6 @@
 <!-- Composant Animation Steps -->
 <div class="block">
-  <div class="animation-steps is-flex">
+  <div class="animation-steps-component is-flex">
     <div class="animation-step-content is-flex">
       <div class="animation-step is-flex">
         <div class="animation-circle"></div>
@@ -87,11 +87,8 @@
   :root {
     --main-font: "Poppins", serif;
     --font-size18: 18px;
-    --font-size24: 24px;
     --gray-color1: #757575;
     --primary-color: #9747ff;
-    --primary-color5: #f7f2ff;
-    --white-color: #ffffff;
   }
 
   /* Styles de base */
@@ -111,102 +108,47 @@
     margin-bottom: 24px;
   }
 
-  /* bloc step violet */
-  .animation-steps {
+  /* Animation steps */
+  .animation-steps-component {
     flex-direction: column;
+    gap: 40px;
   }
 
   .animation-step-content {
-    margin-bottom: 20px;
+    align-items: flex-start;
+    gap: 20px;
   }
 
   .animation-step {
-    align-items: center;
-    margin-right: 20px;
     flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    min-width: 60px;
   }
 
   .animation-circle {
-    width: 30px;
-    height: 30px;
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
-    border-bottom-right-radius: 50%;
-    border-bottom-left-radius: 50%;
-    background-color: var(--white-color);
-    border-top-width: 2px;
-    border-right-width: 2px;
-    border-bottom-width: 2px;
-    border-left-width: 2px;
-    border-top-style: solid;
-    border-right-style: solid;
-    border-bottom-style: solid;
-    border-left-style: solid;
-    border-top-color: var(--primary-color);
-    border-right-color: var(--primary-color);
-    border-bottom-color: var(--primary-color);
-    border-left-color: var(--primary-color);
-    border-image-source: initial;
-    border-image-slice: initial;
-    border-image-width: initial;
-    border-image-outset: initial;
-    border-image-repeat: initial;
-    position: relative;
-  }
-
-  .animation-circle::after {
-    content: "";
-    width: 22px;
-    height: 22px;
-    background-color: var(--primary-color);
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
-    border-bottom-right-radius: 50%;
-    border-bottom-left-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    border: 3px solid var(--primary-color);
   }
 
   .animation-line {
-    width: 2px;
-    background-color: var(--primary-color);
-    position: absolute;
-    top: 30px;
+    width: 3px;
+    height: 40px;
+    background: var(--primary-color);
   }
 
   .animation-step-text {
-    background-color: var(--primary-color5);
-    padding-top: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-    width: 100%;
+    flex: 1;
+    gap: 20px;
     align-items: center;
-    justify-content: space-between;
   }
 
-  .animation-text {
-    font-weight: 600;
-    font-family: var(--main-font);
-    font-size: var(--font-size24);
-    color: var(--gray-color1);
-    margin-bottom: 5px;
-  }
-
-  .animation-sub-text {
-    font-family: var(--main-font);
-    font-size: var(--font-size18);
-    color: var(--gray-color1);
-  }
-
-  .animation-step-content:last-child .animation-line {
-    display: none;
+  .animation-step-text img {
+    max-width: 100px;
+    height: auto;
   }
 
   /* Paragraphe */
@@ -218,22 +160,22 @@
     font-weight: 400;
   }
 
-  /* Images */
-  img {
-    max-width: 100px;
-    height: auto;
+  /* Animation sub text */
+  .animation-sub-text {
+    font-family: var(--main-font);
+    font-size: var(--font-size18);
+    color: var(--gray-color1);
+    margin-bottom: 8px;
   }
 
   /* Mobile */
   @media (max-width: 768px) {
-    .animation-step-text {
+    .animation-step-content {
       flex-direction: column;
+      align-items: center;
       text-align: center;
     }
-  }
 
-  /* Tablet */
-  @media (max-width: 992px) and (min-width: 768px) {
     .animation-step-text {
       flex-direction: column;
       text-align: center;
