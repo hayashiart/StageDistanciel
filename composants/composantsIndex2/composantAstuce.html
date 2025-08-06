@@ -1,7 +1,7 @@
-<!-- Composant Anecdote -->
+<!-- Composant Astuce -->
 <div class="block">
   <div
-    class="anecdote-index2-container is-flex is-flex-gap is-flex-wrap-wrap-mobile is-align-items-center"
+    class="astuce-index2-container is-flex is-flex-gap is-flex-wrap-wrap-mobile is-align-items-center"
   >
     <div class="img-container col-1">
       <img
@@ -11,7 +11,7 @@
       />
     </div>
     <div class="txt-container col-11">
-      <h4 class="title-h4-anecdote secondary-color">Anecdote</h4>
+      <h4 class="title-h4-astuce tertiary-color">Astuce</h4>
       <p class="paragraphe">
         Dolor sit amet, consectetur adipiscing elit. Aenean ut ipsum sem. Cras
         ac mi velit. Praesent commodo aliquet gravida. Etiam erat nisi,
@@ -28,7 +28,7 @@
     --font-size18: 18px;
     --font-size24: 24px;
     --gray-color1: #757575;
-    --secondary-color: #0074c0;
+    --tertiary-color: #f69d35;
     --white-color: #ffffff;
   }
 
@@ -68,8 +68,8 @@
     margin-bottom: 24px;
   }
 
-  /* block anecdote styles */
-  .anecdote-index2-container {
+  /* block astuce styles */
+  .astuce-index2-container {
     padding-top: 10px;
     padding-right: 20px;
     padding-bottom: 10px;
@@ -86,7 +86,7 @@
   }
 
   /* Title h4 */
-  .title-h4-anecdote {
+  .title-h4-astuce {
     font-family: var(--main-font);
     font-size: var(--font-size24);
     font-weight: 700;
@@ -103,7 +103,43 @@
   }
 
   /* Colors */
-  .secondary-color {
-    color: var(--secondary-color) !important;
+  .tertiary-color {
+    color: var(--tertiary-color) !important;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-12 {
+      width: 100%;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 992px) and (min-width: 768px) {
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-12 {
+      width: 100%;
+    }
   }
 </style>
