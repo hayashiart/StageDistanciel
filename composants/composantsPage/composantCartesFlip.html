@@ -67,10 +67,52 @@
         font-size: 0.8rem;
       }
 
+      /* Mobile (≤768px) */
       @media (max-width: 768px) {
         .cartes-flip-list {
           flex-direction: column;
           align-items: center;
+          gap: 1.5rem;
+        }
+
+        .carte-flip {
+          width: 150px;
+          height: 80px;
+        }
+
+        .carte-flip-back {
+          font-size: 0.7rem;
+        }
+      }
+
+      /* Tablet (768px-1024px) */
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .cartes-flip-list {
+          gap: 2rem;
+        }
+
+        .carte-flip {
+          width: 160px;
+          height: 90px;
+        }
+      }
+
+      /* Laptop (1024px-1440px) */
+      @media (min-width: 1025px) and (max-width: 1440px) {
+        .cartes-flip-list {
+          gap: 2.5rem;
+        }
+      }
+
+      /* Desktop (>1440px) */
+      @media (min-width: 1441px) {
+        .cartes-flip-list {
+          gap: 3rem;
+        }
+
+        .carte-flip {
+          width: 180px;
+          height: 110px;
         }
       }
     </style>

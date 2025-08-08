@@ -1,104 +1,162 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Composant QCM</title>
-  <style>
-    /* ===========================
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Composant QCM</title>
+    <style>
+      /* ===========================
        Composant : QCM
     =========================== */
-    .qcm-bloc {
-      background-color: rgb(247, 250, 255);
-      border-radius: 8px;
-      max-width: 520px;
-      margin: 42px auto 0;
-      box-shadow: rgba(42, 120, 219, 0.07) 0px 2px 18px;
-      padding: 28px;
-    }
+      .qcm-bloc {
+        background-color: rgb(247, 250, 255);
+        border-radius: 8px;
+        max-width: 520px;
+        margin: 42px auto 0;
+        box-shadow: rgba(42, 120, 219, 0.07) 0px 2px 18px;
+        padding: 28px;
+      }
 
-    .qcm-bloc h2 {
-      font-size: 1.3em;
-      margin: 0 0 18px;
-    }
+      .qcm-bloc h2 {
+        font-size: 1.3em;
+        margin: 0 0 18px;
+      }
 
-    .qcm-question {
-      margin-bottom: 22px;
-    }
+      .qcm-question {
+        margin-bottom: 22px;
+      }
 
-    .qcm-question legend {
-      font-weight: bold;
-      margin-bottom: 9px;
-    }
+      .qcm-question legend {
+        font-weight: bold;
+        margin-bottom: 9px;
+      }
 
-    .qcm-question label {
-      display: block;
-      margin-bottom: 6px;
-      padding: 7px 12px;
-      border-radius: 4px;
-    }
+      .qcm-question label {
+        display: block;
+        margin-bottom: 6px;
+        padding: 7px 12px;
+        border-radius: 4px;
+      }
 
-    summary {
-      background-color: rgb(232, 242, 250);
-      color: rgb(34, 85, 102);
-      border-radius: 5px;
-      padding: 10px 22px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 16px;
-    }
+      summary {
+        background-color: rgb(232, 242, 250);
+        color: rgb(34, 85, 102);
+        border-radius: 5px;
+        padding: 10px 22px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 16px;
+      }
 
-    summary::marker {
-      color: rgb(34, 85, 102);
-      font-weight: bold;
-      cursor: pointer;
-    }
+      summary::marker {
+        color: rgb(34, 85, 102);
+        font-weight: bold;
+        cursor: pointer;
+      }
 
-    .qcm-correction {
-      margin-top: 16px;
-      background-color: rgb(234, 251, 231);
-      color: rgb(34, 89, 43);
-      border-radius: 5px;
-      padding: 14px 18px;
-      font-weight: bold;
-    }
+      .qcm-correction {
+        margin-top: 16px;
+        background-color: rgb(234, 251, 231);
+        color: rgb(34, 89, 43);
+        border-radius: 5px;
+        padding: 14px 18px;
+        font-weight: bold;
+      }
 
-    .qcm-correction strong {
-      color: rgb(19, 140, 62);
-    }
-  </style>
-</head>
-<body>
-  <!-- Composant QCM -->
-  <form autocomplete="off" class="qcm-bloc">
-    <h2>Quiz rapide</h2>
-    <fieldset class="qcm-question">
-      <legend>1. Quelle balise pour un titre principal ?</legend>
-      <label><input type="radio" name="q1"> &lt;h1&gt;</label>
-      <label><input type="radio" name="q1"> &lt;p&gt;</label>
-      <label><input type="radio" name="q1"> &lt;div&gt;</label>
-      <details>
-        <summary>Corriger</summary>
-        <div class="qcm-correction">
-          <span>La bonne réponse était : <strong>&lt;h1&gt;</strong></span>
-        </div>
-      </details>
-    </fieldset>
-    <fieldset class="qcm-question">
-      <legend>2. Quels langages servent à styliser une page ? (plusieurs réponses possibles)</legend>
-      <label><input type="checkbox" name="q2"> CSS</label>
-      <label><input type="checkbox" name="q2"> SQL</label>
-      <label><input type="checkbox" name="q2"> HTML</label>
-      <details>
-        <summary>Corriger</summary>
-        <div class="qcm-correction">
-          <span>
-            Bonne(s) réponse(s) : <strong>CSS</strong><br>
-            (HTML structure, CSS stylise, SQL non)
-          </span>
-        </div>
-      </details>
-    </fieldset>
-  </form>
-</body>
+      .qcm-correction strong {
+        color: rgb(19, 140, 62);
+      }
+
+      /* Mobile (≤768px) */
+      @media (max-width: 768px) {
+        .qcm-bloc {
+          max-width: 95%;
+          margin: 20px auto 0;
+          padding: 20px;
+        }
+
+        .qcm-bloc h2 {
+          font-size: 1.2em;
+          margin: 0 0 15px;
+        }
+
+        .qcm-question legend {
+          font-size: 0.9em;
+        }
+
+        .qcm-question label {
+          padding: 10px 15px;
+          font-size: 0.9em;
+        }
+
+        summary {
+          padding: 12px 18px;
+          font-size: 0.9em;
+        }
+
+        .qcm-correction {
+          padding: 12px 15px;
+          font-size: 0.9em;
+        }
+      }
+
+      /* Tablet (768px-1024px) */
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .qcm-bloc {
+          max-width: 600px;
+          padding: 25px;
+        }
+      }
+
+      /* Laptop (1024px-1440px) */
+      @media (min-width: 1025px) and (max-width: 1440px) {
+        .qcm-bloc {
+          max-width: 650px;
+        }
+      }
+
+      /* Desktop (>1440px) */
+      @media (min-width: 1441px) {
+        .qcm-bloc {
+          max-width: 700px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Composant QCM -->
+    <form autocomplete="off" class="qcm-bloc">
+      <h2>Quiz rapide</h2>
+      <fieldset class="qcm-question">
+        <legend>1. Quelle balise pour un titre principal ?</legend>
+        <label><input type="radio" name="q1" /> &lt;h1&gt;</label>
+        <label><input type="radio" name="q1" /> &lt;p&gt;</label>
+        <label><input type="radio" name="q1" /> &lt;div&gt;</label>
+        <details>
+          <summary>Corriger</summary>
+          <div class="qcm-correction">
+            <span>La bonne réponse était : <strong>&lt;h1&gt;</strong></span>
+          </div>
+        </details>
+      </fieldset>
+      <fieldset class="qcm-question">
+        <legend>
+          2. Quels langages servent à styliser une page ? (plusieurs réponses
+          possibles)
+        </legend>
+        <label><input type="checkbox" name="q2" /> CSS</label>
+        <label><input type="checkbox" name="q2" /> SQL</label>
+        <label><input type="checkbox" name="q2" /> HTML</label>
+        <details>
+          <summary>Corriger</summary>
+          <div class="qcm-correction">
+            <span>
+              Bonne(s) réponse(s) : <strong>CSS</strong><br />
+              (HTML structure, CSS stylise, SQL non)
+            </span>
+          </div>
+        </details>
+      </fieldset>
+    </form>
+  </body>
 </html>

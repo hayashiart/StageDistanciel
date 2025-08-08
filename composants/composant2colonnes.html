@@ -6,8 +6,9 @@
     <title>Composant Deux Rectangles</title>
     <style>
         .colonnes2-container {
-            width: 270px;
-            height: 400px;
+            width: 100%;
+            max-width: 600px;
+            min-height: 400px;
             margin: 0 auto;
             display: flex;
             flex-direction: row;
@@ -24,7 +25,8 @@
         }
 
         .colonnes2-rectangle {
-            width: 120px;
+            width: 100%;
+            min-width: 120px;
             height: 40px;
             background: #B3CAE3;
             border-radius: 8px;
@@ -37,7 +39,8 @@
         }
 
         .colonnes2-yellow-rectangle {
-            width: 120px;
+            width: 100%;
+            min-width: 120px;
             height: 0;
             background: #F0ECC8;
             border-radius: 8px;
@@ -295,6 +298,69 @@
 
             .colonnes2-content-end {
                 height: 0;
+            }
+        }
+
+        /* Mobile (≤768px) */
+        @media (max-width: 768px) {
+            .colonnes2-container {
+                flex-direction: column;
+                gap: 20px;
+                padding: 15px;
+            }
+
+            .colonnes2-rectangle-container {
+                width: 100%;
+            }
+
+            .colonnes2-rectangle {
+                width: 100%;
+                min-width: auto;
+                height: 50px;
+            }
+
+            .colonnes2-yellow-rectangle {
+                width: 100%;
+                min-width: auto;
+            }
+
+            .colonnes2-title {
+                font-size: 16px;
+            }
+
+            .colonnes2-yellow-text {
+                font-size: 14px;
+                margin: 15px;
+            }
+        }
+
+        /* Tablet (768px-1024px) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .colonnes2-container {
+                max-width: 500px;
+                gap: 15px;
+            }
+
+            .colonnes2-rectangle {
+                min-width: 100px;
+            }
+
+            .colonnes2-yellow-rectangle {
+                min-width: 100px;
+            }
+        }
+
+        /* Laptop (1024px-1440px) */
+        @media (min-width: 1025px) and (max-width: 1440px) {
+            .colonnes2-container {
+                max-width: 700px;
+            }
+        }
+
+        /* Desktop (>1440px) */
+        @media (min-width: 1441px) {
+            .colonnes2-container {
+                max-width: 800px;
             }
         }
     </style>

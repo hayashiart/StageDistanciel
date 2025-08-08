@@ -6,8 +6,9 @@
     <title>Composant Trois Rectangles</title>
     <style>
         .colonnes3-container {
-            width: 380px;
-            height: 400px;
+            width: 100%;
+            max-width: 900px;
+            min-height: 400px;
             margin: 0 auto;
             display: flex;
             flex-direction: row;
@@ -24,7 +25,8 @@
         }
 
         .colonnes3-rectangle {
-            width: 120px;
+            width: 100%;
+            min-width: 100px;
             height: 40px;
             background: #B3CAE3;
             border-radius: 8px;
@@ -37,7 +39,8 @@
         }
 
         .colonnes3-yellow-rectangle {
-            width: 120px;
+            width: 100%;
+            min-width: 100px;
             height: 0;
             background: #F0ECC8;
             border-radius: 8px;
@@ -298,6 +301,69 @@
 
             .colonnes3-content-end {
                 height: 0;
+            }
+        }
+
+        /* Mobile (≤768px) */
+        @media (max-width: 768px) {
+            .colonnes3-container {
+                flex-direction: column;
+                gap: 20px;
+                padding: 15px;
+            }
+
+            .colonnes3-rectangle-container {
+                width: 100%;
+            }
+
+            .colonnes3-rectangle {
+                width: 100%;
+                min-width: auto;
+                height: 50px;
+            }
+
+            .colonnes3-yellow-rectangle {
+                width: 100%;
+                min-width: auto;
+            }
+
+            .colonnes3-title {
+                font-size: 16px;
+            }
+
+            .colonnes3-yellow-text {
+                font-size: 14px;
+                margin: 15px;
+            }
+        }
+
+        /* Tablet (768px-1024px) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .colonnes3-container {
+                max-width: 700px;
+                gap: 15px;
+            }
+
+            .colonnes3-rectangle {
+                min-width: 80px;
+            }
+
+            .colonnes3-yellow-rectangle {
+                min-width: 80px;
+            }
+        }
+
+        /* Laptop (1024px-1440px) */
+        @media (min-width: 1025px) and (max-width: 1440px) {
+            .colonnes3-container {
+                max-width: 1000px;
+            }
+        }
+
+        /* Desktop (>1440px) */
+        @media (min-width: 1441px) {
+            .colonnes3-container {
+                max-width: 1200px;
             }
         }
     </style>

@@ -1,115 +1,159 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Composant Tableau Stylisé</title>
-  <style>
-    /* ===========================
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Composant Tableau Stylisé</title>
+    <style>
+      /* ===========================
        Composant : Tableau stylisé
     =========================== */
-    .tableauStylise-container {
-      margin: 40px auto;
-      max-width: 90%;
-      overflow-x: auto;
-    }
+      .tableauStylise-container {
+        margin: 40px auto;
+        max-width: 90%;
+        overflow-x: auto;
+      }
 
-    .tableauStylise-container table {
-      width: 100%;
-      border-collapse: collapse;
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .tableauStylise-container th,
-    .tableauStylise-container td {
-      padding: 12px 15px;
-      border: 1px solid #ddd;
-      text-align: center;
-    }
-
-    .tableauStylise-container th {
-      background-color: #e0e0e0;
-      font-weight: bold;
-    }
-
-    .tableauStylise-container tr:nth-child(even) {
-      background-color: #f4f4f4;
-    }
-
-    .tableauStylise-container tr:hover {
-      background-color: #ddd;
-      transition: background 0.3s ease;
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      .tableauStylise-container table,
-      .tableauStylise-container thead,
-      .tableauStylise-container tbody,
-      .tableauStylise-container th,
-      .tableauStylise-container td,
-      .tableauStylise-container tr {
-        display: block;
+      .tableauStylise-container table {
         width: 100%;
+        border-collapse: collapse;
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        overflow: hidden;
       }
 
-      .tableauStylise-container tr {
-        margin-bottom: 10px;
-      }
-
+      .tableauStylise-container th,
       .tableauStylise-container td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        text-align: center;
       }
 
-      .tableauStylise-container td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 10px;
-        width: calc(50% - 20px);
-        text-align: left;
+      .tableauStylise-container th {
+        background-color: #e0e0e0;
         font-weight: bold;
       }
-    }
-  </style>
-</head>
-<body>
-  <!-- Composant Tableau Stylisé -->
-  <div class="tableauStylise-container">
-    <table>
-      <thead>
-        <tr>
-          <th>Colonne 1</th>
-          <th>Colonne 2</th>
-          <th>Colonne 3</th>
-          <th>Colonne 4</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td data-label="Colonne 1">Texte 1</td>
-          <td data-label="Colonne 2">Texte 2</td>
-          <td data-label="Colonne 3">Texte 3</td>
-          <td data-label="Colonne 4">Texte 4</td>
-        </tr>
-        <tr>
-          <td data-label="Colonne 1">Texte 5</td>
-          <td data-label="Colonne 2">Texte 6</td>
-          <td data-label="Colonne 3">Texte 7</td>
-          <td data-label="Colonne 4">Texte 8</td>
-        </tr>
-        <tr>
-          <td data-label="Colonne 1">Texte 9</td>
-          <td data-label="Colonne 2">Texte 10</td>
-          <td data-label="Colonne 3">Texte 11</td>
-          <td data-label="Colonne 4">Texte 12</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</body>
+
+      .tableauStylise-container tr:nth-child(even) {
+        background-color: #f4f4f4;
+      }
+
+      .tableauStylise-container tr:hover {
+        background-color: #ddd;
+        transition: background 0.3s ease;
+      }
+
+      /* Mobile (≤768px) */
+      @media (max-width: 768px) {
+        .tableauStylise-container {
+          padding: 10px;
+        }
+
+        .tableauStylise-container table,
+        .tableauStylise-container thead,
+        .tableauStylise-container tbody,
+        .tableauStylise-container th,
+        .tableauStylise-container td,
+        .tableauStylise-container tr {
+          display: block;
+          width: 100%;
+        }
+
+        .tableauStylise-container tr {
+          margin-bottom: 10px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          overflow: hidden;
+        }
+
+        .tableauStylise-container td {
+          text-align: right;
+          padding-left: 50%;
+          position: relative;
+          border: none;
+          border-bottom: 1px solid #ddd;
+        }
+
+        .tableauStylise-container td:last-child {
+          border-bottom: none;
+        }
+
+        .tableauStylise-container td::before {
+          content: attr(data-label);
+          position: absolute;
+          left: 10px;
+          width: calc(50% - 20px);
+          text-align: left;
+          font-weight: bold;
+        }
+
+        .tableauStylise-container th {
+          display: none;
+        }
+      }
+
+      /* Tablet (768px-1024px) */
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .tableauStylise-container {
+          padding: 15px;
+        }
+
+        .tableauStylise-container th,
+        .tableauStylise-container td {
+          padding: 10px 12px;
+          font-size: 14px;
+        }
+      }
+
+      /* Laptop (1024px-1440px) */
+      @media (min-width: 1025px) and (max-width: 1440px) {
+        .tableauStylise-container {
+          max-width: 95%;
+        }
+      }
+
+      /* Desktop (>1440px) */
+      @media (min-width: 1441px) {
+        .tableauStylise-container {
+          max-width: 1200px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Composant Tableau Stylisé -->
+    <div class="tableauStylise-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Colonne 1</th>
+            <th>Colonne 2</th>
+            <th>Colonne 3</th>
+            <th>Colonne 4</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Colonne 1">Texte 1</td>
+            <td data-label="Colonne 2">Texte 2</td>
+            <td data-label="Colonne 3">Texte 3</td>
+            <td data-label="Colonne 4">Texte 4</td>
+          </tr>
+          <tr>
+            <td data-label="Colonne 1">Texte 5</td>
+            <td data-label="Colonne 2">Texte 6</td>
+            <td data-label="Colonne 3">Texte 7</td>
+            <td data-label="Colonne 4">Texte 8</td>
+          </tr>
+          <tr>
+            <td data-label="Colonne 1">Texte 9</td>
+            <td data-label="Colonne 2">Texte 10</td>
+            <td data-label="Colonne 3">Texte 11</td>
+            <td data-label="Colonne 4">Texte 12</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
 </html>
