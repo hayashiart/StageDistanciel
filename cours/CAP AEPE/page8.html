@@ -153,10 +153,10 @@
       /* Les 3 barres horizontales du menu burger */
       .menu-toggle span {
         display: block;
-        width: 14px;
-        height: 2px;
+        width: 9px;
+        height: 1.5px;
         background: #333;
-        margin: 2px 0;
+        margin: 1.5px 0;
         border-radius: 1px;
         transition: all var(--transition-smooth);
         transform-origin: center;
@@ -164,7 +164,7 @@
 
       /* Animation du menu burger : première barre devient X (rotation + translation) */
       .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(1) {
-        transform: rotate(45deg) translate(2px, 2px);
+        transform: rotate(45deg) translate(1px, 1px);
       }
 
       /* Animation du menu burger : barre du milieu disparaît (opacité + échelle) */
@@ -175,7 +175,7 @@
 
       /* Animation du menu burger : troisième barre devient X (rotation inverse + translation) */
       .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(3) {
-        transform: rotate(-45deg) translate(2px, -2px);
+        transform: rotate(-45deg) translate(1px, -1px);
       }
 
       /* Menu latéral qui glisse depuis la gauche */
@@ -334,26 +334,18 @@
       .section-header {
         display: flex;
         align-items: center;
-        background: linear-gradient(
-          135deg,
-          #d5e9ff 0%,
-          var(--blue-color10) 100%
-        );
-        border: 3px solid var(--primary-color);
+        background: #e6f0fb;
+        border: 2px solid #3b6ea5e3;
         border-radius: 15px;
         padding: 0;
         margin: 50px 0 var(--spacing-lg);
-        box-shadow: 0 4px 12px rgba(95, 139, 188, 0.2);
+        box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
         overflow: hidden;
       }
 
       /* Numéro de section (01, 02, etc.) - partie bleue à gauche */
       .section-number {
-        background: linear-gradient(
-          135deg,
-          var(--primary-color) 0%,
-          #3b6ea5 100%
-        );
+        background: #3b6ea5;
         color: var(--white-color);
         font-family: var(--main-font);
         font-weight: 700;
@@ -372,7 +364,7 @@
 
       /* Titre de section (texte principal) - partie droite */
       .section-title {
-        color: var(--primary-color);
+        color: #3b6ea5;
         font-family: var(--main-font);
         font-weight: 700;
         font-size: 24px;
@@ -734,14 +726,14 @@
         }
 
         .menu-toggle span {
-          width: 12px;
-          height: 2px;
-          margin: 1.5px 0;
+          width: 8px;
+          height: 1.5px;
+          margin: 1px 0;
         }
 
         /* Animation du menu burger sur tablette */
         .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(1) {
-          transform: rotate(45deg) translate(1px, 1px);
+          transform: rotate(45deg) translate(0.5px, 0.5px);
         }
 
         .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(2) {
@@ -750,7 +742,7 @@
         }
 
         .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(3) {
-          transform: rotate(-45deg) translate(1px, -1px);
+          transform: rotate(-45deg) translate(0.5px, -0.5px);
         }
 
         /* Composant Conclusion sur tablette */
@@ -827,14 +819,14 @@
         }
 
         .menu-toggle span {
-          width: 10px;
-          height: 2px;
-          margin: 1px 0;
+          width: 7px;
+          height: 1.5px;
+          margin: 0.5px 0;
         }
 
         /* Animation du menu burger sur mobile */
         .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(1) {
-          transform: rotate(45deg) translate(0.5px, 0.5px);
+          transform: rotate(45deg) translate(0.3px, 0.3px);
         }
 
         .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(2) {
@@ -843,7 +835,7 @@
         }
 
         .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(3) {
-          transform: rotate(-45deg) translate(0.5px, -0.5px);
+          transform: rotate(-45deg) translate(0.3px, -0.3px);
         }
 
         /* Titres adaptés */

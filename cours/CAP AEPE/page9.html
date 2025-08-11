@@ -1,238 +1,1587 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Page 9 - CAP AEPE</title>
+
+    <style>
+      /* ===========================================
+           VARIABLES CSS GLOBALES - SYSTÈME DE DESIGN COHÉRENT
+           =========================================== */
+
+      :root {
+        /* ===========================================
+             PALETTE DE COULEURS - COULEURS PRINCIPALES
+             =========================================== */
+        --primary-color: #5f8bbc;        /* Bleu principal - couleur d'accent pour les éléments importants */
+        --primary-color3: #e1d4ff;       /* Violet clair - fond pour les tableaux et sections spéciales */
+        --primary-color4: #f0ecc8;       /* Jaune clair - fond pour les composants d'information */
+        --secondary-color: #9747ff;      /* Violet principal - couleur secondaire pour les accents */
+        --blue-color10: #e6f0fb;         /* Bleu très clair - fond pour les dégradés et sections */
+
+        /* ===========================================
+             PALETTE DE COULEURS - COULEURS NEUTRES
+             =========================================== */
+        --gray-color1: #757575;          /* Gris moyen - couleur principale du texte */
+        --gray-color6: #ededed;          /* Gris clair - fond pour les sections secondaires */
+        --gray-color7: #f7f7f7;          /* Gris très clair - fond pour les tableaux et listes */
+        --white-color: #ffffff;          /* Blanc pur - fond principal et texte sur fond coloré */
+
+        /* ===========================================
+             SYSTÈME TYPOGRAPHIQUE - ÉCHELLE DE TAILLES
+             =========================================== */
+        --main-font: "Montserrat", sans-serif;  /* Police principale - moderne et lisible */
+        --font-size18: 18px;             /* Texte de base - paragraphes et contenu principal */
+        --font-size24: 24px;             /* Sous-titres - sections et composants */
+        --font-size28: 28px;             /* Titres moyens - sections importantes */
+        --font-size32: 32px;             /* Titres grands - pages et sections principales */
+        --font-size48: 48px;             /* Titres très grands - titres de page */
+
+        /* ===========================================
+             SYSTÈME D'ESPACEMENT - ÉCHELLE COHÉRENTE
+             =========================================== */
+        --spacing-xs: 8px;               /* Espacement très petit - marges internes fines */
+        --spacing-sm: 12px;              /* Espacement petit - espacement entre éléments proches */
+        --spacing-md: 20px;              /* Espacement moyen - espacement standard */
+        --spacing-lg: 30px;              /* Espacement grand - espacement entre sections */
+        --spacing-xl: 40px;              /* Espacement très grand - espacement entre blocs majeurs */
+
+        /* ===========================================
+             SYSTÈME D'OMBRES - PROFONDEUR VISUELLE
+             =========================================== */
+        --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);    /* Ombre légère - élévation subtile */
+        --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15); /* Ombre moyenne - élévation standard */
+        --shadow-heavy: 0 9px 15px rgba(0, 0, 0, 0.2);   /* Ombre forte - élévation importante */
+
+        /* ===========================================
+             SYSTÈME DE TRANSITIONS - ANIMATIONS FLUIDES
+             =========================================== */
+        --transition-fast: 0.3s ease;                    /* Transition rapide - interactions immédiates */
+        --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transition fluide - animations douces */
+      }
+
+      /* ===========================================
+           RESET ET STYLES DE BASE - FONDATION DU SITE
+           =========================================== */
+
+      /* ===========================================
+           RESET CSS UNIVERSEL - NORMALISATION CROISÉE NAVIGATEURS
+           =========================================== */
+      * {
+        margin: 0;                       /* Supprime toutes les marges par défaut */
+        padding: 0;                      /* Supprime tous les paddings par défaut */
+        box-sizing: border-box;          /* Modèle de boîte incluant padding et border */
+      }
+
+      /* ===========================================
+           STYLES DE BASE DU BODY - CONFIGURATION GLOBALE
+           =========================================== */
+      body {
+        font-family: var(--main-font);   /* Police Montserrat pour tout le site */
+        line-height: 1.6;                /* Interligne confortable pour la lecture */
+        color: #333;                     /* Couleur de texte par défaut - gris foncé */
+        background-color: #f5f5f5;       /* Fond gris clair pour contraste avec le contenu */
+        min-height: 100vh;               /* Hauteur minimale = 100% de la hauteur d'écran */
+      }
+
+      /* ===========================================
+           DÉFILEMENT FLUIDE - NAVIGATION SMOOTH SCROLL
+           =========================================== */
+      html {
+        scroll-behavior: smooth;         /* Animation douce lors du scroll vers les ancres */
+      }
+
+      /* ===========================================
+           CONTAINER PRINCIPAL - STRUCTURE MAÎTRESSE DE LA PAGE
+           =========================================== */
+
+      /* ===========================================
+           CONTAINER PRINCIPAL - CENTRAGE ET OMBRE PORTÉE
+           =========================================== */
+      .main-container {
+        width: 60%;                      /* Largeur relative pour s'adapter aux écrans */
+        max-width: 1200px;               /* Largeur maximale pour éviter l'étirement excessif */
+        margin: var(--spacing-lg) auto;  /* Centrage horizontal avec marge verticale */
+        background: var(--white-color);  /* Fond blanc pour contraste avec l'arrière-plan */
+        border-radius: 12px;             /* Coins arrondis pour un design moderne */
+        box-shadow: var(--shadow-heavy); /* Ombre portée pour effet de profondeur */
+        padding: var(--spacing-lg);      /* Espacement interne pour le contenu */
+        position: relative;              /* Position relative pour les éléments enfants absolus */
+        overflow: hidden;                /* Cache le débordement pour éviter les scrollbars */
+      }
+
+      /* ===========================================
+           LAYOUT ET STRUCTURE - ORGANISATION FLEXIBLE DU CONTENU
+           =========================================== */
+
+      /* ===========================================
+           CONTAINER DE PAGE - STRUCTURE FLEXBOX PRINCIPALE
+           =========================================== */
+      .page-container {
+        display: flex;                   /* Layout flexible pour organiser le contenu */
+        gap: 25px;
+        position: relative;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* Contenu principal avec gestion du débordement - zone de contenu principal */
+      .main-content {
+        flex: 1;
+        padding: var(--spacing-md);
+        transition: margin-left var(--transition-fast);
+        min-width: 0;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      /* ===========================================
+           MENU BURGER - SYSTÈME DE NAVIGATION RESPONSIVE
+           =========================================== */
+
+      /* ===========================================
+           CHECKBOX CACHÉ - CONTRÔLE D'ÉTAT DU MENU (HACK CSS)
+           =========================================== */
+      .menu-toggle-checkbox {
+        display: none;                   /* Cache le checkbox - utilisé uniquement pour le JavaScript CSS */
+      }
+
+      /* ===========================================
+           BOUTON MENU BURGER - BOUTON HAMBURGER FIXE
+           =========================================== */
+      .menu-toggle {
+        display: block;                  /* Affichage en bloc pour le bouton */
+        position: fixed;                 /* Position fixe pour rester visible lors du scroll */
+        top: var(--spacing-lg);          /* Distance du haut de l'écran */
+        left: var(--spacing-lg);         /* Distance de la gauche de l'écran */
+        width: 40px;                     /* Largeur du bouton carré - AGRANDI */
+        height: 40px;                    /* Hauteur du bouton carré - AGRANDI */
+        cursor: pointer;                 /* Curseur pointer pour indiquer l'interactivité */
+        z-index: 2001;                   /* Z-index élevé pour rester au-dessus du contenu */
+        opacity: 0.8;                    /* Légère transparence par défaut */
+        transition: opacity var(--transition-fast); /* Animation de l'opacité */
+        background: var(--white-color);  /* Fond blanc pour contraste */
+        border-radius: 8px;              /* Coins arrondis pour un design moderne - AGRANDI */
+        padding: 8px;                    /* Espacement interne pour les barres - AGRANDI */
+        box-shadow: var(--shadow-light); /* Ombre légère pour effet de profondeur */
+        display: flex;                   /* Layout flexible pour centrer les barres */
+        flex-direction: column;          /* Direction verticale pour empiler les barres */
+        justify-content: center;         /* Centrage vertical des barres */
+        align-items: center;             /* Centrage horizontal des barres */
+      }
+
+      /* ===========================================
+           EFFET HOVER - INTERACTION UTILISATEUR
+           =========================================== */
+      .menu-toggle:hover {
+        opacity: 1;                      /* Opacité complète au survol pour feedback visuel */
+      }
+
+      /* ===========================================
+           BARRES DU MENU BURGER - ÉLÉMENTS VISUELS
+           =========================================== */
+      .menu-toggle span {
+        display: block;                  /* Affichage en bloc pour chaque barre */
+        width: 9px;                      /* Largeur de chaque barre horizontale - RÉDUITE */
+        height: 1.5px;                   /* Hauteur fine pour un design élégant - RÉDUITE */
+        background: #333;                /* Couleur gris foncé pour contraste */
+        margin: 1.5px 0;                 /* Espacement vertical entre les barres - RÉDUIT */
+        border-radius: 1px;              /* Coins légèrement arrondis */
+        transition: all var(--transition-smooth); /* Animation fluide pour toutes les propriétés */
+        transform-origin: center;        /* Point d'origine pour les rotations */
+      }
+
+      /* ===========================================
+           ANIMATIONS DU MENU BURGER - TRANSFORMATION EN X
+           =========================================== */
+      
+      /* Animation : première barre - rotation + translation pour former le X */
+      .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(1) {
+        transform: rotate(45deg) translate(1px, 1px); /* Rotation 45° + déplacement - RÉDUIT */
+      }
+
+      /* Animation : barre du milieu - disparition progressive */
+      .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(2) {
+        opacity: 0;                      /* Transparence complète */
+        transform: scale(0);             /* Réduction à zéro pour disparition */
+      }
+
+      /* Animation : troisième barre - rotation inverse + translation pour former le X */
+      .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(3) {
+        transform: rotate(-45deg) translate(1px, -1px); /* Rotation -45° + déplacement inverse - RÉDUIT */
+      }
+
+      /* ===========================================
+           MENU LATÉRAL - PANEL DE NAVIGATION GLISSANT
+           =========================================== */
+      .menu {
+        position: fixed;                 /* Position fixe pour rester en place lors du scroll */
+        top: 0;                         /* Alignement au haut de l'écran */
+        left: 0;                        /* Alignement à la gauche de l'écran */
+        width: 70%;                     /* Largeur relative pour s'adapter aux écrans */
+        max-width: 300px;               /* Largeur maximale pour éviter l'étirement excessif */
+        height: 100%;                   /* Hauteur complète de l'écran */
+        background: var(--gray-color7);  /* Fond gris très clair pour contraste */
+        box-shadow: 4px 0 16px rgba(0, 0, 0, 0.15); /* Ombre portée pour effet de profondeur */
+        transform: translateX(-100%);    /* Position initiale cachée à gauche */
+        transition: transform var(--transition-fast); /* Animation de glissement */
+        padding: 80px 25px var(--spacing-lg); /* Espacement interne avec marge pour le bouton */
+        z-index: 1500;                  /* Z-index élevé pour rester au-dessus du contenu */
+        border-right: 1px solid #e0e0e0; /* Bordure droite pour séparation visuelle */
+        overflow-y: auto;               /* Défilement vertical si le contenu dépasse */
+        overflow-x: hidden;             /* Cache le défilement horizontal */
+      }
+
+      /* ===========================================
+           ÉTAT OUVERT DU MENU - ANIMATION DE GLISSEMENT
+           =========================================== */
+      .menu-toggle-checkbox:checked + .menu-toggle + .menu {
+        transform: translateX(0);        /* Glissement vers la droite pour afficher le menu */
+      }
+
+      /* ===========================================
+           STRUCTURE DES LISTES - SUPPRESSION DES PUCES
+           =========================================== */
+      .menu ul {
+        list-style: none;               /* Supprime les puces par défaut des listes */
+      }
+
+      /* ===========================================
+           ESPACEMENT DES ÉLÉMENTS - HIÉRARCHIE VISUELLE
+           =========================================== */
+      .menu ul li {
+        margin-bottom: var(--spacing-md); /* Espacement entre les éléments de menu */
+      }
+
+      /* ===========================================
+           LIENS DE NAVIGATION PRINCIPAUX - STYLE DES BOUTONS
+           =========================================== */
+      .menu ul li a {
+        color: #333;                     /* Couleur de texte gris foncé */
+        text-decoration: none;           /* Supprime le soulignement par défaut */
+        font-weight: 600;                /* Police semi-grasse pour l'importance */
+        font-size: var(--font-size18);   /* Taille de police standard */
+        transition: all var(--transition-fast); /* Animation pour tous les changements */
+        display: block;                  /* Affichage en bloc pour couvrir toute la zone */
+        padding: 15px var(--spacing-md); /* Espacement interne confortable */
+        border-radius: 10px;             /* Coins arrondis pour un design moderne */
+        background: var(--white-color);  /* Fond blanc pour contraste */
+        border: 1px solid #e0e0e0;       /* Bordure légère pour définition */
+      }
+
+      /* ===========================================
+           EFFET HOVER - INTERACTION UTILISATEUR AVANCÉE
+           =========================================== */
+      .menu ul li a:hover {
+        color: var(--primary-color);     /* Changement de couleur vers le bleu principal */
+        background: var(--blue-color10); /* Fond bleu clair pour feedback visuel */
+        transform: translateX(10px);     /* Déplacement vers la droite pour effet dynamique */
+        box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2); /* Ombre colorée pour profondeur */
+      }
+
+      /* ===========================================
+           SOUS-SECTIONS DU MENU BURGER - HIÉRARCHIE NAVIGATION
+           =========================================== */
+
+      /* ===========================================
+           CONTAINER DES SOUS-LISTES - INDENTATION ET BORDURE
+           =========================================== */
+      .menu ul ul {
+        margin-top: var(--spacing-sm);    /* Espacement réduit par rapport à la section parent */
+        margin-left: var(--spacing-md);   /* Indentation vers la droite pour hiérarchie */
+        border-left: 2px solid var(--primary-color); /* Bordure gauche colorée pour séparation */
+        padding-left: var(--spacing-sm);  /* Espacement interne pour le contenu */
+      }
+
+      /* ===========================================
+           ESPACEMENT DES SOUS-SECTIONS - COMPACTAGE
+           =========================================== */
+      .menu ul ul li {
+        margin-bottom: var(--spacing-sm); /* Espacement réduit pour les sous-éléments */
+      }
+
+      /* ===========================================
+           LIENS DES SOUS-SECTIONS - STYLE DISCRET
+           =========================================== */
+      .menu ul ul li a {
+        font-size: 14px;                 /* Taille réduite par rapport aux sections principales */
+        font-weight: 400;                /* Poids normal pour moins d'importance visuelle */
+        padding: 8px var(--spacing-sm);  /* Padding réduit pour un aspect plus compact */
+        background: transparent;          /* Fond transparent pour discrétion */
+        border: none;                    /* Pas de bordure pour un style épuré */
+        color: var(--gray-color1);       /* Couleur grise pour moins de contraste */
+        opacity: 0.8;                    /* Légère transparence pour hiérarchie visuelle */
+      }
+
+      /* ===========================================
+           EFFET HOVER DES SOUS-SECTIONS - INTERACTION SUBTILE
+           =========================================== */
+      .menu ul ul li a:hover {
+        color: var(--primary-color);     /* Changement de couleur vers le bleu principal */
+        background: transparent;          /* Maintien du fond transparent */
+        transform: translateX(5px);      /* Déplacement réduit pour effet subtil */
+        box-shadow: none;                /* Pas d'ombre pour discrétion */
+        opacity: 1;                      /* Opacité complète au survol */
+      }
+
+      /* ===========================================
+           PERSONNALISATION DE LA BARRE DE DÉFILEMENT - STYLE CUSTOMISÉ
+           =========================================== */
+
+      /* ===========================================
+           BARRE DE DÉFILEMENT WEBKIT - CHROME/SAFARI/EDGE
+           =========================================== */
+      
+      /* Largeur de la barre de défilement - taille fine et discrète */
+      .menu::-webkit-scrollbar {
+        width: 6px;                      /* Largeur réduite pour discrétion */
+      }
+
+      /* Piste de la barre de défilement - fond transparent */
+      .menu::-webkit-scrollbar-track {
+        background: transparent;          /* Fond transparent pour intégration discrète */
+      }
+
+      /* Curseur de la barre de défilement - style coloré */
+      .menu::-webkit-scrollbar-thumb {
+        background: var(--primary-color); /* Couleur bleue principale pour cohérence */
+        border-radius: 3px;              /* Coins arrondis pour un design moderne */
+        opacity: 0.7;                    /* Légère transparence pour discrétion */
+      }
+
+      /* Effet hover sur le curseur - interaction utilisateur */
+      .menu::-webkit-scrollbar-thumb:hover {
+        background: #4a7aa3;             /* Couleur plus foncée au survol */
+        opacity: 1;                      /* Opacité complète pour feedback visuel */
+      }
+
+      /* ===========================================
+           SUPPORT FIREFOX - COMPATIBILITÉ CROISÉE
+           =========================================== */
+      .menu {
+        scrollbar-width: thin;           /* Barre de défilement fine pour Firefox */
+        scrollbar-color: var(--primary-color) transparent; /* Couleur du curseur et de la piste */
+      }
+
+      /* ===========================================
+           TITRES ET EN-TÊTES - HIÉRARCHIE TYPOGRAPHIQUE
+           =========================================== */
+
+      /* ===========================================
+           TITRE PRINCIPAL DE LA PAGE - ÉLÉMENT D'ANCRAGE VISUEL
+           =========================================== */
+      .intro-title {
+        font-family: var(--main-font);   /* Police Montserrat pour cohérence */
+        font-weight: 700;                /* Poids très gras pour l'importance */
+        color: var(--primary-color);     /* Couleur bleue principale pour cohérence */
+        font-size: 42px;                 /* Taille importante pour l'impact visuel */
+        text-align: center;              /* Centrage pour équilibre visuel */
+        text-decoration: underline;      /* Soulignement pour définition */
+        margin: var(--spacing-lg) 0 50px 0; /* Espacement vertical généreux */
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre portée pour profondeur */
+      }
+
+      /* ===========================================
+           IMAGE PRINCIPALE - ÉLÉMENT VISUEL D'OUVERTURE
+           =========================================== */
+      .intro-image {
+        display: block;                  /* Affichage en bloc pour contrôle du layout */
+        max-width: 100%;
+        height: auto;
+        margin: var(--spacing-lg) auto;
+        border-radius: 12px;
+        box-shadow: var(--shadow-medium);
+        position: relative;
+      }
+
+      /* Container pour l'image avec texte superposé */
+      .intro-image-container {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+      }
+
+      /* Texte superposé sur l'image de couverture - centré verticalement, légèrement décalé à gauche */
+      .intro-image-text {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 20px;
+        color: white;
+        font-family: var(--main-font);
+        font-weight: 700;
+        font-size: 16px;
+        text-align: left;
+        padding: 15px;
+        line-height: 1.4;
+        max-width: 60%;
+      }
+
+      /* Container des en-têtes de section (numéro + titre) */
+      .section-header {
+        display: flex;
+        align-items: center;
+        background: #e6f0fb;
+        border: 2px solid #3b6ea5e3;
+        border-radius: 15px;
+        padding: 0;
+        margin: 50px 0 var(--spacing-lg);
+        box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
+        overflow: hidden;
+      }
+
+      /* Numéro de section (01, 02, etc.) - partie bleue à gauche */
+      .section-number {
+        background: #3b6ea5;
+        color: var(--white-color);
+        font-family: var(--main-font);
+        font-weight: 700;
+        font-size: 36px;
+        padding: 25px 30px;
+        min-width: 120px;
+        width: 120px;
+        text-align: center;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        align-self: stretch;
+      }
+
+      /* Titre de section (texte principal) - partie droite */
+      .section-title {
+        color: #3b6ea5;
+        font-family: var(--main-font);
+        font-weight: 700;
+        font-size: 24px;
+        text-align: center;
+        flex: 1;
+        padding: 25px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100px;
+      }
+
+             /* Liste à puces dans le contenu des sections */
+       .section-list {
+         margin-left: 25px;
+         margin-bottom: 25px;
+         font-size: 18px;
+         line-height: 1.8;
+         font-family: var(--main-font);
+       }
+
+      /* Texte regular aligné à gauche */
+      .section-text-regular {
+        font-family: var(--main-font);
+        font-weight: 400;
+        color: #000000;
+        font-size: 18px;
+        margin-bottom: 25px;
+        line-height: 1.7;
+        text-align: left;
+      }
+
+             /* Sous-titres (A., B., etc.) dans les sections */
+       .subsection-heading {
+         font-family: var(--main-font);
+         font-weight: 700;
+         color: #5f8bbc;
+         font-size: 26px;
+         margin: 40px 0 20px;
+         padding: 15px 20px;
+         background: #f8fbff;
+         border-left: 5px solid #5f8bbc;
+         border-radius: 0 8px 8px 0;
+       }
+
+       /* Texte de contenu des sections (paragraphes) */
+       .section-text {
+         font-family: var(--main-font);
+         font-weight: 400;
+         color: #000000;
+         font-size: 18px;
+         margin-bottom: 25px;
+         line-height: 1.7;
+       }
+
+      /* ===========================================
+           BLOC BLEU - SECTION 1A
+           =========================================== */
+
+      /* Container flex pour section 1A - texte et image côte à côte */
+      .section1-a-flex-container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin: 30px 0;
+      }
+
+      /* Container du bloc bleu avec texte uniquement */
+      .blue-block-container {
+        flex: 1;
+        padding: 20px;
+        background: linear-gradient(135deg, #d5e9ff 0%, var(--blue-color10) 100%);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(95, 139, 188, 0.2);
+      }
+
+      /* Zone de texte dans le bloc bleu */
+      .blue-block-text {
+        flex: 1;
+        min-width: 0;
+      }
+
+      /* Contenu du texte dans le bloc bleu - texte normal en noir regular */
+      .blue-block-content {
+        font-family: var(--main-font);
+        font-weight: 400;
+        color: #000000;
+        font-size: 18px;
+        line-height: 1.6;
+        margin: 0;
+        text-align: left;
+      }
+
+      /* Image à côté du bloc bleu dans section 1A */
+      .section1-a-image {
+        max-width: 200px;
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        flex-shrink: 0;
+      }
+
+      /* ===========================================
+           COMPOSANT CONCLUSION
+           =========================================== */
+
+      /* Classes utilitaires pour le composant Conclusion */
+      .is-flex {
+        display: flex;
+      }
+
+      .is-flex-wrap-wrap-mobile {
+        flex-wrap: wrap;
+      }
+
+      .col-1 {
+        width: 8.333333%;
+      }
+
+      .col-11 {
+        width: 91.666667%;
+      }
+
+      /* ===========================================
+           COMPOSANT CONCLUSION - STYLES ORIGINAUX
+           =========================================== */
+
+      /* Variables CSS nécessaires pour le composant */
+      :root {
+        --main-font: "Montserrat", sans-serif;
+        --font-size18: 18px;
+        --font-size24: 24px;
+        --font-size32: 32px;
+        --font-size48: 48px;
+        --primary-color: #9747ff;
+        --gray-color1: #757575;
+        --white-color: #ffffff;
+      }
+
+      /* Classes utilitaires */
+      .is-flex {
+        display: flex;
+      }
+
+      .is-flex-wrap-wrap-mobile {
+        flex-wrap: wrap;
+      }
+
+      .col-1 {
+        width: 8.333333%;
+      }
+      .col-11 {
+        width: 91.666667%;
+      }
+
+      /* Block */
+      .block:not(:last-child),
+      .block:not(:last-child) {
+        margin-bottom: 24px;
+      }
+
+      /* Title H2 With background */
+      .bg-title-h2 {
+        font-family: var(--main-font);
+        color: var(--gray-color1);
+        font-size: var(--font-size32);
+        font-weight: 600;
+        background-color: var(--primary-color);
+        padding: 8px 14px;
+        border-radius: 10px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      /* à retenir */
+      .steps {
+        padding: 20px;
+      }
+
+      .step {
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+      }
+
+      .number {
+        font-size: 18px;
+        font-family: var(--main-font);
+        font-weight: bold;
+        color: var(--white-color);
+        border-radius: 50%;
+        padding: 8px;
+        background-color: var(--primary-color);
+        width: 50px;
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .text {
+        font-family: var(--main-font);
+        color: var(--primary-color);
+        text-align: justify;
+        font-size: var(--font-size24);
+        font-weight: 600;
+        margin: 0;
+        padding-left: 15px;
+      }
+
+      .sub-text {
+        font-family: var(--main-font);
+        color: var(--gray-color1);
+        font-size: 18px;
+        margin: 0;
+        text-align: justify;
+        padding-left: 15px;
+      }
+
+      .line {
+        width: 2px;
+        height: 60px;
+        border-left-width: 2px;
+        border-left-style: dashed;
+        border-left-color: var(--gray-color1);
+        border-right-width: initial;
+        border-right-style: initial;
+        border-right-color: initial;
+        border-top-width: initial;
+        border-top-style: initial;
+        border-top-color: initial;
+        border-bottom-width: initial;
+        border-bottom-style: initial;
+        border-bottom-color: initial;
+      }
+
+      .steps .step-content:last-child .line {
+        display: none;
+      }
+
+      .title-retenir-conclusion {
+        color: var(--gray-color1);
+        text-align: center;
+        font-family: var(--main-font);
+        font-size: 24px;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: uppercase;
+        margin-top: 20px;
+      }
+
+      .wrap-title-retenir-conclusion {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .retenir-img {
+        width: 35%;
+      }
+
+      /* Container principal du composant Conclusion */
+      .container-a-retenir {
+        padding: 30px;
+        margin: 40px 0;
+      }
+
+      /* ===========================================
+           RESPONSIVE DESIGN
+           =========================================== */
+
+      /* Desktop (1200px+) */
+      @media (min-width: 1200px) {
+        .main-content {
+          margin-left: 0;
+        }
+      }
+
+      /* Laptop (1024px - 1199px) */
+      @media (max-width: 1199px) and (min-width: 1024px) {
+        .main-content {
+          margin-left: 0;
+        }
+      }
+
+      /* Tablette (768px - 1023px) */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .main-content {
+          margin-left: 0;
+        }
+
+        .main-container {
+          margin: 20px;
+          padding: 25px;
+        }
+
+        /* Menu plus petit sur tablette */
+        .menu {
+          width: 60%;
+          max-width: 280px;
+          padding: 70px 20px 25px;
+        }
+
+        /* Bouton burger plus petit sur tablette */
+        .menu-toggle {
+          width: 35px;
+          height: 35px;
+          padding: 6px;
+        }
+
+        .menu-toggle span {
+          width: 8px;
+          height: 1.5px;
+          margin: 1px 0;
+        }
+
+        /* Animation du menu burger sur tablette */
+        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(1) {
+          transform: rotate(45deg) translate(0.5px, 0.5px);
+        }
+
+        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(2) {
+          opacity: 0;
+          transform: scale(0);
+        }
+
+        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(3) {
+          transform: rotate(-45deg) translate(0.5px, -0.5px);
+        }
+
+        /* Composant Conclusion sur tablette */
+        .text,
+        .sub-text {
+          text-align: center;
+        }
+
+        .step-content {
+          margin-bottom: 24px;
+        }
+
+        .steps .step-content:last-child .line {
+          display: block;
+        }
+      }
+
+      /* Mobile (767px et moins) */
+      @media (max-width: 767px) {
+        .main-content {
+          margin-left: 0;
+        }
+
+        .main-container {
+          margin: 15px;
+          padding: 20px;
+          overflow: visible;
+        }
+
+        .page-container {
+          flex-direction: column;
+        }
+
+        .main-content {
+          padding: 15px;
+          overflow: visible;
+        }
+
+        /* Menu plus petit sur mobile */
+        .menu {
+          width: 75%;
+          max-width: 250px;
+          padding: 60px 15px 20px;
+        }
+
+        /* Bouton burger plus petit sur mobile */
+        .menu-toggle {
+          width: 32px;
+          height: 32px;
+          padding: 5px;
+          top: 20px;
+          left: 20px;
+        }
+
+        .menu-toggle span {
+          width: 7px;
+          height: 1.5px;
+          margin: 0.5px 0;
+        }
+
+        /* Animation du menu burger sur mobile */
+        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(1) {
+          transform: rotate(45deg) translate(0.3px, 0.3px);
+        }
+
+        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(2) {
+          opacity: 0;
+          transform: scale(0);
+        }
+
+        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(3) {
+          transform: rotate(-45deg) translate(0.3px, -0.3px);
+        }
+
+        /* Titres adaptés */
+        .intro-title {
+          font-size: 28px;
+          margin: 20px 0 30px 0;
+        }
+
+        .section-header {
+          flex-direction: column;
+          text-align: center;
+          margin: 30px 0 20px;
+        }
+
+        .section-number {
+          border-radius: 12px 12px 0 0;
+          width: 100%;
+          text-align: center;
+        }
+
+        .section-text {
+          border-radius: 0 0 12px 12px;
+          width: 100%;
+        }
+
+        .subsection-heading {
+          font-size: 22px;
+          margin: 25px 0 15px;
+        }
+
+        /* Composant Conclusion sur mobile */
+        .text,
+        .sub-text {
+          text-align: center;
+        }
+
+        .step-content {
+          margin-bottom: 24px;
+        }
+
+        .steps .step-content:last-child .line {
+          display: block;
+        }
+      }
+
+      /* Petit mobile (480px et moins) */
+      @media (max-width: 480px) {
+        .main-container {
+          margin: 10px;
+          padding: 15px;
+        }
+
+        .intro-title {
+          font-size: 24px;
+        }
+
+        .section-text {
+          font-size: 16px;
+        }
+
+        .subsection-heading {
+          font-size: 20px;
+        }
+
+        .section-number {
+          font-size: 28px;
+          padding: 15px 20px;
+        }
+
+        .section-title {
+          font-size: 28px;
+          padding: 15px 20px;
+          min-height: 70px;
+        }
+
+        /* Composant Conclusion sur petit mobile */
+        .text,
+        .sub-text {
+          text-align: center;
+        }
+
+        .step-content {
+          margin-bottom: 24px;
+        }
+
+        .steps .step-content:last-child .line {
+          display: block;
+        }
+      }
+
+      /* Container pour la grille 2x2 des rectangles */
+      .structures-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin: 20px 0;
+        padding: 12px;
+      }
+
+      /* Rectangle jaune individuel */
+      .structure-box {
+        background-color: #f0ecc8;
+        border-radius: 8px;
+        padding: 12px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        border: 2px solid #e0e0e0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        min-height: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      /* Effet hover sur les rectangles */
+      .structure-box:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Contenu intérieur des rectangles */
+      .structure-content {
+        background-color: #fdfbed;
+        padding: 10px;
+        border-radius: 5px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      /* Texte dans chaque rectangle */
+      .structure-content p {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+        color: #333;
+        font-size: 12px;
+        line-height: 1.5;
+        text-align: center;
+        margin: 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+      }
+
+      /* ===========================================
+           COMPOSANT IMAGE HAUT TEXTE BAS
+           =========================================== */
+
+             /* Container principal du composant - fond jaune avec coins arrondis (plus petit) */
+       .imageHautTexteBas-container {
+         width: 80%;
+         height: auto;
+         background-color: #f0ecc8;
+         margin: 20px auto;
+         overflow: hidden;
+         position: relative;
+         border-radius: 20px;
+       }
+
+       /* Image d'en-tête du composant - couvre toute la largeur (plus petite) */
+       .imageHautTexteBas-header-image {
+         width: 100%;
+         height: 200px;
+         object-fit: cover;
+       }
+
+       /* Boîte de texte du composant - fond semi-transparent (plus petite) */
+       .imageHautTexteBas-text-box {
+         background-color: rgba(250, 248, 247, 0.7);
+         padding: 15px;
+         margin: 15px;
+         border-radius: 15px;
+         box-sizing: border-box;
+         overflow-y: auto;
+         min-height: 80px;
+       }
+
+       /* Paragraphe dans la boîte de texte (plus petit) */
+       .imageHautTexteBas-text-box p {
+         font-family: var(--main-font);
+         font-size: 14px;
+         line-height: 1.5;
+         color: #333;
+         margin: 0;
+         overflow-wrap: break-word;
+       }
+
+       /* Liste à puces dans le composant image haut texte bas - taille identique */
+       .imageHautTexteBas-text-box .section-list {
+         font-size: 14px;
+         line-height: 1.5;
+         margin-left: 20px;
+         margin-bottom: 15px;
+       }
+
+             /* ===========================================
+            COMPOSANT TABLEAU
+            =========================================== */
+
+       /* Wrapper du tableau avec scroll horizontal */
+       .table-wrapper {
+         width: 100%;
+         display: block;
+         overflow-x: auto;
+         border-radius: 20px;
+         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+         margin: 20px 0;
+         max-width: 100%;
+       }
+
+       /* Title Table style */
+       .loader-title-table {
+         justify-content: center;
+       }
+
+       .loader div,
+       .loader-title-table div {
+         color: var(--primary-color);
+         display: inline-block;
+         margin-right: 20px;
+       }
+
+       .title-table {
+         color: var(--gray-color1);
+         font-size: var(--font-size28);
+         font-family: var(--main-font);
+         margin-top: 10px;
+         margin-bottom: 10px;
+       }
+
+      /* Style du tableau */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        max-width: 100%;
+      }
+
+      /* En-tête du tableau - fond violet clair */
+      thead tr {
+        background-color: var(--primary-color3);
+      }
+
+      /* Séparateurs verticaux dans l'en-tête */
+      thead tr th:not(:last-child) {
+        border-right: 10px solid var(--white-color);
+      }
+
+      /* Corps du tableau - fond gris clair */
+      tbody tr {
+        background-color: var(--gray-color7);
+      }
+
+      /* Séparateurs horizontaux dans le corps */
+      tbody tr:not(:last-child) {
+        border-bottom: 8px solid var(--white-color);
+      }
+
+      /* Effet hover sur les lignes */
+      tbody tr:hover {
+        background-color: var(--gray-color6);
+        transition: background-color 0.2s ease;
+      }
+
+             /* Cellules du tableau */
+       th,
+       td {
+         font-family: var(--main-font);
+         color: var(--gray-color1);
+         padding: 12px 16px;
+         text-align: left;
+         vertical-align: top;
+         line-height: 1.4;
+         word-wrap: break-word;
+         white-space: normal;
+         overflow-wrap: break-word;
+       }
+
+      /* En-têtes de colonnes */
+      th {
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      /* Cellules de données */
+      td {
+        font-size: 13px;
+      }
+
+      /* ===========================================
+           COMPOSANT CONCLUSION - À RETENIR
+           =========================================== */
+
+      /* Classes utilitaires pour le composant Conclusion */
+      .is-flex {
+        display: flex;
+      }
+
+      .is-flex-wrap-wrap-mobile {
+        flex-wrap: wrap;
+      }
+
+      .col-1 {
+        width: 8.333333%;
+      }
+
+      .col-11 {
+        width: 91.666667%;
+      }
+
+      /* Container principal du composant Conclusion */
+      .container-a-retenir {
+        padding: 30px;
+        margin: 40px 0;
+      }
+
+      /* Titre du composant Conclusion */
+      .title-retenir-conclusion {
+        color: var(--gray-color1);
+        text-align: center;
+        font-family: var(--main-font);
+        font-size: 24px;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: uppercase;
+        margin-top: 20px;
+      }
+
+      /* Wrapper du titre avec image */
+      .wrap-title-retenir-conclusion {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* Image du titre */
+      .retenir-img {
+        width: 35%;
+      }
+
+      /* Container des étapes */
+      .steps {
+        padding: 20px;
+      }
+
+      /* Contenu d'une étape */
+      .step-content {
+        margin-bottom: 24px;
+      }
+
+      /* Étape avec numéro */
+      .step {
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+      }
+
+      /* Numéro de l'étape - cercle violet */
+      .number {
+        font-size: 18px;
+        font-family: var(--main-font);
+        font-weight: bold;
+        color: var(--white-color);
+        border-radius: 50%;
+        padding: 8px;
+        background-color: var(--primary-color);
+        width: 50px;
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Texte principal de l'étape */
+      .text {
+        font-family: var(--main-font);
+        color: var(--primary-color);
+        text-align: justify;
+        font-size: var(--font-size24);
+        font-weight: 600;
+        margin: 0;
+        padding-left: 15px;
+      }
+
+      /* Texte secondaire de l'étape */
+      .sub-text {
+        font-family: var(--main-font);
+        color: var(--gray-color1);
+        font-size: 18px;
+        margin: 0;
+        text-align: justify;
+        padding-left: 15px;
+      }
+
+      /* Ligne de séparation entre les étapes */
+      .line {
+        width: 2px;
+        height: 60px;
+        border-left-width: 2px;
+        border-left-style: dashed;
+        border-left-color: var(--gray-color1);
+      }
+
+             /* Cache la ligne pour la dernière étape */
+       .steps .step-content:last-child .line {
+         display: block;
+       }
+    </style>
   </head>
+
   <body>
-    <div class="CAP-AEPE">
-      <div class="CAP-AEPE-page">
-        <div class="element">
-          <div class="titre">
-            <div class="overlap-group">
-              <div class="rectangle"></div>
-              <div class="div"></div>
-              <div class="text-wrapper">01</div>
-              <div class="text-wrapper-2">Principe de laicité</div>
+    <!-- ===========================================
+         MENU BURGER (TABLETTE/MOBILE)
+         =========================================== -->
+    <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" />
+    <label for="menu-toggle" class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+         <nav class="menu">
+       <ul>
+         <li>
+           <a href="#section1">1 - Principe de laïcité</a>
+           <ul>
+             <li><a href="#section1-a">A. Structures d'accueil</a></li>
+           </ul>
+         </li>
+         <li>
+           <a href="#section2">2 - Les usagers du service public</a>
+         </li>
+         <li>
+           <a href="#section3">3 - Les agents du service public</a>
+         </li>
+         <li>
+           <a href="#section4">4 - La laïcité à l'école</a>
+         </li>
+         <li><a href="#conc">À retenir</a></li>
+       </ul>
+     </nav>
+
+    <!-- ===========================================
+          CONTAINER PRINCIPAL
+          =========================================== -->
+    <div class="main-container">
+      <div class="page-container">
+        <main class="main-content">
+          <!-- ===========================================
+               EN-TÊTE DE LA PAGE
+               =========================================== -->
+          
+          <!-- Titre principal de la page -->
+          <h1 class="intro-title">Le principe de laïcité</h1>
+
+          <!-- Image principale avec texte superposé -->
+          <div class="intro-image-container">
+            <img
+              src="../../images/CAP AEPE/page9/imageBallons.png"
+              alt="Image principale page 9"
+              class="intro-image"
+            />
+            <div class="intro-image-text">
+              Une loi sur la laïcité et la petite enfance<br />
+              a été votée en mai 2015.<br />
+              Cette loi assure la neutralité religieuse<br />
+              dans toutes les structures de la petite enfance
             </div>
           </div>
-        </div>
-        <div class="titre-wrapper">
-          <div class="titre">
-            <div class="overlap-group">
-              <div class="rectangle"></div>
-              <div class="div"></div>
-              <div class="text-wrapper">02</div>
-              <p class="text-wrapper-2">Les usagers du service public</p>
+
+          <!-- ===========================================
+               SECTION 1 : PRINCIPE DE LAÏCITÉ
+               =========================================== -->
+          <section id="section1">
+            <!-- En-tête de section avec numéro et titre -->
+            <div class="section-header">
+              <span class="section-number">01</span>
+              <span class="section-title">Principe de laicité</span>
             </div>
-          </div>
-        </div>
-        <div class="div-wrapper">
-          <div class="overlap-group-wrapper">
-            <div class="overlap-group-2">
-              <div class="rectangle-2"></div>
-              <div class="text-wrapper-3">03</div>
-              <p class="p">Les agents du service public</p>
+
+            <!-- Sous-section A : Structures d'accueil -->
+            <div id="section1-a">
+              <h3 class="subsection-heading">A. Structures d'accueil</h3>
+
+              <!-- Container flex pour texte et image côte à côte -->
+              <div class="section1-a-flex-container">
+                <!-- Bloc bleu avec texte uniquement -->
+                <div class="blue-block-container">
+                  <div class="blue-block-text">
+                    <p class="blue-block-content">
+                      En France, la laïcité a débuté en 1905 avec la loi sur la séparation de l’Eglise et de l’Etat.
+                      Elle garantit le libre exercice des cultes. L’école de la République est accessible à tous quelle que soit l’origine ou la religion. La laïcité est un principe qui s’applique dans toutes les structure de la petite enfance.
+                    </p>
+                  </div>
+                </div>
+                <!-- Image à côté du bloc bleu -->
+                <img
+                  src="../../images/CAP AEPE/page9/imageRepublique.jpg"
+                  alt="Illustration Republique"
+                  class="section1-a-image"
+                />
+              </div>
+
+            
+                      </section>
+
+          <!-- ===========================================
+               SECTION 2 : LES USAGERS DU SERVICE PUBLIC
+               =========================================== -->
+          <section id="section2">
+            <!-- En-tête de section avec numéro et titre -->
+            <div class="section-header">
+              <span class="section-number">02</span>
+              <span class="section-title">Les usagers du service public</span>
             </div>
-          </div>
-        </div>
-        <div class="element-2">
-          <div class="overlap-group-wrapper">
-            <div class="overlap-group-2">
-              <div class="rectangle-2"></div>
-              <div class="text-wrapper-3">04</div>
-              <p class="p">La Laïcité à l’École : La Charte de la Laïcité</p>
-            </div>
-          </div>
-        </div>
-        <div class="overlap">
-          <p class="text-wrapper-4">1-Ne pas confondre loi, règlement, charte</p>
-          <p class="text-wrapper-5">2-Exemple de hiérarchie en droit</p>
-          <div class="text-wrapper-6">Sommaire</div>
-        </div>
-        <div class="overlap-2">
-          <div class="titre-2"><div class="text-wrapper-7">Le principe de laïcité</div></div>
-          <img class="imageserrermain" src="img/imageserrermain-1.png" />
-          <p class="text-wrapper-8">
-            Une loi sur la laïcité et la petite enfance a été votée en mai 2015. Cette loi assure la neutralité
-            religieuse dans toutes les structures de la petite enfance
-          </p>
-        </div>
-        <div class="composant">
-          <div class="box-defilant">
-            <div class="overlap-group-3">
-              <div class="rectangle-3"></div>
-              <div class="rectangle-4"></div>
-              <p class="text-wrapper-9">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec maximus augue nec viverra facilisis.
-                Phasellus venen
+            <div class="text-content">
+              <p class="section-text-regular">
+                Les usagers (enfants, parents) des services publics, comme
+                l'école, ont des droits et des devoirs en matière de laïcité :
               </p>
-              <div class="text-wrapper-10">Lorem ipsum</div>
+              <ul class="section-list">
+                <li>
+                  <strong>Expression des convictions :</strong> Les usagers
+                  peuvent exprimer leurs croyances religieuses dans le respect
+                  de la neutralité du service public.
+                </li>
+                <li>
+                  <strong>Non-discrimination :</strong> Ils ne peuvent refuser
+                  de côtoyer un agent ou un autre usager pour des raisons
+                  religieuses.
+                </li>
+                <li>
+                  <strong>Respect des croyances :</strong> Les usagers
+                  accueillis à temps plein (ex. : internats) ont droit au
+                  respect de leurs croyances et à la pratique de leur culte,
+                  sous réserve des contraintes d'organisation du service.
+                </li>
+              </ul>
             </div>
-          </div>
-        </div>
-        <div class="text-wrapper-11">A. Structures d’accueil</div>
-        <div class="premiere-groupe">
-          <div class="en-france-la-la-cit-wrapper">
-            <p class="en-france-la-la-cit">
-              En France, la laïcité a débuté en 1905 avec la loi sur la séparation de l’Eglise et de l’Etat.<br />Elle
-              garantit le libre exercice des cultes. L’école de la République est accessible à tous quelle que soit
-              l’origine ou la religion. La laïcité est un principe qui s’applique dans toutes les structure de la petite
-              enfance.
-            </p>
-          </div>
-          <img class="undraw-in-the-office" src="img/undraw-in-the-office-ma2b-1.png" />
-        </div>
-        <p class="les-usagers-enfants">
-          Les usagers (enfants, parents) des services publics, comme l’école, ont des droits et des devoirs en matière
-          de laïcité :<br /><br />Expression des convictions : Les usagers peuvent exprimer leurs croyances religieuses
-          dans le respect de la neutralité du service public.<br />Non-discrimination : Ils ne peuvent refuser de
-          côtoyer un agent ou un autre usager pour des raisons religieuses.<br />Respect des croyances : Les usagers
-          accueillis à temps plein (ex. : internats) ont droit au respect de leurs croyances et à la pratique de leur
-          culte, sous réserve des contraintes d’organisation du service.
-        </p>
-        <div class="overlap-wrapper">
-          <div class="overlap-3">
-            <img class="img" src="img/rectangle-37.png" />
-            <div class="les-professionnels-wrapper">
-              <p class="les-professionnels">
-                Les professionnels des structures publiques (écoles, crèches, etc.) sont soumis à un devoir de stricte
-                neutralité :<br />Ils doivent agir sans manifester leurs croyances religieuses ou convictions
-                politiques.<br />Le port de signes ou vêtements à connotation religieuse est interdit.<br />Dans les
-                structures privées non subventionnées, la neutralité religieuse n’est pas une obligation générale, mais
-                des restrictions peuvent être imposées au personnel (ex. : interdiction de signes religieux
-                ostentatoires).
-              </p>
+          </section>
+
+          <!-- ===========================================
+               SECTION 3 : LES AGENTS DU SERVICE PUBLIC
+               =========================================== -->
+          <section id="section3">
+            <!-- En-tête de section avec numéro et titre -->
+            <div class="section-header">
+              <span class="section-number">03</span>
+              <span class="section-title">Les agents du service public</span>
             </div>
-          </div>
-        </div>
-        <p class="text-wrapper-12">
-          La Charte de la Laïcité à l’École, mise en place par l’Éducation Nationale, définit les principes fondamentaux
-          pour promouvoir la laïcité dans les établissements scolaires.
-        </p>
-        <div class="tableau">
-          <div class="rectangle-5"></div>
-          <div class="ligne">
-            <p class="text-wrapper-13">
-              1. La France est une République indivisible, laïque, démocratique et sociale. Elle assure l’égalité devant
-              la loi, sur l’ensemble de son territoire, de tous les citoyens. Elle respecte toutes les croyances.
+
+            <!-- Composant Image Haut Texte Bas -->
+            <div class="imageHautTexteBas-container">
+              <img
+                src="../../images/CAP AEPE/page9/agentsServicePublic.png"
+                alt="Image d'en-tête"
+                class="imageHautTexteBas-header-image"
+              />
+              <div class="imageHautTexteBas-text-box">
+                <p>
+                  Les professionnels des structures publiques (écoles, crèches,
+                  etc.) sont soumis à un devoir de stricte neutralité :
+                </p>
+                <ul class="section-list">
+                  <li>
+                    Ils doivent agir sans manifester leurs croyances religieuses
+                    ou convictions politiques.
+                  </li>
+                  <li>
+                    Le port de signes ou vêtements à connotation religieuse est
+                    interdit.
+                  </li>
+                  <li>
+                    Dans les structures privées non subventionnées, la
+                    neutralité religieuse n'est pas une obligation générale,
+                    mais des restrictions peuvent être imposées au personnel
+                    (ex. : interdiction de signes religieux ostentatoires).
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+
+          <!-- ===========================================
+               SECTION 4 : LA LAÏCITÉ À L'ÉCOLE
+               =========================================== -->
+          <section id="section4">
+            <!-- En-tête de section avec numéro et titre -->
+            <div class="section-header">
+              <span class="section-number">04</span>
+              <span class="section-title">La laicité à l'école</span>
+            </div>
+
+            <!-- Introduction de la section -->
+            <p>
+              La Charte de la Laïcité à l’École, mise en place par l’Éducation Nationale, 
+              définit les principes fondamentaux pour promouvoir 
+              la laïcité dans les établissements scolaires.
             </p>
-            <p class="text-wrapper-14">
-              2. La République laïque organise la séparation des religions et de l’Etat. L’Etat est neutre à l’égard des
-              convictions religieuses ou spirituelles. Il n’y a pas de religion d’Etat.
-            </p>
-            <p class="text-wrapper-15">
-              3. La Laïcité garantit la liberté de conscience à tous. Chacun est libre de croire ou de ne pas croire.
-              Elle permet la libre expression de ses convictions, dans le respect de celles d’autrui et dans les limites
-              de l’ordre public.
-            </p>
-            <p class="text-wrapper-16">
-              4. La laïcité permet l’exercice de la citoyenneté, en conciliant la liberté de chacun avec l’égalité et la
-              fraternité de tous dans le souci de l’intérêt général.
-            </p>
-          </div>
-          <div class="ligne-2">
-            <p class="text-wrapper-13">
-              5. La République assure dans les établissements scolaires le respect de chacun de ces principes.
-            </p>
-            <p class="text-wrapper-17">
-              6. La laïcité de l’Ecole offre aux élèves les conditions pour forger leur personnalité, exercer leur libre
-              arbitre et faire l’apprentissage de la citoyenneté. Elle les protège de tout prosélytisme et de toute
-              pression qui les empêcheraient de faire<br />leurs propres choix.
-            </p>
-            <p class="text-wrapper-15">
-              7. La laïcité assure aux élèves l’accès<br />à une culture commune et partagée.
-            </p>
-            <p class="text-wrapper-18">
-              8. La laïcité permet l’exercice de la liberté d’expression des élèves dans la limite du bon fonctionnement
-              de l’Ecole comme du respect des valeurs républicaines et du pluralisme des convictions.
-            </p>
-          </div>
-          <div class="ligne-3">
-            <p class="text-wrapper-19">
-              9. La laïcité implique le rejet de toutes les violences et de toutes les discriminations, garantit la
-              liberté entre les filles et les garçons et repose sur une culture du respect et de la compréhension de
-              l’autre.
-            </p>
-            <p class="text-wrapper-20">
-              10. Il appartient à tous les personnels de transmettre aux élèves dans le sens et La valeur de la laïcité,
-              ainsi que des autres principes fondamentaux de la République. Ils veillent à leur application dans le
-              cadre scolaire. Il leur revient de porter la présente charte à la connaissance des parents d’élèves.
-            </p>
-            <p class="text-wrapper-21">
-              11. Les personnels ont un devoir strict de neutralité : ils ne doivent pas manifester leurs convictions
-              politiques ou religieuses dans l’exercice de leurs fonctions.
-            </p>
-            <p class="text-wrapper-22">
-              12. Les enseignements sont laïques. Afin de garantir aux élèves l’ouverture la plus objective possible à
-              la diversité des visions du monde ainsi qu’à l’étendue et à la précision des savoirs, aucun sujet n’est à
-              priori exclu du questionnement scientifique et pédagogique. Aucun élève ne peut invoquer une raison
-              politique pour contester à un enseignant le droit de traiter une question au programme.
-            </p>
-          </div>
-          <div class="ligne-4">
-            <p class="text-wrapper-13">
-              13. Nul e peut se prévaloir de son appartenance religieuse pour refuser de se conformer aux règles
-              applicables dans l’Ecole de la République.
-            </p>
-            <p class="text-wrapper-17">
-              14. Dans les établissements scolaires publics, les règles de vie des différents espaces, précisées dans le
-              règlement intérieur, sont respectueuses de la laïcité. Le port de signes ou tenues par lesquels les élèves
-              manifestent ostensiblement une appartenance religieuse est interdit.
-            </p>
-            <p class="text-wrapper-15">
-              15. Par leurs réflexions et leurs activités, les élèves contribuent à faire vivre la laïcité au sein de
-              leur établissement.
-            </p>
-          </div>
-          <div class="rectangle-6"></div>
-          <div class="rectangle-7"></div>
-          <div class="rectangle-8"></div>
-        </div>
-        <div class="conclusion">
-          <p class="cole-la-charte-de-la">
-            <span class="span">École <br /></span>
-            <span class="text-wrapper-23"
-              >La Charte de la Laïcité protège les élèves du prosélytisme, favorise une culture commune et encourage
-              leur participation active à la citoyenneté.</span
-            >
-          </p>
-          <p class="neutralit-les-agents">
-            <span class="span">Neutralité<br /></span>
-            <span class="text-wrapper-23"
-              >Les agents publics doivent respecter une stricte neutralité (aucun signe religieux ou conviction
-              politique), renforcée dans les structures de la petite enfance depuis 2015.</span
-            >
-          </p>
-          <p class="fondement-la-la-cit">
-            <span class="span">Fondement<br /></span>
-            <span class="text-wrapper-23"
-              >La laïcité, instaurée par la loi de 1905, garantit la liberté de culte, l’égalité d’accès aux services
-              publics (école, petite enfance) et la neutralité des institutions.</span
-            >
-          </p>
-          <div class="text-wrapper-24">A RETENIR</div>
-          <img class="undraw-book-lover" src="img/undraw-book-lover-m9n3-1.svg" />
-          <div class="conclusion-style">
-            <div class="overlap-4">
-              <img class="line" src="img/line-2.svg" />
-              <div class="cercle">
-                <div class="overlap-group-4">
-                  <div class="ellipse"></div>
-                  <div class="text-wrapper-25">01.</div>
+
+
+                             <!-- Composant Tableau - Charte de la laïcité -->
+               <div class="block">
+                 <div
+                   class="wrap-title-table is-flex is-align-items-center"
+                 >
+                 </div>
+               </div>
+               <div class="table-wrapper block">
+                 <table>
+                   <thead>
+                     <tr>
+                       <th></th>
+                       <th></th>
+                       <th></th>
+                       <th></th>
+                     </tr>
+                   </thead>
+                  <tbody>
+                    <tr>
+                      <td>1. La France est une République indivisible, laïque, démocratique et sociale. Elle assure l’égalité devant la loi, sur l’ensemble de son territoire, de tous les citoyens. Elle respecte toutes les croyances.</td>
+                      <td>
+                        2. La République laïque organise la séparation des religions et de l’Etat. L’Etat est neutre à l’égard des convictions religieuses ou spirituelles. Il n’y a pas de religion d’Etat.  
+                      </td>
+                      <td>
+                        3. La Laïcité garantit la liberté de conscience à tous. Chacun est libre de croire ou de ne pas croire. Elle permet la libre expression de ses convictions, dans le respect de celles d’autrui et dans les limites de l’ordre public.
+                      </td>
+                      <td>
+                        4. La laïcité permet l’exercice de la citoyenneté, en conciliant la liberté de chacun avec l’égalité et la fraternité de tous dans le souci de l’intérêt général.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>5. La République assure dans les établissements scolaires le respect de chacun de ces principes.</td>
+                      <td>6. La laïcité de l’Ecole offre aux élèves les conditions pour forger leur personnalité, exercer leur libre arbitre et faire l’apprentissage de la citoyenneté. Elle les protège de tout prosélytisme et de toute pression qui les empêcheraient de faire leurs propres choix.</td>
+                      <td>
+                        7. La laïcité assure aux élèves l’accès à une culture commune et partagée.
+                      </td>
+                      <td>
+                        8. La laïcité permet l’exercice de la liberté d’expression des élèves dans la limite du bon fonctionnement de l’Ecole comme du respect des valeurs républicaines et du pluralisme des convictions.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>9. La laïcité implique le rejet de toutes les violences et de toutes les discriminations, garantit la liberté entre les filles et les garçons et repose sur une culture du respect et de la compréhension de l’autre.</td>
+                      <td>
+                        10. Il appartient à tous les personnels de transmettre aux élèves dans le sens et La valeur de la laïcité, ainsi que des autres principes fondamentaux de la République. Ils veillent à leur application dans le cadre scolaire. Il leur revient de porter la présente charte à la connaissance des parents d’élèves.
+                      </td>
+                      <td>
+                        11. Les personnels ont un devoir strict de neutralité : ils ne doivent pas manifester leurs convictions politiques ou religieuses dans l’exercice de leurs fonctions.
+                      </td>
+                      <td>
+                        12. Les enseignements sont laïques. Afin de garantir aux élèves l’ouverture la plus objective possible à la diversité des visions du monde ainsi qu’à l’étendue et à la précision des savoirs, aucun sujet n’est à priori exclu du questionnement scientifique et pédagogique. Aucun élève ne peut invoquer une raison politique pour contester à un enseignant le droit de traiter une question au programme.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>13. Nul e peut se prévaloir de son appartenance religieuse pour refuser de se conformer aux règles applicables dans l’Ecole de la République.</td>
+                      <td>14. Dans les établissements scolaires publics, les règles de vie des différents espaces, précisées dans le règlement intérieur, sont respectueuses de la laïcité. Le port de signes ou tenues par lesquels les élèves manifestent ostensiblement une appartenance religieuse est interdit.</td>
+                      <td>15. Par leurs réflexions et leurs activités, les élèves contribuent à faire vivre la laïcité au sein de leur établissement.</td>
+                      <td>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===========================================
+               COMPOSANT CONCLUSION - À RETENIR
+               =========================================== -->
+          <section id="conc">
+            <div class="block">
+              <div class="container-a-retenir">
+                <div
+                  class="wrap-title-retenir-conclusion is-flex is-flex-wrap-wrap-mobile"
+                >
+                  <img
+                    alt=""
+                    src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/qB4FycrMdfpezVAj3liVV72k1MT3DTBQ8iGRWQyu.png"
+                    class="retenir-img"
+                  />
+                  <h2 class="title-retenir-conclusion">à retenir</h2>
+                </div>
+                <div class="steps">
+                  <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                    <div class="step col-1 is-flex">
+                      <span class="number is-flex">01.</span>
+                      <div class="line"></div>
+                    </div>
+                    <div class="step-text col-11">
+                      <p class="text">Fondement</p>
+                      <p class="sub-text">
+                        La laïcité, instaurée par la loi de 1905, garantit la liberté de culte, l’égalité d’accès aux services publics (école, petite enfance) et la neutralité des institutions.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                    <div class="step col-1 is-flex">
+                      <span class="number is-flex">02.</span>
+                      <div class="line"></div>
+                    </div>
+                    <div class="step-text col-11">
+                      <p class="text">Neutralité</p>
+                      <p class="sub-text">
+                        Les agents publics doivent respecter une stricte neutralité (aucun signe religieux ou conviction politique), renforcée dans les structures de la petite enfance depuis 2015.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                    <div class="step col-1 is-flex">
+                      <span class="number is-flex">03.</span>
+                      <div class="line"></div>
+                    </div>
+                    <div class="step-text col-11">
+                      <p class="text">École </p>
+                      <p class="sub-text">
+                        La Charte de la Laïcité protège les élèves du prosélytisme, favorise une culture commune et encourage leur participation active à la citoyenneté.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="cercle-2">
-                <div class="overlap-5"><div class="text-wrapper-26">02</div></div>
-              </div>
-              <div class="cercle-3">
-                <div class="overlap-5"><div class="text-wrapper-27">03</div></div>
-              </div>
             </div>
-          </div>
-        </div>
+          </section>
+        </main>
       </div>
     </div>
   </body>
