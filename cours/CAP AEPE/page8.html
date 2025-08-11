@@ -1,0 +1,2155 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Structures d'accueil du jeune enfant (de 0 à 6 ans)</title>
+
+    <style>
+      /* ===========================================
+           VARIABLES CSS GLOBALES
+           =========================================== */
+
+      :root {
+        /* Couleurs principales */
+        --primary-color: #5f8bbc;
+        --primary-color3: #e1d4ff;
+        --primary-color4: #f0ecc8;
+        --secondary-color: #9747ff;
+        --blue-color10: #e6f0fb;
+
+        /* Couleurs neutres */
+        --gray-color1: #757575;
+        --gray-color6: #ededed;
+        --gray-color7: #f7f7f7;
+        --white-color: #ffffff;
+
+        /* Typographie */
+        --main-font: "Montserrat", sans-serif;
+        --font-size18: 18px;
+        --font-size24: 24px;
+        --font-size28: 28px;
+        --font-size32: 32px;
+        --font-size48: 48px;
+
+        /* Espacements */
+        --spacing-xs: 8px;
+        --spacing-sm: 12px;
+        --spacing-md: 20px;
+        --spacing-lg: 30px;
+        --spacing-xl: 40px;
+
+        /* Ombres */
+        --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
+        --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15);
+        --shadow-heavy: 0 9px 15px rgba(0, 0, 0, 0.2);
+
+        /* Transitions */
+        --transition-fast: 0.3s ease;
+        --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* ===========================================
+           RESET ET STYLES DE BASE
+           =========================================== */
+
+      /* Reset CSS pour une base cohérente */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Styles de base pour le body */
+      body {
+        font-family: var(--main-font);
+        line-height: 1.6;
+        color: #333;
+        background-color: #f5f5f5;
+        min-height: 100vh;
+      }
+
+      /* Défilement fluide pour les ancres */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* ===========================================
+           CONTAINER PRINCIPAL
+           =========================================== */
+
+      /* Container principal avec ombre et centrage */
+      .main-container {
+        width: 60%;
+        max-width: 1200px;
+        margin: var(--spacing-lg) auto;
+        background: var(--white-color);
+        border-radius: 12px;
+        box-shadow: var(--shadow-heavy);
+        padding: var(--spacing-lg);
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* ===========================================
+           LAYOUT ET STRUCTURE
+           =========================================== */
+
+      /* Container de la page avec flexbox */
+      .page-container {
+        display: flex;
+        gap: 25px;
+        position: relative;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* Contenu principal avec gestion du débordement */
+      .main-content {
+        flex: 1;
+        padding: var(--spacing-md);
+        transition: margin-left var(--transition-fast);
+        min-width: 0;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      /* ===========================================
+           MENU BURGER - SYSTÈME DE NAVIGATION
+           =========================================== */
+
+      /* Checkbox caché pour contrôler l'état du menu */
+      .menu-toggle-checkbox {
+        display: none;
+      }
+
+      /* Bouton menu burger - visible sur tous les formats */
+      .menu-toggle {
+        display: block;
+        position: fixed;
+        top: var(--spacing-lg);
+        left: var(--spacing-lg);
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        z-index: 2001;
+        opacity: 0.8;
+        transition: opacity var(--transition-fast);
+        background: var(--white-color);
+        border-radius: 8px;
+        padding: 8px;
+        box-shadow: var(--shadow-light);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Effet hover sur le bouton menu burger */
+      .menu-toggle:hover {
+        opacity: 1;
+      }
+
+      /* Les 3 barres horizontales du menu burger */
+      .menu-toggle span {
+        display: block;
+        width: 14px;
+        height: 2px;
+        background: #333;
+        margin: 2px 0;
+        border-radius: 1px;
+        transition: all var(--transition-smooth);
+        transform-origin: center;
+      }
+
+      /* Animation du menu burger : première barre devient X (rotation + translation) */
+      .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(1) {
+        transform: rotate(45deg) translate(2px, 2px);
+      }
+
+      /* Animation du menu burger : barre du milieu disparaît (opacité + échelle) */
+      .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(2) {
+        opacity: 0;
+        transform: scale(0);
+      }
+
+      /* Animation du menu burger : troisième barre devient X (rotation inverse + translation) */
+      .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(3) {
+        transform: rotate(-45deg) translate(2px, -2px);
+      }
+
+      /* Menu latéral qui glisse depuis la gauche */
+      .menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 70%;
+        max-width: 300px;
+        height: 100%;
+        background: var(--gray-color7);
+        box-shadow: 4px 0 16px rgba(0, 0, 0, 0.15);
+        transform: translateX(-100%);
+        transition: transform var(--transition-fast);
+        padding: 80px 25px var(--spacing-lg);
+        z-index: 1500;
+        border-right: 1px solid #e0e0e0;
+        overflow-y: auto; /* Permet le défilement vertical */
+        overflow-x: hidden; /* Cache le défilement horizontal */
+      }
+
+      /* Affiche le menu quand le checkbox est coché (glissement vers la droite) */
+      .menu-toggle-checkbox:checked + .menu-toggle + .menu {
+        transform: translateX(0);
+      }
+
+      /* Supprime les puces de la liste du menu */
+      .menu ul {
+        list-style: none;
+      }
+
+      /* Espacement entre les éléments du menu */
+      .menu ul li {
+        margin-bottom: var(--spacing-md);
+      }
+
+      /* Liens de navigation dans le menu burger */
+      .menu ul li a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: var(--font-size18);
+        transition: all var(--transition-fast);
+        display: block;
+        padding: 15px var(--spacing-md);
+        border-radius: 10px;
+        background: var(--white-color);
+        border: 1px solid #e0e0e0;
+      }
+
+      /* Effet hover sur les liens du menu burger */
+      .menu ul li a:hover {
+        color: var(--primary-color);
+        background: var(--blue-color10);
+        transform: translateX(10px);
+        box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
+      }
+
+      /* ===========================================
+           SOUS-SECTIONS DU MENU BURGER
+           =========================================== */
+
+      /* Container des sous-listes (A, B, C, etc.) */
+      .menu ul ul {
+        margin-top: var(--spacing-sm);
+        margin-left: var(--spacing-md);
+        border-left: 2px solid var(--primary-color);
+        padding-left: var(--spacing-sm);
+      }
+
+      /* Espacement réduit entre les sous-sections */
+      .menu ul ul li {
+        margin-bottom: var(--spacing-sm);
+      }
+
+      /* Liens des sous-sections (A, B, C, etc.) - plus petits et moins mis en valeur */
+      .menu ul ul li a {
+        font-size: 14px; /* Plus petit que les sections principales (18px) */
+        font-weight: 400; /* Plus léger que les sections principales (600) */
+        padding: 8px var(--spacing-sm); /* Padding réduit */
+        background: transparent; /* Pas de fond blanc */
+        border: none; /* Pas de bordure */
+        color: var(--gray-color1); /* Couleur plus discrète */
+        opacity: 0.8; /* Légèrement transparent */
+      }
+
+      /* Effet hover sur les sous-sections - plus subtil */
+      .menu ul ul li a:hover {
+        color: var(--primary-color);
+        background: transparent;
+        transform: translateX(5px); /* Déplacement plus petit */
+        box-shadow: none; /* Pas d'ombre */
+        opacity: 1;
+      }
+
+      /* ===========================================
+           PERSONNALISATION DE LA BARRE DE DÉFILEMENT
+           =========================================== */
+
+      /* Masque la barre de défilement par défaut */
+      .menu::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      /* Piste de la barre de défilement */
+      .menu::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      /* Curseur de la barre de défilement */
+      .menu::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: 3px;
+        opacity: 0.7;
+      }
+
+      /* Effet hover sur le curseur */
+      .menu::-webkit-scrollbar-thumb:hover {
+        background: #4a7aa3;
+        opacity: 1;
+      }
+
+      /* Support pour Firefox */
+      .menu {
+        scrollbar-width: thin;
+        scrollbar-color: var(--primary-color) transparent;
+      }
+
+      /* ===========================================
+            TITRES ET EN-TÊTES
+            =========================================== */
+
+      /* Titre principal de la page */
+      .intro-title {
+        font-family: var(--main-font);
+        font-weight: 700;
+        color: var(--primary-color);
+        font-size: 42px;
+        text-align: center;
+        text-decoration: underline;
+        margin: var(--spacing-lg) 0 50px 0;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Image principale en haut de la page */
+      .intro-image {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin: var(--spacing-lg) auto;
+        border-radius: 12px;
+        box-shadow: var(--shadow-medium);
+      }
+
+      /* Container des en-têtes de section (numéro + titre) */
+      .section-header {
+        display: flex;
+        align-items: center;
+        background: linear-gradient(
+          135deg,
+          #d5e9ff 0%,
+          var(--blue-color10) 100%
+        );
+        border: 3px solid var(--primary-color);
+        border-radius: 15px;
+        padding: 0;
+        margin: 50px 0 var(--spacing-lg);
+        box-shadow: 0 4px 12px rgba(95, 139, 188, 0.2);
+        overflow: hidden;
+      }
+
+      /* Numéro de section (01, 02, etc.) - partie bleue à gauche */
+      .section-number {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          #3b6ea5 100%
+        );
+        color: var(--white-color);
+        font-family: var(--main-font);
+        font-weight: 700;
+        font-size: 36px;
+        padding: 25px 30px;
+        min-width: 120px;
+        width: 120px;
+        text-align: center;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        align-self: stretch;
+      }
+
+      /* Titre de section (texte principal) - partie droite */
+      .section-title {
+        color: var(--primary-color);
+        font-family: var(--main-font);
+        font-weight: 700;
+        font-size: 24px;
+        text-align: center;
+        flex: 1;
+        padding: 25px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100px;
+      }
+
+      /* Liste à puces dans le contenu des sections */
+      .section-list {
+        margin-left: 25px;
+        margin-bottom: 25px;
+        font-size: 18px;
+        line-height: 1.8;
+      }
+
+      /* Sous-titres (A., B., etc.) dans les sections */
+      .subsection-heading {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        color: #5f8bbc;
+        font-size: 26px;
+        margin: 40px 0 20px;
+        padding: 15px 20px;
+        background: #f8fbff;
+        border-left: 5px solid #5f8bbc;
+        border-radius: 0 8px 8px 0;
+      }
+
+      /* Texte de contenu des sections (paragraphes) */
+      .section-text {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+        color: #000000;
+        font-size: 18px;
+        margin-bottom: 25px;
+        line-height: 1.7;
+      }
+
+      /* ===========================================
+            LAYOUT FLEXIBLE
+            =========================================== */
+
+      /* Container flexible pour texte + image côte à côte */
+      .flex-container {
+        display: flex;
+        align-items: flex-start;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin: 30px 0;
+        padding: 25px;
+        background: #fafbfc;
+        border-radius: 12px;
+        border: 1px solid #e0e0e0;
+      }
+
+      /* Zone de texte dans le layout flexible */
+      .text-content {
+        flex: 1;
+        min-width: 350px;
+      }
+
+      /* Images dans le layout flexible */
+      .office-image {
+        max-width: 350px;
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      /* ===========================================
+           COMPOSANT CONCLUSION
+           =========================================== */
+
+      /* Classes utilitaires pour le composant Conclusion */
+      .is-flex {
+        display: flex;
+      }
+
+      .is-flex-wrap-wrap-mobile {
+        flex-wrap: wrap;
+      }
+
+      .col-1 {
+        width: 8.333333%;
+      }
+
+      .col-11 {
+        width: 91.666667%;
+      }
+
+      /* ===========================================
+           COMPOSANT CONCLUSION - STYLES ORIGINAUX
+           =========================================== */
+
+      /* Variables CSS nécessaires pour le composant */
+      :root {
+        --main-font: "Montserrat", sans-serif;
+        --font-size18: 18px;
+        --font-size24: 24px;
+        --font-size32: 32px;
+        --font-size48: 48px;
+        --primary-color: #9747ff;
+        --gray-color1: #757575;
+        --white-color: #ffffff;
+      }
+
+      /* Classes utilitaires */
+      .is-flex {
+        display: flex;
+      }
+
+      .is-flex-wrap-wrap-mobile {
+        flex-wrap: wrap;
+      }
+
+      .col-1 {
+        width: 8.333333%;
+      }
+      .col-11 {
+        width: 91.666667%;
+      }
+
+      /* Block */
+      .block:not(:last-child),
+      .block:not(:last-child) {
+        margin-bottom: 24px;
+      }
+
+      /* Title H2 With background */
+      .bg-title-h2 {
+        font-family: var(--main-font);
+        color: var(--gray-color1);
+        font-size: var(--font-size32);
+        font-weight: 600;
+        background-color: var(--primary-color);
+        padding: 8px 14px;
+        border-radius: 10px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      /* à retenir */
+      .steps {
+        padding: 20px;
+      }
+
+      .step {
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+      }
+
+      .number {
+        font-size: 18px;
+        font-family: var(--main-font);
+        font-weight: bold;
+        color: var(--white-color);
+        border-radius: 50%;
+        padding: 8px;
+        background-color: var(--primary-color);
+        width: 50px;
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .text {
+        font-family: var(--main-font);
+        color: var(--primary-color);
+        text-align: justify;
+        font-size: var(--font-size24);
+        font-weight: 600;
+        margin: 0;
+        padding-left: 15px;
+      }
+
+      .sub-text {
+        font-family: var(--main-font);
+        color: var(--gray-color1);
+        font-size: 18px;
+        margin: 0;
+        text-align: justify;
+        padding-left: 15px;
+      }
+
+      .line {
+        width: 2px;
+        height: 60px;
+        border-left-width: 2px;
+        border-left-style: dashed;
+        border-left-color: var(--gray-color1);
+        border-right-width: initial;
+        border-right-style: initial;
+        border-right-color: initial;
+        border-top-width: initial;
+        border-top-style: initial;
+        border-top-color: initial;
+        border-bottom-width: initial;
+        border-bottom-style: initial;
+        border-bottom-color: initial;
+      }
+
+      .steps .step-content:last-child .line {
+        display: none;
+      }
+
+      .title-retenir-conclusion {
+        color: var(--gray-color1);
+        text-align: center;
+        font-family: var(--main-font);
+        font-size: 24px;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: uppercase;
+        margin-top: 20px;
+      }
+
+      .wrap-title-retenir-conclusion {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .retenir-img {
+        width: 35%;
+      }
+
+      /* Container principal du composant Conclusion */
+      .container-a-retenir {
+        padding: 30px;
+        margin: 40px 0;
+      }
+
+      /* ===========================================
+           STRUCTURES D'ACCUEIL - RECTANGLES JAUNES
+           =========================================== */
+
+      /* Paragraphe d'introduction centré */
+      .structures-intro {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        color: #5f8bbc;
+        font-size: 22px;
+        text-align: center;
+        margin: 40px 0 30px;
+        padding: 20px;
+        background: #f8fbff;
+        border-radius: 12px;
+        border: 2px solid #e0e0e0;
+      }
+
+      /* Container pour la grille 2x2 des rectangles */
+      .structures-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin: 20px 0;
+        padding: 12px;
+      }
+
+      /* Rectangle jaune individuel */
+      .structure-box {
+        background-color: #f0ecc8;
+        border-radius: 8px;
+        padding: 12px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        border: 2px solid #e0e0e0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        min-height: 160px; /* Hauteur minimale pour contenir le texte */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      /* Effet hover sur les rectangles */
+      .structure-box:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Contenu intérieur des rectangles */
+      .structure-content {
+        background-color: #fdfbed;
+        padding: 10px;
+        border-radius: 5px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      /* Texte dans chaque rectangle */
+      .structure-content p {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+        color: #333;
+        font-size: 12px;
+        line-height: 1.5;
+        text-align: center;
+        margin: 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+      }
+
+      /* ===========================================
+           RESPONSIVE DESIGN
+           =========================================== */
+
+      /* Desktop (1200px+) */
+      @media (min-width: 1200px) {
+        .main-content {
+          margin-left: 0;
+        }
+      }
+
+      /* Laptop (1024px - 1199px) */
+      @media (max-width: 1199px) and (min-width: 1024px) {
+        .main-content {
+          margin-left: 0;
+        }
+      }
+
+      /* Tablette (768px - 1023px) */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .main-content {
+          margin-left: 0;
+        }
+
+        .main-container {
+          margin: 20px;
+          padding: 25px;
+        }
+
+        /* Menu plus petit sur tablette */
+        .menu {
+          width: 60%;
+          max-width: 280px;
+          padding: 70px 20px 25px;
+        }
+
+        /* Bouton burger plus petit sur tablette */
+        .menu-toggle {
+          width: 35px;
+          height: 35px;
+          padding: 6px;
+        }
+
+        .menu-toggle span {
+          width: 12px;
+          height: 2px;
+          margin: 1.5px 0;
+        }
+
+        /* Animation du menu burger sur tablette */
+        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(1) {
+          transform: rotate(45deg) translate(1px, 1px);
+        }
+
+        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(2) {
+          opacity: 0;
+          transform: scale(0);
+        }
+
+        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(3) {
+          transform: rotate(-45deg) translate(1px, -1px);
+        }
+
+        /* Composant Conclusion sur tablette */
+        .text,
+        .sub-text {
+          text-align: center;
+        }
+
+        .step-content {
+          margin-bottom: 24px;
+        }
+
+        .steps .step-content:last-child .line {
+          display: block;
+        }
+
+        /* Structures d'accueil sur tablette */
+        .structures-grid {
+          grid-template-columns: 1fr;
+          gap: 12px;
+          padding: 10px;
+        }
+
+        .structure-box {
+          padding: 10px;
+          min-height: 180px; /* Hauteur minimale adaptée pour tablette */
+        }
+
+        .structure-content {
+          padding: 8px;
+        }
+
+        .structure-content p {
+          font-size: 11px;
+          line-height: 1.4;
+        }
+      }
+
+      /* Mobile (767px et moins) */
+      @media (max-width: 767px) {
+        .main-content {
+          margin-left: 0;
+        }
+
+        .main-container {
+          margin: 15px;
+          padding: 20px;
+          overflow: visible;
+        }
+
+        .page-container {
+          flex-direction: column;
+        }
+
+        .main-content {
+          padding: 15px;
+          overflow: visible;
+        }
+
+        /* Menu plus petit sur mobile */
+        .menu {
+          width: 75%;
+          max-width: 250px;
+          padding: 60px 15px 20px;
+        }
+
+        /* Bouton burger plus petit sur mobile */
+        .menu-toggle {
+          width: 32px;
+          height: 32px;
+          padding: 5px;
+          top: 20px;
+          left: 20px;
+        }
+
+        .menu-toggle span {
+          width: 10px;
+          height: 2px;
+          margin: 1px 0;
+        }
+
+        /* Animation du menu burger sur mobile */
+        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(1) {
+          transform: rotate(45deg) translate(0.5px, 0.5px);
+        }
+
+        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(2) {
+          opacity: 0;
+          transform: scale(0);
+        }
+
+        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(3) {
+          transform: rotate(-45deg) translate(0.5px, -0.5px);
+        }
+
+        /* Titres adaptés */
+        .intro-title {
+          font-size: 28px;
+          margin: 20px 0 30px 0;
+        }
+
+        .section-header {
+          flex-direction: column;
+          text-align: center;
+          margin: 30px 0 20px;
+        }
+
+        .section-number {
+          border-radius: 12px 12px 0 0;
+          width: 100%;
+          text-align: center;
+        }
+
+        .section-text {
+          border-radius: 0 0 12px 12px;
+          width: 100%;
+        }
+
+        /* Structures d'accueil sur mobile */
+        .structures-grid {
+          grid-template-columns: 1fr;
+          gap: 10px;
+          padding: 8px;
+        }
+
+        .structure-box {
+          padding: 8px;
+          min-height: 140px; /* Hauteur minimale adaptée pour mobile */
+        }
+
+        .structure-content {
+          padding: 6px;
+        }
+
+        .structure-content p {
+          font-size: 10px;
+          line-height: 1.3;
+        }
+
+        .subsection-heading {
+          font-size: 22px;
+          margin: 25px 0 15px;
+        }
+
+        /* Layout flexible en colonne */
+        .flex-container {
+          flex-direction: column;
+          padding: 20px;
+          gap: 20px;
+        }
+
+        .text-content {
+          min-width: auto;
+        }
+
+        .office-image {
+          max-width: 100%;
+        }
+
+        /* Composant Conclusion sur mobile */
+        .text,
+        .sub-text {
+          text-align: center;
+        }
+
+        .step-content {
+          margin-bottom: 24px;
+        }
+
+        .steps .step-content:last-child .line {
+          display: block;
+        }
+      }
+
+      /* Petit mobile (480px et moins) */
+      @media (max-width: 480px) {
+        .main-container {
+          margin: 10px;
+          padding: 15px;
+        }
+
+        .intro-title {
+          font-size: 24px;
+        }
+
+        .section-text {
+          font-size: 16px;
+        }
+
+        .subsection-heading {
+          font-size: 20px;
+        }
+
+        .section-number {
+          font-size: 28px;
+          padding: 15px 20px;
+        }
+
+        .section-title {
+          font-size: 28px;
+          padding: 15px 20px;
+          min-height: 70px;
+        }
+
+        /* Structures d'accueil sur très petit mobile */
+        .structures-grid {
+          gap: 8px;
+          padding: 6px;
+        }
+
+        .structure-box {
+          padding: 6px;
+          min-height: 120px;
+        }
+
+        .structure-content {
+          padding: 5px;
+        }
+
+        .structure-content p {
+          font-size: 9px;
+          line-height: 1.2;
+        }
+
+        /* Composant Conclusion sur petit mobile */
+        .text,
+        .sub-text {
+          text-align: center;
+        }
+
+        .step-content {
+          margin-bottom: 24px;
+        }
+
+        .steps .step-content:last-child .line {
+          display: block;
+        }
+      }
+
+      /* Variables CSS nécessaires */
+      :root {
+        --main-font: "Montserrat", sans-serif;
+        --font-size28: 28px;
+        --primary-color: #9747ff;
+        --primary-color3: #e1d4ff;
+        --gray-color1: #757575;
+        --gray-color6: #ededed;
+        --gray-color7: #f7f7f7;
+        --white-color: #ffffff;
+      }
+
+      /* Styles de base */
+      * {
+        word-break: break-word;
+        box-sizing: border-box;
+      }
+
+      /* Classes utilitaires */
+      .is-flex {
+        display: flex;
+      }
+
+      .is-align-items-center {
+        align-items: center;
+      }
+
+      /* Block */
+      .block:not(:last-child),
+      .block:not(:last-child) {
+        margin-bottom: 24px;
+      }
+
+      /* Title Table style */
+      .loader-title-table {
+        justify-content: center;
+      }
+
+      .loader div,
+      .loader-title-table div {
+        color: var(--primary-color);
+        display: inline-block;
+        margin-right: 20px;
+      }
+
+      .title-table {
+        color: var(--gray-color1);
+        font-size: var(--font-size28);
+        font-family: "Montserrat", sans-serif;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      /* Table styles */
+      .table-wrapper {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+        border-radius: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        margin: 20px 0;
+        max-width: 100%;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        max-width: 100%;
+      }
+
+      thead tr {
+        background-color: var(--primary-color3);
+      }
+
+      thead tr th:not(:last-child) {
+        border-right: 10px solid var(--white-color);
+      }
+
+      tbody tr {
+        background-color: var(--gray-color7);
+      }
+
+      tbody tr:not(:last-child) {
+        border-bottom: 8px solid var(--white-color);
+      }
+
+      tbody tr:hover {
+        background-color: var(--gray-color6);
+        transition: background-color 0.2s ease;
+      }
+
+      th,
+      td {
+        font-family: "Montserrat", sans-serif;
+        color: var(--gray-color1);
+        padding: 12px 16px;
+        text-align: left;
+        vertical-align: top;
+        line-height: 1.4;
+        word-wrap: break-word;
+        white-space: normal;
+        overflow-wrap: break-word;
+      }
+
+      th {
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      td {
+        font-size: 13px;
+      }
+
+      /* Colonnes spécifiques avec largeurs relatives */
+      th:nth-child(1),
+      td:nth-child(1) {
+        width: 15%;
+      }
+
+      th:nth-child(2),
+      td:nth-child(2) {
+        width: 25%;
+      }
+
+      th:nth-child(3),
+      td:nth-child(3) {
+        width: 35%;
+      }
+
+      th:nth-child(4),
+      td:nth-child(4) {
+        width: 25%;
+      }
+
+      /* Mobile */
+      @media (max-width: 768px) {
+        .wrap-title-table {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .loader-title-table {
+          align-items: center;
+          align-content: center;
+          flex-direction: row;
+        }
+
+        .title-table {
+          text-align: center;
+        }
+
+        /* Tableau responsive sur mobile */
+        .table-wrapper {
+          overflow-x: auto;
+          border-radius: 12px;
+        }
+
+        table {
+          min-width: 600px;
+        }
+
+        th,
+        td {
+          padding: 8px 12px;
+          font-size: 12px;
+        }
+      }
+
+      /* Tablet */
+      @media (max-width: 992px) and (min-width: 768px) {
+        .wrap-title-table {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .loader-title-table {
+          align-items: center;
+          align-content: center;
+          flex-direction: row;
+        }
+
+        .title-table {
+          text-align: center;
+        }
+
+        /* Tableau responsive sur tablette */
+        .table-wrapper {
+          overflow-x: auto;
+        }
+
+        table {
+          min-width: 700px;
+        }
+
+        th,
+        td {
+          padding: 10px 14px;
+          font-size: 13px;
+        }
+      }
+
+      /* Variables CSS nécessaires */
+      :root {
+        --main-font: "Montserrat", sans-serif;
+        --font-size18: 18px;
+        --gray-color1: #757575;
+        --primary-color: #9747ff;
+        --secondary-color: #0074c0;
+        --primary-color4: #efe8ff;
+        --blue-color10: #e6f0ff;
+        --gray-color6: #ededed;
+      }
+
+      /* Styles de base */
+      * {
+        word-break: break-word;
+        box-sizing: border-box;
+      }
+
+      /* Classes utilitaires */
+      .is-flex {
+        display: flex;
+      }
+
+      .is-flex-gap {
+        gap: 24px;
+      }
+
+      .is-flex-wrap-wrap-mobile {
+        flex-wrap: wrap;
+      }
+
+      .col-1 {
+        width: 8.333333%;
+      }
+
+      .col-11 {
+        width: 91.666667%;
+      }
+
+      .p-5 {
+        padding: 20px !important;
+      }
+
+      .mt-4 {
+        margin-top: 16px !important;
+      }
+
+      .center {
+        text-align: center !important;
+      }
+
+      /* Block */
+      .block:not(:last-child),
+      .block:not(:last-child) {
+        margin-bottom: 24px;
+      }
+
+      /* Box ligne entière container */
+      .box-ligne-entiere-container {
+        width: 100%;
+        margin: 0 auto;
+        max-width: none;
+      }
+
+      /* Box */
+      .box {
+        border-radius: 20px;
+        background: white;
+        box-shadow: 0px 4px 8px rgba(117, 117, 117, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0px 12px 24px rgba(117, 117, 117, 0.2);
+      }
+
+      /* Images */
+      .img-fluid {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Paragraphe */
+      .paragraphe {
+        text-align: justify;
+        color: #000000;
+        font-family: "Montserrat", sans-serif;
+        font-size: var(--font-size18);
+        font-weight: 400;
+      }
+
+      /* Colors */
+      .primary-color {
+        color: var(--primary-color) !important;
+      }
+
+      .secondary-color {
+        color: var(--secondary-color) !important;
+      }
+
+      .gray-color1 {
+        color: var(--gray-color1) !important;
+      }
+
+      .bg-primary-color4 {
+        background-color: var(--primary-color4) !important;
+      }
+
+      .bg-blue-color10 {
+        background-color: var(--blue-color10) !important;
+      }
+
+      .bg-gray-color6 {
+        background-color: var(--gray-color6) !important;
+      }
+
+      /* Mobile */
+      @media (max-width: 768px) {
+        .box-ligne-entiere-container {
+          width: 100%;
+          margin: 0 auto;
+        }
+
+        .col-1,
+        .col-2,
+        .col-3,
+        .col-4,
+        .col-5,
+        .col-6,
+        .col-7,
+        .col-8,
+        .col-9,
+        .col-10,
+        .col-11,
+        .col-12 {
+          width: 100%;
+        }
+      }
+
+      /* Tablet */
+      @media (max-width: 992px) and (min-width: 768px) {
+        .box-ligne-entiere-container {
+          width: 100%;
+          margin: 0 auto;
+        }
+
+        .col-1,
+        .col-2,
+        .col-3,
+        .col-4,
+        .col-5,
+        .col-6,
+        .col-7,
+        .col-8,
+        .col-9,
+        .col-10,
+        .col-11,
+        .col-12 {
+          width: 100%;
+        }
+      }
+
+      /* Variables CSS nécessaires */
+      :root {
+        --main-font: "Poppins", serif;
+        --font-size18: 18px;
+        --font-size24: 24px;
+        --font-size32: 32px;
+        --font-size48: 48px;
+        --primary-color: #9747ff;
+        --gray-color1: #757575;
+        --white-color: #ffffff;
+      }
+
+      /* Styles de base */
+      * {
+        word-break: break-word;
+        box-sizing: border-box;
+      }
+
+      /* Classes utilitaires */
+      .is-flex {
+        display: flex;
+      }
+
+      .is-flex-wrap-wrap-mobile {
+        flex-wrap: wrap;
+      }
+
+      .col-1 {
+        width: 8.333333%;
+      }
+      .col-11 {
+        width: 91.666667%;
+      }
+
+      /* Block */
+      .block:not(:last-child),
+      .block:not(:last-child) {
+        margin-bottom: 24px;
+      }
+
+      /* Title H2 With background */
+      .bg-title-h2 {
+        font-family: var(--main-font);
+        color: var(--gray-color);
+        font-size: var(--font-size32);
+        font-weight: 600;
+        background-color: var(--primary-color5);
+        padding: 8px 14px;
+        border-radius: 10px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* à retenir */
+      .steps {
+        padding: 20px;
+      }
+
+      .step {
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+      }
+
+      .number {
+        font-size: 18px;
+        font-family: var(--main-font);
+        font-weight: bold;
+        color: var(--white-color);
+        border-radius: 50%;
+        padding: 8px;
+        background-color: var(--primary-color);
+        width: 50px;
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .text {
+        font-family: var(--main-font);
+        color: var(--primary-color);
+        text-align: justify;
+        font-size: var(--font-size24);
+        font-weight: 600;
+        margin: 0;
+        padding-left: 15px;
+      }
+
+      .sub-text {
+        font-family: var(--main-font);
+        color: var(--gray-color1);
+        font-size: 18px;
+        margin: 0;
+        text-align: justify;
+        padding-left: 15px;
+      }
+
+      .line {
+        width: 2px;
+        height: 100px;
+        border-left-width: 2px;
+        border-left-style: dashed;
+        border-left-color: var(--gray-color1);
+        border-right-width: initial;
+        border-right-style: initial;
+        border-right-color: initial;
+        border-top-width: initial;
+        border-top-style: initial;
+        border-top-color: initial;
+        border-bottom-width: initial;
+        border-bottom-style: initial;
+        border-bottom-color: initial;
+      }
+
+      .steps .step-content:last-child .line {
+        display: block;
+      }
+
+      .title-retenir-conclusion {
+        color: var(--gray-color1);
+        text-align: center;
+        font-family: var(--main-font);
+        font-size: 24px;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: uppercase;
+      }
+
+      .wrap-title-retenir-conclusion {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .retenir-img {
+        width: 35%;
+      }
+
+      /* Mobile */
+      @media (max-width: 768px) {
+        .text,
+        .sub-text {
+          text-align: center;
+        }
+
+        .step-content {
+          margin-bottom: 24px;
+        }
+
+        .steps .step-content:last-child .line {
+          display: block;
+        }
+      }
+
+      /* Tablet */
+      @media (max-width: 992px) and (min-width: 768px) {
+        .text,
+        .sub-text {
+          text-align: center;
+        }
+
+        .step-content {
+          margin-bottom: 24px;
+        }
+
+        .steps .step-content:last-child .line {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ===========================================
+         MENU BURGER (TABLETTE/MOBILE)
+         =========================================== -->
+    <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" />
+    <label for="menu-toggle" class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <nav class="menu">
+      <ul>
+        <li>
+          <a href="#section1">1 - Modes d'accueil de l'enfant de 0 à 6 ans</a>
+          <ul>
+            <li><a href="#section1-a">A. Structures d'accueil</a></li>
+            <li><a href="#section1-b">B. Tableau comparatif</a></li>
+            <li>
+              <a href="#section1-c">C. Les assistantes maternelles agréées</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#section2">2 - L'école maternelle</a>
+          <ul>
+            <li>
+              <a href="#section2-a">A. Objectifs de l'école maternelle</a>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#conc">À retenir</a></li>
+      </ul>
+    </nav>
+
+    <!-- ===========================================
+          CONTAINER PRINCIPAL
+          =========================================== -->
+    <div class="main-container">
+      <div class="page-container">
+        <main class="main-content">
+          <!-- Titre principal -->
+          <h1 class="intro-title">
+            Structures d'accueil du jeune enfant (de 0 à 6 ans)
+          </h1>
+
+          <!-- Image principale -->
+          <img
+            src="../../images/CAP AEPE/page8/imageFamille.png"
+            alt="Illustration famille"
+            class="intro-image"
+          />
+
+          <!-- ===========================================
+                     SECTION 1 : MODES D'ACCUEIL
+                     =========================================== -->
+          <section id="section1">
+            <div class="section-header">
+              <span class="section-number">01</span>
+              <span class="section-title"
+                >Modes d'accueil de l'enfant de 0 à 6 ans</span
+              >
+            </div>
+
+            <!-- Sous-section A : Structures d'accueil -->
+            <div id="section1-a">
+              <h3 class="subsection-heading">A. Structures d'accueil</h3>
+              <div class="flex-container">
+                <div class="text-content">
+                  <p class="section-text">
+                    Lors de leur création, chaque structure d'accueil doit faire
+                    l'objet d'une autorisation ou avis technique puis est
+                    surveillée et contrôlée sous l'autorité du médecin
+                    responsable du service départemental de PMI.
+                  </p>
+                  <p class="section-text">
+                    Ces établissements ont pour missions :
+                  </p>
+                  <ul class="section-list">
+                    <li>
+                      De veiller à la sécurité, au bien-être et au développement
+                      des enfants qu'ils accueillent
+                    </li>
+                    <li>
+                      De favoriser l'intégration sociale des enfants handicapés
+                      ou souffrant d'une maladie chronique
+                    </li>
+                    <li>D'apporter une aide aux parents</li>
+                  </ul>
+                </div>
+                <img
+                  src="../../images/CAP AEPE/page8/planetImage.png"
+                  alt="Illustration planète"
+                  class="office-image"
+                />
+              </div>
+
+              <!-- Paragraphe centré après l'image -->
+              <p>Nous pouvons distinguer 4 types de structures d'accueil :</p>
+
+              <!-- Container pour les 4 rectangles jaunes -->
+              <div class="structures-grid">
+                <div class="structure-box">
+                  <div class="structure-content">
+                    <p>
+                      Les établissements d’accueil collectif organisés de telle
+                      manière que chaque unité ne peut excéder 60 places ;
+                    </p>
+                  </div>
+                </div>
+                <div class="structure-box">
+                  <div class="structure-content">
+                    <p>
+                      Les établissements d’accueil à gestion parentale qui ne
+                      dépassent pas 20 places (une dérogation pour 25 places
+                      peut être accordée par le Président du Conseil Général
+                      après avis du médecin responsable du service PMI) ;
+                    </p>
+                  </div>
+                </div>
+                <div class="structure-box">
+                  <div class="structure-content">
+                    <p>
+                      Les établissements d'accueil régulier (les jardins
+                      d'enfants) peuvent avoir jusqu'à 80 places
+                    </p>
+                  </div>
+                </div>
+                <div class="structure-box">
+                  <div class="structure-content">
+                    <p>
+                      Les services d’accueil familial qui ne dépassent pas 150
+                      places.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sous-section B : Établissements et services d'accueil -->
+            <div id="section1-b">
+              <h3 class="subsection-heading">
+                B. Établissements et services d'accueil
+              </h3>
+
+              <div class="block">
+                <div
+                  class="wrap-title-table is-flex is-align-items-center"
+                ></div>
+              </div>
+              <div class="table-wrapper block">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Nom</th>
+                      <th>Responsable</th>
+                      <th>Encadrement</th>
+                      <th>Caractéristique</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Crèche Collective</td>
+                      <td>
+                        Médecin ou puéricultrice ou éducateur de jeunes enfants
+                        (EJE)
+                      </td>
+                      <td>
+                        Auxiliaires de puériculture<br />
+                        EJE (<40 places)<br />
+                        Effectif : 1 personne pour :<br />
+                        • 5 enfants qui ne marchent pas<br />
+                        • 8 enfants qui marchent
+                      </td>
+                      <td>
+                        Accueil régulier, à la journée d'enfants de moins de 3
+                        ans<br />
+                        60 places maximum
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Crèche parentale</td>
+                      <td>Puéricultrice ou éducateur de jeunes enfants</td>
+                      <td>
+                        Les parents (sous le contrôle d'une auxiliaire de
+                        puériculture et d'un éducateur de jeunes enfants)<br />
+                        Effectif : 1 personne pour :<br />
+                        • 5 enfants qui ne marchent pas<br />
+                        • 8 enfants qui marchent
+                      </td>
+                      <td>
+                        Accueil régulier, à la journée d'enfants de moins de 3
+                        ans<br />
+                        Établissement à gestion parentale<br />
+                        20 places maximum
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Halte-garderie</td>
+                      <td>
+                        Puéricultrice ou éducateur de jeunes enfants ou
+                        infirmière
+                      </td>
+                      <td>
+                        Auxiliaires de puériculture<br />
+                        EJE<br />
+                        Effectif : 1 personne pour :<br />
+                        • 5 enfants qui ne marchent pas<br />
+                        • 8 enfants qui marchent
+                      </td>
+                      <td>
+                        Accueil occasionnel, pendant la journée d'enfants de
+                        moins de 6 ans
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Jardin d'enfants</td>
+                      <td>Éducateur de jeunes enfants</td>
+                      <td>Effectif : 1 personne pour 15 places</td>
+                      <td>
+                        Accueil régulier, à la journée d'enfants de 3 à 6 ans<br />
+                        80 places maximum
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Crèche familiale</td>
+                      <td>Puéricultrice, médecin, équipe pluridisciplinaire</td>
+                      <td>
+                        Encadrement assuré par l'assistante maternelle (sous la
+                        surveillance d'une puéricultrice, d'un médecin et de
+                        l'équipe pluridisciplinaire)
+                      </td>
+                      <td>
+                        Accueil régulier, à la journée d'un ou 3 enfants de
+                        moins de 3 ans chez des assistantes maternelles agréées
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Assistante maternelle agréée</td>
+                      <td>Puéricultrice, médecin, équipe pluridisciplinaire</td>
+                      <td>
+                        Encadrement assuré par l'assistante maternelle (sous la
+                        surveillance d'une puéricultrice, d'un médecin et de
+                        l'équipe pluridisciplinaire)
+                      </td>
+                      <td>
+                        Accueil régulier, à la journée d'un ou 3 enfants de
+                        moins de 6 ans au domicile des assistantes maternelles
+                        agréées<br />
+                        Accueil en internat si enfant de l'ASE
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- Sous-section C : Les assistantes maternelles agréées -->
+          <div id="section1-c">
+            <h3 class="subsection-heading">
+              C. Les assistantes maternelles agréées
+            </h3>
+
+            <!-- Composant Box Ligne Entière - Assistantes Maternelles -->
+            <div class="block">
+              <div class="box-ligne-entiere-container">
+                <!-- Box 1 : Statut et rôle -->
+                <div
+                  class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-primary-color4"
+                >
+                  <div class="col-1 center">
+                    <img
+                      alt="Icône statut"
+                      src="https://medias.dstanciel.com/pages/d58738ae-4d37-4f5e-b524-0ed004279248/Wi6wGP0y46UWbmOQu1MJLP0hNhhVH42hoDpO9dCT.png"
+                      class="img-fluid mt-4"
+                    />
+                  </div>
+                  <div class="col-11">
+                    <p class="paragraphe primary-color">
+                      <strong>Statut et rôle :</strong>
+                    </p>
+                    <p class="paragraphe">
+                      L'assistante maternelle agréée bénéficie d'un statut
+                      professionnel réglementé, avec un contrat de travail et un
+                      salaire encadré par la loi.
+                    </p>
+                    <p class="paragraphe">
+                      <strong>Elle peut accueillir :</strong>
+                    </p>
+                    <ul class="section-list">
+                      <li>Enfants confiés temporairement par leurs parents</li>
+                      <li>Enfants placés en accueil permanent par l'ASE</li>
+                    </ul>
+                    <p class="paragraphe">
+                      <strong>Elle peut exercer :</strong>
+                    </p>
+                    <ul class="section-list">
+                      <li>De manière indépendante</li>
+                      <li>Au sein d'une crèche familiale</li>
+                      <li>En accueil permanent pour les enfants de l'ASE</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Box 2 : Obtention de l'agrément -->
+                <div
+                  class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-blue-color10"
+                >
+                  <div class="col-1 center">
+                    <img
+                      alt="Icône agrément"
+                      src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/gnjCpeOb0yvpf2XxSu7IM0dU3CmMHBuh8JSaVFXy.png"
+                      class="img-fluid mt-4"
+                    />
+                  </div>
+                  <div class="col-11">
+                    <p class="paragraphe secondary-color">
+                      <strong>Obtention de l'agrément :</strong>
+                    </p>
+                    <p class="paragraphe">
+                      L'agrément, délivré par le service départemental de la
+                      PMI, est soumis à plusieurs conditions :
+                    </p>
+                    <ul class="section-list">
+                      <li>
+                        <strong>Dépôt de candidature :</strong> Formulaire à
+                        soumettre à la DDASS (Direction Départementale des
+                        Affaires Sanitaires et Sociales)
+                      </li>
+                      <li>
+                        <strong>Dossier administratif :</strong> Complétion des
+                        documents requis
+                      </li>
+                      <li>
+                        <strong>Garanties :</strong> Assurer un environnement
+                        propre et favorable au développement physique,
+                        intellectuel et affectif de l'enfant
+                      </li>
+                      <li>
+                        <strong>Examen médical :</strong> Vérification de l'état
+                        de santé de la candidate
+                      </li>
+                      <li>
+                        <strong>Logement adapté :</strong> Disposer d'un espace
+                        convenable pour l'accueil des enfants
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Box 3 : Formation et renouvellement -->
+                <div
+                  class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-gray-color6"
+                >
+                  <div class="col-1 center">
+                    <img
+                      alt="Icône formation"
+                      src="https://medias.dstanciel.com/pages/d58738ae-4d37-4f5e-b524-0ed004279248/DlHa4F2pGLrqdwTJJjNhl1pPwEM4C3miyrcz95dP.png"
+                      class="img-fluid mt-4"
+                    />
+                  </div>
+                  <div class="col-11">
+                    <p class="paragraphe gray-color1">
+                      <strong>Formation et renouvellement :</strong>
+                    </p>
+                    <ul class="section-list">
+                      <li>
+                        Une formation initiale est obligatoire, organisée et
+                        financée par le service PMI
+                      </li>
+                      <li>
+                        Pour le renouvellement de l'agrément, l'assistante
+                        maternelle doit justifier de sa participation à cette
+                        formation
+                      </li>
+                      <li>
+                        En cas de non-respect des conditions, le Président du
+                        Conseil Général peut modifier ou retirer l'agrément
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===========================================
+                     SECTION 2 : L'ÉCOLE MATERNELLE
+                     =========================================== -->
+          <section id="section2">
+            <div class="section-header">
+              <span class="section-number">02</span>
+              <span class="section-title">L'école maternelle</span>
+            </div>
+
+            <!-- Sous-section A : Objectifs de l'école maternelle -->
+            <div id="section2-a">
+              <h3 class="subsection-heading">
+                A. Objectifs de l'école maternelle
+              </h3>
+
+              <!-- Composant Box Ligne Entière - Assistantes Maternelles -->
+              <div class="block">
+                <div class="box-ligne-entiere-container">
+                  <!-- Box 1 : Statut et rôle -->
+                  <div
+                    class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-primary-color4"
+                  >
+                    <div class="col-1 center">
+                      <img
+                        alt="Icône statut"
+                        src="https://medias.dstanciel.com/pages/d58738ae-4d37-4f5e-b524-0ed004279248/Wi6wGP0y46UWbmOQu1MJLP0hNhhVH42hoDpO9dCT.png"
+                        class="img-fluid mt-4"
+                      />
+                    </div>
+                    <div class="col-11">
+                      <p class="paragraphe primary-color">
+                        <strong>Objectifs pédagogiques : </strong>
+                      </p>
+
+                      <ul class="section-list">
+                        <li>
+                          Socialisation : Développer l’écoute, le respect de soi
+                          et des autres, et la capacité à s’exprimer sur un
+                          sujet donné.
+                        </li>
+                        <li>
+                          Compétences linguistiques : S’habituer à la langue
+                          orale pour approcher l’écrit.
+                        </li>
+                        <li>
+                          Acquis à la fin de la grande section (cycle 2) :
+                        </li>
+                        <li>
+                          Écrire son prénom en lettres capitales et cursives.
+                        </li>
+                        <li>Lire et écrire les chiffres de 1 à 9.</li>
+                        <li>
+                          S’exprimer et partager des idées (ex. : raconter une
+                          histoire, décrire un personnage).
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- Box 2 : Obtention de l'agrément -->
+                  <div
+                    class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-blue-color10"
+                  >
+                    <div class="col-1 center">
+                      <img
+                        alt="Icône agrément"
+                        src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/gnjCpeOb0yvpf2XxSu7IM0dU3CmMHBuh8JSaVFXy.png"
+                        class="img-fluid mt-4"
+                      />
+                    </div>
+                    <div class="col-11">
+                      <p class="paragraphe secondary-color">
+                        <strong>Activités proposées :</strong>
+                      </p>
+                      <ul class="section-list">
+                        <li>
+                          <strong>Communication :</strong> Mémorisation de
+                          comptines, jeux de langage
+                        </li>
+                        <li><strong>Physique :</strong> Activités motrices</li>
+                        <li>
+                          <strong>Créatives :</strong> Peinture, collage,
+                          découpage
+                        </li>
+                        <li>
+                          <strong>Techniques et scientifiques :</strong>
+                          Découverte des mathématiques et des sciences
+                        </li>
+                        <li>
+                          <strong>Sorties éducatives :</strong> Visites de
+                          fermes, forêts, etc.
+                        </li>
+                        <li>
+                          <strong>Hygiène et confort :</strong> Sieste, lavage
+                          des mains
+                        </li>
+                        <li>
+                          <strong>Activités libres :</strong> Jeux pendant les
+                          récréations
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- Box 3 : Formation et renouvellement -->
+                  <div
+                    class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-gray-color6"
+                  >
+                    <div class="col-1 center">
+                      <img
+                        alt="Icône formation"
+                        src="https://medias.dstanciel.com/pages/d58738ae-4d37-4f5e-b524-0ed004279248/DlHa4F2pGLrqdwTJJjNhl1pPwEM4C3miyrcz95dP.png"
+                        class="img-fluid mt-4"
+                      />
+                    </div>
+                    <div class="col-11">
+                      <p class="paragraphe gray-color1">
+                        <strong>Rôles des professionnels :</strong>
+                      </p>
+
+                      <p class="paragraphe">
+                        <strong
+                          >L'instituteur ou professeur des écoles :</strong
+                        >
+                      </p>
+                      <ul class="section-list">
+                        <li>Gère les soins d'hygiène et de confort</li>
+                        <li>Identifie les besoins des enfants</li>
+                        <li>Met en place les activités pédagogiques</li>
+                        <li>
+                          Assure la sécurité des enfants en attente de leurs
+                          parents
+                        </li>
+                      </ul>
+
+                      <p class="paragraphe">
+                        <strong
+                          >L'ATSEM (Agent Territorial Spécialisé des Écoles
+                          Maternelles) :</strong
+                        >
+                      </p>
+                      <ul class="section-list">
+                        <li>
+                          <strong>Rôle :</strong> Assiste l'enseignant dans
+                          l'accueil, l'animation, l'hygiène, et l'entretien des
+                          locaux et du matériel
+                        </li>
+                        <li>
+                          <strong>Statut :</strong> Titulaire du CAP Petite
+                          Enfance, nommé par le maire, sous l'autorité du
+                          directeur d'école pendant le temps scolaire et du
+                          maire hors temps scolaire
+                        </li>
+                        <li>
+                          <strong>Présence :</strong> Obligatoire dans chaque
+                          classe maternelle (décret R412-127)
+                        </li>
+                        <li>
+                          <strong>Participation :</strong> Membre de la
+                          communauté éducative, avec voix consultative au
+                          conseil d'école
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Composant Conclusion -->
+          <section id="conc">
+            <div class="block">
+              <div class="container-a-retenir">
+                <div
+                  class="wrap-title-retenir-conclusion is-flex is-flex-wrap-wrap-mobile"
+                >
+                  <img
+                    alt=""
+                    src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/qB4FycrMdfpezVAj3liVV72k1MT3DTBQ8iGRWQyu.png"
+                    class="retenir-img"
+                  />
+                  <h2 class="title-retenir-conclusion">à retenir</h2>
+                </div>
+                <div class="steps">
+                  <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                    <div class="step col-1 is-flex">
+                      <span class="number is-flex">01.</span>
+                      <div class="line"></div>
+                    </div>
+                    <div class="step-text col-11">
+                      <p class="text">Types de structures</p>
+                      <p class="sub-text">
+                        Crèches collectives (≤60 places, 0-3 ans), crèches
+                        parentales (≤20-25 places), jardins d'enfants (≤80
+                        places, 3-6 ans), services d'accueil familial (≤150
+                        places).
+                      </p>
+                    </div>
+                  </div>
+                  <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                    <div class="step col-1 is-flex">
+                      <span class="number is-flex">02.</span>
+                      <div class="line"></div>
+                    </div>
+                    <div class="step-text col-11">
+                      <p class="text">Assistantes maternelles</p>
+                      <p class="sub-text">
+                        Statut professionnel avec contrat et salaire
+                        réglementés, agrément et formation gérés par la PMI,
+                        accueil temporaire (parents) ou permanent (ASE),
+                        indépendantes ou en crèche familiale.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                    <div class="step col-1 is-flex">
+                      <span class="number is-flex">03.</span>
+                      <div class="line"></div>
+                    </div>
+                    <div class="step-text col-11">
+                      <p class="text">École maternelle</p>
+                      <p class="sub-text">
+                        Socle éducatif pour les 3-6 ans, préparation à l'écrit
+                        via la langue orale, acquis en grande section : écrire
+                        prénom (capitales/cursives), lire/écrire chiffres 1-9,
+                        écoute, respect et expression orale.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
