@@ -193,23 +193,22 @@
       }
 
       /* ===========================================
-           ANIMATIONS DU MENU BURGER - TRANSFORMATION EN X
+           ANIMATIONS DU MENU BURGER - TRANSFORMATION EN FLÈCHE GAUCHE
            =========================================== */
       
-      /* Animation : première barre - rotation + translation pour former le X */
+      /* Animation : première barre - rotation + translation pour former la flèche gauche */
       .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(1) {
-        transform: rotate(45deg) translate(1px, 1px); /* Rotation 45° + déplacement - RÉDUIT */
+        transform: rotate(-45deg) translate(1px, 0px); /* Rotation -45° + déplacement vers la gauche */
       }
 
-      /* Animation : barre du milieu - disparition progressive */
+      /* Animation : barre du milieu - invisible pour flèche 2 traits seulement */
       .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(2) {
-        opacity: 0;                      /* Transparence complète */
-        transform: scale(0);             /* Réduction à zéro pour disparition */
+        opacity: 0; /* Barre du milieu invisible */
       }
 
-      /* Animation : troisième barre - rotation inverse + translation pour former le X */
+      /* Animation : troisième barre - rotation + translation pour former la flèche gauche */
       .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(3) {
-        transform: rotate(-45deg) translate(1px, -1px); /* Rotation -45° + déplacement inverse - RÉDUIT */
+        transform: rotate(45deg) translate(1px, 0px); /* Rotation 45° + déplacement vers la gauche */
       }
 
       /* ===========================================
@@ -770,18 +769,17 @@
           margin: 1px 0;
         }
 
-        /* Animation du menu burger sur tablette */
+        /* Animation du menu burger sur tablette - flèche gauche */
         .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(1) {
-          transform: rotate(45deg) translate(0.5px, 0.5px);
+          transform: rotate(-45deg) translate(0.5px, 0px);
         }
 
         .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(2) {
           opacity: 0;
-          transform: scale(0);
         }
 
         .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(3) {
-          transform: rotate(-45deg) translate(0.5px, -0.5px);
+          transform: rotate(45deg) translate(0.5px, 0px);
         }
 
         /* Composant Conclusion sur tablette */
@@ -842,18 +840,17 @@
           margin: 0.5px 0;
         }
 
-        /* Animation du menu burger sur mobile */
+        /* Animation du menu burger sur mobile - flèche gauche */
         .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(1) {
-          transform: rotate(45deg) translate(0.3px, 0.3px);
+          transform: rotate(-45deg) translate(0.3px, 0px);
         }
 
         .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(2) {
           opacity: 0;
-          transform: scale(0);
         }
 
         .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(3) {
-          transform: rotate(-45deg) translate(0.3px, -0.3px);
+          transform: rotate(45deg) translate(0.3px, 0px);
         }
 
         /* Titres adaptés */
@@ -1146,6 +1143,27 @@
       /* Cellules de données */
       td {
         font-size: 13px;
+      }
+
+      /* Colonnes spécifiques avec largeurs relatives - pour des colonnes de même taille */
+      th:nth-child(1),
+      td:nth-child(1) {
+        width: 25%;
+      }
+
+      th:nth-child(2),
+      td:nth-child(2) {
+        width: 25%;
+      }
+
+      th:nth-child(3),
+      td:nth-child(3) {
+        width: 25%;
+      }
+
+      th:nth-child(4),
+      td:nth-child(4) {
+        width: 25%;
       }
 
       /* ===========================================
