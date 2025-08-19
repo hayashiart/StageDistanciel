@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Les 14 besoins fondamentaux de l’enfant – Composant</title>
+
+<style>
+/* =========================================================
+   Composant "needs14" — Mobile first, sans JS (GrapesJS ok)
+   - Utilise une <ol> pour l’accessibilité (ordre 1→14)
+   - Les bulles numérotées sont générées en CSS (:before)
+   - 1 colonne sur mobile, 2 colonnes ≥768px
+   ========================================================= */
+
+:root{
+  /* Variables simples (faciles à éditer dans GrapesJS) */
+  --needs14-maxw: 900px;
+  --needs14-bg: #ffffff;
+  --needs14-text: #1f2937;
+  --needs14-muted: #475569;
+  --needs14-primary: #2f80ed;  /* bleu des bulles */
+  --needs14-border: #e6eef6;
+  --needs14-radius: 16px;
+  --needs14-shadow: 0 10px 30px rgba(0,0,0,.06);
+}
+
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", "Noto Sans", sans-serif;
+  background: #f5f7fb;
+  color: var(--needs14-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Conteneur principal ---------- */
+.needs14{
+  max-width: var(--needs14-maxw);
+  margin: 24px auto;
+  padding: 20px;
+}
+
+.needs14__card{
+  background: var(--needs14-bg);
+  border: 1px solid var(--needs14-border);
+  border-radius: var(--needs14-radius);
+  box-shadow: var(--needs14-shadow);
+  padding: clamp(18px, 3vw, 28px);
+}
+
+/* ---------- Titre ---------- */
+.needs14__title{
+  margin: 0 0 16px;
+  font-size: clamp(18px, 3.2vw, 24px);
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--needs14-text);
+}
+
+.needs14__subtitle{
+  margin: 0 0 12px;
+  font-size: clamp(14px, 2.6vw, 16px);
+  color: var(--needs14-muted);
+}
+
+/* ---------- Liste ordonnée 1→14 ---------- */
+.needs14__list{
+  /* On garde <ol> pour l’accessibilité, mais on masque les puces par défaut */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: need;         /* lance le compteur */
+  column-gap: 28px;            /* gap entre colonnes (actif quand 2 colonnes) */
+}
+
+/* Chaque item : grille simple (bulle + texte) */
+.needs14__item{
+  counter-increment: need;     /* ++ sur chaque élément */
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 12px;
+  padding: 12px 4px;
+  break-inside: avoid;         /* évite les coupures d’item entre colonnes */
+  border-bottom: 1px dashed var(--needs14-border);
+}
+
+/* Dernier sans bordure */
+.needs14__item:last-child{
+  border-bottom: none;
+}
+
+/* La bulle numérotée bleue */
+.needs14__item::before{
+  content: counter(need);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  background: var(--needs14-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Texte de l’item */
+.needs14__text{
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Accessibilité focus clavier (si on rend les li focusables plus tard) */
+.needs14__item:focus-within{
+  outline: 2px solid var(--needs14-primary);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* ---------- Responsive : desktop/tablette en 2 colonnes ---------- */
+@media (min-width: 768px){
+  .needs14__list{
+    column-count: 2;  /* 1→7 à gauche, 8→14 à droite (ordre naturel) */
+  }
+  .needs14__item{
+    padding: 10px 2px;
+  }
+  .needs14__item::before{
+    width: 44px; height: 44px; min-width: 44px;
+    font-size: 19px;
+  }
+}
+</style>
+</head>
+<body>
+
+<section class="needs14" aria-labelledby="t-needs14">
+  <div class="needs14__card">
+    <h2 class="needs14__title" id="t-needs14">
+      Les 14 besoins fondamentaux de l’enfant
+    </h2>
+
+    <!--
+      Liste ordonnée pour conserver les numéros 1→14 au lecteur d’écran.
+      Les bulles numérotées sont dessinées via ::before.
+      Mobile : une seule colonne ; ≥768px : 2 colonnes (comme la maquette).
+    -->
+    <ol class="needs14__list">
+      <li class="needs14__item"><span class="needs14__text">De respirer</span></li>
+      <li class="needs14__item"><span class="needs14__text">De boire et de se nourrir</span></li>
+      <li class="needs14__item"><span class="needs14__text">De dormir et d’avoir un rythme de sommeil</span></li>
+      <li class="needs14__item"><span class="needs14__text">D’être propre</span></li>
+      <li class="needs14__item"><span class="needs14__text">De mouvement</span></li>
+      <li class="needs14__item"><span class="needs14__text">De sortie</span></li>
+      <li class="needs14__item"><span class="needs14__text">De sécurité</span></li>
+      <li class="needs14__item"><span class="needs14__text">De stabilité</span></li>
+      <li class="needs14__item"><span class="needs14__text">D’être aimé pour ce qu’il est de manière inconditionnelle</span></li>
+      <li class="needs14__item"><span class="needs14__text">D’attention</span></li>
+      <li class="needs14__item"><span class="needs14__text">D’être apprécié pour ce qu’il est (qualités et défauts, etc.)</span></li>
+      <li class="needs14__item"><span class="needs14__text">D’être respecté</span></li>
+      <li class="needs14__item"><span class="needs14__text">D’accompagnement, de soutien, d’encouragement, de compliment, de motivation</span></li>
+      <li class="needs14__item"><span class="needs14__text">De connaissance, d’apprendre, de jouer, d’apprendre en jouant, de rire, de communiquer</span></li>
+    </ol>
+  </div>
+</section>
+
+</body>
+</html>
+
