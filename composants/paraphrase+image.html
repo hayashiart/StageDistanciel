@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Besoins – Paragraphe + photo scotchée</title>
+<style>
+  :root{
+    --bg:#f4f6f8;
+    --paper:#ffffff;
+    --text:#1f2937;
+    --muted:#4b5563;
+    --ring:#c7d2fe;
+    --border:#e9edf4;
+    --radius:22px;
+    --shadow:0 16px 42px rgba(0,0,0,.08);
+    --tape:#62b59f;            /* couleur du ruban (vert menthe) */
+    --maxw:1100px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Helvetica Neue","Noto Sans",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  /* Feuille */
+  .sheet{
+    max-width:var(--maxw);
+    margin:clamp(18px,4vw,56px) auto;
+    padding:clamp(18px,3.2vw,44px);
+    background:var(--paper);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+  }
+
+  .para{
+    margin:0 0 clamp(14px,2.2vw,22px) 0;
+    font-size:clamp(1.02rem,.98rem + .35vw,1.14rem);
+    text-align:justify;
+  }
+
+  /* Cadre photo avec rubans CSS */
+  .photo-frame{
+    position:relative;
+    width:min(100%, 860px);
+    margin: clamp(16px,3vw,26px) auto;
+    border-radius:28px;
+    overflow:hidden;
+    box-shadow:0 14px 36px rgba(0,0,0,.15);
+    isolation:isolate;
+  }
+  .photo{
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:28px;
+  }
+
+  /* Rubans adhésifs (haut-droit & bas-gauche) 100% CSS */
+  .photo-frame::before,
+  .photo-frame::after{
+    content:"";
+    position:absolute;
+    width:170px;                /* longueur du ruban */
+    height:44px;                /* largeur du ruban */
+    background:
+      /* texture légère */
+      linear-gradient(0deg, rgba(255,255,255,.22), rgba(255,255,255,.22)) center/100% 100%,
+      repeating-linear-gradient(90deg, rgba(255,255,255,.18) 0 8px, rgba(255,255,255,0) 8px 16px),
+      var(--tape);
+    box-shadow:0 8px 18px rgba(0,0,0,.18);
+    z-index:2;
+  }
+  /* Effet bord dentelé (côté externe) */
+  .photo-frame::before,
+  .photo-frame::after{
+    -webkit-mask:
+      linear-gradient(#000 0 0) padding-box,
+      radial-gradient(8px 8px at left 50%, transparent 48%, #000 51%) border-box;
+    -webkit-mask-composite:xor;
+            mask-composite:exclude;
+    border:12px solid transparent; /* crée le bord dentelé découpé */
+  }
+
+  /* Positionnement et rotation des rubans */
+  .photo-frame::before{
+    right:-10px; top:-18px;
+    transform:rotate(40deg);
+  }
+  .photo-frame::after{
+    left:-10px; bottom:-18px;
+    transform:rotate(-40deg);
+  }
+
+  /* Focus visible si on tabule dans la zone (accessibilité) */
+  .sheet:focus-within{ outline:3px solid var(--ring); outline-offset:2px; border-radius:var(--radius); }
+
+  @media (max-width:700px){
+    .photo-frame::before,
+    .photo-frame::after{ width:130px; height:38px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important; animation:none !important}
+  }
+</style>
+</head>
+<body>
+
+  <section class="sheet" aria-labelledby="t-besoins">
+    <h2 id="t-besoins" style="position:absolute;left:-9999px;">Besoins fondamentaux – Illustration</h2>
+
+    <p class="para">
+      Tout professionnel de la petite enfance se réfère aux 14 besoins selon Virginia Henderson afin de répondre aux besoins
+      de l’enfant et bien-être de l’enfant. Voici la liste de ces besoins&nbsp;: respirer, boire et manger, éliminer,
+      se mouvoir, maintenir une bonne posture, dormir et se reposer, se vêtir et se dévêtir, maintenir une bonne température
+      du corps, être propre, soigné et protéger ses téguments, éviter les dangers, communiquer, agir selon ses croyances et
+      ses valeurs, s’occuper en vue de se réaliser, se recréer, apprendre.
+    </p>
+
+    <!-- Photo scotchée -->
+    <figure class="photo-frame" role="group" aria-label="Enfant qui mange">
+      <img class="photo"
+           src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1600&auto=format&fit=crop"
+           alt="Enfant mangeant à la cuillère" />
+    </figure>
+
+    <p class="para">
+      Pour que l’adulte satisfasse les besoins affectifs de l’enfant, il faut que celui-ci exploite au maximum les temps de
+      jeux et de sortie, pendant que son cerveau est en éveil.
+    </p>
+  </section>
+
+</body>
+</html>

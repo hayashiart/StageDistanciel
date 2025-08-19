@@ -1,0 +1,144 @@
+
+      
+      <!-- =============================================================
+           COMPOSANT B — ConstraintsPills (intro + 3 bulles)
+           ============================================================= -->
+      <section class="ConstraintsPills">
+        <!-- Petit paragraphe d’intro (texte simple) -->
+        <p class="ConstraintsPills__intro">
+          Les professionnels de la petite enfance ont une activité qui expose à des risques importants de troubles
+          musculosquelettiques. Ce métier soumet à&nbsp;:
+        </p>
+      
+      
+        <!-- Les 3 “capsules” horizontales (mêmes codes visuels que ta pastille) -->
+        <div class="ConstraintsPills__list">
+      
+      
+          <div class="Pill Pill--orange">
+            <div class="Pill__title">Des contraintes d’efforts</div>
+            <div class="Pill__desc">(poids de l’enfant, difficulté à saisir l’enfant, instabilité dans la prise…)</div>
+          </div>
+      
+      
+          <div class="Pill Pill--blue">
+            <div class="Pill__title">Des contraintes de répétitivité</div>
+            <div class="Pill__desc">(plusieurs enfants, toute la journée, les mêmes gestes…)</div>
+          </div>
+      
+      
+          <div class="Pill Pill--green">
+            <div class="Pill__title">Des contraintes de postures</div>
+            <div class="Pill__desc">(rotation du tronc et dos courbé, bras levés au‑dessus des épaules…)</div>
+          </div>
+      
+      
+        </div>
+      </section>
+      
+      
+      <style>
+      /* ===================================================================
+         TOKENS — Couleurs / rayons / ombres (GrapesJS-friendly, no JS)
+         ===================================================================*/
+      :root{
+        --page-gap: 22px;
+      
+      
+        /* couleurs douces compatibles lecture nocturne */
+        --beige: #f1e7da;          /* fond section RiskDuos */
+        --card: #ffffff;           /* cartes blanches */
+        --shadow: 0 10px 24px rgba(9,17,33,.10);
+        --radius: 12px;            /* coins adoucis (pas trop) */
+      
+      
+        /* couleurs titres et pills */
+        --blue:   #3e7bd6;
+        --orange: #e58a3f;
+        --green:  #2f9d74;
+        --red:    #e14b4b;
+      
+      
+        /* pills background (doucement saturées) */
+        --pill-orange: #f3b370;
+        --pill-blue:   #bcd4f3;
+        --pill-green:  #cfeadf;
+      
+      
+        --text:  #1f2a3a;
+        --muted: #3a4a60;
+      }
+      
+    
+      /* ===================================================================
+         COMPOSANT B — ConstraintsPills
+         ===================================================================*/
+      .ConstraintsPills{
+        margin: calc(var(--page-gap) + 6px) auto;
+      }
+      .ConstraintsPills__intro{
+        max-width: 72ch;
+        margin: 0 0 12px;
+        color: var(--muted);
+      }
+      
+      
+      /* Liste verticale de 3 capsules */
+      .ConstraintsPills__list{
+        display: grid;
+        gap: 14px;
+      }
+      
+      
+      /* Une capsule horizontale */
+      .Pill{
+        background: #fff;                     /* base blanche pour la lisibilité */
+        padding: 0;                            /* on met le fond couleur dans ::before */
+        border-radius: 999px;
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;                      /* coins parfaitement arrondis */
+      }
+      
+      
+      /* Bandeau coloré (comme ta grande pastille) */
+      .Pill::before{
+        content:"";
+        position:absolute; inset: 0;
+        border-radius: 999px;
+        opacity: .95;
+      }
+      
+      
+      /* Variantes de couleur */
+      .Pill--orange::before{ background: var(--pill-orange); }
+      .Pill--blue::before  { background: var(--pill-blue); }
+      .Pill--green::before { background: var(--pill-green); }
+      
+      
+      /* Contenu de la capsule */
+      .Pill__title,
+      .Pill__desc{
+        position: relative; z-index: 1;
+        text-align: center;
+        padding: 10px 18px;
+      }
+      .Pill__title{
+        font-weight: 700;
+        color: #2b2b2b;
+      }
+      .Pill__desc{
+        color: #263045;
+        padding-top: 0;                        /* resserre le bloc comme ta maquette */
+        padding-bottom: 12px;
+        font-size: .98rem;
+      }
+      
+      
+      /* Option mobile : réduire un peu la marge verticale */
+      @media (max-width: 540px){
+        .Pill__desc{ font-size: .95rem; }
+      }
+      </style>
+      
+      

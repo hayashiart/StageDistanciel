@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Panneau — Croissance / Périmètre / Stature</title>
+<style>
+  /* ============================================================
+     TOKENS (faciles à modifier) — OK GrapesJS
+     ============================================================ */
+  :root{
+    --board-bg: #f1e9d6;        /* beige du grand cadre */
+    --card-bg:  #ffffff;        /* fond de base des sous-cartes */
+    --card-bg-soft: #f6f7fb;    /* variante un peu plus claire */
+    --text:   #1f2a3a;
+    --muted:  #475569;
+    --title:  #2a3d66;
+    --bullet: #6a84b8;
+
+    --radius-board: 22px;
+    --radius-card:  16px;
+    --shadow-card:  0 10px 22px rgba(9,17,33,.12);
+
+    --wrap: 1040px;
+    --gap:  18px;               /* écart entre blocs */
+  }
+
+  /* Page neutre */
+  *{ box-sizing: border-box; }
+  body{
+    margin:0;
+    font:16px/1.65 system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    color:var(--text);
+    background:#f6f8fc;
+    padding: 24px 14px;
+  }
+  .container{ max-width: var(--wrap); margin: 0 auto; }
+
+  /* ============================================================
+     COMPOSANT : GrowthBoard (grand cadre + grille fluide)
+     - Grille 12 colonnes : on peut facilement déplacer/étendre
+     - Chaque sous-carte est indépendante (bloc autonome)
+     ============================================================ */
+  .GB{
+    background: var(--board-bg);
+    border-radius: var(--radius-board);
+    padding: clamp(14px, 3vw, 24px);
+  }
+
+  .GB__grid{
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: var(--gap);
+  }
+
+  /* ============================================================
+     BLOCS (déplaçables) — par défaut comme tes maquettes :
+       - Image:     span 5
+       - Carte 1:   span 7 (à droite de l'image)
+       - Carte 2/3: 2 cartes en bas  (span 6 chacune)
+     Tu peux changer les spans au besoin (ou juste bouger l'ordre).
+     ============================================================ */
+  .GB__block{ min-width: 0; }  /* fix overflow in grid */
+
+  /* Image décor à gauche */
+  .GB__block--image{
+    grid-column: span 5;
+    display:flex; align-items:center; justify-content:center;
+    background: var(--card-bg);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: clamp(10px, 2vw, 16px);
+    position: relative;
+  }
+  .GB__img{
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    display:block;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  /* Rubans violets (option déco) */
+  .GB__block--image::before,
+  .GB__block--image::after{
+    content:"";
+    position:absolute;
+    width: 70px; height: 14px;
+   
+    opacity:.85;
+    border-radius: 3px;
+  }
+  .GB__block--image::before{ top: 14px; right: 18px; transform: rotate(35deg); }
+  .GB__block--image::after { bottom: 16px; left: 12px; transform: rotate(-32deg); }
+
+  /* Carte de texte (fond plus clair que le board) */
+  .GB__card{
+    background: var(--card-bg-soft);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: clamp(14px, 2.4vw, 20px);
+  }
+  /* Carte droite (croissance pondérale) */
+  .GB__block--big{ grid-column: span 7; }
+  /* Cartes du bas (2 colonnes) */
+  .GB__block--half{ grid-column: span 6; }
+
+  /* Titres et textes des cartes */
+  .GB__title{
+    margin: 0 0 8px;
+    color: var(--title);
+    font-size: clamp(1.02rem, .95rem + .35vw, 1.18rem);
+    line-height: 1.25;
+    text-align: center;
+  }
+  .GB__list{
+    margin: 0;
+    padding-left: 1.1rem;         /* on garde les puces natives pour accessibilité */
+    color: var(--muted);
+  }
+  .GB__list li{ margin: .4rem 0; }
+
+  /* Variante puces losange bleues (si tu préfères que tout soit homogène) */
+  .GB__list--diamond{ list-style: none; padding-left: 0; }
+  .GB__list--diamond li{
+    position: relative;
+    padding-left: 1.1rem;
+    margin: .45rem 0;
+  }
+  .GB__list--diamond li::before{
+    content: "◆";
+    position: absolute; left: 0; top: 0;
+    color: var(--bullet);
+    font-size: .72rem;
+    line-height: 1.6;
+  }
+
+  /* Petites bulles d’en‑tête (triangle “indicateur”) — optionnel */
+  .GB__card--callout{
+    position: relative;
+  }
+  .GB__card--callout::before{
+    content:"";
+    position:absolute;
+    left: 10px; top: 10px;
+    width: 14px; height: 14px;
+    border-radius: 3px;
+    background: #cfd7ee;
+    box-shadow: inset 0 0 0 2px rgba(42,61,102,.18);
+    clip-path: polygon(0 0, 100% 0, 55% 55%, 0 100%);
+    opacity:.9;
+  }
+
+  /* ============================================================
+     Responsive : empilement propre
+     ============================================================ */
+  @media (max-width: 980px){
+    .GB__block--image{ grid-column: span 12; }
+    .GB__block--big{   grid-column: span 12; }
+    .GB__block--half{  grid-column: span 12; }
+  }
+
+  /* Impression (facultatif) */
+  @media print{
+    body{ background:#fff; padding:0 }
+    .GB__block--image::before, .GB__block--image::after{ display:none }
+    .GB__card, .GB__block--image{ box-shadow:none }
+  }
+</style>
+</head>
+<body>
+  <main class="container">
+
+    <!-- ============================================================
+         COMPOSANT : GrowthBoard
+         Déplace / duplique les <article class="GB__block ..."> à volonté
+         ============================================================ -->
+    <section class="GB" aria-label="Synthèse croissance et mesures">
+      <div class="GB__grid">
+
+        <!-- Bloc IMAGE (déplaçable / remplaçable) -->
+        <article class="GB__block GB__block--image" aria-label="Illustration">
+          <!-- Remplace le src par ta photo -->
+          <img class="GB__img" src="https://via.placeholder.com/560x560.png?text=Photo"
+               alt="Nourrisson sur balance, courbe de croissance" />
+        </article>
+
+        <!-- Bloc TEXTE — Croissance pondérale (grand encart à droite) -->
+        <article class="GB__block GB__block--big">
+          <div class="GB__card GB__card--callout">
+            <h3 class="GB__title">La croissance pondérale :</h3>
+            <ul class="GB__list GB__list--diamond">
+              <li>À la naissance : ≈ 3,500 kg, puis perte de 5‑10 % du poids, récupérée entre le 7ᵉ et 10ᵉ jour.</li>
+              <li>À 5 mois : il double son poids de naissance (≈ 7 kg).</li>
+              <li>À 12 mois : il triple son poids de naissance (≈ 10 kg).</li>
+              <li>À 24 mois : il quadruple son poids de naissance (≈ 13 kg).</li>
+              <li>Entre 2 et 6 ans : il prend ≈ 1,5 kg/an.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Bloc TEXTE — Périmètre crânien (bas gauche) -->
+        <article class="GB__block GB__block--half">
+          <div class="GB__card">
+            <h3 class="GB__title">Le périmètre crânien :</h3>
+            <ul class="GB__list GB__list--diamond">
+              <li>Il passe de 35 cm à la naissance à 57 cm à 3 ans ;</li>
+              <li>L’évolution est rapide de 0 à 1 an, puis plus lente jusqu’à 3 ans.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Bloc TEXTE — Croissance staturale (bas droite) -->
+        <article class="GB__block GB__block--half">
+          <div class="GB__card">
+            <h3 class="GB__title">La croissance staturale :</h3>
+            <ul class="GB__list GB__list--diamond">
+              <li>À la naissance : ≈ 50 cm ;</li>
+              <li>À 4 ans : il double sa taille de naissance ;</li>
+              <li>À partir de 5 ans : il prend ≈ 6 à 7 cm/an.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>

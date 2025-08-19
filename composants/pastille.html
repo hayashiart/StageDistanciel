@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>1 – Les principaux risques</title>
+  <style>
+    /* ============================================================
+       DESIGN TOKENS (couleurs/espaces simples) – OK GrapesJS
+       ============================================================ */
+    :root{
+      --page-bg: #f2f5fa;          /* fond global doux */
+      --text: #1f2a3a;             /* texte principal */
+      --muted: #3c4a60;            /* texte secondaire */
+      --title-blue: #5a79b8;       /* bleu du titre */
+      --panel-bg: rgba(255,255,255,.92); /* panneau blanc légèrement transparent */
+      --panel-radius: 8px;         /* léger arrondi (très léger comme demandé) */
+      --panel-shadow: 0 10px 26px rgba(9, 17, 33, .12);
+      --orange: #ee8a43;           /* orange de la pastille */
+      --orange-shadow: 0 8px 18px rgba(225, 137, 74, 0.831);
+      --year-dark: #ba6131;        /* badge EN 2020 plus foncé (contraste) */
+      --container: 980px;
+      --gutter: 20px;
+    }
+
+
+    /* ================= Base ================= */
+    *{ box-sizing: border-box; }
+    body{
+      margin:0;
+      font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      background:var(--page-bg);
+    }
+    .container{
+      max-width: var(--container);
+      margin: 48px auto;
+      padding: 0 var(--gutter);
+    }
+
+
+
+
+
+    /* ================= COMPONENT: StatPill ======================
+       - Pastille orange simple
+       - Badge "EN 2020" foncé (contraste ++)
+       =========================================================== */
+    .StatPill__row{
+      display:flex;
+      justify-content:center;
+      margin-top: 12px;
+    }
+    .StatPill{
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      padding: 14px 18px;
+      background: var(--orange);
+      color:#fff;
+      border-radius: 999px;           /* look capsule */
+      box-shadow: var(--orange-shadow);
+      text-align:left;
+    }
+    .StatPill__year{
+      background: var(--year-dark);   /* foncé pour ne pas “crier” dans le noir */
+      color:#fff;
+      border-radius:999px;
+      padding:.32rem .62rem;
+      font-size:.9rem;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.3px;
+      white-space:nowrap;
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .StatPill__text{
+      /* Pas de <strong> ici : version “chill” comme demandé */
+      font-weight:600;
+      letter-spacing:.2px;
+    }
+
+
+    /* =============== Responsive ===============
+       - Rien de complexe : fluides + clamp + 1 break implicite
+       ========================================= */
+    @media (max-width: 480px){
+      .container{ margin: 28px auto; }
+      .StatPill{ padding: 12px 14px; }
+    }
+
+
+    /* Impression propre (facultatif) */
+    @media print{
+      .container{ margin:0; }
+     .StatPill{ box-shadow:none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+
+
+  
+
+
+    <!-- =========================================================
+         COMPONENT: StatPill (Pastille “EN 2020”)
+         - Version simple et lisible (nuit friendly)
+         - Badge plus foncé + texte sans gras superflu
+         ========================================================= -->
+    <div class="StatPill__row">
+      <div class="StatPill" role="note" aria-label="Statistiques 2020 sur les accidents du travail">
+        <span class="StatPill__year">EN 2020</span>
+        <span class="StatPill__text">
+          la manutention manuelle représente environ 60&nbsp;% des accidents de travail,
+          et les chutes près de 40&nbsp;%.
+        </span>
+      </div>
+    </div>
+
+
+  </main>
+</body>
+</html>
+

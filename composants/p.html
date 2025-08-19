@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signes de fatigue – Consignes</title>
+<style>
+  :root{
+    --bg:#f4f6f8;
+    --paper:#fff;
+    --text:#1f2937;
+    --muted:#4b5563;
+    --primary:#4a79c9;   /* bleu doux pour les puces */
+    --border:#e7ebf2;
+    --shadow:0 14px 34px rgba(0,0,0,.08);
+    --radius:18px;
+    --maxw:1100px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Helvetica Neue","Noto Sans",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+  }
+
+  /* Feuille blanche élégante */
+  .sheet{
+    max-width:var(--maxw);
+    margin:clamp(16px,3.8vw,48px) auto;
+    padding:clamp(16px,3vw,40px);
+    background:var(--paper);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+  }
+
+  .intro{
+    margin:0 0 14px 0;
+    font-size:clamp(1.02rem,.98rem + .35vw,1.14rem);
+  }
+
+  /* Liste à puces diamant */
+  .care-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:grid;
+    gap: clamp(10px, 1.4vw, 14px);
+    max-width: 95ch; /* confort de lecture */
+  }
+  .care-list li{
+    position:relative;
+    padding-left:30px;            /* espace pour la puce */
+    font-size:clamp(1rem,.96rem + .3vw,1.08rem);
+    text-align:justify;
+    hyphens:auto;
+  }
+  .care-list li::before{
+    content:"❖";
+    position:absolute;
+    left:0;
+    top:.2em;
+    line-height:1;
+    color:var(--primary);         /* mets #222 si tu veux noir comme l’image */
+    font-size:1.05em;
+    font-weight:900;
+    aria-hidden:true;
+  }
+
+  /* mots clés un peu renforcés (optionnel) */
+  .care-list strong{ font-weight:800; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important; animation:none !important}
+  }
+</style>
+</head>
+<body>
+
+  <section class="sheet" aria-labelledby="t-consignes">
+    <h2 id="t-consignes" style="position:absolute; left:-9999px;">Consignes face aux signes de fatigue</h2>
+
+    <p class="intro">
+      Le personnel doit être attentif aux moindres signes de fatigue de l’enfant pour répondre à ses besoins :
+    </p>
+
+    <ul class="care-list" role="list">
+      <li>
+        <strong>Il doit respecter les signes d’endormissement</strong> (l’enfant baille, se frotte les yeux, cherche une position confortable) ;
+      </li>
+      <li>
+        <strong>Créer un climat sécurisant</strong> grâce à un temps calme (une histoire, écoute d’une chanson calme) ;
+      </li>
+      <li>
+        <strong>Respecter le rituel d’endormissement</strong> (avec une lumière tamisée, l’objet transitionnel&nbsp;(doudou), la tétine, une régularité dans les horaires de couchage pour les plus grands) ;
+      </li>
+      <li>
+        <strong>Surveiller la sieste</strong> pour apaiser les petits maux ;
+      </li>
+      <li>
+        <strong>Ne jamais réveiller un enfant qui dort</strong>, pour une bonne qualité de sommeil ;
+      </li>
+      <li>
+        <strong>Créer un endroit douillet</strong> pour un bon endormissement et pour les repères (toujours à la même place), température de la pièce ne dépassant pas les 18&nbsp;°C).
+      </li>
+    </ul>
+  </section>
+
+</body>
+</html>

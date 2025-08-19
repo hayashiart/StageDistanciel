@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carte — Développement de l'enfant</title>
+  <style>
+    /* =========================
+       Variables & base
+    ========================== */
+    :root{
+      --bg:#f5f7fb;
+      --paper:#ffffff;
+      --text:#1f2937;
+      --muted:#4b5563;
+
+      --green:#719e8f;
+      --green-soft:#e8f6f1;
+
+      --orange:#e3a592;
+      --orange-soft:#ffe6dc;
+
+      --coral:#905756;
+      --coral-soft:#ffdddd;
+
+      --primary:#111827;
+      --border:#dbe1ea;
+
+      --radius:18px;
+      --shadow:0 10px 26px rgba(0,0,0,.08);
+      --shadow-soft:0 6px 18px rgba(0,0,0,.07);
+      --maxw:1200px;
+      --gap:clamp(14px, 3vw, 36px);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Helvetica Neue",sans-serif;
+      color:var(--text); background:var(--bg); line-height:1.6;
+    }
+
+    /* =========================
+       Feuille / scène
+    ========================== */
+    .mindmap{
+      max-width:var(--maxw);
+      margin:clamp(16px,3.5vw,48px) auto;
+      padding:clamp(16px,3vw,40px);
+      background:var(--paper);
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+    }
+
+    /* =========================
+       Grille principale
+       (3 colonnes desktop)
+    ========================== */
+    .map-grid{
+      display:grid;
+      grid-template-columns: 1fr minmax(260px, 360px) 1fr;
+      grid-template-rows: auto auto auto;
+      gap: var(--gap);
+      align-items:center;
+    }
+
+    /* =========================
+       Boîte centrale
+    ========================== */
+    .node-center{
+      grid-column: 2;
+      grid-row: 2;
+      position:relative;
+      text-align:center;
+      padding:clamp(16px,2.3vw,24px);
+      border:3px solid #111;
+      border-radius:14px;
+      font-weight:800;
+      letter-spacing:.6px;
+      text-transform:uppercase;
+      box-shadow:var(--shadow-soft);
+      background:#fff;
+    }
+
+    /* Petites flèches sortantes (desktop) */
+    .arrow{
+      position:absolute; height:0; border-top:3px solid #111;
+      width:48px;
+    }
+    .arrow::after{
+      content:""; position:absolute; right:-6px; top:-5px;
+      border:6px solid transparent; border-left-color:#111;
+      transform:translateX(2px) rotate(0deg);
+    }
+    .arrow-left{ left:-60px; top:50%; transform:translateY(-50%); }
+    .arrow-right-top{ right:-60px; top:28%; transform:rotate(-12deg); transform-origin:left center; }
+    .arrow-right-bottom{ right:-60px; bottom:28%; transform:rotate(12deg); transform-origin:left center; }
+
+    /* =========================
+       Clusters gauche & droite
+    ========================== */
+    .cluster{ display:flex; align-items:center; gap:14px; }
+
+    /* — Gauche (liste à gauche, étiquette à droite) */
+    .cluster--left{ grid-column:1; grid-row:2; justify-self:end; }
+    .tag{
+      color:#fff; font-weight:700;
+      border-radius:12px; padding:10px 16px;
+      white-space:nowrap; box-shadow:var(--shadow-soft);
+    }
+    .panel{
+      background:var(--green-soft);
+      border-radius:12px; padding:12px 18px;
+      min-width:200px; box-shadow:var(--shadow-soft);
+      border:1px solid var(--border);
+    }
+    .panel ul{ list-style:none; padding:0; margin:0; }
+    .panel li{ padding:.2rem 0; }
+
+    .tag--green{ background:var(--green); }
+    .panel--green{ background:var(--green-soft); }
+
+    /* — Droite (étiquette à gauche, liste à droite) */
+    .cluster--right-top{ grid-column:3; grid-row:1; justify-self:start; }
+    .cluster--right-bottom{ grid-column:3; grid-row:3; justify-self:start; }
+
+    .tag--orange{ background:var(--orange); }
+    .panel--orange{ background:var(--orange-soft); }
+
+    .tag--coral{ background:var(--coral); }
+    .panel--coral{ background:var(--coral-soft); }
+
+    /* Titres de panels (visuellement caché si besoin d’accessibilité) */
+    .sr-only{
+      position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+      overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+    }
+
+    /* =========================
+       Responsive
+    ========================== */
+    @media (max-width: 900px){
+      .map-grid{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+      .node-center{ grid-column:1; grid-row:auto; }
+      .cluster--left,
+      .cluster--right-top,
+      .cluster--right-bottom{
+        grid-column:1; grid-row:auto; justify-self:stretch;
+      }
+      .cluster{ justify-content:space-between; }
+      .arrow{ display:none; } /* on épure sur mobile */
+    }
+
+  </style>
+</head>
+<body>
+
+  <main class="mindmap" aria-labelledby="map-title">
+    <h2 id="map-title" class="sr-only">Carte : Développement de l’enfant</h2>
+
+    <div class="map-grid">
+      <!-- Boîte centrale -->
+      <div class="node-center">
+        DÉVELOPPEMENT<br/>DE L’ENFANT
+        <!-- petites flèches (affichées en desktop) -->
+        <span class="arrow arrow-left" aria-hidden="true"></span>
+        <span class="arrow arrow-right-top" aria-hidden="true"></span>
+        <span class="arrow arrow-right-bottom" aria-hidden="true"></span>
+      </div>
+
+      <!-- Cluster gauche : Facteurs alimentaires -->
+      <div class="cluster cluster--left" role="group" aria-labelledby="lab-food">
+        <div class="panel panel--green" aria-describedby="lab-food">
+          <h3 class="sr-only" id="lab-food">Facteurs alimentaires</h3>
+          <ul>
+            <li>Équilibre</li>
+            <li>Quantité</li>
+            <li>Diversité</li>
+            <li>Qualité</li>
+          </ul>
+        </div>
+        <div class="tag tag--green">Facteurs<br/>alimentaires</div>
+      </div>
+
+      <!-- Cluster droite haut : Facteurs génétiques -->
+      <div class="cluster cluster--right-top" role="group" aria-labelledby="lab-gen">
+        <div class="tag tag--orange">Facteurs<br/>génétiques</div>
+        <div class="panel panel--orange" aria-describedby="lab-gen">
+          <h3 class="sr-only" id="lab-gen">Facteurs génétiques</h3>
+          <ul>
+            <li>Caractéristiques héréditaires</li>
+            <li>Sexe</li>
+            <li>Maladies génétiques</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Cluster droite bas : Facteurs hormonaux -->
+      <div class="cluster cluster--right-bottom" role="group" aria-labelledby="lab-horm">
+        <div class="tag tag--coral">Facteurs<br/>hormonaux</div>
+        <div class="panel panel--coral" aria-describedby="lab-horm">
+          <h3 class="sr-only" id="lab-horm">Facteurs hormonaux</h3>
+          <ul>
+            <li>Hormone de croissance</li>
+            <li>Hormones thyroïdiennes</li>
+            <li>Hormones corticosurrénales</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

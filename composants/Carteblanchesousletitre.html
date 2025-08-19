@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>1 – Les principaux risques</title>
+  <style>
+    /* ============================================================
+       DESIGN TOKENS (couleurs/espaces simples) – OK GrapesJS
+       ============================================================ */
+    :root{
+      --page-bg: #f2f5fa;          /* fond global doux */
+      --text: #1f2a3a;             /* texte principal */
+      --muted: #3c4a60;            /* texte secondaire */
+      --title-blue: #5a79b8;       /* bleu du titre */
+      --panel-bg: rgba(255,255,255,.92); /* panneau blanc légèrement transparent */
+      --panel-radius: 8px;         /* léger arrondi (très léger comme demandé) */
+      --panel-shadow: 0 10px 26px rgba(9, 17, 33, .12);
+      --orange: #ee8a43;           /* orange de la pastille */
+      --orange-shadow: 0 8px 18px rgba(225, 137, 74, 0.831);
+      --year-dark: #ba6131;        /* badge EN 2020 plus foncé (contraste) */
+      --container: 980px;
+      --gutter: 20px;
+    }
+
+
+    /* ================= Base ================= */
+    *{ box-sizing: border-box; }
+    body{
+      margin:0;
+      font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      background:var(--page-bg);
+    }
+    .container{
+      max-width: var(--container);
+      margin: 48px auto;
+      padding: 0 var(--gutter);
+    }
+
+
+
+
+    /* ================= COMPONENT: IntroPanel ====================
+       - Carte blanche semi-transparente
+       - Ombre douce + arrondi léger
+       =========================================================== */
+    .IntroPanel{
+      background: var(--panel-bg);
+      border-radius: var(--panel-radius);
+      box-shadow: var(--panel-shadow);
+      padding: clamp(16px, 2.4vw, 22px);
+      margin-bottom: 18px;
+    }
+    .IntroPanel p{
+      margin:0;
+      color: var(--muted);
+      max-width: 72ch;   /* largeur de lecture confortable */
+    }
+    /* Gras minimal pour la lisibilité sans surcharge */
+    .IntroPanel strong{
+      font-weight:700;
+      color:#0e1726;
+    }
+
+
+
+
+    /* =============== Responsive ===============
+       - Rien de complexe : fluides + clamp + 1 break implicite
+       ========================================= */
+    @media (max-width: 480px){
+      .container{ margin: 28px auto; }
+   
+    }
+
+
+    /* Impression propre (facultatif) */
+    @media print{
+      .container{ margin:0; }
+      .IntroPanel{ box-shadow:none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+
+
+    <!-- =========================================================
+         COMPONENT: IntroPanel (Carte blanche sous le titre)
+         - Fond blanc transparent
+         - Ombre douce
+         - Arrondi très léger
+         ========================================================= -->
+    <section class="IntroPanel" aria-labelledby="intro-risques">
+      <p id="intro-risques">
+        Le secteur de la petite enfance connaît un nombre de sinistres en augmentation constante.
+        Les métiers de la petite enfance sont sensiblement exposés aux accidents de travail et aux
+        maladies professionnelles, et pour cause, la manutention manuelle (transporter du matériel,
+        porter un enfant…) et la <strong>posture physique</strong> (se baisser régulièrement pour se mettre
+        à la hauteur de l’enfant, par exemple) font partie intégrante du métier.
+      </p>
+    </section>
+
+
+   
+
+  </main>
+</body>
+</html>
+

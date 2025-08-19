@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>A RETENIR — Texte remplacé</title>
+<style>
+  :root{
+    --bg:#0b0f17;        /* fond sombre global */
+    --text:#e7eaf1;      /* texte principal */
+    --muted:#9aa3b2;     /* texte secondaire */
+    --accent:#7fb0ff;    /* bleu titres */
+    --badge:#5d95e6;     /* pastille numérotée */
+    --maxw:980px;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg);
+    color:var(--text);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", "Noto Sans", sans-serif;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .retain{
+    max-width:var(--maxw);
+    margin: clamp(24px, 6vw, 64px) auto;
+    padding: 0 clamp(16px, 4vw, 28px);
+  }
+
+  /* En-tête */
+  .retain-title{
+    margin: 16px 0 22px;
+    text-align:center;
+    letter-spacing:.16em;
+    font-weight:900;
+    color:#cdd2dc;
+  }
+
+  /* Item (ligne) */
+  .item{
+    display:flex; gap:16px; align-items:flex-start;
+  }
+  .badge{
+    flex:0 0 auto;
+    width:48px; height:48px; border-radius:999px;
+    background:var(--badge);
+    color:#fff; font-weight:800; font-size:14px;
+    display:grid; place-items:center;
+    box-shadow: 0 8px 22px rgba(93,149,230,.35);
+    position:relative;
+  }
+  /* petit point décor sous la pastille si d'autres items (optionnel) */
+  .item + .item .badge::before{
+    content:""; position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+    width:6px; height:6px; border-radius:50%; background:#2a3444;
+  }
+
+  .content{ flex:1 1 auto; }
+  .content h4{
+    margin:0 0 4px 0; color:var(--accent);
+    font-size: clamp(1.02rem, .98rem + .6vw, 1.25rem);
+    font-weight:800;
+  }
+  .content p{
+    margin:0; color:var(--muted);
+    font-size: clamp(.98rem, .95rem + .3vw, 1.05rem);
+  }
+
+  /* Responsive */
+  @media (max-width: 560px){
+    .badge{ width:42px; height:42px; font-size:12px; }
+  }
+</style>
+</head>
+<body>
+
+  <section class="retain" aria-labelledby="t-retain">
+    <h2 id="t-retain" class="retain-title">A RETENIR</h2>
+
+    <!-- Ligne unique avec le texte de l’image 1 -->
+    <div class="item">
+      <div class="badge">01</div>
+      <div class="content">
+        <h4>Le développement somatique de l’enfant répond à des normes de croissance précises.</h4>
+        <p>
+          Cependant, il arrive que ces normes ne soient exactement suivies par l’enfant, ce qui n’est pas un problème,
+          dans la mesure où le processus global de croissance est respecté.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

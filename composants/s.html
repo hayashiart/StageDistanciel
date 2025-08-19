@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Risques liés à l’eau et à l’électricité</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+
+    .section {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+      padding: 25px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+
+    .section p {
+      margin: 14px 0;
+    }
+
+
+    /* Styles spécifiques aux points colorés */
+    .highlight-orange {
+      color: #e67e22;
+      font-weight: 500;
+    }
+
+
+    .highlight-green {
+      color: #27ae60;
+      font-weight: 500;
+    }
+
+
+    .highlight-blue {
+      color: #2980b9;
+      font-weight: 500;
+    }
+
+
+    .highlight-red {
+      color: #c0392b;
+      font-weight: 500;
+    }
+
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .section {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+  <div class="section">
+    <p>
+      Les risques peuvent également être liés aux 
+      <span class="highlight-orange">objets électriques</span> 
+      ainsi que dus à l’utilisation de l’eau (eau brûlante).
+    </p>
+
+
+    <p>
+      <span class="highlight-green">L’alimentation électrique</span> 
+      doit être aux normes pour qu’il n’y ait pas de risque d’électrocution.
+    </p>
+
+
+    <p>
+      <span class="highlight-blue">L’accès à l’eau</span> 
+      doit également être aux normes : l’eau doit être potable. 
+      L’évacuation des eaux usées doit aussi être aux normes 
+      (tout à l’égout ou fosses chimiques/septiques).
+    </p>
+
+
+    <p>
+      <span class="highlight-red">L’accès aux produits ménagers</span> 
+      doit être impossible, en les mettant dans un placard, 
+      en hauteur, avec une porte qui peut fermer.
+    </p>
+  </div>
+
+
+</body>
+</html>
+
+<!-- ============================================================
+     COMPOSANT — AcVCSection (B. Les accidents de la vie courante)
+     ============================================================ -->
+     <section class="AcVCSection container">
+        <!-- Titre de la section -->
+        <h2 class="AcVCSection__title">B. Les accidents de la vie courante (AcVC)</h2>
+      
+      
+        <!-- Texte principal (paragraphes) -->
+        <div class="AcVCSection__content">
+          <p>
+            Les accidents de la vie courante correspondent aux accidents ayant lieu au domicile,
+            sur les aires de sports, les terrains de jeux, à l’école. On ne compte pas comme
+            accident de la vie courante, les agressions, les suicides, accidents de la circulation,
+            accidents causés par des éléments naturels.
+          </p>
+      
+      
+          <p>
+            Les accidents de la vie courante touchent de la même façon les enfants de tous les milieux,
+            et toutes les tranches d’âge, mais en particulier les enfants de moins de 15 ans.
+          </p>
+      
+      
+          <!-- Bloc "Exemples" (appel visuel orange, sans gras) -->
+          <div class="AcVCSection__examples" role="note" aria-label="Exemples chiffrés">
+            <span class="AcVCSection__examplesLabel">Exemples :</span>
+            <ul class="AcVCSection__examplesList">
+              <li>les enfants entre 1 et 4 ans représentent 12% des noyades.</li>
+              <li>11,3&nbsp;millions de personnes sont victimes d’un accident de la vie courante chaque année, dont 500&nbsp;000 sont hospitalisées.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
+      
+      <style>
+      /* ============================================================
+         STYLES — AcVCSection (OK GrapesJS, responsive, sans gras)
+         ============================================================ */
+      :root{
+        --container: 980px;
+        --gutter: 20px;
+      
+      
+        --card-bg: #ffffff;
+        --card-shadow: 0 10px 24px rgba(9,17,33,.10);
+        --card-radius: 12px;
+      
+      
+        --blue: #3d7cc9;      /* titre */
+        --text: #1f2a3a;      /* texte principal */
+        --muted: #44536a;     /* paragraphe */
+        --accent: #f08a4b;    /* “Exemples” */
+        --accent-soft: #ffe7d6;
+      }
+      
+      
+      .container{
+        max-width: var(--container);
+        margin: 40px auto;
+        padding: 0 var(--gutter);
+      }
+      
+      
+      /* Carte de section */
+      .AcVCSection{
+        background: var(--card-bg);
+        border-radius: var(--card-radius);
+        box-shadow: var(--card-shadow);
+        padding: clamp(16px, 3vw, 28px);
+        border-left: 6px solid var(--blue); /* repère visuel de section */
+        color: var(--text);
+      }
+      
+      
+      /* Titre (couleur uniquement, pas de gras forcé) */
+      .AcVCSection__title{
+        margin: 0 0 10px;
+        color: var(--blue);
+        font-size: clamp(1.15rem, 1rem + .6vw, 1.5rem);
+        line-height: 1.25;
+      }
+      
+      
+      /* Paragraphes */
+      .AcVCSection__content p{
+        margin: 10px 0 14px;
+        color: var(--muted);
+      }
+      
+      
+      /* Bloc exemples (appel orange) */
+      .AcVCSection__examples{
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: start;
+        gap: 8px 12px;
+        background: var(--accent-soft);
+        border: 1px solid rgba(240,138,75,.35);
+        border-radius: 10px;
+        padding: 12px 14px;
+        margin-top: 4px;
+      }
+      
+      
+      .AcVCSection__examplesLabel{
+        color: var(--accent);
+        letter-spacing: .2px;
+        /* pas de font-weight élevé pour respecter “pas de gras” */
+      }
+      
+      
+      .AcVCSection__examplesList{
+        margin: 0;
+        padding-left: 1.1rem; /* puces natives, simples et accessibles */
+        color: var(--text);
+      }
+      
+      
+      .AcVCSection__examplesList li{ margin: .25rem 0; }
+      
+      
+      /* Responsive */
+      @media (max-width: 560px){
+        .AcVCSection__examples{
+          grid-template-columns: 1fr;
+        }
+      }
+      </style>
+      
+      

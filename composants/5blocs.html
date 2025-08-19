@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bénéfices du sommeil</title>
+<style>
+  :root{
+    --bg:#f4f6f8;
+    --paper:#ffffff;
+    --text:#ffffff;
+    --muted:#e9eef7;
+
+    --orange:#dcaf9d;           /* bandeau orange */
+    --orange-strong:#ce9b87;    /* icône orange */
+    --blue:#c4acac;             /* bandeau bleu */
+    --blue-strong:#4e6aa0;      /* icône bleue */
+
+    --radius:18px;
+    --pill-radius:20px;
+    --shadow:0 12px 30px rgba(0,0,0,.08);
+    --shadow-soft:0 8px 22px rgba(0,0,0,.10);
+    --maxw:1000px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Helvetica Neue","Noto Sans",sans-serif;
+    background:var(--bg);
+    color:#111;
+    line-height:1.6;
+  }
+
+  /* Feuille */
+  .sheet{
+    max-width:var(--maxw);
+    margin:clamp(16px,3.5vw,48px) auto;
+    padding:clamp(16px,3vw,40px);
+    background:var(--paper);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    border:1px solid #e6e9ef;
+  }
+
+  /* Liste des bandeaux */
+  .benefits{
+    display:grid;
+    gap: clamp(14px,2.4vw,22px);
+  }
+
+  .pill{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    align-items:center;
+    gap:14px;
+    padding: clamp(10px,2.2vw,18px) clamp(12px,2.6vw,22px);
+    border-radius:999px;              /* coins très arrondis */
+    color:var(--text);
+    box-shadow:var(--shadow-soft);
+  }
+  .pill--orange{ background:var(--orange); }
+  .pill--blue{   background:var(--blue);   }
+
+  .ico{
+    width:46px; height:46px; flex:0 0 auto;
+    display:grid; place-items:center;
+    background:rgba(255,255,255,.12);
+    border-radius:50%;
+  }
+  .ico svg{ width:26px; height:26px; fill:#fff; }
+
+  /* Option : teinte principale dans le rond d’icône (subtile) */
+  .pill--orange .ico{ background:rgba(255,255,255,.14); }
+  .pill--blue   .ico{ background:rgba(255,255,255,.14); }
+
+  .text{
+    margin:0;
+    font-weight:700;
+    font-size: clamp(1.02rem, .98rem + .35vw, 1.14rem);
+    color:#fff;
+  }
+
+  /* Accessibilité : focus clair si on tabule */
+  .pill:focus-within{ outline:3px solid #dbe4ff; outline-offset:2px; border-radius:999px; }
+
+  @media (max-width:660px){
+    .text{ font-weight:600; }
+  }
+</style>
+</head>
+<body>
+
+  <section class="sheet" aria-labelledby="b-title">
+ 
+    <div class="benefits">
+      <!-- 1. Croissance -->
+      <div class="pill pill--orange" role="group" aria-label="Croissance pendant le sommeil lent">
+        <span class="ico" aria-hidden="true">
+          <!-- icône barres ascendantes -->
+          <svg viewBox="0 0 24 24"><path d="M3 20h18v2H3v-2Zm2-2v-6h3v6H5Zm5 0v-10h3v10h-3Zm5 0v-14h3v14h-3Zm-6.4-7.4 3.7-3.7a1 1 0 0 1 1.4 0l2.7 2.7 3.3-3.3 1.4 1.4-4 4a1 1 0 0 1-1.4 0L12 9.83l-3 3-1.4-1.23Z"/></svg>
+        </span>
+        <p class="text">
+          La croissance (sécrétion d’une hormone de croissance, la somatohormone, pendant le <strong>sommeil lent</strong>) ;
+        </p>
+      </div>
+
+      <!-- 2. Récupération physique -->
+      <div class="pill pill--blue" role="group" aria-label="Récupération physique pendant le sommeil lent">
+        <span class="ico" aria-hidden="true">
+          <!-- icône lit -->
+          <svg viewBox="0 0 24 24"><path d="M4 10V5H2v14h2v-4h16v4h2V12a2 2 0 0 0-2-2H4Zm8-3a3 3 0 1 1 0 6H4v-3a3 3 0 0 1 3-3h5Z"/></svg>
+        </span>
+        <p class="text">
+          La récupération physique (au cours du <strong>sommeil lent</strong>) ;
+        </p>
+      </div>
+
+      <!-- 3. Maturation cérébrale -->
+      <div class="pill pill--orange" role="group" aria-label="Maturation cérébrale pendant le sommeil paradoxal">
+        <span class="ico" aria-hidden="true">
+          <!-- icône cerveau-ampoule (simplifiée) -->
+          <svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 1 4.7 9.8c-.4.5-.7 1.1-.9 1.7l-.2.5H8.4l-.2-.5a4 4 0 0 0-.9-1.7A6 6 0 0 1 12 2Zm-3 18h6v-1H9v1Zm-1-3h8v-1H8v1Z"/></svg>
+        </span>
+        <p class="text">
+          La maturation cérébrale (au cours du <strong>sommeil paradoxal</strong>) ;
+        </p>
+      </div>
+
+      <!-- 4. Apprentissage & mémorisation -->
+      <div class="pill pill--blue" role="group" aria-label="Apprentissage et mémorisation pendant le sommeil paradoxal">
+        <span class="ico" aria-hidden="true">
+          <!-- icône engrenages -->
+          <svg viewBox="0 0 24 24"><path d="M10.5 2h3l.4 2.1a6.8 6.8 0 0 1 1.7.9l2-1.1 1.5 2.6-1.7 1.4a6.6 6.6 0 0 1 .1 1.8l1.8 1-.9 2.9-2-.1a6.8 6.8 0 0 1-1.3 1.4l.5 2.1-2.7 1.1-1.2-1.8a6.8 6.8 0 0 1-1.8 0L8 21.9 5.3 20.8l.5-2.1a6.8 6.8 0 0 1-1.4-1.4l-2 .2-.8-2.9 1.8-1a6.6 6.6 0 0 1 .1-1.8L1.8 6.5 3.3 3.9l2 1a6.8 6.8 0 0 1 1.7-.9L7.5 2h3Zm1.5 5.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/></svg>
+        </span>
+        <p class="text">
+          Le mécanisme d’apprentissage et de mémorisation (au cours du <strong>sommeil paradoxal</strong>).
+        </p>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

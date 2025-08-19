@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Développement somatique — Texte + photo</title>
+<style>
+  :root{
+    --bg:#f4f6f8;
+    --paper:#ffffff;
+    --text:#1f2937;
+    --muted:#4b5563;
+    --border:#e7ebf2;
+    --radius:22px;
+    --shadow:0 16px 40px rgba(17,24,39,.08);
+    --maxw:1100px;
+
+    --tape:#ef5b3c; /* couleur du ruban */
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Helvetica Neue","Noto Sans",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  /* Feuille blanche */
+  .sheet{
+    max-width:var(--maxw);
+    margin:clamp(18px,4vw,56px) auto;
+    padding:clamp(18px,3.2vw,44px);
+    background:var(--paper);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+  }
+
+  /* Grille : texte à gauche / image à droite */
+  .two-col{
+    display:grid;
+    grid-template-columns: minmax(320px, 1fr) 460px;
+    gap: clamp(16px,3vw,36px);
+    align-items:center;
+  }
+  @media (max-width: 980px){
+    .two-col{ grid-template-columns: 1fr; }
+  }
+
+  /* Texte */
+  .txt{
+    display:grid;
+    gap: clamp(12px, 1.8vw, 18px);
+    font-size: clamp(1.02rem,.98rem + .35vw,1.14rem);
+    text-align:justify;
+  }
+  .txt p{ margin:0; }
+
+  /* Photo avec ruban en haut-droite (CSS pur) */
+  .photo-frame{
+    position:relative;
+    border-radius:26px;
+    overflow:hidden;
+    background:#fff;
+    border:1px solid var(--border);
+    box-shadow:0 14px 34px rgba(0,0,0,.12);
+  }
+  .photo{
+    display:block; width:100%; height:auto; object-fit:cover;
+  }
+  .photo-frame::after{
+    content:"";
+    position:absolute;
+    right:-14px; top:-20px;
+    width:170px; height:44px;
+    transform:rotate(36deg);
+    background:
+      linear-gradient(0deg, rgba(255,255,255,.18), rgba(255,255,255,.18)),
+      repeating-linear-gradient(90deg, rgba(255,255,255,.18) 0 8px, transparent 8px 16px),
+      var(--tape);
+    box-shadow:0 10px 20px rgba(0,0,0,.2);
+    border-radius:6px;
+  }
+  @media (max-width:700px){
+    .photo-frame::after{ width:140px; height:38px; }
+  }
+</style>
+</head>
+<body>
+
+  <section class="sheet" aria-label="Développement somatique – texte et illustration">
+    <div class="two-col">
+      <!-- Colonne texte -->
+      <div class="txt">
+        <p>
+          Le pédiatre observe le développement somatique en surveillant la croissance en taille et en poids et
+          la maturation osseuse, dentaire et pubertaire de l'enfant de la naissance à l'âge adulte.
+        </p>
+        <p>
+          La croissance en taille et en poids de l'ensemble du corps et de chaque organe dépend de facteurs
+          héréditaires et hormonaux.
+        </p>
+        <p>
+          La croissance est surveillée et réalisée par des mesures régulières de la taille et du poids de l'enfant
+          et par leur comparaison à des moyennes statistiques, en reportant les données sur des courbes.
+        </p>
+      </div>
+
+      <!-- Colonne image (remplace le src par ta photo) -->
+      <figure class="photo-frame" role="group" aria-label="Pédiatre examinant un bébé">
+        <img class="photo"
+             src="https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=1400&auto=format&fit=crop"
+             alt="Examen médical d'un bébé par un pédiatre" />
+      </figure>
+    </div>
+  </section>
+
+</body>
+</html>
