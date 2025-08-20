@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Schéma – Développement de l’enfant</title>
+<style>
+/* =========================
+   Variables & base
+   ========================= */
+:root{
+  --circle-bg:#5e86c2;        /* bleu des bulles */
+  --text:#fff;
+  --ring:#dfe8f6;             /* anneau pâle décoratif */
+  --gap: min(2.2vw, 18px);    /* espace entre bulles */
+  --shadow: 0 8px 18px rgba(0,0,0,.08);
+  --radius: 999px;
+  --font: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue",
+          Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+}
+
+/* GrapesJS-friendly reset */
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--font);color:#182230}
+
+/* =========================
+   Wrapper
+   ========================= */
+.dev-circles{
+  position:relative;
+  width: min(1100px, 100%);
+  margin: clamp(12px, 4vw, 40px) auto;
+  padding: clamp(12px, 2.6vw, 28px);
+  isolation:isolate; /* pour que l’anneau passe derrière */
+}
+
+/* Anneau décoratif (deux arcs doux) */
+.dev-circles::before,
+.dev-circles::after{
+  content:"";
+  position:absolute; inset: 6% 10%;
+  border: clamp(10px,1.2vw,16px) solid var(--ring);
+  border-radius: var(--radius);
+  z-index:0;
+}
+.dev-circles::after{
+  inset: 18% 22%;
+  opacity:.8;
+}
+
+/* Grille responsive : 3x3 sur desktop, 1 colonne sur mobile */
+.dev-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, minmax(140px, 1fr));
+  gap: var(--gap);
+  position:relative;
+  z-index:1;
+}
+
+/* =========================
+   Bulles
+   ========================= */
+.bubble{
+  background:var(--circle-bg);
+  color:var(--text);
+  border-radius:var(--radius);
+  display:flex; align-items:center; justify-content:center;
+  text-align:center;
+  padding: clamp(10px,1.8vw,18px);
+  box-shadow: var(--shadow);
+  /* tailles fluides */
+  min-height: clamp(120px, 18vw, 240px);
+  font-weight:800;
+  line-height:1.2;
+  letter-spacing:.2px;
+  font-size: clamp(16px, 2.4vw, 28px);
+}
+
+/* Centre plus grand */
+.bubble--center{
+  grid-area: 2 / 2 / 3 / 3;    /* centre dans la grille */
+  min-height: clamp(160px, 24vw, 320px);
+  font-size: clamp(18px, 2.8vw, 32px);
+}
+
+/* Satellites : positions dans la grille 3x3 */
+.bubble--left      { grid-area: 2 / 1 / 3 / 2; }
+.bubble--right     { grid-area: 2 / 3 / 3 / 4; }
+.bubble--bottom-l  { grid-area: 3 / 1 / 4 / 2; }
+.bubble--bottom-r  { grid-area: 3 / 3 / 4 / 4; }
+.bubble--top       { grid-area: 1 / 2 / 2 / 3; }
+
+/* État “4 sphères” : on masque la cognitive en haut */
+.hide-cognitive .bubble--top{ display:none; }
+
+/* =========================
+   Mobile : pile vertical
+   ========================= */
+@media (max-width: 720px){
+  .dev-circles::before,
+  .dev-circles::after{ display:none; } /* on simplifie l’anneau */
+
+  .dev-grid{
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .bubble--center{
+    order:0;
+    min-height: clamp(160px, 40vw, 260px);
+  }
+
+  /* On empile joliment avec de petites bulles */
+  .bubble{
+    min-height: clamp(96px, 30vw, 180px);
+    font-size: clamp(16px, 5vw, 22px);
+  }
+
+  .bubble--left,
+  .bubble--right,
+  .bubble--bottom-l,
+  .bubble--bottom-r,
+  .bubble--top{
+    grid-area:auto;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Ajoute la classe "hide-cognitive" si tu ne veux PAS la sphère du haut -->
+<section class="dev-circles" aria-label="Schéma des sphères du développement de l’enfant">
+  <div class="dev-grid">
+    <div class="bubble bubble--top" aria-label="Sphère cognitive">Sphère<br>cognitive</div>
+
+    <div class="bubble bubble--left" aria-label="Sphère physique et motrice">
+      Sphère<br>physique<br>et motrice
+    </div>
+
+    <div class="bubble bubble--center" aria-label="Développement de l’enfant">
+      Développement<br>de l’enfant
+    </div>
+
+    <div class="bubble bubble--right" aria-label="Sphère affective">
+      Sphère<br>affective
+    </div>
+
+    <div class="bubble bubble--bottom-l" aria-label="Sphère sociale et morale">
+      Sphère<br>sociale et<br>morale
+    </div>
+
+    <div class="bubble bubble--bottom-r" aria-label="Sphère langagière">
+      Sphère<br>langagière
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
+
