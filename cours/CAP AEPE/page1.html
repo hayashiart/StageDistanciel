@@ -145,9 +145,9 @@
 
       /* Marges entre les paragraphes */
       p {
-          margin-bottom: 15px;
-          text-align: left;
-        }
+        margin-bottom: 15px;
+        text-align: left;
+      }
 
       /* Marges entre les titres et le contenu */
       h1,
@@ -167,7 +167,7 @@
       .admin-container,
       .decentralisation-highlight-section,
       .video-container {
-          margin-bottom: 30px;
+        margin-bottom: 30px;
       }
 
       /* Marges entre les éléments de liste */
@@ -1757,8 +1757,23 @@
            DESKTOP (1440px+) - GRANDE IMAGE
            =========================================== */
       @media screen and (min-width: 1440px) {
+        .president-container {
+          flex-direction: row;
+          align-items: flex-start;
+          gap: 30px;
+          max-width: 1000px;
+        }
+
+        .president-image {
+          flex-shrink: 0;
+        }
+
         .president-image img {
           width: 160px;
+        }
+
+        .president-box {
+          flex: 1;
         }
       }
 
@@ -1766,8 +1781,23 @@
            LAPTOP (1024px - 1439px) - IMAGE MOYENNE
            =========================================== */
       @media screen and (min-width: 1024px) and (max-width: 1439px) {
+        .president-container {
+          flex-direction: row;
+          align-items: flex-start;
+          gap: 25px;
+          max-width: 900px;
+        }
+
+        .president-image {
+          flex-shrink: 0;
+        }
+
         .president-image img {
           width: 140px;
+        }
+
+        .president-box {
+          flex: 1;
         }
       }
 
@@ -1924,7 +1954,7 @@
       .flip-card-front {
         background: linear-gradient(135deg, #2c5aa0 0%, #4a7bc8 100%);
         color: white;
-          font-size: 18px;
+        font-size: 18px;
         font-weight: 600;
       }
 
@@ -3108,26 +3138,28 @@
                     et parlementaire.
                   </p>
 
-                  <div class="president-image">
+                  <div class="president-container">
+                    <div class="president-image">
                       <img
                         src="../../images/CAP AEPE/page1/imagePresident.png"
                         alt="Illustration du Président"
                       />
                     </div>
 
-                  <div class="president-box">
-                    <p>
-                      Le président de la République est chef de l'État et chef
-                      des armées et une figure centrale du régime. Il assure,
-                      par son arbitrage, « le fonctionnement régulier des
-                      pouvoirs publics ». Son autorité s'est progressivement
-                      renforcée. Le président de la République est élu pour 5
-                      ans au suffrage universel direct. Il nomme son
-                      premier-ministre qui forme le gouvernement avec les
-                      ministres et les secrétaires d'État. Le Premier ministre
-                      dirige l'action du Gouvernement qui « détermine et conduit
-                      la politique de la Nation ».
-                    </p>
+                    <div class="president-box">
+                      <p>
+                        Le président de la République est chef de l'État et chef
+                        des armées et une figure centrale du régime. Il assure,
+                        par son arbitrage, « le fonctionnement régulier des
+                        pouvoirs publics ». Son autorité s'est progressivement
+                        renforcée. Le président de la République est élu pour 5
+                        ans au suffrage universel direct. Il nomme son
+                        premier-ministre qui forme le gouvernement avec les
+                        ministres et les secrétaires d'État. Le Premier ministre
+                        dirige l'action du Gouvernement qui « détermine et
+                        conduit la politique de la Nation ».
+                      </p>
+                    </div>
                   </div>
 
                   <p>
@@ -3167,16 +3199,16 @@
                 A. Un cadre administratif déconcentré
               </h3>
 
-                  <p>
+              <p>
                 La déconcentration est la déclinaison des pouvoirs à un niveau
                 local de l'État.
-                  </p>
+              </p>
 
-                <p>
+              <p>
                 Les agents de l'État qui disposent de ce pouvoir sont à la tête
                 de circonscriptions administratives comme la région, le
-                  département et les mairies.
-                </p>
+                département et les mairies.
+              </p>
 
               <p>
                 Il existe actuellement en France trois niveaux de collectivités
@@ -3189,10 +3221,10 @@
                 <!-- Région -->
                 <div class="admin-level-card">
                   <div class="admin-level-image">
-                  <img
-                    src="../../images/CAP AEPE/page1/imageRegion.png"
-                    alt="Carte Région"
-                  />
+                    <img
+                      src="../../images/CAP AEPE/page1/imageRegion.png"
+                      alt="Carte Région"
+                    />
                   </div>
                   <div class="admin-level-content">
                     <h4 class="admin-level-title">
@@ -3208,10 +3240,10 @@
                 <!-- Département -->
                 <div class="admin-level-card">
                   <div class="admin-level-image">
-                  <img
-                    src="../../images/CAP AEPE/page1/imageDepartement.png"
-                    alt="Carte Département"
-                  />
+                    <img
+                      src="../../images/CAP AEPE/page1/imageDepartement.png"
+                      alt="Carte Département"
+                    />
                   </div>
                   <div class="admin-level-content">
                     <h4 class="admin-level-title">Département (101)</h4>
@@ -3224,10 +3256,10 @@
                 <!-- Mairie -->
                 <div class="admin-level-card">
                   <div class="admin-level-image">
-                  <img
-                    src="../../images/CAP AEPE/page1/imageMairie.png"
-                    alt="Carte Mairie"
-                  />
+                    <img
+                      src="../../images/CAP AEPE/page1/imageMairie.png"
+                      alt="Carte Mairie"
+                    />
                   </div>
                   <div class="admin-level-content">
                     <h4 class="admin-level-title">Mairies (36 000)</h4>
