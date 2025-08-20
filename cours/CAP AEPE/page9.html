@@ -179,36 +179,14 @@
       }
 
       /* ===========================================
-           BARRES DU MENU BURGER - ÉLÉMENTS VISUELS
+           IMAGE DU MENU BURGER - ÉLÉMENTS VISUELS
            =========================================== */
-      .menu-toggle span {
-        display: block;                  /* Affichage en bloc pour chaque barre */
-        width: 9px;                      /* Largeur de chaque barre horizontale - RÉDUITE */
-        height: 1.5px;                   /* Hauteur fine pour un design élégant - RÉDUITE */
-        background: #333;                /* Couleur gris foncé pour contraste */
-        margin: 1.5px 0;                 /* Espacement vertical entre les barres - RÉDUIT */
-        border-radius: 1px;              /* Coins légèrement arrondis */
-        transition: all var(--transition-smooth); /* Animation fluide pour toutes les propriétés */
-        transform-origin: center;        /* Point d'origine pour les rotations */
-      }
-
-      /* ===========================================
-           ANIMATIONS DU MENU BURGER - TRANSFORMATION EN FLÈCHE GAUCHE
-           =========================================== */
-      
-      /* Animation : première barre - rotation + translation pour former la flèche gauche */
-      .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(1) {
-        transform: rotate(-45deg) translate(1px, 0px); /* Rotation -45° + déplacement vers la gauche */
-      }
-
-      /* Animation : barre du milieu - invisible pour flèche 2 traits seulement */
-      .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(2) {
-        opacity: 0; /* Barre du milieu invisible */
-      }
-
-      /* Animation : troisième barre - rotation + translation pour former la flèche gauche */
-      .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(3) {
-        transform: rotate(45deg) translate(1px, 0px); /* Rotation 45° + déplacement vers la gauche */
+      /* Image du menu burger - reste constante */
+      .menu-toggle img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: none;
       }
 
       /* ===========================================
@@ -221,7 +199,7 @@
         width: 70%;                     /* Largeur relative pour s'adapter aux écrans */
         max-width: 300px;               /* Largeur maximale pour éviter l'étirement excessif */
         height: 100%;                   /* Hauteur complète de l'écran */
-        background: var(--gray-color7);  /* Fond gris très clair pour contraste */
+        background: var(--white-color);  /* Fond blanc pour contraste */
         box-shadow: 4px 0 16px rgba(0, 0, 0, 0.15); /* Ombre portée pour effet de profondeur */
         transform: translateX(-100%);    /* Position initiale cachée à gauche */
         transition: transform var(--transition-fast); /* Animation de glissement */
@@ -365,7 +343,7 @@
 
       /* ===========================================
            TITRES ET EN-TÊTES - HIÉRARCHIE TYPOGRAPHIQUE
-           =========================================== */
+            =========================================== */
 
       /* ===========================================
            TITRE PRINCIPAL DE LA PAGE - ÉLÉMENT D'ANCRAGE VISUEL
@@ -373,12 +351,11 @@
       .intro-title {
         font-family: var(--main-font);   /* Police Montserrat pour cohérence */
         font-weight: 700;                /* Poids très gras pour l'importance */
-        color: var(--primary-color);     /* Couleur bleue principale pour cohérence */
+        color: #5F8BBC;                  /* Couleur bleue principale pour cohérence */
         font-size: 42px;                 /* Taille importante pour l'impact visuel */
         text-align: center;              /* Centrage pour équilibre visuel */
         text-decoration: underline;      /* Soulignement pour définition */
         margin: var(--spacing-lg) 0 50px 0; /* Espacement vertical généreux */
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre portée pour profondeur */
       }
 
       /* ===========================================
@@ -464,12 +441,12 @@
         min-height: 100px;
       }
 
-             /* Liste à puces dans le contenu des sections */
-       .section-list {
-         margin-left: 25px;
-         margin-bottom: 25px;
-         font-size: 18px;
-         line-height: 1.8;
+      /* Liste à puces dans le contenu des sections */
+      .section-list {
+        margin-left: 25px;
+        margin-bottom: 25px;
+        font-size: 18px;
+        line-height: 1.8;
          font-family: var(--main-font);
        }
 
@@ -484,27 +461,27 @@
         text-align: left;
       }
 
-             /* Sous-titres (A., B., etc.) dans les sections */
-       .subsection-heading {
+      /* Sous-titres (A., B., etc.) dans les sections */
+      .subsection-heading {
          font-family: var(--main-font);
-         font-weight: 700;
-         color: #5f8bbc;
-         font-size: 26px;
-         margin: 40px 0 20px;
-         padding: 15px 20px;
-         background: #f8fbff;
-         border-left: 5px solid #5f8bbc;
-         border-radius: 0 8px 8px 0;
-       }
+        font-weight: 700;
+        color: #5f8bbc;
+        font-size: 26px;
+        margin: 40px 0 20px;
+        padding: 15px 20px;
+        background: #f8fbff;
+        border-left: 5px solid #5f8bbc;
+        border-radius: 0 8px 8px 0;
+      }
 
-       /* Texte de contenu des sections (paragraphes) */
-       .section-text {
+      /* Texte de contenu des sections (paragraphes) */
+      .section-text {
          font-family: var(--main-font);
-         font-weight: 400;
-         color: #000000;
-         font-size: 18px;
-         margin-bottom: 25px;
-         line-height: 1.7;
+        font-weight: 400;
+        color: #000000;
+        font-size: 18px;
+        margin-bottom: 25px;
+        line-height: 1.7;
        }
 
       /* ===========================================
@@ -674,20 +651,7 @@
       }
 
       .line {
-        width: 2px;
-        height: 60px;
-        border-left-width: 2px;
-        border-left-style: dashed;
-        border-left-color: var(--gray-color1);
-        border-right-width: initial;
-        border-right-style: initial;
-        border-right-color: initial;
-        border-top-width: initial;
-        border-top-style: initial;
-        border-top-color: initial;
-        border-bottom-width: initial;
-        border-bottom-style: initial;
-        border-bottom-color: initial;
+        display: none;
       }
 
       .steps .step-content:last-child .line {
@@ -745,7 +709,8 @@
         }
 
         .main-container {
-          margin: 20px;
+          width: 80%;
+          margin: 20px auto;
           padding: 25px;
         }
 
@@ -795,6 +760,35 @@
         .steps .step-content:last-child .line {
           display: block;
         }
+
+        /* Tableau responsive sur tablette */
+        .table-wrapper {
+          overflow-x: auto;
+          margin: 20px 0;
+        }
+
+        table {
+          font-size: 15px;
+          min-width: 700px;
+        }
+
+        th, td {
+          padding: 10px 12px;
+          font-size: 14px;
+        }
+
+        .title-table {
+          font-size: 22px;
+          padding: 18px 25px;
+        }
+
+        /* Texte sur image de couverture sur tablette */
+        .intro-image-text {
+          font-size: 15px;
+          max-width: 70%;
+          left: 15px;
+          padding: 12px;
+        }
       }
 
       /* Mobile (767px et moins) */
@@ -804,7 +798,8 @@
         }
 
         .main-container {
-          margin: 15px;
+          width: 95%;
+          margin: 15px auto;
           padding: 20px;
           overflow: visible;
         }
@@ -855,8 +850,33 @@
 
         /* Titres adaptés */
         .intro-title {
-          font-size: 28px;
+          font-size: 24px;
           margin: 20px 0 30px 0;
+        }
+
+        .section-number {
+          font-size: 28px;
+        }
+
+        .section-title {
+          font-size: 20px;
+        }
+
+        .subsection-heading {
+          font-size: 18px;
+        }
+
+        /* Titres des composants */
+        .title-retenir-conclusion {
+          font-size: 16px;
+        }
+
+        .text {
+          font-size: 14px;
+        }
+
+        .sub-text {
+          font-size: 14px;
         }
 
         .section-header {
@@ -877,7 +897,7 @@
         }
 
         .subsection-heading {
-          font-size: 22px;
+          font-size: 18px;
           margin: 25px 0 15px;
         }
 
@@ -894,11 +914,178 @@
         .steps .step-content:last-child .line {
           display: block;
         }
+
+        /* Centrage et débordement pour tous les éléments */
+        .flex-container,
+        .lignes3-container,
+        .hierarchie-row,
+        .document-container,
+        .ase-services-container,
+        .box-ligne-entiere-container,
+        .imageHautTexteBas-container,
+        .accord-cards-container,
+        .periode-essai-example-unique,
+        .content-section,
+        .decentralisation-highlight-section,
+        .regime-container,
+        .box3lignes-container,
+        .structures-grid,
+        .structure-box,
+        .section1-a-flex-container {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 15px;
+          justify-content: center;
+          width: 100%;
+          max-width: 100%;
+        }
+
+        /* Réduction de la taille des textes pour éviter le débordement */
+        .section-text,
+        .text,
+        .sub-text,
+        .lignes3-yellow-text,
+        .hierarchie-content,
+        .document-highlight,
+        .ase-service-card p,
+        .box-ligne-entiere-container p,
+        .imageHautTexteBas-text-box p,
+        .accord-card p,
+        .example-text-unique,
+        .content-text p,
+        .decentralisation-content p,
+        .regime-highlight p,
+        .box3lignes-text,
+        .structure-content p,
+        .text-content p {
+          font-size: 16px;
+          line-height: 1.5;
+          padding: 20px;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+        }
+
+        /* Images centrées et redimensionnées */
+        .office-image,
+        .document-img,
+        .imageHautTexteBas-header-image,
+        .regime-img,
+        .box3lignes-image,
+        .content-image,
+        .section1-a-image {
+          max-width: 200px;
+          margin: 0 auto;
+        }
+      }
+
+      /* ===========================================
+           TABLETTE (768px - 1023px) - ADAPTATION MOYENNE
+           =========================================== */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        /* Titres adaptés pour tablette */
+        .intro-title {
+          font-size: 32px;
+        }
+
+        .section-number {
+          font-size: 32px;
+        }
+
+        .section-title {
+          font-size: 22px;
+        }
+
+        .subsection-heading {
+          font-size: 20px;
+        }
+
+        /* Titres des composants pour tablette */
+        .title-retenir-conclusion {
+          font-size: 18px;
+        }
+
+        .text {
+          font-size: 16px;
+        }
+
+        .sub-text {
+          font-size: 16px;
+        }
+
+        /* Centrage pour tablette */
+        .container-a-retenir,
+        .steps,
+        .step-content,
+        .text,
+        .sub-text {
+          text-align: center;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .steps {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .step-content {
+          width: 100%;
+          max-width: 600px;
+          margin: 0 auto;
+        }
+      }
+
+        /* Section 1A flex container sur mobile */
+        .section1-a-flex-container {
+          flex-direction: column;
+          padding: 20px;
+          gap: 20px;
+        }
+
+        .text-content {
+          min-width: auto;
+        }
+
+        .section1-a-image {
+          max-width: 100%;
+        }
+
+        /* Tableau responsive sur mobile */
+        .table-wrapper {
+          overflow-x: auto;
+          margin: 15px 0;
+        }
+
+        table {
+          font-size: 14px;
+          min-width: 600px;
+        }
+
+        th, td {
+          padding: 8px 10px;
+          font-size: 13px;
+        }
+
+        .title-table {
+          font-size: 20px;
+          padding: 15px 20px;
+        }
+
+        /* Texte sur image de couverture sur mobile */
+        .intro-image-text {
+          font-size: 14px;
+          max-width: 80%;
+          left: 10px;
+          padding: 10px;
+          line-height: 1.3;
+        }
       }
 
       /* Petit mobile (480px et moins) */
       @media (max-width: 480px) {
         .main-container {
+          width: 100%;
           margin: 10px;
           padding: 15px;
         }
@@ -926,6 +1113,15 @@
           min-height: 70px;
         }
 
+        /* Texte sur image de couverture sur petit mobile */
+        .intro-image-text {
+          font-size: 12px;
+          max-width: 85%;
+          left: 8px;
+          padding: 8px;
+          line-height: 1.2;
+        }
+
         /* Composant Conclusion sur petit mobile */
         .text,
         .sub-text {
@@ -946,8 +1142,9 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 15px;
-        margin: 20px 0;
+        margin: 20px auto;
         padding: 12px;
+        max-width: 800px;
       }
 
       /* Rectangle jaune individuel */
@@ -1271,17 +1468,123 @@
 
       /* Ligne de séparation entre les étapes */
       .line {
-        width: 2px;
-        height: 60px;
-        border-left-width: 2px;
-        border-left-style: dashed;
-        border-left-color: var(--gray-color1);
+        display: none;
       }
 
              /* Cache la ligne pour la dernière étape */
        .steps .step-content:last-child .line {
-         display: block;
-       }
+         display: none;
+      }
+
+      /* ===========================================
+           LAPTOP (1024px - 1439px) - ADAPTATION LARGE
+           =========================================== */
+      @media (min-width: 1024px) and (max-width: 1439px) {
+        /* Tous les textes normaux */
+        .section-text,
+        .lignes3-yellow-text,
+        .hierarchie-content,
+        .document-highlight,
+        .ase-service-card p,
+        .box-ligne-entiere-container p,
+        .imageHautTexteBas-text-box p,
+        .accord-card p,
+        .example-text-unique,
+        .content-text p,
+        .decentralisation-content p,
+        .regime-highlight p,
+        .box3lignes-text,
+        .structure-content p,
+        .text-content p,
+        .sub-text {
+          font-size: 18px;
+        }
+
+        /* Tous les titres légèrement plus grands */
+        .text {
+          font-size: 20px;
+        }
+      }
+
+      /* ===========================================
+           DESKTOP (1440px et plus) - ADAPTATION TRÈS LARGE
+           =========================================== */
+      @media (min-width: 1440px) {
+        /* Tous les textes normaux */
+        .section-text,
+        .lignes3-yellow-text,
+        .hierarchie-content,
+        .document-highlight,
+        .ase-service-card p,
+        .box-ligne-entiere-container p,
+        .imageHautTexteBas-text-box p,
+        .accord-card p,
+        .example-text-unique,
+        .content-text p,
+        .decentralisation-content p,
+        .regime-highlight p,
+        .box3lignes-text,
+        .structure-content p,
+        .text-content p,
+        .sub-text {
+          font-size: 20px;
+        }
+
+        /* Tous les titres légèrement plus grands */
+        .text {
+          font-size: 22px;
+        }
+      }
+
+      /* ===========================================
+           EFFETS HOVER SUR LES COMPOSANTS - INTERACTIONS UTILISATEUR
+           =========================================== */
+
+      /* ===========================================
+           HOVER SUR LES COMPOSANTS AVEC TEXTE SEULEMENT
+           =========================================== */
+
+      /* ===========================================
+           HOVER SUR LE FLEX CONTAINER - EFFET D'ÉLÉVATION
+           =========================================== */
+
+
+      /* ===========================================
+           HOVER SUR LE BLOC BLEU - EFFET D'ÉLÉVATION
+           =========================================== */
+      .blue-block-container:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(95, 139, 188, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      /* ===========================================
+           HOVER SUR LES SOUS-SECTIONS - EFFET SUBTIL
+           =========================================== */
+
+
+      /* ===========================================
+           HOVER SUR LE TABLEAU - EFFET D'ÉLÉVATION
+           =========================================== */
+      table:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(95, 139, 188, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      /* ===========================================
+           HOVER SUR LES CELLULES DU TABLEAU - EFFET SUBTIL
+           =========================================== */
+      tr:hover {
+        background: #f8f8f8;
+        transition: all 0.3s ease;
+      }
+
+      /* Marges entre les paragraphes */
+      p {
+        margin-bottom: 15px;
+        text-align: left;
+      }
     </style>
   </head>
 
@@ -1290,32 +1593,19 @@
          MENU BURGER (TABLETTE/MOBILE)
          =========================================== -->
     <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" />
-    <label for="menu-toggle" class="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
+          <label for="menu-toggle" class="menu-toggle">
+        <img src="../../images/png/menuBurger.png" alt="Menu" />
+      </label>
 
-         <nav class="menu">
-       <ul>
-         <li>
-           <a href="#section1">1 - Principe de laïcité</a>
-           <ul>
-             <li><a href="#section1-a">A. Structures d'accueil</a></li>
-           </ul>
-         </li>
-         <li>
-           <a href="#section2">2 - Les usagers du service public</a>
-         </li>
-         <li>
-           <a href="#section3">3 - Les agents du service public</a>
-         </li>
-         <li>
-           <a href="#section4">4 - La laïcité à l'école</a>
-         </li>
-         <li><a href="#conc">À retenir</a></li>
-       </ul>
-     </nav>
+    <nav class="menu">
+      <ul>
+        <li><a href="#section1">1 - Principe de laïcité</a></li>
+        <li><a href="#section2">2 - Les usagers du service public</a></li>
+        <li><a href="#section3">3 - Les agents du service public</a></li>
+        <li><a href="#section4">4 - La laïcité à l'école</a></li>
+        <li><a href="#conc">À retenir</a></li>
+      </ul>
+    </nav>
 
     <!-- ===========================================
           CONTAINER PRINCIPAL
@@ -1332,11 +1622,11 @@
 
           <!-- Image principale avec texte superposé -->
           <div class="intro-image-container">
-            <img
-              src="../../images/CAP AEPE/page9/imageBallons.png"
-              alt="Image principale page 9"
-              class="intro-image"
-            />
+          <img
+            src="../../images/CAP AEPE/page9/imageBallons.png"
+            alt="Image principale page 9"
+            class="intro-image"
+          />
             <div class="intro-image-text">
               Une loi sur la laïcité et la petite enfance<br />
               a été votée en mai 2015.<br />
@@ -1347,7 +1637,7 @@
 
           <!-- ===========================================
                SECTION 1 : PRINCIPE DE LAÏCITÉ
-               =========================================== -->
+                     =========================================== -->
           <section id="section1">
             <!-- En-tête de section avec numéro et titre -->
             <div class="section-header">
@@ -1367,8 +1657,8 @@
                     <p class="blue-block-content">
                       En France, la laïcité a débuté en 1905 avec la loi sur la séparation de l’Eglise et de l’Etat.
                       Elle garantit le libre exercice des cultes. L’école de la République est accessible à tous quelle que soit l’origine ou la religion. La laïcité est un principe qui s’applique dans toutes les structure de la petite enfance.
-                    </p>
-                  </div>
+                  </p>
+                </div>
                 </div>
                 <!-- Image à côté du bloc bleu -->
                 <img
@@ -1378,19 +1668,19 @@
                 />
               </div>
 
-            
+
                       </section>
 
           <!-- ===========================================
                SECTION 2 : LES USAGERS DU SERVICE PUBLIC
                =========================================== -->
-          <section id="section2">
+              <section id="section2">
             <!-- En-tête de section avec numéro et titre -->
-            <div class="section-header">
-              <span class="section-number">02</span>
-              <span class="section-title">Les usagers du service public</span>
-            </div>
-            <div class="text-content">
+                <div class="section-header">
+                  <span class="section-number">02</span>
+                  <span class="section-title">Les usagers du service public</span>
+                </div>
+                <div class="text-content">
               <p class="section-text-regular">
                 Les usagers (enfants, parents) des services publics, comme
                 l'école, ont des droits et des devoirs en matière de laïcité :
@@ -1553,7 +1843,7 @@
                 >
                   <img
                     alt=""
-                    src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/qB4FycrMdfpezVAj3liVV72k1MT3DTBQ8iGRWQyu.png"
+                    src="../../images/png/imageRetenir.svg"
                     class="retenir-img"
                   />
                   <h2 class="title-retenir-conclusion">à retenir</h2>

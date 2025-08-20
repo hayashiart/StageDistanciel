@@ -7,88 +7,112 @@
 
     <style>
       /* ===========================================
-           VARIABLES CSS GLOBALES
+           VARIABLES CSS GLOBALES - SYSTÈME DE DESIGN COHÉRENT
            =========================================== */
 
       :root {
-        /* Couleurs principales */
-        --primary-color: #5f8bbc;
-        --primary-color3: #e1d4ff;
-        --primary-color4: #f0ecc8;
-        --secondary-color: #9747ff;
-        --blue-color10: #e6f0fb;
+        /* ===========================================
+             PALETTE DE COULEURS - COULEURS PRINCIPALES
+             =========================================== */
+        --primary-color: #5f8bbc; /* Bleu principal - couleur d'accent pour les éléments importants */
+        --primary-color3: #e1d4ff; /* Violet clair - fond pour les tableaux et sections spéciales */
+        --primary-color4: #f0ecc8; /* Jaune clair - fond pour les composants d'information */
+        --secondary-color: #9747ff; /* Violet principal - couleur secondaire pour les accents */
+        --blue-color10: #e6f0fb; /* Bleu très clair - fond pour les dégradés et sections */
 
-        /* Couleurs neutres */
-        --gray-color1: #757575;
-        --gray-color6: #ededed;
-        --gray-color7: #f7f7f7;
-        --white-color: #ffffff;
+        /* ===========================================
+             PALETTE DE COULEURS - COULEURS NEUTRES
+             =========================================== */
+        --gray-color1: #757575; /* Gris moyen - couleur principale du texte */
+        --gray-color6: #ededed; /* Gris clair - fond pour les sections secondaires */
+        --gray-color7: #f7f7f7; /* Gris très clair - fond pour les tableaux et listes */
+        --white-color: #ffffff; /* Blanc pur - fond principal et texte sur fond coloré */
 
-        /* Typographie */
-        --main-font: "Montserrat", sans-serif;
-        --font-size18: 18px;
-        --font-size24: 24px;
-        --font-size28: 28px;
-        --font-size32: 32px;
-        --font-size48: 48px;
+        /* ===========================================
+             SYSTÈME TYPOGRAPHIQUE - ÉCHELLE DE TAILLES
+             =========================================== */
+        --main-font: "Montserrat", sans-serif; /* Police principale - moderne et lisible */
+        --font-size18: 18px; /* Texte de base - paragraphes et contenu principal */
+        --font-size24: 24px; /* Sous-titres - sections et composants */
+        --font-size28: 28px; /* Titres moyens - sections importantes */
+        --font-size32: 32px; /* Titres grands - pages et sections principales */
+        --font-size48: 48px; /* Titres très grands - titres de page */
 
-        /* Espacements */
-        --spacing-xs: 8px;
-        --spacing-sm: 12px;
-        --spacing-md: 20px;
-        --spacing-lg: 30px;
-        --spacing-xl: 40px;
+        /* ===========================================
+             SYSTÈME D'ESPACEMENT - ÉCHELLE COHÉRENTE
+             =========================================== */
+        --spacing-xs: 8px; /* Espacement très petit - marges internes fines */
+        --spacing-sm: 12px; /* Espacement petit - espacement entre éléments proches */
+        --spacing-md: 20px; /* Espacement moyen - espacement standard */
+        --spacing-lg: 30px; /* Espacement grand - espacement entre sections */
+        --spacing-xl: 40px; /* Espacement très grand - espacement entre blocs majeurs */
 
-        /* Ombres */
-        --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
-        --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15);
-        --shadow-heavy: 0 9px 15px rgba(0, 0, 0, 0.2);
+        /* ===========================================
+             SYSTÈME D'OMBRES - PROFONDEUR VISUELLE
+             =========================================== */
+        --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1); /* Ombre légère - élévation subtile */
+        --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15); /* Ombre moyenne - élévation standard */
+        --shadow-heavy: 0 9px 15px rgba(0, 0, 0, 0.2); /* Ombre forte - élévation importante */
 
-        /* Transitions */
-        --transition-fast: 0.3s ease;
-        --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        /* ===========================================
+             SYSTÈME DE TRANSITIONS - ANIMATIONS FLUIDES
+             =========================================== */
+        --transition-fast: 0.3s ease; /* Transition rapide - interactions immédiates */
+        --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transition fluide - animations douces */
       }
 
       /* ===========================================
-           RESET ET STYLES DE BASE
+           RESET ET STYLES DE BASE - FONDATION DU SITE
            =========================================== */
 
-      /* Reset CSS pour une base cohérente */
+      /* ===========================================
+           RESET CSS UNIVERSEL - NORMALISATION CROISÉE NAVIGATEURS
+           =========================================== */
       * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      /* Styles de base pour le body */
-      body {
-        font-family: var(--main-font);
-        line-height: 1.6;
-        color: #333;
-        background-color: #f5f5f5;
-        min-height: 100vh;
-      }
-
-      /* Défilement fluide pour les ancres */
-      html {
-        scroll-behavior: smooth;
+        margin: 0; /* Supprime toutes les marges par défaut */
+        padding: 0; /* Supprime tous les paddings par défaut */
+        box-sizing: border-box; /* Modèle de boîte incluant padding et border */
       }
 
       /* ===========================================
-           CONTAINER PRINCIPAL
+           STYLES DE BASE DU BODY - CONFIGURATION GLOBALE
+           =========================================== */
+      body {
+        font-family: var(--main-font); /* Police Montserrat pour tout le site */
+        line-height: 1.6; /* Interligne confortable pour la lecture */
+        color: #333; /* Couleur de texte par défaut - gris foncé */
+        background-color: #f5f5f5; /* Fond gris clair pour contraste avec le contenu */
+        min-height: 100vh; /* Hauteur minimale = 100% de la hauteur d'écran */
+      }
+
+      /* ===========================================
+           DÉFILEMENT FLUIDE - NAVIGATION SMOOTH SCROLL
+           =========================================== */
+      html {
+        scroll-behavior: smooth; /* Animation douce lors du scroll vers les ancres */
+      }
+
+      /* ===========================================
+           CONTAINER PRINCIPAL - STRUCTURE MAÎTRESSE DE LA PAGE
            =========================================== */
 
-      /* Container principal avec ombre et centrage */
+      /* ===========================================
+           CONTAINER PRINCIPAL - CENTRAGE ET OMBRE PORTÉE
+           =========================================== */
       .main-container {
-        width: 60%;
-        max-width: 1200px;
-        margin: var(--spacing-lg) auto;
-        background: var(--white-color);
-        border-radius: 12px;
-        box-shadow: var(--shadow-heavy);
-        padding: var(--spacing-lg);
-        position: relative;
-        overflow: hidden;
+        width: 60%; /* Largeur relative pour s'adapter aux écrans */
+        max-width: 1200px; /* Largeur maximale pour éviter l'étirement excessif */
+        margin: var(--spacing-lg) auto; /* Centrage horizontal avec marge verticale */
+        background: var(
+          --white-color
+        ); /* Fond blanc pour contraste avec l'arrière-plan */
+        border-radius: 12px; /* Coins arrondis pour un design moderne */
+        box-shadow: var(
+          --shadow-heavy
+        ); /* Ombre portée pour effet de profondeur */
+        padding: var(--spacing-lg); /* Espacement interne pour le contenu */
+        position: relative; /* Position relative pour les éléments enfants */
+        overflow: hidden; /* Masque le débordement pour les animations */
       }
 
       /* ===========================================
@@ -150,31 +174,18 @@
         opacity: 1;
       }
 
-      /* Les 3 barres horizontales du menu burger */
-      .menu-toggle span {
-        display: block;
-        width: 9px;
-        height: 1.5px;
-        background: #333;
-        margin: 1.5px 0;
-        border-radius: 1px;
+      /* Image du menu burger par défaut */
+      .menu-toggle img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
         transition: all var(--transition-smooth);
-        transform-origin: center;
       }
 
-      /* Animation du menu burger : première barre devient flèche gauche (rotation + translation) */
-      .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(1) {
-        transform: rotate(-45deg) translate(1px, 0px);
-      }
-
-      /* Animation du menu burger : barre du milieu invisible pour flèche 2 traits */
-      .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(2) {
-        opacity: 0;
-      }
-
-      /* Animation du menu burger : troisième barre devient flèche gauche (rotation + translation) */
-      .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(3) {
-        transform: rotate(45deg) translate(1px, 0px);
+      /* Image de la croix quand le menu est ouvert */
+      .menu-toggle-checkbox:checked + .menu-toggle img {
+        content: url("../../images/png/croix.png");
+        transform: none;
       }
 
       /* Menu latéral qui glisse depuis la gauche */
@@ -185,7 +196,7 @@
         width: 70%;
         max-width: 300px;
         height: 100%;
-        background: var(--gray-color7);
+        background: var(--white-color);
         box-shadow: 4px 0 16px rgba(0, 0, 0, 0.15);
         transform: translateX(-100%);
         transition: transform var(--transition-fast);
@@ -311,12 +322,11 @@
       .intro-title {
         font-family: var(--main-font);
         font-weight: 700;
-        color: var(--primary-color);
+        color: #5f8bbc;
         font-size: 42px;
         text-align: center;
         text-decoration: underline;
         margin: var(--spacing-lg) 0 50px 0;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
 
       /* Image principale en haut de la page */
@@ -558,20 +568,7 @@
       }
 
       .line {
-        width: 2px;
-        height: 60px;
-        border-left-width: 2px;
-        border-left-style: dashed;
-        border-left-color: var(--gray-color1);
-        border-right-width: initial;
-        border-right-style: initial;
-        border-right-color: initial;
-        border-top-width: initial;
-        border-top-style: initial;
-        border-top-color: initial;
-        border-bottom-width: initial;
-        border-bottom-style: initial;
-        border-bottom-color: initial;
+        display: none;
       }
 
       .steps .step-content:last-child .line {
@@ -627,8 +624,9 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 15px;
-        margin: 20px 0;
+        margin: 20px auto;
         padding: 12px;
+        max-width: 800px;
       }
 
       /* Rectangle jaune individuel */
@@ -706,7 +704,8 @@
         }
 
         .main-container {
-          margin: 20px;
+          width: 80%;
+          margin: 20px auto;
           padding: 25px;
         }
 
@@ -754,7 +753,7 @@
         }
 
         .steps .step-content:last-child .line {
-          display: block;
+          display: none;
         }
 
         /* Structures d'accueil sur tablette */
@@ -777,6 +776,14 @@
           font-size: 11px;
           line-height: 1.4;
         }
+
+        /* Texte sur image de couverture sur tablette */
+        .intro-image-text {
+          font-size: 15px;
+          max-width: 70%;
+          left: 15px;
+          padding: 12px;
+        }
       }
 
       /* Mobile (767px et moins) */
@@ -786,7 +793,8 @@
         }
 
         .main-container {
-          margin: 15px;
+          width: 95%;
+          margin: 15px auto;
           padding: 20px;
           overflow: visible;
         }
@@ -837,8 +845,33 @@
 
         /* Titres adaptés */
         .intro-title {
-          font-size: 28px;
+          font-size: 24px;
           margin: 20px 0 30px 0;
+        }
+
+        .section-number {
+          font-size: 28px;
+        }
+
+        .section-title {
+          font-size: 20px;
+        }
+
+        .subsection-heading {
+          font-size: 18px;
+        }
+
+        /* Titres des composants */
+        .title-retenir-conclusion {
+          font-size: 16px;
+        }
+
+        .text {
+          font-size: 14px;
+        }
+
+        .sub-text {
+          font-size: 14px;
         }
 
         .section-header {
@@ -880,7 +913,7 @@
         }
 
         .subsection-heading {
-          font-size: 22px;
+          font-size: 18px;
           margin: 25px 0 15px;
         }
 
@@ -910,13 +943,14 @@
         }
 
         .steps .step-content:last-child .line {
-          display: block;
+          display: none;
         }
       }
 
       /* Petit mobile (480px et moins) */
       @media (max-width: 480px) {
         .main-container {
+          width: 100%;
           margin: 10px;
           padding: 15px;
         }
@@ -975,7 +1009,95 @@
         }
 
         .steps .step-content:last-child .line {
-          display: block;
+          display: none;
+        }
+
+        /* Centrage et débordement pour tous les éléments */
+        .flex-container,
+        .structures-grid,
+        .structure-box {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 15px;
+          justify-content: center;
+          width: 100%;
+          max-width: 100%;
+        }
+
+        /* Réduction de la taille des textes pour éviter le débordement */
+        .section-text,
+        .text,
+        .sub-text,
+        .structure-content p {
+          font-size: 16px;
+          line-height: 1.5;
+          padding: 20px;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+        }
+
+        /* Images centrées et redimensionnées */
+        .office-image {
+          max-width: 200px;
+          margin: 0 auto;
+        }
+      }
+
+      /* ===========================================
+           TABLETTE (768px - 1023px) - ADAPTATION MOYENNE
+           =========================================== */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        /* Titres adaptés pour tablette */
+        .intro-title {
+          font-size: 32px;
+        }
+
+        .section-number {
+          font-size: 32px;
+        }
+
+        .section-title {
+          font-size: 22px;
+        }
+
+        .subsection-heading {
+          font-size: 20px;
+        }
+
+        /* Titres des composants pour tablette */
+        .title-retenir-conclusion {
+          font-size: 18px;
+        }
+
+        .text {
+          font-size: 16px;
+        }
+
+        .sub-text {
+          font-size: 16px;
+        }
+
+        /* Centrage pour tablette */
+        .container-a-retenir,
+        .steps,
+        .step-content,
+        .text,
+        .sub-text {
+          text-align: center;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .steps {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .step-content {
+          width: 100%;
+          max-width: 600px;
+          margin: 0 auto;
         }
       }
 
@@ -1443,24 +1565,11 @@
       }
 
       .line {
-        width: 2px;
-        height: 100px;
-        border-left-width: 2px;
-        border-left-style: dashed;
-        border-left-color: var(--gray-color1);
-        border-right-width: initial;
-        border-right-style: initial;
-        border-right-color: initial;
-        border-top-width: initial;
-        border-top-style: initial;
-        border-top-color: initial;
-        border-bottom-width: initial;
-        border-bottom-style: initial;
-        border-bottom-color: initial;
+        display: none;
       }
 
       .steps .step-content:last-child .line {
-        display: block;
+        display: none;
       }
 
       .title-retenir-conclusion {
@@ -1494,7 +1603,7 @@
         }
 
         .steps .step-content:last-child .line {
-          display: block;
+          display: none;
         }
       }
 
@@ -1510,9 +1619,39 @@
         }
 
         .steps .step-content:last-child .line {
-          display: block;
+          display: none;
         }
       }
+
+      /* ===========================================
+           EFFETS HOVER SUR LES COMPOSANTS - INTERACTIONS UTILISATEUR
+           =========================================== */
+
+      /* ===========================================
+           HOVER SUR LES STRUCTURES GRID - EFFET D'ÉLÉVATION
+           =========================================== */
+      .structure-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(95, 139, 188, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      /* ===========================================
+           HOVER SUR LES COMPOSANTS AVEC TEXTE SEULEMENT
+           =========================================== */
+
+      /* ===========================================
+           HOVER SUR LE FLEX CONTAINER - EFFET D'ÉLÉVATION
+           =========================================== */
+      .flex-container:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(95, 139, 188, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      /* ===========================================
+           HOVER SUR LES SOUS-SECTIONS - EFFET SUBTIL
+           =========================================== */
     </style>
   </head>
 
@@ -1522,31 +1661,15 @@
          =========================================== -->
     <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" />
     <label for="menu-toggle" class="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
+      <img src="../../images/png/menuBurger.png" alt="Menu" />
     </label>
 
     <nav class="menu">
       <ul>
         <li>
           <a href="#section1">1 - Modes d'accueil de l'enfant de 0 à 6 ans</a>
-          <ul>
-            <li><a href="#section1-a">A. Structures d'accueil</a></li>
-            <li><a href="#section1-b">B. Tableau comparatif</a></li>
-            <li>
-              <a href="#section1-c">C. Les assistantes maternelles agréées</a>
-            </li>
-          </ul>
         </li>
-        <li>
-          <a href="#section2">2 - L'école maternelle</a>
-          <ul>
-            <li>
-              <a href="#section2-a">A. Objectifs de l'école maternelle</a>
-            </li>
-          </ul>
-        </li>
+        <li><a href="#section2">2 - L'école maternelle</a></li>
         <li><a href="#conc">À retenir</a></li>
       </ul>
     </nav>
@@ -2082,7 +2205,7 @@
                 >
                   <img
                     alt=""
-                    src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/qB4FycrMdfpezVAj3liVV72k1MT3DTBQ8iGRWQyu.png"
+                    src="../../images/png/imageRetenir.svg"
                     class="retenir-img"
                   />
                   <h2 class="title-retenir-conclusion">à retenir</h2>
@@ -2141,4 +2264,40 @@
       </div>
     </div>
   </body>
+
+  <style>
+    /* ===========================================
+         LAPTOP (1024px - 1439px) - ADAPTATION LARGE
+         =========================================== */
+    @media (min-width: 1024px) and (max-width: 1439px) {
+      /* Tous les textes normaux */
+      .section-text,
+      .structure-content p,
+      .sub-text {
+        font-size: 18px;
+      }
+
+      /* Tous les titres légèrement plus grands */
+      .text {
+        font-size: 20px;
+      }
+    }
+
+    /* ===========================================
+         DESKTOP (1440px et plus) - ADAPTATION TRÈS LARGE
+         =========================================== */
+    @media (min-width: 1440px) {
+      /* Tous les textes normaux */
+      .section-text,
+      .structure-content p,
+      .sub-text {
+        font-size: 20px;
+      }
+
+      /* Tous les titres légèrement plus grands */
+      .text {
+        font-size: 22px;
+      }
+    }
+  </style>
 </html>

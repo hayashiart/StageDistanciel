@@ -1,0 +1,1884 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Protection de l'enfance</title>
+
+    <style>
+      /* ===========================================
+           VARIABLES CSS GLOBALES
+           =========================================== */
+      :root {
+        --main-font: "Montserrat", sans-serif;
+        --font-size18: 18px;
+        --font-size24: 24px;
+        --gray-color1: #757575;
+        --secondary-color: #0074c0;
+        --white-color: #ffffff;
+        --primary-color: #9747ff;
+        --blue-color: #5f8bbc;
+        --blue-color10: #e6f0fb;
+        --yellow-light: #f0ecc8;
+        --blue-light: #a9c4e3;
+        --violet-light: #E4DDEC;
+        --blue-very-light: #E5EFF9;
+        --yellow-very-light: #FDF7E2;
+        --gray-light: #EBEBEB;
+        --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
+        --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15);
+        --transition-fast: 0.3s ease;
+        --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --spacing-lg: 30px;
+      }
+
+      /* ===========================================
+           RESET ET STYLES DE BASE
+           =========================================== */
+      * {
+        word-break: break-word;
+        box-sizing: border-box;
+        font-family: var(--main-font);
+      }
+
+html {
+        scroll-behavior: smooth; /* Animation douce lors du scroll vers les ancres */
+      }
+
+      body {
+        font-family: var(--main-font);
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      /* ===========================================
+           LAYOUT PRINCIPAL
+           =========================================== */
+      .main-container {
+        width: 60%;
+        max-width: 1200px;
+        margin: 0 auto;
+        background: var(--white-color);
+        box-shadow: var(--shadow-medium);
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .page-container {
+        padding: 0;
+        margin: 0;
+      }
+
+      .main-content {
+        padding: 40px;
+  margin: 0;
+}
+
+      /* ===========================================
+           TITRES ET EN-TÊTES
+           =========================================== */
+      .intro-title {
+        font-family: var(--main-font);
+        font-weight: 700;
+        color: #5f8bbc;
+        font-size: 42px;
+        text-align: center;
+        text-decoration: underline;
+        margin: 30px 0 40px 0;
+      }
+
+      /* ===========================================
+           COMPOSANT IMAGE PRINCIPALE AVEC TEXTE SUPERPOSÉ
+           =========================================== */
+      .intro-image-container {
+        position: relative;
+        max-width: 800px;
+        margin: 30px auto;
+      }
+
+      .intro-image {
+        width: 100%;
+        max-width: 800px;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: var(--shadow-medium);
+        margin: 30px auto;
+        display: block;
+      }
+
+      .intro-lorem-overlay {
+        position: absolute;
+        top: 50%;
+        left: 35%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        border-radius: 12px;
+        max-width: 70%;
+        text-align: center;
+      }
+
+      .intro-lorem-text {
+        font-family: var(--main-font);
+        font-size: 12px;
+        line-height: 1.4;
+        color: white;
+        font-weight: bold;
+        margin: 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+      }
+
+      /* ===========================================
+           COMPOSANT MENU BURGER (IDENTIQUE À PAGE1)
+           =========================================== */
+.menu-toggle-checkbox {
+  display: none;
+}
+
+.menu-toggle {
+        display: block;
+  position: fixed;
+        top: var(--spacing-lg);
+        left: var(--spacing-lg);
+        width: 40px;
+        height: 40px;
+  cursor: pointer;
+  z-index: 2001;
+        background: #ffffff;
+        border-radius: 8px;
+        padding: 8px;
+        box-shadow: var(--shadow-light);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Image du menu burger - reste constante */
+      .menu-toggle img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: none;
+      }
+
+.menu {
+  position: fixed;
+  top: 0;
+        left: 0;
+        width: 70%;
+  max-width: 300px;
+  height: 100%;
+        background: #ffffff;
+        box-shadow: 4px 0 16px rgba(0, 0, 0, 0.15);
+        transform: translateX(-100%);
+        transition: transform var(--transition-fast);
+        padding: 100px 30px 40px 30px;
+  z-index: 1500;
+        border-right: 1px solid #e0e0e0;
+        overflow-y: auto;
+        overflow-x: hidden;
+}
+
+.menu-toggle-checkbox:checked + .menu-toggle + .menu {
+  transform: translateX(0);
+}
+
+.menu ul {
+  list-style: none;
+}
+
+.menu ul li {
+        margin-bottom: 25px;
+}
+
+.menu ul li a {
+        color: #333;
+  text-decoration: none;
+        font-weight: 600;
+        font-size: var(--font-size18);
+        transition: all var(--transition-fast);
+        display: block;
+        padding: 18px 20px;
+        border-radius: 10px;
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
+        margin-bottom: 10px;
+      }
+
+.menu ul li a:hover {
+        color: var(--primary-color);
+        background: var(--blue-color10);
+        transform: translateX(10px);
+        box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
+      }
+
+      /* ===========================================
+           PERSONNALISATION DE LA BARRE DE DÉFILEMENT
+           =========================================== */
+      .menu::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .menu::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      .menu::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: 3px;
+        opacity: 0.7;
+      }
+
+      .menu::-webkit-scrollbar-thumb:hover {
+        background: #4a7aa3;
+        opacity: 1;
+      }
+
+      .menu {
+        scrollbar-width: thin;
+        scrollbar-color: var(--primary-color) transparent;
+      }
+
+      /* ===========================================
+           COMPOSANT SECTIONS ET SOUS-SECTIONS
+           =========================================== */
+      .section-header {
+        display: flex;
+        align-items: center;
+        background: #e6f0fb;
+        border: 2px solid #3b6ea5e3;
+        border-radius: 15px;
+        padding: 0;
+        margin: 40px 0 30px 0;
+        box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
+    overflow: hidden;
+      }
+
+      .section-number {
+        background: #3b6ea5;
+        color: var(--white-color);
+        font-family: var(--main-font);
+        font-weight: 700;
+        font-size: 36px;
+        padding: 25px 30px;
+        min-width: 120px;
+        width: 120px;
+        text-align: center;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        align-self: stretch;
+      }
+
+      .section-title {
+        color: #3b6ea5;
+        font-family: var(--main-font);
+        font-weight: 700;
+        font-size: 24px;
+        text-align: left;
+        flex: 1;
+        padding: 25px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 100px;
+      }
+
+      .subsection-heading {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        color: #5f8bbc;
+        font-size: 26px;
+        margin: 35px 0 25px 0;
+        padding: 15px 20px;
+        background: #f8fbff;
+        border-left: 5px solid #5f8bbc;
+        border-radius: 0 8px 8px 0;
+        text-align: left; /* Alignement à gauche explicite */
+      }
+
+      /* ===========================================
+           COMPOSANT LIGNES3 (2 COLONNES)
+           =========================================== */
+      .lignes3-container {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        box-sizing: border-box;
+  padding: 20px;
+}
+
+      .lignes3-rectangle-container {
+        position: relative;
+        display: flex;
+        align-items: stretch;
+        margin: 0;
+        padding: 0;
+        min-height: 120px;
+      }
+
+      .lignes3-rectangle {
+        width: 120px;
+        background: var(--blue-light);
+        border-radius: 8px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .lignes3-yellow-rectangle {
+        flex: 1;
+        background: var(--yellow-light);
+        border-radius: 8px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        overflow: hidden;
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+      }
+
+      .lignes3-scroll-content {
+        width: 100%;
+        height: 100%;
+    overflow: hidden;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      .lignes3-yellow-text {
+        font-family: var(--main-font);
+        font-size: 14px;
+        color: #333;
+        text-align: left;
+        margin: 0;
+        line-height: 1.5;
+        list-style: disc;
+        padding-left: 20px;
+        width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      .lignes3-title {
+        font-family: var(--main-font);
+        font-size: 14px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        margin: 0;
+        padding: 10px;
+      }
+
+      /* ===========================================
+           COMPOSANT HIERARCHIE (SIGNES PHYSIQUES/PSYCHIQUES)
+           =========================================== */
+      .hierarchie-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 30px auto;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .hierarchie-row {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 40px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .hierarchie-block {
+        background-color: var(--yellow-light);
+        border-radius: 8px;
+        width: 280px;
+        min-width: 250px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        box-shadow: var(--shadow-light);
+        transition: all var(--transition-fast);
+        height: auto;
+        min-height: 600px;
+      }
+
+      .hierarchie-block:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(95, 139, 188, 0.3);
+      }
+
+      .hierarchie-header {
+        background-color: var(--blue-light);
+        color: var(--white-color);
+        font-weight: bold;
+        padding: 15px;
+    font-size: 16px;
+        font-family: var(--main-font);
+        height: auto;
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    text-align: center;
+        word-wrap: break-word;
+      }
+
+      .hierarchie-content {
+        padding: 30px;
+        font-size: 14px;
+        line-height: 1.5;
+        font-family: var(--main-font);
+        flex: 1;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        height: auto;
+        min-height: 500px;
+        overflow: hidden;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      /* ===========================================
+           COMPOSANT PERIODE-ESSAI-EXAMPLE (SECTION 2C)
+           =========================================== */
+      .periode-essai-example-unique {
+        display: flex;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top: 10px;
+        box-shadow: var(--shadow-light);
+        margin-bottom: 5%;
+      }
+
+      .example-left-unique {
+        width: 20%;
+        background-color: #c7def5;
+      }
+
+      .example-right-unique {
+        flex: 1;
+        background-color: #f5f5f5;
+        padding: 20px;
+        text-align: left;
+      }
+
+      .example-title-unique {
+        color: #3b6ea5;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        margin-left: 10%;
+      }
+
+      .example-text-unique {
+        font-size: 14px;
+        margin: 5px 0;
+        color: #000;
+        line-height: 1.6;
+        width: 90%;
+        margin-left: 10%;
+      }
+
+      /* ===========================================
+           COMPOSANT DOCUMENT (SECTION 3A)
+           =========================================== */
+      .document-section {
+        max-width: 1200px;
+        margin: 30px auto;
+        padding: 20px;
+      }
+
+      .document-container {
+        display: flex;
+        align-items: flex-start;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin: 30px 0;
+        transition: all var(--transition-fast);
+      }
+
+      .document-container:hover {
+        transform: translateY(-2px);
+      }
+
+      .document-img {
+        flex: 1;
+        max-width: 250px;
+      }
+
+      .document-img img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: var(--shadow-light);
+      }
+
+      .document-text {
+        flex: 2;
+        min-width: 300px;
+      }
+
+      .document-highlight {
+        background: var(--yellow-light);
+        padding: 40px;
+        border-radius: 12px;
+        font-size: 1rem;
+        line-height: 1.8;
+        font-family: var(--main-font);
+        transition: all var(--transition-fast);
+      }
+
+      .document-highlight:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(95, 139, 188, 0.3);
+      }
+
+      /* ===========================================
+           COMPOSANT 3 COLONNES ASE (SECTION 3C)
+           =========================================== */
+      .ase-services-container {
+        display: flex;
+        gap: 30px;
+        margin: 30px 0;
+        flex-wrap: wrap;
+      }
+
+      .ase-service-card {
+        flex: 1;
+        min-width: 250px;
+        background: #f8fbff;
+        border: 2px solid var(--blue-color);
+        border-radius: 12px;
+        padding: 25px;
+        text-align: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 6px rgba(95, 139, 188, 0.1);
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .ase-service-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(95, 139, 188, 0.2);
+        background: #f0f8ff;
+      }
+
+      .ase-service-text {
+        font-family: var(--main-font);
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+        margin: 0;
+      }
+
+      /* ===========================================
+           COMPOSANT BOX LIGNE ENTIÈRE (SECTION 3C)
+           =========================================== */
+      .box-ligne-entiere-container {
+        width: 100%;
+        margin: 0 auto;
+        max-width: none;
+        padding: 25px;
+      }
+
+      .box {
+        border-radius: 20px;
+        background: white;
+        box-shadow: 0px 4px 8px rgba(117, 117, 117, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 20px;
+        padding: 25px;
+      }
+
+      .box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0px 12px 24px rgba(117, 117, 117, 0.2);
+      }
+
+      /* ===========================================
+           COMPOSANT DEFINITION (SECTION 2)
+           =========================================== */
+      .definition-index2-container {
+        padding: 10px 20px;
+        border-radius: 20px;
+        background-color: var(--white-color);
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
+      }
+
+      .title-h4-definition {
+        font-family: var(--main-font);
+        font-size: var(--font-size24);
+    font-weight: 700;
+        text-transform: capitalize;
+      }
+
+      /* ===========================================
+           COMPOSANT CONCLUSION
+           =========================================== */
+      .container-a-retenir {
+        padding: 35px;
+        margin: 45px 0;
+      }
+
+      .wrap-title-retenir-conclusion {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .retenir-img {
+        width: 35%;
+      }
+
+      .title-retenir-conclusion {
+        color: var(--gray-color1);
+        text-align: center;
+        font-family: var(--main-font);
+        font-size: 24px;
+        font-weight: 600;
+    line-height: normal;
+        text-transform: uppercase;
+      }
+
+      .steps {
+        padding: 20px;
+      }
+
+      .step {
+        flex-direction: column;
+    position: relative;
+        align-items: center;
+      }
+
+      .number {
+        font-size: 18px;
+        font-family: var(--main-font);
+        font-weight: bold;
+        color: var(--white-color);
+        border-radius: 50%;
+        padding: 8px;
+        background-color: var(--primary-color);
+        width: 50px;
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .text {
+        font-family: var(--main-font);
+        color: var(--primary-color);
+        text-align: justify;
+        font-size: var(--font-size24);
+        font-weight: 600;
+        margin: 0;
+        padding-left: 15px;
+      }
+
+      .sub-text {
+        font-family: var(--main-font);
+        color: var(--gray-color1);
+        font-size: 18px;
+        margin: 0;
+        text-align: justify;
+        padding-left: 15px;
+      }
+
+      .line {
+        display: none;
+      }
+
+      .steps .step-content:last-child .line {
+        display: block;
+      }
+
+      .step-content {
+        margin-bottom: 30px;
+    position: relative;
+      }
+
+      .step-text {
+        padding-left: 20px;
+      }
+
+      /* ===========================================
+           COULEURS DES BOXES
+           =========================================== */
+      .primary-color { color: var(--primary-color) !important; }
+      .secondary-color { color: var(--secondary-color) !important; }
+      .gray-color1 { color: var(--gray-color1) !important; }
+      .bg-primary-color4 { background-color: var(--violet-light) !important; }
+      .bg-blue-color10 { background-color: var(--blue-very-light) !important; }
+      .bg-gray-color6 { background-color: var(--yellow-very-light) !important; }
+      .bg-gray-light { background-color: var(--gray-light) !important; }
+
+      /* ===========================================
+           CLASSES UTILITAIRES
+           =========================================== */
+      .is-flex { display: flex; }
+      .is-flex-gap { gap: 24px; }
+      .is-flex-wrap-wrap-mobile { flex-wrap: wrap; }
+      .is-align-items-center { align-items: center; }
+      .col-1 { width: 8.333333%; }
+      .col-2 { width: 16.666667%; }
+      .col-3 { width: 25%; }
+      .col-4 { width: 33.333333%; }
+      .col-5 { width: 41.666667%; }
+      .col-6 { width: 50%; }
+      .col-7 { width: 58.333333%; }
+      .col-8 { width: 66.666667%; }
+      .col-9 { width: 75%; }
+      .col-10 { width: 83.333333%; }
+      .col-11 { width: 91.666667%; }
+      .col-12 { width: 100%; }
+      .block:not(:last-child) { margin-bottom: 24px; }
+      .img-fluid { max-width: 100%; height: auto; }
+      .paragraphe {
+        text-align: justify;
+    color: #000000;
+        font-family: var(--main-font);
+        font-size: var(--font-size18);
+    font-weight: 400;
+      }
+
+      /* Marges entre les paragraphes */
+      p {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+
+      /* ===========================================
+           RESPONSIVE DESIGN - TABLETTE (768px)
+           =========================================== */
+      /* Tablet */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        /* Layout principal adapté */
+        .main-content {
+          margin-left: 0;
+        }
+
+        .main-container {
+          width: 80%;
+          margin: 20px auto;
+          padding: 25px;
+        }
+
+        /* Menu burger adapté pour tablette */
+        .menu {
+          width: 60%;
+          max-width: 280px;
+          padding: 70px 20px 25px;
+        }
+
+        .menu-toggle {
+          width: 35px;
+          height: 35px;
+          padding: 6px;
+        }
+
+        .menu-toggle img {
+          width: 100%;
+          height: 100%;
+        }
+
+
+      }
+
+      @media (max-width: 767px) {
+        /* Layout principal */
+        .main-container {
+          width: 95%;
+          margin: 15px auto;
+          padding: 20px;
+        }
+
+        .main-content {
+          padding: 15px;
+        }
+
+        /* Titres */
+        .intro-title {
+          font-size: 24px;
+          margin: 20px 0 30px 0;
+        }
+
+        .section-number {
+          font-size: 28px;
+        }
+
+        .section-title {
+          font-size: 20px;
+        }
+
+        .subsection-heading {
+          font-size: 18px;
+        }
+
+        /* Titres des composants */
+        .title-retenir-conclusion {
+    font-size: 16px;
+        }
+
+        .text {
+          font-size: 14px;
+        }
+
+        .sub-text {
+          font-size: 14px;
+        }
+
+        .lignes3-title {
+          font-size: 16px;
+        }
+
+        .hierarchie-header {
+          font-size: 16px;
+        }
+
+        /* Image principale et texte superposé */
+        .intro-image-container {
+          max-width: 100%;
+          margin: 20px auto;
+        }
+
+        .intro-lorem-overlay {
+          padding: 15px;
+          max-width: 85%;
+          left: 40%;
+        }
+
+        .intro-lorem-text {
+          font-size: 11px;
+          line-height: 1.3;
+        }
+
+        /* Menu burger */
+        .menu {
+          width: 85%;
+          max-width: 280px;
+          padding: 80px 20px 30px 20px;
+        }
+
+        .section-title {
+          font-size: 20px;
+          padding: 15px 20px;
+          min-height: 60px;
+        }
+
+        .subsection-heading {
+          font-size: 18px;
+          margin: 25px 0 20px 0;
+          padding: 12px 15px;
+        }
+
+        /* Composant lignes3 */
+        .lignes3-container {
+          width: 100%;
+          max-width: 100%;
+          gap: 15px;
+          padding: 15px;
+        }
+
+        .lignes3-rectangle {
+          width: 100px;
+          min-width: 80px;
+        }
+
+        .lignes3-title {
+          font-size: 16px;
+          padding: 8px;
+        }
+
+        .lignes3-yellow-rectangle {
+          min-height: 100px;
+        }
+
+        .lignes3-scroll-content {
+          padding: 12px;
+        }
+
+        .lignes3-yellow-text {
+          font-size: 12px;
+          line-height: 1.4;
+          padding-left: 15px;
+        }
+
+        /* Composant hierarchie */
+        .hierarchie-row {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .hierarchie-block {
+          width: 100%;
+          max-width: 100%;
+          min-width: auto;
+          min-height: 500px;
+        }
+
+        .hierarchie-header {
+          font-size: 14px;
+          padding: 12px;
+          min-height: 60px;
+        }
+
+        .hierarchie-content {
+          font-size: 13px;
+          padding: 20px;
+          min-height: 400px;
+        }
+
+        /* Composant periode-essai-example */
+        .periode-essai-example-unique {
+          flex-direction: column;
+        }
+
+        .example-left-unique {
+          width: 100%;
+          height: 10px;
+        }
+
+        .example-right-unique {
+          padding: 15px;
+        }
+
+        .example-title-unique {
+          margin-left: 0;
+          text-align: center;
+        }
+
+        .example-text-unique {
+          margin-left: 0;
+          width: 100%;
+        }
+
+        /* Composant document */
+        .document-container {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .document-img {
+          max-width: 200px;
+        }
+
+        .document-highlight {
+          padding: 20px;
+        }
+
+        /* Composant ASE */
+        .ase-services-container {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .ase-service-card {
+          min-width: auto;
+          height: auto;
+          min-height: 150px;
+        }
+
+        /* Composant box */
+        .box-ligne-entiere-container {
+          width: 100%;
+          margin: 0 auto;
+          padding: 15px;
+        }
+
+        .col-1, .col-2, .col-3, .col-4, .col-5, .col-6,
+        .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+          width: 100%;
+        }
+
+        /* Centrage et débordement pour tous les éléments */
+        .lignes3-container,
+        .hierarchie-row,
+        .document-container,
+        .ase-services-container,
+        .box-ligne-entiere-container {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 15px;
+          justify-content: center;
+          width: 100%;
+          max-width: 100%;
+        }
+
+        /* Réduction de la taille des textes pour éviter le débordement */
+        .lignes3-yellow-text,
+        .hierarchie-content,
+        .document-highlight,
+        .ase-service-card p,
+        .box-ligne-entiere-container p {
+    font-size: 16px;
+          line-height: 1.5;
+          padding: 20px;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+        }
+
+        /* Images centrées et redimensionnées */
+        .document-img {
+          max-width: 200px;
+          margin: 0 auto;
+        }
+      }
+
+      /* ===========================================
+           TABLETTE (768px - 1023px) - ADAPTATION MOYENNE
+           =========================================== */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        /* Titres adaptés pour tablette */
+        .intro-title {
+          font-size: 32px;
+        }
+
+        .section-number {
+          font-size: 32px;
+        }
+
+        .section-title {
+          font-size: 22px;
+        }
+
+        .subsection-heading {
+          font-size: 20px;
+        }
+
+        /* Titres des composants pour tablette */
+        .title-retenir-conclusion {
+          font-size: 18px;
+        }
+
+        .text {
+          font-size: 16px;
+        }
+
+        .sub-text {
+          font-size: 16px;
+        }
+
+        .lignes3-title {
+          font-size: 18px;
+        }
+
+        .hierarchie-header {
+          font-size: 18px;
+        }
+
+        /* Centrage pour tablette */
+        .container-a-retenir,
+        .steps,
+        .step-content,
+        .text,
+        .sub-text {
+          text-align: center;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .steps {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .step-content {
+          width: 100%;
+          max-width: 600px;
+          margin: 0 auto;
+        }
+      }
+
+      /* ===========================================
+           RESPONSIVE DESIGN - MOBILE (480px)
+           =========================================== */
+      @media (max-width: 480px) {
+        /* Layout principal */
+        .main-container {
+          width: 100%;
+          margin: 10px;
+          padding: 15px;
+        }
+
+        .main-content {
+          padding: 10px;
+        }
+
+        /* Titres */
+        .intro-title {
+          font-size: 24px;
+          margin: 15px 0 25px 0;
+        }
+
+        /* Image principale et texte superposé */
+        .intro-image-container {
+          max-width: 100%;
+          margin: 15px auto;
+        }
+
+        .intro-lorem-overlay {
+          padding: 10px;
+          max-width: 90%;
+          left: 45%;
+        }
+
+        .intro-lorem-text {
+          font-size: 10px;
+          line-height: 1.2;
+        }
+
+        /* Menu burger */
+        .menu {
+          width: 90%;
+          max-width: 260px;
+          padding: 70px 15px 25px 15px;
+        }
+
+        .section-title {
+          font-size: 20px;
+          padding: 12px 15px;
+          min-height: 50px;
+        }
+
+        .subsection-heading {
+          font-size: 18px;
+          margin: 20px 0 15px 0;
+          padding: 10px 12px;
+        }
+
+        /* Composant lignes3 */
+        .lignes3-container {
+          width: 100%;
+          max-width: 100%;
+          gap: 10px;
+          padding: 10px;
+        }
+
+        .lignes3-rectangle {
+          width: 80px;
+          min-width: 60px;
+        }
+
+        .lignes3-title {
+          font-size: 11px;
+          padding: 6px;
+        }
+
+        .lignes3-yellow-rectangle {
+          min-height: 80px;
+        }
+
+        .lignes3-scroll-content {
+          padding: 8px;
+        }
+
+        .lignes3-yellow-text {
+          font-size: 11px;
+          line-height: 1.3;
+          padding-left: 10px;
+        }
+
+        /* Composant hierarchie */
+        .hierarchie-block {
+          width: 100%;
+          max-width: 100%;
+          min-width: auto;
+          min-height: 400px;
+        }
+
+        .hierarchie-header {
+          font-size: 13px;
+          padding: 10px;
+          min-height: 50px;
+        }
+
+        .hierarchie-content {
+          font-size: 12px;
+          padding: 15px;
+          min-height: 300px;
+        }
+
+        /* Composant periode-essai-example */
+        .periode-essai-example-unique {
+          flex-direction: column;
+        }
+
+        .example-left-unique {
+          width: 100%;
+          height: 8px;
+        }
+
+        .example-right-unique {
+          padding: 12px;
+        }
+
+        .example-title-unique {
+          font-size: 13px;
+          margin-left: 0;
+          text-align: center;
+        }
+
+        .example-text-unique {
+          font-size: 11px;
+          margin-left: 0;
+          width: 100%;
+        }
+
+        /* Composant document */
+        .document-container {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .document-img {
+          max-width: 150px;
+        }
+
+        .document-highlight {
+          padding: 15px;
+          font-size: 13px;
+        }
+
+        /* Composant ASE */
+        .ase-services-container {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .ase-service-card {
+          min-width: auto;
+          height: auto;
+          min-height: 120px;
+          padding: 15px;
+        }
+
+        .ase-service-text {
+          font-size: 13px;
+        }
+
+        /* Composant box */
+        .box-ligne-entiere-container {
+          padding: 10px;
+        }
+
+        .box {
+          padding: 15px;
+          margin-bottom: 15px;
+        }
+
+        /* Composant conclusion */
+        .container-a-retenir {
+          padding: 15px;
+          margin: 20px 0;
+        }
+
+        .title-retenir-conclusion {
+          font-size: 20px;
+        }
+
+        .steps {
+          padding: 10px;
+        }
+
+        .number {
+          width: 35px;
+          height: 35px;
+          font-size: 14px;
+        }
+
+        .text, .sub-text {
+          font-size: 14px;
+        }
+      }
+
+      /* ===========================================
+           LAPTOP (1024px - 1439px) - ADAPTATION LARGE
+           =========================================== */
+      @media (min-width: 1024px) and (max-width: 1439px) {
+        /* Tous les textes normaux */
+        .lignes3-yellow-text,
+        .hierarchie-content,
+        .document-highlight,
+        .ase-service-card p,
+        .box-ligne-entiere-container p,
+        .sub-text {
+          font-size: 18px;
+        }
+
+        /* Tous les titres légèrement plus grands */
+        .text {
+          font-size: 20px;
+        }
+      }
+
+      /* ===========================================
+           DESKTOP (1440px et plus) - ADAPTATION TRÈS LARGE
+           =========================================== */
+      @media (min-width: 1440px) {
+        /* Tous les textes normaux */
+        .lignes3-yellow-text,
+        .hierarchie-content,
+        .document-highlight,
+        .ase-service-card p,
+        .box-ligne-entiere-container p,
+        .sub-text {
+          font-size: 20px;
+        }
+
+        /* Tous les titres légèrement plus grands */
+        .text {
+          font-size: 22px;
+        }
+      }
+ </style>
+  </head>
+
+  <body>
+    <!-- ===========================================
+         CONTAINER PRINCIPAL - STRUCTURE MAÎTRESSE
+         =========================================== -->
+    <div class="main-container">
+      <!-- ===========================================
+           MENU BURGER - SYSTÈME DE NAVIGATION
+           =========================================== -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" />
+      <label for="menu-toggle" class="menu-toggle">
+        <img src="../../images/png/menuBurger.png" alt="Menu" />
+      </label>
+      
+      <!-- Menu latéral de navigation -->
+      <nav class="menu">
+        <ul>
+          <li><a href="#section1">1 - Les signes de maltraitance</a></li>
+          <li><a href="#section2">2 - Le signalement de maltraitance</a></li>
+          <li><a href="#section3">3 - La protection sociale du mineur</a></li>
+          <li><a href="#conc">4 - À retenir</a></li>
+        </ul>
+      </nav>
+      
+      <!-- ===========================================
+           CONTENU PRINCIPAL DE LA PAGE
+           =========================================== -->
+      <div class="page-container">
+        <main class="main-content">
+          <!-- ===========================================
+               TITRE PRINCIPAL DE LA PAGE
+               =========================================== -->
+          <h1 class="intro-title">Protection de l'enfance</h1>
+
+          <!-- ===========================================
+               IMAGE PRINCIPALE AVEC TEXTE SUPERPOSÉ
+               =========================================== -->
+          <div class="intro-image-container">
+            <img
+              src="../../images/CAP AEPE/page6/imageMains.png"
+              alt="Image de mains"
+              class="intro-image"
+            />
+            <div class="intro-lorem-overlay">
+              <p class="intro-lorem-text">
+                Presque 100 000 enfants en danger sont recensés chaque année en France. Chaque jour un à deux enfants décèdent des suites de maltraitance (dont les trois quarts ont moins de 7 ans). L’enfant n’a pas la capacité de comprendre qu’il est victime de maltraitance. C’est donc aux adultes, et en particulier aux professionnels de la petite enfance, d’être attentifs, observateurs et actifs à bon escient.
+              </p>
+            </div>
+          </div>
+
+          <!-- ===========================================
+               SECTION 1 - PROTECTION ADMINISTRATIVE
+               =========================================== -->
+          <section id="section1">
+            <div class="section-header">
+              <div class="section-number">01</div>
+              <div class="section-title">
+                <h2>Les signes de maltraitance</h2>
+              </div>
+    </div>
+    
+            <p>
+              Selon l’ODAS (Observatoire Nationale de l’Action Social
+              Décentralisé), il existe deux catégories d’enfants en danger : les
+              enfants en risque et les enfants maltraités. « Les enfants en
+              danger » sont les enfants en risque et les enfants maltraités pris
+              en charge par l’ASE (aide sociale à l’enfance) ou par la justice.
+            </p>
+
+            <div class="lignes3-container">
+              <div class="lignes3-rectangle-container">
+                <div class="lignes3-rectangle">
+                  <h1 class="lignes3-title">Les enfants en danger</h1>
+            </div>
+                <div class="lignes3-yellow-rectangle">
+                  <div class="lignes3-scroll-content">
+                    <ul class="lignes3-yellow-text">
+                      Des enfants qui connaissent des conditions d'existence
+                      risquant de mettre en danger leur santé, leur sécurité,
+                      leur intégrité morale, leur éducation ou leur entretien,
+                      mais qui n'ont pas pour autant été maltraités.
+                    </ul>
+          </div>
+        </div>
+            </div>
+              <div class="lignes3-rectangle-container">
+                <div class="lignes3-rectangle">
+                  <h1 class="lignes3-title">Les enfants maltraités</h1>
+          </div>
+                <div class="lignes3-yellow-rectangle">
+                  <div class="lignes3-scroll-content">
+                    <ul class="lignes3-yellow-text">
+                      Des enfants victimes de violences physiques, d'abus
+                      sexuels, d'actes de cruauté mentale, de négligences
+                      lourdes ayant des conséquences graves sur leur
+                      développement physique ou psychologique.
+                    </ul>
+        </div>
+            </div>
+          </div>
+        </div>
+
+            <p>
+              Le professionnel devra être attentif pour repérer les différents
+              signes qui doivent alerter et faire suspecter une maltraitance.
+            </p>
+
+            <!-- Première ligne : 2 blocs -->
+            <div class="hierarchie-row">
+              <div class="hierarchie-block">
+                <div class="hierarchie-header">SIGNES PHYSIQUES</div>
+                <div class="hierarchie-content">
+                  Morsures, griffures<br />
+                  Plaques d'alopécie (cheveux arrachés)<br />
+                  Brûlure avec des localisations inexpliquées<br />
+                  Marques de coups : ecchymoses, plaies multiples d'âges
+                  différents<br />
+                  Fractures multiples et répétées<br />
+                  Habillement mal adapté<br />
+                  Aspect négligé<br />
+                  Retard important du développement somatique<br />
+                  Visites fréquentes à l'infirmerie scolaire
+        </div>
+            </div>
+              <div class="hierarchie-block">
+                <div class="hierarchie-header">
+                  SIGNES PSYCHIQUES ET COMPORTEMENTAUX
+          </div>
+                <div class="hierarchie-content">
+                  Troubles du comportement : agressivité, agitation, repli sur
+                  soi, isolement…<br />
+                  Syndrome dépressif : isolement, tristesse, diminution des
+                  activités, anxiété, provocations, agressivité<br />
+                  Troubles du sommeil (cauchemars fréquents)<br />
+                  Peur la nuit<br />
+                  Peur des adultes<br />
+                  Difficultés scolaires<br />
+                  Fugues, refus de retour au domicile<br />
+                  Refus de jouer, de se dévêtir<br />
+                  Vocabulaire inadapté pour l'âge de l'enfant, retard de
+                  l'engage<br />
+                  Enurésie, encoprésie (incontinence d'un enfant censé être
+                  propre)<br />
+                  Troubles du comportement alimentaire (boulimie, anorexie,
+                  obésité…)
+        </div>
+            </div>
+          </div>
+
+            <p>
+              En plus de ces signes, les professionnels peuvent avoir
+              connaissance de facteurs de risques chezles parents (eux-mêmes
+              maltraités, rejetés, grossesse non désirée, troubles de la
+              personnalité, alcoolisme, toxicomanie…) qui leur permettront de
+              déterminer s’ils sont ou non en face d’actesde maltraitances. La
+              prévention repose sur l’information du public et le numéro d’appel
+              gratuit« allo enfance maltraité » le 119.
+            </p>
+          </section>
+
+          <!-- ===========================================
+               SECTION 2 - PROTECTION JUDICIAIRE
+               =========================================== -->
+          <section id="section2">
+            <div class="section-header">
+              <div class="section-number">02</div>
+              <div class="section-title">
+                <h2>Le signalement de maltraitance</h2>
+                </div>
+              </div>
+
+            <!-- Composant Definition -->
+            <div class="block">
+              <div
+                class="definition-index2-container is-flex is-flex-gap is-flex-wrap-wrap-mobile is-align-items-center"
+              >
+                <div class="img-container col-1">
+                  
+                </div>
+                <div class="txt-container col-11">
+                  <h4 class="title-h4-definition secondary-color">Definition</h4>
+                  <p class="paragraphe">
+                    Le signalement est une procédure qui permet de signaler
+                    une situation de danger ou de risque de danger pour un
+                    mineur. Il peut être fait par toute personne témoin ou
+                    soupçonnant une situation d'un enfant en danger.
+              </p>
+            </div>
+          </div>
+        </div>
+
+            <div class="section-convention-A">
+              <h3 class="subsection-heading">
+                A. Les obligations pesant sur tout citoyen
+              </h3>
+              <p class="section-text">
+                Le code pénal Article 62-2 impose à tout citoyen qui a
+                connaissance de sévices, de mise en danger ou de maltraitance
+                d’en avertir les autorités administratives ou judiciaires. ​ Si
+                le signalement n’est pas n’est pas fait, le citoyen se rend
+                coupable de non-assistance à personne en danger.
+              </p>
+            </div>
+
+            <div class="section-convention-B">
+              <h3 class="subsection-heading">
+                B. La levée du secret professionnel
+              </h3>
+              <p class="section-text">
+                Une loi prévoit également de donner aux professionnels qui sont
+                tenus au secret professionnel, la possibilité d’informer les
+                autorités administratives ou judiciaires des sévices ou
+                privations sur mineur dont ils ont eu connaissance et de
+                témoigner en justice. L’article 226-13 n’est pas applicable dans
+                les cas où la loi pose et autorise la révélation du secret.
+              </p>
+            </div>
+
+            <div class="section-convention-C">
+              <h3 class="subsection-heading">
+                C. Le mode de signalement et de sévices
+              </h3>
+              
+              <div class="periode-essai-example-unique">
+                <div class="example-left-unique"></div>
+                <div class="example-right-unique">
+                  <h3 class="example-title-unique">
+                    Quelles sont les situations concernées?
+                  </h3>
+                  <p class="example-text-unique">
+                    Les enfants en risque et les enfants maltraités.
+                  </p>
+          </div>
+        </div>
+
+              <div class="periode-essai-example-unique">
+                <div class="example-left-unique"></div>
+                <div class="example-right-unique">
+                  <h3 class="example-title-unique">
+                    Qui peut faire le signalement?
+                  </h3>
+                  <p class="example-text-unique">
+                    Toute personne témoin ou soupçonnant une situation d'un
+                    enfant en danger ou en risque de l'être (enseignant,
+                    voisin…)
+                  </p>
+          </div>
+        </div>
+
+              <div class="periode-essai-example-unique">
+                <div class="example-left-unique"></div>
+                <div class="example-right-unique">
+                  <h3 class="example-title-unique">
+                    Comment faire un signalement ?
+                  </h3>
+                  <p class="example-text-unique">
+                    Voie judiciaire peut se faire auprès de la brigade des
+                    mineurs, de la police ou de la gendarmerie, auprès du
+                    procureur de la République, ou du juge des enfants. Voie
+                    administrative : Au président du Conseil département où
+                    réside l'enfant, par le biais de la cellule de traitement, à
+                    la mairie (CCAS : Centre Communal d'Action Sociale), à
+                    l'assistant de service social, au médecin de la PMI
+                    (protection maternelle infantile)
+                  </p>
+          </div>
+        </div>
+            </div>
+          </section>
+
+          <!-- ===========================================
+               SECTION 3 - SERVICES DE L'ASE
+               =========================================== -->
+          <section id="section3">
+            <div class="section-header">
+              <div class="section-number">03</div>
+              <div class="section-title">
+                <h2>La protection sociale du mineur</h2>
+              </div>
+            </div>
+
+            <p>
+              Il existe en France un double système de protection des mineurs
+              adapté ​Aux différentes situations : une protection administrative
+              et judiciaire.
+            </p>
+
+            <div class="section-convention-A">
+              <h3 class="subsection-heading">
+                A. La protection judiciaire
+              </h3>
+
+              <div class="document-section">
+                <div class="document-container">
+                  <div class="document-img">
+                    <img
+                      src="../../images/CAP AEPE/page6/undraw_judge_hyqv.png"
+                      alt="Illustration de document"
+                    />
+                  </div>
+                  <div class="document-text">
+                    <div class="document-highlight">
+                      <p>
+                        <strong
+                          >La protection judiciaire de la jeunesse s’appuie sur
+                          des principes essentiels. Educabilité de tous, le
+                          respect des droits et des libertés de chacun. Tout
+                          enfant résidant sur le territoire Français relève du
+                          dispositif Français de protection de l’enfance.
+                          Celui-ci ne prend pas en compte la nationalité des
+                          enfants ni celle des parents. Le juge des enfants
+                          intervient lorsque des mineurs sont en danger ou
+                          vivent dans de mauvaises conditions sanitaires,
+                          psychologiques ou éducatives. ​ Il peut les placer
+                          provisoirement dans un établissement spécialisé ou
+                          dans une famille d’accueil. Il est habilité à juger
+                          les mineurs délinquants.</strong
+              >
+            </p>
+          </div>
+        </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="section-convention-B">
+              <h3 class="subsection-heading">B. La protection administrative</h3>
+              <p class="paragraphe">
+                Les services de l'ASE (Aide Sociale à l'Enfance) interviennent
+                pour protéger les mineurs en danger.
+              </p>
+
+              <p class="paragraphe">
+                <strong>Services ASE</strong>
+              </p>
+
+              <p class="paragraphe">
+                <strong>Accompagnement familial renforcé par les aides</strong><br>
+                (Des aides financières, intervention de travailleurs sociaux…)
+              </p>
+
+              <p class="paragraphe">
+                <strong>AEMO :</strong> (aide éducative en milieu ouvert)
+              </p>
+            </div>
+
+            <div class="section-convention-C">
+              <h3 class="subsection-heading">C. ASE</h3>
+              
+              <div class="ase-services-container">
+                <div class="ase-service-card">
+                  <p class="ase-service-text">
+                    Apporter un soutien éducatif, psychologique, aux mineurs, à
+                    leurs familles, aux mineurs émancipés et aux jeunes majeurs
+                    de – 21 ans
+                  </p>
+            </div>
+                <div class="ase-service-card">
+                  <p class="ase-service-text">
+                    Organiser des actions pour prévenir la marginalisation et
+                    faciliter l'insertion des jeunes et des familles
+                  </p>
+          </div>
+                <div class="ase-service-card">
+                  <p class="ase-service-text">
+                    Mener des actions des préventions de la maltraitance
+                  </p>
+            </div>
+          </div>
+            </div>
+
+
+               <!-- Composant Box Ligne Entière - Assistantes Maternelles -->
+            <div class="block">
+                <div class="box-ligne-entiere-container">
+                  <!-- Box 1 : Statut et rôle -->
+                  <div
+                    class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-primary-color4"
+                  >
+                    <div class="col-1 center">
+                      <img
+                        alt="Icône statut"
+                        src="https://medias.dstanciel.com/pages/d58738ae-4d37-4f5e-b524-0ed004279248/Wi6wGP0y46UWbmOQu1MJLP0hNhhVH42hoDpO9dCT.png"
+                        class="img-fluid mt-4"
+                      />
+                    </div>
+                    <div class="col-11">
+                      <p class="paragraphe primary-color">
+                        <strong>Objectifs de ce service  </strong>
+                      </p>
+                      <p class="paragraphe">
+                        Apporter un soutien éducatif, psychologique, aux mineurs, à leurs familles, aux mineurs émancipés et aux jeunes majeurs de – 21 ans<br>
+                        Organiser des actions pour prévenir la marginalisation et faciliter l'insertion des jeunes et des familles<br>
+                        Mener des actions des préventions de la maltraitance
+                      </p>
+            </div>
+          </div>
+  
+                  <!-- Box 2 : Obtention de l'agrément -->
+                  <div
+                    class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-blue-color10"
+                  >
+                    <div class="col-1 center">
+                      <img
+                        alt="Icône agrément"
+                        src="https://medias.dstanciel.com/pages/96072686-9b35-4e3c-b427-5e25fc253e2b/gnjCpeOb0yvpf2XxSu7IM0dU3CmMHBuh8JSaVFXy.png"
+                        class="img-fluid mt-4"
+                      />
+                    </div>
+                    <div class="col-11">
+                      <p class="paragraphe secondary-color">
+                        <strong>Les actions des services de l’ASE sont</strong>
+                      </p>
+                      <p class="paragraphe">
+                        Les aides à domicile (éducative ou financière)<br>
+                        L'AEMO (intervention à domicile d'un travailleur social pour une durée variable)<br>
+                        Le placement d'un enfant au service de l'ASE<br>
+                        Apporter un soutien aux familles à leur domicile<br>
+                        Prendre en charge, y compris en urgence, les enfants qui lui sont confiés par leurs parents ou un juge
+                      </p>
+                      
+            </div>
+          </div>
+  
+                  <!-- Box 3 : Formation et renouvellement -->
+                  <div
+                    class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-gray-color6"
+                  >
+                    <div class="col-1 center">
+                      <img
+                        alt="Icône formation"
+                        src="https://medias.dstanciel.com/pages/d58738ae-4d37-4f5e-b524-0ed004279248/DlHa4F2pGLrqdwTJJjNhl1pPwEM4C3miyrcz95dP.png"
+                        class="img-fluid mt-4"
+                      />
+                    </div>
+                    <div class="col-11">
+                      <p class="paragraphe gray-color1">
+                        <strong>Les moyens que dispose l’ASE</strong>
+                      </p>
+                      <p class="paragraphe">
+                        Un personnel administratif<br>
+                        Un personnel spécialisé (éducateur spécialisé, assistant du service social, travailleuse familiale)<br>
+                        Famille d'accueil<br>
+                        Des établissements accueillant les enfants (foyer, internat, village d'enfant, maisons d'enfants à caractère social)
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Box 4 : Formation et renouvellement -->
+                  <div
+                    class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-gray-light"
+                  >
+                    <div class="col-1 center">
+                      <img
+                        alt="Icône formation"
+                        src="https://medias.dstanciel.com/pages/d58738ae-4d37-4f5e-b524-0ed004279248/DlHa4F2pGLrqdwTJJjNhl1pPwEM4C3miyrcz95dP.png"
+                        class="img-fluid mt-4"
+                      />
+                    </div>
+                    <div class="col-11">
+                      <p class="paragraphe gray-color1">
+                        <strong>Les enfants protégés par l’ASE</strong>
+                      </p>
+                      <p class="paragraphe">
+                        Enfants laissés dans un milieu familial qui bénéficie d'une aide financière ou d'une aide éducative<br>
+                        Enfants placés au service de l'ASE (Mineurs recueillis temporairement, Mineurs placés sur décision juridique, Pupilles de l'état)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===========================================
+               COMPOSANT CONCLUSION
+               =========================================== -->
+          <section id="conc">
+            <div class="block">
+              <div class="container-a-retenir">
+                <div
+                  class="wrap-title-retenir-conclusion is-flex is-flex-wrap-wrap-mobile"
+                >
+                  <img
+                    alt=""
+                    src="../../images/png/imageRetenir.svg"
+                    class="retenir-img"
+                  />
+                  <h2 class="title-retenir-conclusion">à retenir</h2>
+                </div>
+                <div class="steps">
+                  <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                    <div class="step col-1 is-flex">
+                      <span class="number is-flex">01.</span>
+                    </div>
+                    <div class="step-text col-11">
+                      <p class="text">Enfants en danger</p>
+                      <p class="sub-text">
+                        Enfants en risque (conditions menaçant santé, sécurité, éducation) ou maltraités (victimes de violences physiques, sexuelles, cruauté mentale, négligences graves), pris en charge par l’ASE ou la justice.
+                      </p>
+                </div>
+              </div>
+                  <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                    <div class="step col-1 is-flex">
+                      <span class="number is-flex">02.</span>
+              </div>
+                    <div class="step-text col-11">
+                      <p class="text">Signalement</p>
+                      <p class="sub-text">
+                        Procédure informant services sociaux ou procureur de la
+                        République d'une situation de danger pour un enfant.
+                      </p>
+              </div>
+            </div>
+                  <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                    <div class="step col-1 is-flex">
+                      <span class="number is-flex">03.</span>
+          </div>
+                    <div class="step-text col-11">
+                      <p class="text">Double système de protection</p>
+                      <p class="sub-text">
+                        Protection administrative (ASE) pour accompagner, et judiciaire (justice) pour intervenir en cas de danger grave.
+                      </p>
+        </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

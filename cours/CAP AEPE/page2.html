@@ -1,0 +1,2778 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Le cadre réglementaire : chartes, lois, règlements</title>
+
+    <style>
+
+                              /* ===========================================
+                                   VARIABLES CSS GLOBALES - SYSTÈME DE DESIGN COHÉRENT
+                                   =========================================== */
+
+                              :root {
+                                /* ===========================================
+                                     PALETTE DE COULEURS - COULEURS PRINCIPALES
+                                     =========================================== */
+                                --primary-color: #5f8bbc; /* Bleu principal - couleur d'accent pour les éléments importants */
+                                --primary-color3: #e1d4ff; /* Violet clair - fond pour les tableaux et sections spéciales */
+                                --primary-color4: #f0ecc8; /* Jaune clair - fond pour les composants d'information */
+                                --secondary-color: #9747ff; /* Violet principal - couleur secondaire pour les accents */
+                                --blue-color10: #e6f0fb; /* Bleu très clair - fond pour les dégradés et sections */
+
+                                /* ===========================================
+                                     PALETTE DE COULEURS - COULEURS NEUTRES
+                                     =========================================== */
+                                --gray-color1: #757575; /* Gris moyen - couleur principale du texte */
+                                --gray-color6: #ededed; /* Gris clair - fond pour les sections secondaires */
+                                --gray-color7: #f7f7f7; /* Gris très clair - fond pour les tableaux et listes */
+                                --white-color: #ffffff; /* Blanc pur - fond principal et texte sur fond coloré */
+
+                                /* ===========================================
+                                     SYSTÈME TYPOGRAPHIQUE - ÉCHELLE DE TAILLES
+                                     =========================================== */
+                                --main-font: "Montserrat", sans-serif; /* Police principale - moderne et lisible */
+                                --font-size18: 18px; /* Texte de base - paragraphes et contenu principal */
+                                --font-size24: 24px; /* Sous-titres - sections et composants */
+                                --font-size28: 28px; /* Titres moyens - sections importantes */
+                                --font-size32: 32px; /* Titres grands - pages et sections principales */
+                                --font-size48: 48px; /* Titres très grands - titres de page */
+
+                                /* ===========================================
+                                     SYSTÈME D'ESPACEMENT - ÉCHELLE COHÉRENTE
+                                     =========================================== */
+                                --spacing-xs: 8px; /* Espacement très petit - marges internes fines */
+                                --spacing-sm: 12px; /* Espacement petit - espacement entre éléments proches */
+                                --spacing-md: 20px; /* Espacement moyen - espacement standard */
+                                --spacing-lg: 30px; /* Espacement grand - espacement entre sections */
+                                --spacing-xl: 40px; /* Espacement très grand - espacement entre blocs majeurs */
+
+                                /* ===========================================
+                                     SYSTÈME D'OMBRES - PROFONDEUR VISUELLE
+                                     =========================================== */
+                                --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1); /* Ombre légère - élévation subtile */
+                                --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15); /* Ombre moyenne - élévation standard */
+                                --shadow-heavy: 0 9px 15px rgba(0, 0, 0, 0.2); /* Ombre forte - élévation importante */
+
+                                /* ===========================================
+                                     SYSTÈME DE TRANSITIONS - ANIMATIONS FLUIDES
+                                     =========================================== */
+                                --transition-fast: 0.3s ease; /* Transition rapide - interactions immédiates */
+                                --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transition fluide - animations douces */
+                              }
+
+                              /* ===========================================
+                                   RESET ET STYLES DE BASE - FONDATION DU SITE
+                                   =========================================== */
+
+                              /* ===========================================
+                                   RESET CSS UNIVERSEL - NORMALISATION CROISÉE NAVIGATEURS
+                                   =========================================== */
+                              * {
+                                margin: 0; /* Supprime toutes les marges par défaut */
+                                padding: 0; /* Supprime tous les paddings par défaut */
+                                box-sizing: border-box; /* Modèle de boîte incluant padding et border */
+                              }
+
+                              /* ===========================================
+                                   STYLES DE BASE DU BODY - CONFIGURATION GLOBALE
+                                   =========================================== */
+                              body {
+                                font-family: var(--main-font); /* Police Montserrat pour tout le site */
+                                line-height: 1.6; /* Interligne confortable pour la lecture */
+                                color: #333; /* Couleur de texte par défaut - gris foncé */
+                                background-color: #f5f5f5; /* Fond gris clair pour contraste avec le contenu */
+                                min-height: 100vh; /* Hauteur minimale = 100% de la hauteur d'écran */
+                              }
+
+                              /* ===========================================
+                                   DÉFILEMENT FLUIDE - NAVIGATION SMOOTH SCROLL
+                                   =========================================== */
+                  html {
+
+                                scroll-behavior: smooth; /* Animation douce lors du scroll vers les ancres */
+                              }
+
+                              /* ===========================================
+                                   CONTAINER PRINCIPAL - STRUCTURE MAÎTRESSE
+                                   =========================================== */
+
+                              /* ===========================================
+                                   CONTAINER PRINCIPAL - CENTRAGE ET OMBRE PORTÉE
+                                   =========================================== */
+                              .main-container {
+                                width: 60%; /* Largeur relative pour s'adapter aux écrans */
+                                max-width: 1200px; /* Largeur maximale pour éviter l'étirement excessif */
+                                margin: 40px auto; /* Centrage horizontal avec marge verticale augmentée */
+                                background: var(
+                                  --white-color
+                                ); /* Fond blanc pour contraste avec l'arrière-plan */
+                                border-radius: 12px; /* Coins arrondis pour un design moderne */
+                                box-shadow: var(
+                                  --shadow-heavy
+                                ); /* Ombre portée pour effet de profondeur */
+                                padding: 40px; /* Espacement interne augmenté pour le contenu */
+                                position: relative; /* Position relative pour les éléments enfants */
+                                overflow: hidden; /* Masque le débordement pour les animations */
+                              }
+
+                              /* ===========================================
+                                   LAYOUT ET STRUCTURE
+                                   =========================================== */
+
+                              /* Container de la page avec flexbox */
+                              .page-container {
+                                display: flex;
+                                gap: 25px;
+                                position: relative;
+                                align-items: flex-start;
+                                width: 100%;
+                              }
+
+                              /* Contenu principal avec gestion du débordement */
+                              .main-content {
+                                flex: 1;
+                    padding: 20px;
+
+                                transition: margin-left var(--transition-fast);
+                                min-width: 0;
+                                overflow: hidden;
+                                width: 100%;
+                              }
+
+                              /* ===========================================
+                                   MARGES ENTRE LES ÉLÉMENTS - ESPACEMENT GLOBAL
+                                   =========================================== */
+
+                              /* Marges entre les sections */
+                              section {
+                                margin-bottom: 30px;
+                              }
+
+                              /* Marges entre les sous-sections */
+                              .subsection {
+                                margin-bottom: 25px;
+                              }
+
+                              /* Marges entre les paragraphes */
+                              p {
+        margin-bottom: 15px;
+
+                              }
+
+                              /* Marges entre les titres et le contenu */
+                              h1,
+                              h2,
+                              h3,
+                              h4,
+                              h5,
+                              h6 {
+                                margin-bottom: 20px;
+                              }
+
+                              /* Marges entre les composants */
+                              .container,
+                              .document-section,
+                              .hierarchie-container {
+                                margin-bottom: 30px;
+                              }
+
+                              /* Marges entre les éléments de liste */
+                              ul,
+                              ol {
+                                margin-bottom: 20px;
+                              }
+
+                              li {
+                                margin-bottom: 8px;
+                              }
+
+                              /* ===========================================
+                                   MENU BURGER - SYSTÈME DE NAVIGATION
+                                   =========================================== */
+
+                              /* Checkbox caché pour contrôler l'état du menu */
+      .menu-toggle-checkbox {
+        display: none;
+      }
+
+
+                              /* Bouton menu burger - visible sur tous les formats */
+      .menu-toggle {
+
+                                display: block;
+        position: fixed;
+
+                                top: var(--spacing-lg);
+                                left: var(--spacing-lg);
+                                width: 40px;
+                                height: 40px;
+        cursor: pointer;
+        z-index: 2001;
+
+                                opacity: 0.8;
+                                transition: opacity var(--transition-fast);
+                                background: var(--white-color);
+                                border-radius: 8px;
+                                padding: 8px;
+                                box-shadow: var(--shadow-light);
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+                              }
+
+                              /* Effet hover sur le bouton menu burger */
+      .menu-toggle:hover {
+        opacity: 1;
+      }
+
+                                                 /* Image du menu burger - reste constante */
+                               .menu-toggle img {
+                                 width: 100%;
+                                 height: 100%;
+                                 object-fit: contain;
+                                 transition: none;
+                               }
+
+                              /* Menu latéral qui glisse depuis la gauche */
+      .menu {
+        position: fixed;
+        top: 0;
+
+                                left: 0;
+                                width: 70%;
+        max-width: 300px;
+        height: 100%;
+
+                                background: var(--white-color);
+                                box-shadow: 4px 0 16px rgba(0, 0, 0, 0.15);
+                                transform: translateX(-100%);
+                                transition: transform var(--transition-fast);
+                                padding: 100px 30px 40px 30px; /* Augmenté le padding pour éviter le chevauchement */
+        z-index: 1500;
+
+                                border-right: 1px solid #e0e0e0;
+                                overflow-y: auto; /* Permet le défilement vertical */
+                                overflow-x: hidden; /* Cache le défilement horizontal */
+      }
+
+
+                              /* Affiche le menu quand le checkbox est coché (glissement vers la droite) */
+      .menu-toggle-checkbox:checked + .menu-toggle + .menu {
+        transform: translateX(0);
+      }
+
+
+                              /* Supprime les puces de la liste du menu */
+      .menu ul {
+        list-style: none;
+      }
+
+
+                              /* Espacement entre les éléments du menu */
+      .menu ul li {
+
+                                margin-bottom: 25px; /* Augmenté l'espacement entre les liens */
+      }
+
+
+                              /* Liens de navigation dans le menu burger */
+      .menu ul li a {
+
+                                color: #333;
+        text-decoration: none;
+
+                                font-weight: 600;
+                                font-size: var(--font-size18);
+                                transition: all var(--transition-fast);
+                                display: block;
+                                padding: 18px 20px; /* Augmenté le padding pour plus d'espace */
+                                border-radius: 10px;
+                                background: var(--white-color);
+                                border: 1px solid #e0e0e0;
+                                margin-bottom: 10px; /* Espacement supplémentaire entre les liens */
+                              }
+
+                              /* Effet hover sur les liens du menu burger */
+      .menu ul li a:hover {
+
+                                color: var(--primary-color);
+                                background: var(--blue-color10);
+                                transform: translateX(10px);
+                                box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
+                              }
+
+                              /* ===========================================
+                                   PERSONNALISATION DE LA BARRE DE DÉFILEMENT
+                                   =========================================== */
+
+                              /* Masque la barre de défilement par défaut */
+                              .menu::-webkit-scrollbar {
+                                width: 6px;
+                              }
+
+                              /* Piste de la barre de défilement */
+                              .menu::-webkit-scrollbar-track {
+                                background: transparent;
+                              }
+
+                              /* Curseur de la barre de défilement */
+                              .menu::-webkit-scrollbar-thumb {
+                                background: var(--primary-color);
+                                border-radius: 3px;
+                                opacity: 0.7;
+                              }
+
+                              /* Effet hover sur le curseur */
+                              .menu::-webkit-scrollbar-thumb:hover {
+                                background: #4a7aa3;
+                                opacity: 1;
+                              }
+
+                              /* Support pour Firefox */
+                              .menu {
+                                scrollbar-width: thin;
+                                scrollbar-color: var(--primary-color) transparent;
+                              }
+
+                              /* ===========================================
+                                    TITRES ET EN-TÊTES
+                                    =========================================== */
+
+                              /* Titre principal de la page */
+                              .intro-title {
+                                font-family: var(--main-font);
+                                font-weight: 700;
+                                color: #5f8bbc;
+                                font-size: 42px;
+                                text-align: center;
+                                text-decoration: underline;
+                                margin: 30px 0 40px 0;
+                              }
+
+                              /* Image principale en haut de la page */
+                              .intro-image {
+                                display: block;
+                                max-width: 100%;
+                                height: auto;
+                                margin: 30px auto;
+                                border-radius: 12px;
+                                box-shadow: var(--shadow-medium);
+                              }
+
+                              /* Container des en-têtes de section (numéro + titre) */
+                              .section-header {
+                                display: flex;
+                      align-items: center;
+
+                                background: #e6f0fb;
+                      border: 2px solid #3b6ea5e3;
+
+                                border-radius: 15px;
+                                padding: 0;
+                                margin: 40px 0 30px 0;
+                                box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
+          overflow: hidden;
+                              }
+
+                              /* Sections avec espacement */
+                              section {
+                                margin-bottom: var(--spacing-xl); /* Marge entre les sections */
+                                padding: var(--spacing-lg) 0; /* Padding vertical pour les sections */
+                              }
+
+                              /* Dernière section sans marge en bas */
+                              section:last-child {
+                                margin-bottom: 0;
+                              }
+
+                              /* Numéro de section (01, 02, etc.) - partie bleue à gauche */
+                              .section-number {
+                                background: #3b6ea5;
+                                color: var(--white-color);
+                                font-family: var(--main-font);
+                                font-weight: 700;
+                                font-size: 36px;
+                                padding: 25px 30px;
+                                min-width: 120px;
+                                width: 120px;
+                                text-align: center;
+                                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+                                flex-shrink: 0;
+                                align-self: stretch;
+                              }
+
+                              /* Titre de section (texte principal) - partie droite */
+                              .section-title {
+          color: #3b6ea5;
+
+                                font-family: var(--main-font);
+                                font-weight: 700;
+                                font-size: 24px;
+                                text-align: center;
+                                flex: 1;
+                                padding: 25px 30px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                min-height: 100px;
+                              }
+
+                              /* ===========================================
+                                   COMPOSANT CONCLUSION - STYLES IDENTIQUES À PAGE1.HTML
+                                   =========================================== */
+
+                              /* Classes utilitaires pour le composant Conclusion */
+                              .is-flex {
+                                display: flex;
+                              }
+
+                              .is-flex-wrap-wrap-mobile {
+                                flex-wrap: wrap;
+                              }
+
+                              .col-1 {
+                                width: 8.333333%;
+                              }
+
+                              .col-11 {
+                                width: 91.666667%;
+                              }
+
+                              /* Block */
+                              .block:not(:last-child) {
+                                margin-bottom: 24px;
+                              }
+
+                              /* à retenir */
+                              .steps {
+                                padding: 20px;
+                              }
+
+                              .step {
+                                flex-direction: column;
+                                position: relative;
+                                align-items: center;
+                              }
+
+                              .number {
+                                font-size: 18px;
+                                font-family: var(--main-font);
+                                font-weight: bold;
+                                color: var(--white-color);
+                                border-radius: 50%;
+                                padding: 8px;
+                                background-color: var(--primary-color);
+                                width: 50px;
+                                height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+                                margin-bottom: 10px;
+                              }
+
+                              .line {
+                                display: none;
+                              }
+
+                              .step-content {
+                                margin-bottom: 30px;
+                                position: relative;
+                              }
+
+                              .step-text {
+                                padding-left: 20px;
+                              }
+
+                              .text {
+                                font-family: var(--main-font);
+                                font-size: var(--font-size18);
+                                font-weight: 600;
+                                color: var(--gray-color1);
+                                margin-bottom: 8px;
+                              }
+
+                              .sub-text {
+                                font-family: var(--main-font);
+                                font-size: var(--font-size18);
+                                color: var(--gray-color1);
+                                line-height: 1.6;
+                              }
+
+                              .steps .step-content:last-child .line {
+                                display: none;
+                              }
+
+                              .title-retenir-conclusion {
+                                color: var(--gray-color1);
+                                text-align: center;
+                                font-family: var(--main-font);
+                                font-size: 24px;
+                                font-weight: 600;
+                                line-height: normal;
+                                text-transform: uppercase;
+                                margin-top: 20px;
+                              }
+
+                              .wrap-title-retenir-conclusion {
+                                flex-direction: column;
+          align-items: center;
+
+                              }
+
+                              .retenir-img {
+                                width: 35%;
+                              }
+
+                              /* Container principal du composant Conclusion - STYLES IDENTIQUES À PAGE1.HTML */
+                              .container-a-retenir {
+                                padding: 40px; /* Padding augmenté */
+                                margin: var(--spacing-lg) 0; /* Marge adaptée */
+                              }
+
+                                           /* ===========================================
+                                    COMPOSANTS SPÉCIFIQUES DE PAGE2 - CARTES ET HIÉRARCHIE
+                                    =========================================== */
+
+                               /* Container pour les cartes de loi, règlement, charte */
+      .container {
+                                 width: 95%;
+                                 max-width: 1200px;
+        display: flex;
+        flex-direction: column;
+                                 gap: 30px;
+                                 padding: 30px;
+                                 margin: 30px auto;
+                                 background: var(--white-color);
+                                 border-radius: 12px;
+                                 box-shadow: var(--shadow-medium);
+                               }
+
+                               /* Carte individuelle */
+      .card {
+        display: flex;
+        align-items: center;
+                                 background-color: #f7f5e9;
+                                 border-radius: 12px;
+                                 padding: 25px;
+        flex-direction: row;
+                                 gap: 30px;
+                                 transition: all var(--transition-fast);
+                               }
+
+
+                                           /* Effet hover sur les cartes */
+                               .card:hover {
+                                 transform: translateY(-5px);
+                                 box-shadow: 0 8px 25px rgba(95, 139, 188, 0.3);
+                               }
+
+                               /* Images dans les cartes */
+      .card img {
+        width: 120px;
+        height: 120px;
+        object-fit: contain;
+        flex-shrink: 0;
+                               }
+
+                               /* Image de la charte plus petite et centrée */
+                               .card img[alt="Charte"] {
+                                 width: 60px;
+                                 height: 60px;
+                                 margin: 0 auto;
+                                 display: block;
+                               }
+
+
+                                           /* Texte dans les cartes */
+      .card .text {
+        flex: 1;
+      }
+
+      .card .text .title {
+                                 margin: 0 0 20px 0;
+                                 font-weight: 700;
+                                 font-size: var(--font-size18);
+                                 font-family: var(--main-font);
+                               }
+
+      .card .text p {
+        margin: 0;
+                                 line-height: 1.7;
+        color: #333;
+                                 font-size: var(--font-size18);
+                                 font-family: var(--main-font);
+                               }
+
+                                                 /* Section document - exactement comme page1.html */
+                               .document-section {
+                                 max-width: 1200px;
+                                 margin: 40px auto;
+                               }
+
+                               .document-container {
+                                 display: flex;
+                                 align-items: flex-start;
+                                 justify-content: center;
+                                 gap: var(--spacing-lg);
+                                 flex-wrap: wrap;
+                                 margin-bottom: var(--spacing-lg);
+                                 margin-left: auto;
+                                 margin-right: auto;
+          padding: 20px;
+                                 max-width: 1000px;
+                               }
+
+                               .document-img {
+                                 flex: 1;
+                                 max-width: 250px;
+                               }
+
+                               .document-img img {
+                                 width: 100%;
+                                 height: auto;
+                                 border-radius: 8px;
+                                 box-shadow: none;
+                                 border: none;
+                               }
+
+                               .document-text {
+                                 flex: 2;
+                                 min-width: 300px;
+                               }
+
+                               .document-highlight {
+                                 background: #f0ecc8;
+                                 padding: 30px;
+                                 border-radius: 8px;
+                                 font-size: var(--font-size18);
+                                 line-height: 1.8;
+                                 font-family: var(--main-font);
+                                 text-align: left;
+                               }
+
+                              /* Effet hover sur le highlight */
+                              .document-highlight:hover {
+                                transform: translateY(-2px);
+                                box-shadow: 0 8px 25px rgba(95, 139, 188, 0.3);
+                              }
+
+                                           /* Container hiérarchie */
+                               .hierarchie-container {
+          width: 95%;
+                                 max-width: 1200px;
+                                 margin: 30px auto;
+                                 text-align: center;
+                               }
+
+                               .hierarchie-row {
+                                 display: flex;
+                                 gap: 30px;
+                                 margin-bottom: 40px;
+                                 justify-content: center;
+                               }
+
+                               .hierarchie-block {
+                                 background-color: #f0ecc8;
+                                 border-radius: 8px;
+                                 width: 280px;
+                                 display: flex;
+                                 flex-direction: column;
+                                 overflow: hidden;
+                                 box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+                                 transition: all var(--transition-fast);
+                                 height: 200px;
+                               }
+
+                              /* Effet hover sur les blocs hiérarchie */
+                              .hierarchie-block:hover {
+                                transform: translateY(-5px);
+                                box-shadow: 0 8px 25px rgba(95, 139, 188, 0.3);
+                              }
+
+                                           .hierarchie-header {
+                                 background-color: #a9c4e3;
+                                 color: #fff;
+                                 font-weight: 700;
+                                 padding: 10px;
+                                 font-size: var(--font-size18);
+                                 font-family: var(--main-font);
+                                 height: 50px;
+                                 display: flex;
+                                 align-items: center;
+                                 justify-content: center;
+                               }
+
+                               .hierarchie-content {
+                                 padding: 15px;
+                                 font-size: var(--font-size18);
+                                 line-height: 1.5;
+                                 font-family: var(--main-font);
+                                 flex: 1;
+                                 display: flex;
+                                 align-items: center;
+                                 justify-content: center;
+                                 height: 150px;
+                               }
+
+                               /* Uniformisation des tailles de polices pour tous les textes non-titres */
+                               .hierarchie-header,
+                               .hierarchie-content,
+                               .card .text .title,
+                               .card .text p,
+                               .document-highlight {
+                                 font-size: var(--font-size18) !important;
+                                 font-weight: 400 !important;
+                                 font-family: var(--main-font) !important;
+                               }
+
+                               /* Composant conclusion - styles exacts de page1.html */
+                               .container-a-retenir {
+                                 padding: 35px;
+                                 margin: 45px 0;
+                               }
+
+                               .wrap-title-retenir-conclusion {
+                                 flex-direction: column;
+                                 align-items: center;
+                               }
+
+                               .retenir-img {
+                                 width: 35%;
+                               }
+
+                               .title-retenir-conclusion {
+                                 color: var(--gray-color1);
+                                 text-align: center;
+                                 font-family: var(--main-font);
+                                 font-size: 24px;
+                                 font-weight: 600;
+                                 line-height: normal;
+                                 text-transform: uppercase;
+                                 margin-top: 20px;
+                               }
+
+                               .steps {
+                                 padding: 20px;
+                               }
+
+                               .step {
+                                 flex-direction: column;
+                                 position: relative;
+                                 align-items: center;
+                               }
+
+                               .number {
+                                 font-size: 18px;
+                                 font-family: var(--main-font);
+                                 font-weight: bold;
+                                 color: var(--white-color);
+                                 border-radius: 50%;
+                                 padding: 8px;
+                                 background-color: var(--primary-color);
+                                 width: 50px;
+                                 height: 50px;
+            display: flex;
+                                 justify-content: center;
+                                 align-items: center;
+                                 margin-bottom: 10px;
+                               }
+
+                               .line {
+                                 display: none;
+                               }
+
+                               .steps .step-content:last-child .line {
+                                 display: none;
+                               }
+
+                               /* Styles spécifiques pour les textes du composant conclusion */
+                               .text {
+                                 font-family: var(--main-font);
+                                 color: var(--primary-color);
+                                 text-align: justify;
+                                 font-size: var(--font-size24);
+                                 font-weight: 600;
+                                 margin: 0;
+                                 padding-left: 15px;
+                               }
+
+                               .sub-text {
+                                 font-family: var(--main-font);
+                                 color: var(--gray-color1);
+                                 font-size: 18px;
+                                 margin: 0;
+                                 text-align: justify;
+                                 padding-left: 15px;
+                               }
+
+                               /* Centrage des blocs de hiérarchie */
+                               .hierarchie-container {
+                                 text-align: center;
+                               }
+
+                               .hierarchie-row {
+                                 justify-content: center;
+                                 align-items: center;
+                               }
+
+                               /* Centrage du composant conclusion en responsive */
+                               @media (max-width: 768px) {
+                                 .container-a-retenir {
+                                   text-align: center;
+                                 }
+
+                                 .steps {
+                                   display: flex;
+                                   flex-direction: column;
+                                   align-items: center;
+                                   max-width: 800px;
+                                   margin: 0 auto;
+                                 }
+
+                                 .step-content {
+                                   width: 100%;
+                                   max-width: 600px;
+                                   margin-bottom: 20px;
+                                 }
+
+                                 .text,
+                                 .sub-text {
+                                   text-align: center;
+                                 }
+                               }
+
+                               @media (max-width: 992px) and (min-width: 768px) {
+                                 .container-a-retenir {
+                                   text-align: center;
+                                 }
+
+                                 .steps {
+                                   display: flex;
+              flex-direction: column;
+              align-items: center;
+                                   max-width: 800px;
+                                   margin: 0 auto;
+                                 }
+
+                                 .step-content {
+                                   width: 100%;
+                                   max-width: 600px;
+                                   margin-bottom: 20px;
+                                 }
+
+                                 .text,
+                                 .sub-text {
+              text-align: center;
+                                 }
+                               }
+
+                              /* ===========================================
+                                   RESPONSIVE DESIGN - ADAPTATION MOBILE ET TABLETTE
+                                   =========================================== */
+
+                              /* ===========================================
+                                   TABLETTE (768px - 1023px) - ADAPTATION MOYENNE
+                                   =========================================== */
+                              @media (max-width: 1023px) and (min-width: 768px) {
+                                /* Titres adaptés pour tablette - identiques à page 1 */
+                                .intro-title {
+                                  font-size: 32px;
+                                }
+
+                                .section-number {
+                                  font-size: 32px;
+                                }
+
+                                .section-title {
+                                  font-size: 22px;
+                                }
+
+                                .subsection-heading {
+                                  font-size: 20px;
+                                }
+
+                                /* Titres des composants pour tablette - identiques à page 1 */
+                                .card .text .title {
+                                  font-size: 18px;
+                                }
+
+                                .text {
+                                  font-size: 18px;
+                                }
+
+                                .sub-text {
+                                  font-size: 16px;
+                                }
+
+                                /* Composant à retenir - tailles spécifiques - identiques à page 1 */
+                                .container-a-retenir .text {
+                                  font-size: 18px;
+                                }
+
+                                .container-a-retenir .sub-text {
+                                  font-size: 16px;
+                                }
+
+                                /* Titre à retenir - tailles forcées - identiques à page 1 */
+                                .title-retenir-conclusion {
+                                  font-size: 18px !important;
+                                }
+
+                                /* Tous les textes normaux en tablette - identiques à page 1 */
+                                .document-highlight,
+                                .hierarchie-content,
+                                .card .text,
+                                .document-highlight p,
+                                .hierarchie-content p,
+                                .card .text p {
+                                  font-size: 16px;
+                                }
+
+                                /* Tous les titres légèrement plus grands que le texte normal pour tablette - identiques à page 1 */
+                                .document-highlight h3,
+                                .document-highlight h4,
+                                .hierarchie-content h3,
+                                .hierarchie-content h4,
+                                .card .text h3,
+                                .card .text h4 {
+                                  font-size: 18px;
+                                }
+
+                                .hierarchie-header {
+                                  font-size: 18px;
+                                }
+                                /* Layout principal adapté */
+                                .main-content {
+                                  margin-left: 0;
+                                }
+
+                                .main-container {
+                                  width: 80%;
+                                  margin: 20px auto;
+                                  padding: 25px;
+                                }
+
+                                /* Menu burger adapté pour tablette */
+                                .menu {
+                                  width: 60%;
+                                  max-width: 280px;
+                                  padding: 70px 20px 25px;
+                                }
+
+                                .menu-toggle {
+                                  width: 35px;
+                                  height: 35px;
+                                  padding: 6px;
+                                }
+
+                                .menu-toggle img {
+                                  width: 100%;
+                                  height: 100%;
+                                }
+
+                                /* Menu burger adapté pour tablette */
+                                .menu {
+                                  width: 60%;
+                                  max-width: 280px;
+                                  padding: 70px 20px 25px;
+                                }
+
+                                .menu-toggle {
+                                  width: 35px;
+                                  height: 35px;
+                                  padding: 6px;
+                                }
+
+                                .menu-toggle img {
+                                  width: 100%;
+                                  height: 100%;
+                                }
+
+                                /* Composants centrés */
+                                .card {
+                          flex-direction: column;
+        text-align: center;
+
+                                  gap: 20px;
+                                }
+
+                                .card img {
+                                  width: 100px;
+                                  height: 100px;
+                                }
+
+                                .document-container {
+                                  flex-direction: column;
+                                  gap: 20px;
+                                }
+
+                                .document-img {
+                                  max-width: 100%;
+                                }
+
+      .hierarchie-row {
+                                  flex-direction: column;
+        gap: 20px;
+                                }
+
+                                .hierarchie-block {
+                                  width: 100%;
+                                  max-width: 300px;
+                                }
+
+                                .container {
+                                  padding: 20px;
+                                  gap: 20px;
+                                }
+
+                                .container-a-retenir {
+                                  padding: 25px;
+                                  margin: 30px 0;
+                                }
+
+                                .section-title {
+                                  font-size: 28px;
+                                  padding: 15px 20px;
+                                  min-height: 70px;
+                                }
+
+      .hierarchie-header {
+                                  font-size: 14px;
+                                }
+
+      .hierarchie-content {
+                                  font-size: 13px;
+                                }
+                              }
+
+                              /* ===========================================
+                                   MOBILE (767px et moins) - ADAPTATION COMPLÈTE
+                                   =========================================== */
+                              @media (max-width: 767px) {
+                                /* Layout principal adapté pour mobile */
+                                .main-content {
+                                  margin-left: 0;
+                                }
+
+                                .main-container {
+                                  width: 95%;
+                                  margin: 15px auto;
+                                  padding: 20px;
+                                }
+
+                                .main-content {
+                                  padding: 15px;
+                                }
+
+                                /* Titres adaptés pour mobile - identiques à page 1 */
+                                .intro-title {
+                                  font-size: 24px;
+                                  margin: 20px 0 30px 0;
+                                }
+
+                                .section-header {
+                                  flex-direction: column;
+                                  text-align: center;
+                                  margin: 30px 0 20px;
+                                }
+
+                                .section-number {
+                                  border-radius: 12px 12px 0 0;
+                                  width: 100%;
+                                  text-align: center;
+                                  font-size: 28px;
+                                }
+
+                                .section-title {
+                                  border-radius: 0 0 12px 12px;
+          width: 100%;
+                                  font-size: 20px;
+                                }
+
+                                .subsection-heading {
+                                  font-size: 18px;
+                                }
+
+                                /* Titres des composants - identiques à page 1 */
+                                .card .text .title {
+                                  font-size: 16px;
+                                }
+
+                                .text {
+                                  font-size: 16px;
+                                }
+
+                                .sub-text {
+                                  font-size: 14px;
+                                }
+
+                                /* Composant à retenir - tailles spécifiques - identiques à page 1 */
+                                .container-a-retenir .text {
+                                  font-size: 16px;
+                                }
+
+                                .container-a-retenir .sub-text {
+                                  font-size: 14px;
+                                }
+
+                                /* Titre à retenir - tailles forcées - identiques à page 1 */
+                                .title-retenir-conclusion {
+                                  font-size: 16px !important;
+                                }
+
+                                /* Tous les textes normaux en mobile - identiques à page 1 */
+                                .document-highlight,
+                                .hierarchie-content,
+                                .card .text,
+                                .document-highlight p,
+                                .hierarchie-content p,
+                                .card .text p {
+                                  font-size: 14px;
+                                }
+
+                                /* Tous les titres légèrement plus grands que le texte normal - identiques à page 1 */
+                                .document-highlight h3,
+                                .document-highlight h4,
+                                .hierarchie-content h3,
+                                .hierarchie-content h4,
+                                .card .text h3,
+                                .card .text h4 {
+                                  font-size: 16px;
+                                }
+
+                                .hierarchie-header {
+                                  font-size: 16px;
+                                }
+
+                                .menu {
+                                  width: 80%;
+                                  max-width: 280px;
+                                  padding: 80px 20px 30px 20px;
+                                }
+
+                                .card {
+                    flex-direction: column;
+
+                    text-align: center;
+                                  gap: 20px;
+                                }
+
+                                .card img {
+                                  width: 100px;
+                                  height: 100px;
+                                }
+
+                                .document-container {
+                                  flex-direction: column;
+                    gap: 20px;
+                  }
+
+                                .document-img {
+                                  max-width: 100%;
+                  }
+
+                    .hierarchie-row {
+
+                                  flex-direction: column;
+                                  gap: 20px;
+                  }
+
+                  .hierarchie-block {
+
+                                  width: 100%;
+                                  max-width: 300px;
+                                }
+
+                                .container {
+                                  padding: 20px;
+                                  gap: 20px;
+                                }
+
+                                .container-a-retenir {
+                                  padding: 25px;
+                                  margin: 30px 0;
+                                }
+
+                                .section-title {
+                                  font-size: 28px;
+                                  padding: 15px 20px;
+                                  min-height: 70px;
+                                }
+
+                    .hierarchie-header {
+                      font-size: 14px;
+                    }
+
+                    .hierarchie-content {
+                      font-size: 13px;
+                    }
+
+                    /* Centrage et débordement pour tous les éléments */
+                    .container,
+                    .document-container,
+                    .hierarchie-container {
+                      flex-direction: column;
+          align-items: center;
+                      text-align: center;
+                      padding: 15px;
+                    }
+
+                    /* Réduction de la taille des textes pour éviter le débordement */
+                    .card .text p,
+                    .document-highlight,
+                    .hierarchie-content {
+                      font-size: 16px;
+                      line-height: 1.5;
+                      padding: 15px;
+                      word-wrap: break-word;
+                      overflow-wrap: break-word;
+                    }
+
+                    /* Images centrées et redimensionnées */
+                    .card img {
+                      max-width: 80px;
+                      margin: 0 auto;
+                    }
+
+                    .document-img {
+                      max-width: 200px;
+                      margin: 0 auto;
+                    }
+                  }
+
+
+                                .page-container {
+                                  flex-direction: column;
+                                }
+
+                                .main-content {
+                                  padding: 15px;
+                                  overflow: visible;
+                                }
+
+                                /* Menu burger optimisé pour mobile */
+                                .menu {
+                                  width: 75%;
+                                  max-width: 250px;
+                                  padding: 60px 15px 20px;
+                                }
+
+                                .menu-toggle {
+                                  width: 32px;
+                                  height: 32px;
+                                  padding: 5px;
+                                  top: 20px;
+                                  left: 20px;
+                                }
+
+                                .menu-toggle img {
+                                  width: 100%;
+                                  height: 100%;
+                                }
+
+
+
+                                /* Composants centrés */
+                                .card {
+                                  flex-direction: column;
+                                  text-align: center;
+                                  gap: 20px;
+                                }
+
+                                .card img {
+                                  width: 100px;
+                                  height: 100px;
+                                }
+
+                                .document-container {
+                                  flex-direction: column;
+                                  gap: 20px;
+                                }
+
+                                .document-img {
+                                  max-width: 100%;
+                                }
+
+                                .hierarchie-row {
+                                  flex-direction: column;
+                                  gap: 20px;
+                                }
+
+                                .hierarchie-block {
+                                  width: 100%;
+                                  max-width: 300px;
+                                }
+
+                                .container {
+                    padding: 20px;
+
+                                  gap: 20px;
+                                }
+
+                                .container-a-retenir {
+                                  padding: 25px;
+                                  margin: 30px 0;
+                                }
+
+                                .section-title {
+                                  font-size: 28px;
+                                  padding: 15px 20px;
+                                  min-height: 70px;
+                                }
+
+                                .hierarchie-header {
+                                  font-size: 14px;
+                                }
+
+                                .hierarchie-content {
+                                  font-size: 13px;
+                                }
+                              }
+
+                              /* ===========================================
+                                   PETIT MOBILE (480px et moins) - OPTIMISATION EXTRÊME
+                                   =========================================== */
+                              @media (max-width: 480px) {
+                                /* Container principal avec marges minimales */
+                                .main-container {
+                                  width: 100%;
+                                  margin: 10px;
+                                  padding: 15px;
+                                }
+
+                                .main-content {
+                                  padding: 10px;
+                                }
+
+                                .intro-title {
+                                  font-size: 28px;
+                                  margin: 15px 0 25px 0;
+                                }
+
+                                .menu {
+                                  width: 90%;
+                                  max-width: 260px;
+                                  padding: 70px 15px 25px 15px;
+                                }
+
+                                .card {
+                                  padding: 20px;
+        gap: 15px;
+                                }
+
+                                .card img {
+                                  width: 80px;
+                                  height: 80px;
+                                }
+
+                                .document-highlight {
+                                  padding: 25px;
+                                }
+
+                                .hierarchie-block {
+                                  height: 180px;
+                                }
+
+                                .hierarchie-content {
+                                  height: 130px;
+                                  padding: 10px;
+                                }
+
+                                .container {
+                                  padding: 15px;
+                                  gap: 15px;
+                                }
+
+                                .container-a-retenir {
+                                  padding: 20px;
+                                  margin: 25px 0;
+                                }
+
+                                .section-title {
+                                  font-size: 28px;
+                                  padding: 15px 20px;
+                                  min-height: 70px;
+                                }
+
+                                .hierarchie-header {
+          font-size: 13px;
+                                  height: 45px;
+        }
+
+                                .hierarchie-content {
+                                  font-size: 12px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ===========================================
+         CONTAINER PRINCIPAL - STRUCTURE MAÎTRESSE
+         =========================================== -->
+    <div class="main-container">
+      <!-- ===========================================
+           MENU BURGER - SYSTÈME DE NAVIGATION
+           =========================================== -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" />
+      <label for="menu-toggle" class="menu-toggle">
+        <img src="../../images/png/menuBurger.png" alt="Menu" />
+      </label>
+
+      <!-- Menu latéral de navigation -->
+      <nav class="menu">
+        <ul>
+          <li>
+            <a href="#section1">1 - Ne pas confondre loi, règlement, charte</a>
+          </li>
+          <li><a href="#section2">2 - Exemple de hiérarchie en droit</a></li>
+          <li><a href="#conc">3 - À retenir</a></li>
+        </ul>
+      </nav>
+
+      <!-- ===========================================
+           CONTENU PRINCIPAL DE LA PAGE
+           =========================================== -->
+      <div class="page-container">
+        <main class="main-content">
+          <!-- ===========================================
+               TITRE PRINCIPAL DE LA PAGE
+               =========================================== -->
+          <h1 class="intro-title">
+            Le cadre réglementaire : chartes, lois, règlements
+          </h1>
+
+          <!-- ===========================================
+               IMAGE PRINCIPALE
+               =========================================== -->
+          <img
+            src="../../images/CAP AEPE/page2/imageSerrerMain.png"
+            alt="Image de serrer la main"
+            class="intro-image"
+          />
+
+          <!-- ===========================================
+               SECTION 1 - NE PAS CONFONDRE LOI, RÈGLEMENT, CHARTE
+               =========================================== -->
+          <section id="section1">
+            <div class="section-header">
+              <div class="section-number">01</div>
+              <div class="section-title">
+                <h2>Ne pas confondre loi, règlement, charte</h2>
+              </div>
+            </div>
+
+            <!-- Container pour les cartes -->
+            <div class="container">
+              <!-- Carte 1 - La loi -->
+              <div class="card">
+                <img
+                  src="../../images/CAP AEPE/page2/imageLois.png"
+                  alt="Loi"
+                />
+                <div class="text">
+                  <p class="title">
+                    <strong
+                      >La loi est un texte adopté par le Parlement et promulgué
+                      par le président de la République.</strong
+                    >
+                  </p>
+                  <p>
+                    Elle s'impose à tous dès lors qu'elle est promulguée et
+                    publiée au Journal officiel. Elle n'est cependant applicable
+                    que dans la mesure où des textes d'application sont adoptés
+                    et publiés.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Carte 2 - Le règlement -->
+              <div class="card">
+                <img
+                  src="../../images/CAP AEPE/page2/imageReglement.gif"
+                  alt="Règlement"
+                />
+                <div class="text">
+                  <p class="title">
+                    <strong
+                      >Le règlement englobe l'ensemble des décisions du pouvoir
+                      exécutif et des autorités administratives.</strong
+                    >
+                  </p>
+                  <p>
+                    Cette notion regroupe différentes sortes de textes qui se
+                    situent, les uns par rapport aux autres, dans un ordre
+                    hiérarchique. Au premier rang de ces textes figurent les
+                    décrets puis les arrêtés réglementaires (exemple : arrêté
+                    ministériel, préfectoral, municipal).
+                  </p>
+                </div>
+              </div>
+
+              <!-- Carte 3 - La charte -->
+              <div class="card">
+                <img
+                  src="../../images/CAP AEPE/page2/imageCharte.png"
+                  alt="Charte"
+                />
+                <div class="text">
+                  <p class="title">
+                    <strong
+                      >La charte est un texte juridique solennel ou une règle
+                      fondamentale</strong
+                    >
+                  </p>
+                  <p>
+                    censée s'appliquer à tous, ayant pour but de garantir des
+                    libertés, des droits ou des devoirs. Il existe plusieurs
+                    types de charte.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section document -->
+            <div
+              class="document-section"
+              style="
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 auto !important;
+                padding: 0 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-align: center !important;
+                box-sizing: border-box !important;
+                overflow: visible !important;
+              "
+            >
+              <div
+                class="document-container"
+                style="
+                  width: 100% !important;
+                  max-width: 100% !important;
+                  margin: 0 auto !important;
+                  padding: 0 !important;
+                  display: flex !important;
+                  flex-direction: column !important;
+                  align-items: center !important;
+                  justify-content: center !important;
+                  text-align: center !important;
+                  box-sizing: border-box !important;
+                  overflow: visible !important;
+                "
+              >
+                <div
+                  class="document-img"
+                  style="
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    margin: 0 auto !important;
+                    padding: 0 !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    text-align: center !important;
+                    box-sizing: border-box !important;
+                    overflow: visible !important;
+                  "
+                >
+                  <img
+                    src="../../images/CAP AEPE/page2/imageDocument.png"
+                    alt="Illustration de document"
+                    style="
+                      width: 100% !important;
+                      max-width: 100% !important;
+                      height: auto !important;
+                      margin: 0 auto !important;
+                      display: block !important;
+                      object-fit: contain !important;
+                      box-sizing: border-box !important;
+                      overflow: visible !important;
+                    "
+                  />
+                </div>
+
+                <div
+                  class="document-text"
+                  style="
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    margin: 0 auto !important;
+                    padding: 0 !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    text-align: center !important;
+                    box-sizing: border-box !important;
+                    overflow: visible !important;
+                  "
+                >
+                  <div
+                    class="document-highlight"
+                    style="
+                      width: 100% !important;
+                      max-width: 100% !important;
+                      min-height: auto !important;
+                      height: auto !important;
+                      margin: 0 auto !important;
+                      padding: 8px !important;
+                      display: flex !important;
+                      flex-direction: column !important;
+                      align-items: center !important;
+                      justify-content: center !important;
+                      text-align: center !important;
+                      box-sizing: border-box !important;
+                      overflow: visible !important;
+                      background: var(--primary-color4) !important;
+                      border-radius: 8px !important;
+                      box-shadow: var(--shadow-light) !important;
+                      word-wrap: break-word !important;
+                      overflow-wrap: break-word !important;
+                    "
+                  >
+                    <p
+                      style="
+                        width: 100% !important;
+                        max-width: 100% !important;
+                        margin: 0 auto !important;
+                        padding: 0 !important;
+                        text-align: center !important;
+                        box-sizing: border-box !important;
+                        overflow: visible !important;
+                      "
+                    >
+                      <strong
+                        >La charte peut être un écrit solennel destiné à
+                        consigner des droits ou à régler des intérêts. Cela peut
+                        être l'ensemble des textes constitutionnels d'un pays.
+                        Dans ce cas, la Charte est avec une majuscule le plus
+                        souvent. Il existe des chartes au sein de certaines
+                        organisations : Aujourd'hui, de nombreuses entreprises
+                        possèdent une charte ayant pour objet de définir « leur
+                        culture d'entreprise », c'est-à-dire les valeurs ou
+                        règles auxquelles elles adhèrent. Exemple: Charte du
+                        développement durable, Charte des valeurs, Charte
+                        éthique, Charte qualité... Les chartes n'ont aucun
+                        caractère normatif et n'ont pas de véritable valeur
+                        juridique en soi, à la différence du règlement intérieur
+                        régulièrement déposé.</strong
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===========================================
+               SECTION 2 - EXEMPLE DE HIÉRARCHIE EN DROIT
+               =========================================== -->
+          <section id="section2">
+            <div class="section-header">
+              <div class="section-number">02</div>
+              <div class="section-title">
+                <h2>Exemple de hiérarchie en droit</h2>
+              </div>
+            </div>
+
+            <!-- Container hiérarchie -->
+            <div class="hierarchie-container">
+              <!-- Première ligne : 2 blocs -->
+
+              <div class="hierarchie-row">
+                <div class="hierarchie-block">
+                  <div class="hierarchie-header">Le bloc constitutionnel</div>
+                  <div class="hierarchie-content">
+                    Déclaration des droits de l'Homme, Constitution, Charte de
+                    l'environnement, etc.
+                  </div>
+                </div>
+                <div class="hierarchie-block">
+                  <div class="hierarchie-header">Le bloc législatif</div>
+                  <div class="hierarchie-content">
+                    En France : lois, codes, ordonnances et décisions ; au
+                    niveau communautaire : directive européenne, règlement
+                    communautaire.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Deuxième ligne : 3 blocs -->
+
+              <div class="hierarchie-row">
+                <div class="hierarchie-block">
+                  <div class="hierarchie-header">Le bloc réglementaire</div>
+                  <div class="hierarchie-content">
+                    Règlements. Ensemble des actes réglementaires : décrets et
+                    arrêtés.
+                  </div>
+                </div>
+                <div class="hierarchie-block">
+                  <div class="hierarchie-header">Le bloc contractuel</div>
+                  <div class="hierarchie-content">
+                    Constitué des contrats, conventions, règlements intérieurs,
+                    etc.
+                  </div>
+                </div>
+                <div class="hierarchie-block">
+                  <div class="hierarchie-header">Le bloc conventionnel</div>
+                  <div class="hierarchie-content">
+                    Conventions collectives, accords de branche, accords
+                    d'entreprise, etc.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===========================================
+               COMPOSANT CONCLUSION
+               =========================================== -->
+          <section id="conc">
+            <div class="block">
+              <div class="container-a-retenir">
+                <div
+                  class="wrap-title-retenir-conclusion is-flex is-flex-wrap-wrap-mobile"
+                >
+                  <img
+                    alt=""
+                    src="../../images/png/imageRetenir.svg"
+                    class="retenir-img"
+                  />
+                  <h2 class="title-retenir-conclusion">à retenir</h2>
+                </div>
+                <div class="steps">
+                  <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                    <div class="step col-1 is-flex">
+                      <span class="number is-flex">01.</span>
+                      <div class="line"></div>
+                    </div>
+
+                    <div class="step-text col-11">
+                      <p class="text">
+                        La loi est un texte adopté par le Parlement et promulgué
+                        par le président de la République.
+                      </p>
+                      <p class="sub-text">
+                        Elle s'impose à tous dès lors qu'elle est promulguée et
+                        publiée au Journal officiel. Elle n'est cependant
+                        applicable que dans la mesure où des textes
+                        d'application sont adoptés et publiés.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                    <div class="step col-1 is-flex">
+                      <span class="number is-flex">02.</span>
+                      <div class="line"></div>
+                    </div>
+
+                    <div class="step-text col-11">
+                      <p class="text">
+                        Le règlement englobe l'ensemble des décisions du pouvoir
+                        exécutif et des autorités administratives.
+                      </p>
+                      <p class="sub-text">
+                        Cette notion regroupe différentes sortes de textes qui
+                        se situent, les uns par rapport aux autres, dans un
+                        ordre hiérarchique. Au premier rang de ces textes
+                        figurent les décrets puis les arrêtés réglementaires
+                        (exemple : arrêté ministériel, préfectoral, municipal).
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                    <div class="step col-1 is-flex">
+                      <span class="number is-flex">03.</span>
+                      <div class="line"></div>
+                    </div>
+
+                    <div class="step-text col-11">
+                      <p class="text">
+                        La charte est un texte juridique solennel ou une règle
+                        fondamentale
+                      </p>
+                      <p class="sub-text">
+                        Censée s'appliquer à tous, ayant pour but de garantir
+                        des libertés, des droits ou des devoirs. Il existe
+                        plusieurs types de charte.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+
+  <style>
+    /* ===========================================
+         LAPTOP (1024px - 1439px) - ADAPTATION LARGE
+         =========================================== */
+    @media (min-width: 1024px) and (max-width: 1439px) {
+      /* Tous les textes normaux */
+      .document-highlight,
+      .hierarchie-content,
+      .sub-text {
+        font-size: 18px;
+      }
+
+      /* Tous les titres légèrement plus grands */
+      .text {
+        font-size: 20px;
+      }
+    }
+
+    /* ===========================================
+         DESKTOP (1440px et plus) - ADAPTATION TRÈS LARGE
+         =========================================== */
+    @media (min-width: 1440px) {
+      /* Tous les textes normaux */
+      .document-highlight,
+      .hierarchie-content,
+      .sub-text {
+        font-size: 20px;
+      }
+
+      /* Tous les titres légèrement plus grands */
+      .text {
+        font-size: 22px;
+      }
+    }
+
+    /* ===========================================
+         ADAPTATION PROGRESSIVE POUR ÉCRANS TRÈS PETITS
+         =========================================== */
+
+    /* ÉCRANS TRÈS PETITS (375px et moins) - ADAPTATION ULTRA-COMPACTE */
+    @media (max-width: 375px) {
+      /* Container principal ultra-compact */
+      .main-container {
+        width: 100% !important;
+        margin: 5px !important;
+        padding: 10px !important;
+        box-sizing: border-box !important;
+      }
+
+      .main-content {
+        padding: 5px !important;
+      }
+
+      /* Menu burger ultra-compact */
+      .menu {
+        width: 85% !important;
+        max-width: 280px !important;
+        padding: 50px 10px 15px !important;
+      }
+
+      .menu-toggle {
+        width: 28px !important;
+        height: 28px !important;
+        padding: 4px !important;
+        top: 15px !important;
+        left: 15px !important;
+      }
+
+      /* Titres ultra-compacts - identiques à page 1 */
+      .intro-title {
+        font-size: 18px !important;
+        margin: 15px 0 20px 0 !important;
+      }
+
+      .section-header {
+        flex-direction: column !important;
+        text-align: center !important;
+        margin: 20px 0 15px !important;
+      }
+
+      .section-number {
+        border-radius: 12px 12px 0 0 !important;
+        width: 100% !important;
+        text-align: center !important;
+        font-size: 24px !important;
+        padding: 15px 20px !important;
+      }
+
+      .section-title {
+        border-radius: 0 0 12px 12px !important;
+        width: 100% !important;
+        font-size: 16px !important;
+        padding: 15px 20px !important;
+      }
+
+      .subsection-heading {
+        font-size: 14px !important;
+        padding: 8px 12px !important;
+      }
+
+      /* Titres des composants - identiques à page 1 */
+      .card .text .title {
+        font-size: 12px !important;
+      }
+
+      .text {
+        font-size: 12px !important;
+      }
+
+      .sub-text {
+        font-size: 10px !important;
+      }
+
+      /* Composant à retenir - tailles spécifiques - identiques à page 1 */
+      .container-a-retenir .text {
+        font-size: 12px !important;
+      }
+
+      .container-a-retenir .sub-text {
+        font-size: 10px !important;
+      }
+
+      /* Titre à retenir - tailles forcées - identiques à page 1 */
+      .title-retenir-conclusion {
+        font-size: 12px !important;
+      }
+
+      /* Tous les textes normaux - identiques à page 1 */
+      .document-highlight,
+      .hierarchie-content,
+      .card .text,
+      .document-highlight p,
+      .hierarchie-content p,
+      .card .text p {
+        font-size: 10px !important;
+        line-height: 1.2 !important;
+      }
+
+      /* Tous les titres légèrement plus grands que le texte normal - identiques à page 1 */
+      .document-highlight h3,
+      .document-highlight h4,
+      .hierarchie-content h3,
+      .hierarchie-content h4,
+      .card .text h3,
+      .card .text h4 {
+        font-size: 12px !important;
+      }
+
+      .hierarchie-header {
+        font-size: 12px !important;
+      }
+
+      /* ADAPTATION COMPLÈTE POUR TOUS LES COMPOSANTS */
+      .card,
+      .document-container,
+      .hierarchie-row,
+      .hierarchie-container,
+      .flex-container,
+      .imageGaucheTexteDroit-container,
+      .imageDroiteTextGauche-container {
+        width: 90% !important;
+        max-width: 90% !important;
+        margin: 0 auto !important;
+        padding: 5px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      /* Cartes ultra-compactes */
+      .card {
+        gap: 5px !important;
+        padding: 5px !important;
+        width: 85% !important;
+        max-width: 85% !important;
+      }
+
+      .card img {
+        width: 80% !important;
+        max-width: 80% !important;
+        height: auto !important;
+        margin: 0 auto !important;
+        display: block !important;
+        object-fit: contain !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      .card .text {
+        width: 90% !important;
+        max-width: 90% !important;
+        text-align: center !important;
+        padding: 2px !important;
+        font-size: 10px !important;
+        line-height: 1.2 !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      /* Document container ultra-compact */
+      .document-container {
+        gap: 5px !important;
+        padding: 5px !important;
+        width: 85% !important;
+        max-width: 85% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      .document-img {
+        width: 50% !important;
+        max-width: 50% !important;
+        height: auto !important;
+        margin: 0 auto !important;
+        display: block !important;
+        object-fit: contain !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      .document-text {
+        width: 90% !important;
+        max-width: 90% !important;
+        margin: 0 auto !important;
+        padding: 2px !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      .document-highlight {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+        height: auto !important;
+        text-align: center !important;
+        padding: 8px !important;
+        font-size: 10px !important;
+        line-height: 1.3 !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+        background: var(--primary-color4) !important;
+        border-radius: 8px !important;
+        box-shadow: var(--shadow-light) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+      }
+
+      .document-highlight p {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 2px !important;
+        text-align: center !important;
+        font-size: 10px !important;
+        line-height: 1.2 !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      /* Hiérarchie ultra-compacte */
+      .hierarchie-row {
+        gap: 5px !important;
+        padding: 5px !important;
+        width: 85% !important;
+        max-width: 85% !important;
+      }
+
+      .hierarchie-block {
+        width: 90% !important;
+        max-width: 90% !important;
+        padding: 5px !important;
+        font-size: 10px !important;
+        line-height: 1.2 !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      /* Composant à retenir ultra-compact */
+      .container-a-retenir {
+        padding: 10px !important;
+        margin: 15px 0 !important;
+      }
+
+      .step-content {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 5px !important;
+      }
+
+      .step-text {
+        text-align: center !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: 10px !important;
+        line-height: 1.2 !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      .number {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 12px !important;
+      }
+
+      /* Tailles de police ultra-compactes - identiques à page 1 */
+      .document-highlight,
+      .hierarchie-content,
+      .card .text,
+      .document-highlight p,
+      .hierarchie-content p,
+      .card .text p {
+        font-size: 10px !important;
+        line-height: 1.2 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      .text {
+        font-size: 12px !important;
+      }
+
+      .sub-text {
+        font-size: 10px !important;
+      }
+
+      .title-retenir-conclusion {
+        font-size: 12px !important;
+      }
+
+      .container-a-retenir .text {
+        font-size: 12px !important;
+      }
+
+      .container-a-retenir .sub-text {
+        font-size: 10px !important;
+      }
+
+      /* Images ultra-compactes */
+      .document-img img,
+      .card img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        margin: 0 auto !important;
+        display: block !important;
+        object-fit: contain !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      /* ANNULATION COMPLÈTE DE TOUTES LES MARGES NÉGATIVES ET DÉCALAGES */
+      .card *,
+      .document-container *,
+      .hierarchie-row *,
+      .hierarchie-container *,
+      .flex-container *,
+      .imageGaucheTexteDroit-container *,
+      .imageDroiteTextGauche-container * {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        transform: none !important;
+        float: none !important;
+        position: relative !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+    }
+
+    /* ÉCRANS TRÈS PETITS (320px et moins) - ADAPTATION EXTRÊME */
+    @media (max-width: 320px) {
+      /* Container principal ultra-compact */
+      .main-container {
+        width: 100% !important;
+        margin: 2px !important;
+        padding: 5px !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Titres ultra-compacts - identiques à page 1 */
+      .intro-title {
+        font-size: 16px !important;
+      }
+
+      .section-header {
+        flex-direction: column !important;
+        text-align: center !important;
+        margin: 15px 0 10px !important;
+      }
+
+      .section-number {
+        border-radius: 12px 12px 0 0 !important;
+        width: 100% !important;
+        text-align: center !important;
+        font-size: 20px !important;
+        padding: 10px 15px !important;
+      }
+
+      .section-title {
+        border-radius: 0 0 12px 12px !important;
+        width: 100% !important;
+        font-size: 14px !important;
+        padding: 10px 15px !important;
+      }
+
+      .subsection-heading {
+        font-size: 12px !important;
+        padding: 5px 8px !important;
+      }
+
+      /* Titres des composants - identiques à page 1 */
+      .card .text .title {
+        font-size: 10px !important;
+      }
+
+      .text {
+        font-size: 10px !important;
+      }
+
+      .sub-text {
+        font-size: 8px !important;
+      }
+
+      /* Composant à retenir - tailles spécifiques - identiques à page 1 */
+      .container-a-retenir .text {
+        font-size: 10px !important;
+      }
+
+      .container-a-retenir .sub-text {
+        font-size: 8px !important;
+      }
+
+      /* Titre à retenir - tailles forcées - identiques à page 1 */
+      .title-retenir-conclusion {
+        font-size: 10px !important;
+      }
+
+      /* Tous les textes normaux - identiques à page 1 */
+      .document-highlight,
+      .hierarchie-content,
+      .card .text,
+      .document-highlight p,
+      .hierarchie-content p,
+      .card .text p {
+        font-size: 8px !important;
+        line-height: 1.1 !important;
+      }
+
+      /* Tous les titres légèrement plus grands que le texte normal - identiques à page 1 */
+      .document-highlight h3,
+      .document-highlight h4,
+      .hierarchie-content h3,
+      .hierarchie-content h4,
+      .card .text h3,
+      .card .text h4 {
+        font-size: 10px !important;
+      }
+
+      .hierarchie-header {
+        font-size: 10px !important;
+      }
+
+      /* Composants ultra-compacts */
+      .card,
+      .document-container,
+      .hierarchie-row,
+      .hierarchie-container {
+        padding: 2px !important;
+        gap: 2px !important;
+      }
+
+      .card .text,
+      .document-highlight,
+      .hierarchie-block,
+      .step-text {
+        font-size: 8px !important;
+        line-height: 1.1 !important;
+        padding: 1px !important;
+      }
+
+      /* Section document ultra-compacte */
+      .document-container {
+        width: 80% !important;
+        max-width: 80% !important;
+        gap: 2px !important;
+        padding: 2px !important;
+      }
+
+      .document-img {
+        width: 40% !important;
+        max-width: 40% !important;
+      }
+
+      .document-text {
+        width: 85% !important;
+        max-width: 85% !important;
+        padding: 1px !important;
+      }
+
+      .document-highlight {
+        padding: 4px !important;
+        font-size: 8px !important;
+        line-height: 1.5 !important;
+        min-height: auto !important;
+        height: auto !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+      }
+
+      .document-highlight p {
+        padding: 1px !important;
+        font-size: 8px !important;
+        line-height: 1.1 !important;
+      }
+    }
+
+    /* ===========================================
+         FORMATS ULTRA-PETITS (280px et moins) - ADAPTATION EXTRÊME
+         =========================================== */
+    @media (max-width: 280px) {
+      /* Section document ultra-compacte */
+      .document-container {
+        width: 75% !important;
+        max-width: 75% !important;
+        gap: 1px !important;
+        padding: 1px !important;
+        margin: 0 auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      .document-img {
+        width: 50% !important;
+        max-width: 50% !important;
+        height: auto !important;
+        margin: 0 auto !important;
+        display: block !important;
+        object-fit: contain !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      .document-text {
+        width: 80% !important;
+        max-width: 80% !important;
+        margin: 0 auto !important;
+        padding: 1px !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      .document-highlight {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+        height: auto !important;
+        text-align: center !important;
+        padding: 3px !important;
+        font-size: 7px !important;
+        line-height: 1.6 !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+        background: var(--primary-color4) !important;
+        border-radius: 4px !important;
+        box-shadow: var(--shadow-light) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+      }
+
+      .document-highlight p {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 1px !important;
+        text-align: center !important;
+        font-size: 7px !important;
+        line-height: 1 !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+    }
+
+    /* ===========================================
+         FORMATS MICRO (240px et moins) - ADAPTATION MAXIMALE
+         =========================================== */
+    @media (max-width: 240px) {
+      /* Section document micro-compacte */
+      .document-container {
+        width: 70% !important;
+        max-width: 70% !important;
+        gap: 0px !important;
+        padding: 0px !important;
+        margin: 0 auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      .document-img {
+        width: 40% !important;
+        max-width: 40% !important;
+        height: auto !important;
+        margin: 0 auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      .document-img img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        margin: 0 auto !important;
+        display: block !important;
+        object-fit: contain !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      .document-text {
+        width: 75% !important;
+        max-width: 75% !important;
+        margin: 0 auto !important;
+        padding: 0px !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      .document-highlight {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+        height: auto !important;
+        text-align: center !important;
+        padding: 4px !important;
+        font-size: 6px !important;
+        line-height: 2 !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+        background: var(--primary-color4) !important;
+        border-radius: 2px !important;
+        box-shadow: var(--shadow-light) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+      }
+
+      .document-highlight p {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 2px !important;
+        text-align: center !important;
+        font-size: 6px !important;
+        line-height: 2 !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+      }
+    }
+
+    /* ===========================================
+         FORMATS NANO (200px et moins) - ADAPTATION EXTRÊME
+         =========================================== */
+    @media (max-width: 200px) {
+      /* Section document nano-compacte */
+      .document-container {
+        width: 65% !important;
+        max-width: 65% !important;
+        gap: 0px !important;
+        padding: 0px !important;
+        margin: 0 auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      .document-img {
+        width: 35% !important;
+        max-width: 35% !important;
+        height: auto !important;
+        margin: 0 auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      .document-img img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        margin: 0 auto !important;
+        display: block !important;
+        object-fit: contain !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      .document-text {
+        width: 70% !important;
+        max-width: 70% !important;
+        margin: 0 auto !important;
+        padding: 0px !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+
+      .document-highlight {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+        height: auto !important;
+        text-align: center !important;
+        padding: 6px !important;
+        font-size: 5px !important;
+        line-height: 2.2 !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+        background: var(--primary-color4) !important;
+        border-radius: 1px !important;
+        box-shadow: var(--shadow-light) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+      }
+
+      .document-highlight p {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 3px !important;
+        text-align: center !important;
+        font-size: 5px !important;
+        line-height: 2.2 !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+      }
+    }
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0px !important;
+        text-align: center !important;
+        font-size: 6px !important;
+        line-height: 1 !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+      }
+    }
+
+    /* ÉCRANS PETITS (321px - 375px) - ADAPTATION COMPACTE */
+    @media (min-width: 321px) and (max-width: 375px) {
+      /* Container principal compact */
+      .main-container {
+        width: 100% !important;
+        margin: 3px !important;
+        padding: 8px !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Titres compacts - identiques à page 1 */
+      .intro-title {
+        font-size: 17px !important;
+      }
+
+      .section-header {
+        flex-direction: column !important;
+        text-align: center !important;
+        margin: 18px 0 12px !important;
+      }
+
+      .section-number {
+        border-radius: 12px 12px 0 0 !important;
+        width: 100% !important;
+        text-align: center !important;
+        font-size: 22px !important;
+        padding: 12px 18px !important;
+      }
+
+      .section-title {
+        border-radius: 0 0 12px 12px !important;
+        width: 100% !important;
+        font-size: 15px !important;
+        padding: 12px 18px !important;
+      }
+
+      .subsection-heading {
+        font-size: 13px !important;
+        padding: 6px 10px !important;
+      }
+
+      /* Titres des composants - identiques à page 1 */
+      .card .text .title {
+        font-size: 11px !important;
+      }
+
+      .text {
+        font-size: 11px !important;
+      }
+
+      .sub-text {
+        font-size: 9px !important;
+      }
+
+      /* Composant à retenir - tailles spécifiques - identiques à page 1 */
+      .container-a-retenir .text {
+        font-size: 11px !important;
+      }
+
+      .container-a-retenir .sub-text {
+        font-size: 9px !important;
+      }
+
+      /* Titre à retenir - tailles forcées - identiques à page 1 */
+      .title-retenir-conclusion {
+        font-size: 11px !important;
+      }
+
+      /* Tous les textes normaux - identiques à page 1 */
+      .document-highlight,
+      .hierarchie-content,
+      .card .text,
+      .document-highlight p,
+      .hierarchie-content p,
+      .card .text p {
+        font-size: 9px !important;
+        line-height: 1.15 !important;
+      }
+
+      /* Tous les titres légèrement plus grands que le texte normal - identiques à page 1 */
+      .document-highlight h3,
+      .document-highlight h4,
+      .hierarchie-content h3,
+      .hierarchie-content h4,
+      .card .text h3,
+      .card .text h4 {
+        font-size: 11px !important;
+      }
+
+      .hierarchie-header {
+        font-size: 11px !important;
+      }
+
+      /* Composants compacts */
+      .card,
+      .document-container,
+      .hierarchie-row,
+      .hierarchie-container {
+        padding: 3px !important;
+        gap: 3px !important;
+      }
+
+      .card .text,
+      .document-highlight,
+      .hierarchie-block,
+      .step-text {
+        font-size: 9px !important;
+        line-height: 1.15 !important;
+        padding: 2px !important;
+      }
+
+      /* Section document compacte */
+      .document-container {
+        width: 82% !important;
+        max-width: 82% !important;
+        gap: 3px !important;
+        padding: 3px !important;
+      }
+
+      .document-img {
+        width: 45% !important;
+        max-width: 45% !important;
+      }
+
+      .document-text {
+        width: 87% !important;
+        max-width: 87% !important;
+        padding: 2px !important;
+      }
+
+      .document-highlight {
+        padding: 6px !important;
+        font-size: 9px !important;
+        line-height: 1.4 !important;
+        min-height: auto !important;
+        height: auto !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+      }
+
+      .document-highlight p {
+        padding: 2px !important;
+        font-size: 9px !important;
+        line-height: 1.15 !important;
+      }
+    }
+  </style>
+</html>
