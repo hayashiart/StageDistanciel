@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Évolution du langage – Tableau</title>
+<style>
+  :root{
+    /* 🎨 Thème */
+    --header:#5a79b6;         /* bleu de l’en-tête */
+    --row1:#a4a8d1b5;           /* corail foncé */
+    --row2:#6f7ab8d2;           /* corail clair */
+    --paper:#ffffff;
+    --text:#1f2937;
+    --radius:24px;
+    --sep:12px;               /* séparateur blanc vertical */
+    --shadow:0 16px 40px rgba(0,0,0,.08);
+    --maxw:1100px;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Helvetica Neue","Noto Sans",sans-serif;
+    background:#f6f7fb;
+    color:var(--text);
+    line-height:1.7;
+  }
+
+  .table-wrap{
+    max-width:var(--maxw);
+    margin:clamp(18px,4vw,56px) auto;
+    padding: clamp(10px,2vw,20px);
+    background:var(--paper);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+  }
+
+  table.evo{
+    width:100%;
+    border-collapse:separate;   /* pour gérer les coins arrondis finement */
+    border-spacing:0;
+  }
+
+  .evo th,
+  .evo td{
+    padding: clamp(12px, 1.5vw, 22px);
+    text-align:center;
+    color:#fff;
+    font-size: clamp(1rem, .95rem + .15vw, 1.1rem);
+  }
+
+  /* En-tête */
+  .evo thead th{
+    background:var(--header);
+    font-weight:900;
+  }
+  .evo thead th:first-child{ border-top-left-radius:var(--radius); }
+  .evo thead th:last-child { border-top-right-radius:var(--radius); }
+  .evo thead th:not(:last-child){ border-right: var(--sep) solid #fff; }
+
+  /* Corps */
+  .evo tbody tr:nth-child(odd)  td{ background:var(--row1); }
+  .evo tbody tr:nth-child(even) td{ background:var(--row2); }
+
+  /* gros interlignes verticaux blancs entre colonnes */
+  .evo tbody td:not(:last-child){ border-right: var(--sep) solid #fff; }
+
+  /* coins arrondis de la dernière ligne */
+  .evo tbody tr:last-child td:first-child{ border-bottom-left-radius:var(--radius); }
+  .evo tbody tr:last-child td:last-child { border-bottom-right-radius:var(--radius); }
+
+  /* typographies par colonne */
+  .evo .c-age{ font-weight:800; }
+  .evo .c-step{ font-weight:700; }
+  .evo .c-ex{ font-weight:600; }
+
+  /* ===== Responsive: format “cartes” ===== */
+  @media (max-width: 820px){
+    .table-wrap{ padding: 8px; }
+    .evo thead{
+      position:absolute!important;
+      width:1px;height:1px;overflow:hidden;
+      clip:rect(0 0 0 0);white-space:nowrap;
+    }
+    .evo, .evo tbody, .evo tr, .evo td{ display:block; width:100%; }
+    .evo tr{
+      margin:12px 0;
+      box-shadow:0 8px 18px rgba(0,0,0,.06);
+      border-radius:18px;
+      overflow:hidden;
+    }
+    .evo td{
+      text-align:left;
+      border-right:none!important;
+      position:relative;
+      padding-left: clamp(120px, 26vw, 200px);
+    }
+    .evo td::before{
+      content: attr(data-label);
+      position:absolute; left:0; top:0; bottom:0;
+      width: clamp(110px, 24vw, 180px);
+      padding: inherit;
+      display:flex; align-items:center;
+      background:rgba(255,255,255,.15);
+      font-weight:900; color:#fff;
+      border-right: 4px solid rgba(255,255,255,.6);
+    }
+    .evo .c-age::before{ background:rgba(255,255,255,.12); }
+  }
+</style>
+</head>
+<body>
+
+<div class="table-wrap">
+  <table class="evo" role="table" aria-label="Évolution du langage de 1 à 36 mois">
+    <thead>
+      <tr>
+        <th scope="col">Âges</th>
+        <th scope="col">Étapes</th>
+        <th scope="col">Caractéristiques / Exemples</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="c-age"  data-label="Âges">1er mois</td>
+        <td class="c-step" data-label="Étapes">Vagissements</td>
+        <td class="c-ex"   data-label="Caractéristiques / Exemples">Sons rauques venant de la gorge</td>
+      </tr>
+
+      <tr>
+        <td class="c-age"  data-label="Âges">2ème mois</td>
+        <td class="c-step" data-label="Étapes">Vocalises</td>
+        <td class="c-ex"   data-label="Caractéristiques / Exemples">Sons légers riches en voyelles (a, e, euh…)</td>
+      </tr>
+
+      <tr>
+        <td class="c-age"  data-label="Âges">5 et 6ème mois</td>
+        <td class="c-step" data-label="Étapes">Babillages, lallations</td>
+        <td class="c-ex"   data-label="Caractéristiques / Exemples">Sons riches en consonnes</td>
+      </tr>
+
+      <tr>
+        <td class="c-age"  data-label="Âges">8, 9, 10 et 11ème mois</td>
+        <td class="c-step" data-label="Étapes">Monosyllabes<br/>Doubles syllabes</td>
+        <td class="c-ex"   data-label="Caractéristiques / Exemples">
+          La, ma, ba, pa, da…<br/>La, papa, mama, dada, baba …
+        </td>
+      </tr>
+
+      <tr>
+        <td class="c-age"  data-label="Âges">1 an</td>
+        <td class="c-step" data-label="Étapes">« Mots phrases »</td>
+        <td class="c-ex"   data-label="Caractéristiques / Exemples">Mot significatif qui résume une phrase</td>
+      </tr>
+
+      <tr>
+        <td class="c-age"  data-label="Âges">1 an et demi / 2 ans</td>
+        <td class="c-step" data-label="Étapes">Langage global significatif</td>
+        <td class="c-ex"   data-label="Caractéristiques / Exemples">
+          Langage qui a du sens et qui correspond à des situations précises
+          (ex&nbsp;: « Tom eau » = Tom a soif, Tom veut de l’eau)
+        </td>
+      </tr>
+
+      <tr>
+        <td class="c-age"  data-label="Âges">3 ans</td>
+        <td class="c-step" data-label="Étapes">Apparition de la phrase</td>
+        <td class="c-ex"   data-label="Caractéristiques / Exemples">Phrases mal construites au début</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

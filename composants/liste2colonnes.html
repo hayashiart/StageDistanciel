@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Besoins affectifs – Liste améliorée</title>
+<style>
+  :root{
+    --bg:#f4f6f8;
+    --paper:#ffffff;
+    --text:#1f2937;
+    --muted:#4b5563;
+    --accent:#0a2b1f;     /* vert  */
+    --primary:#4a79c9;    /* bleu de la charte, si besoin ailleurs */
+    --border:#e7ebf2;
+    --shadow:0 16px 40px rgba(0,0,0,.08);
+    --radius:22px;
+    --maxw:1100px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Helvetica Neue","Noto Sans",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  /* Feuille blanche élégante */
+  .sheet{
+    max-width:var(--maxw);
+    margin:clamp(18px,4vw,56px) auto;
+    padding:clamp(18px,3.2vw,44px);
+    background:var(--paper);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+  }
+
+  .intro{
+    margin:0 0 clamp(14px,2.2vw,22px);
+    font-size:clamp(1.02rem,.98rem + .35vw,1.14rem);
+    text-align:justify;
+  }
+
+  .subtitle{
+    margin: clamp(8px,1.6vw,12px) 0 clamp(10px,1.8vw,16px);
+    font-weight:800;
+    font-size: clamp(1.05rem,1rem + .5vw,1.25rem);
+    letter-spacing:.2px;
+    color:#2a3342;
+    position:relative;
+    padding-bottom:6px;
+  }
+  .subtitle::after{
+    content:"";
+    position:absolute; left:0; bottom:0; height:6px; width:180px;
+    background:linear-gradient(90deg, var(--accent), rgba(47,179,131,.25));
+    border-radius:8px;
+  }
+
+  /* Liste diamant – 2 colonnes desktop */
+  .needs-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+    column-gap: clamp(18px, 3vw, 32px);
+    column-count: 2;
+    max-width: 100%;
+  }
+  @media (max-width: 780px){
+    .needs-list{ column-count: 1; }
+  }
+
+  .needs-list li{
+    break-inside: avoid;              /* pas de rupture entre colonnes */
+    padding-left: 28px;
+    margin: 0 0 12px 0;
+    font-size: clamp(1.02rem,.98rem + .3vw,1.12rem);
+    text-align:justify;
+    position:relative;
+  }
+  .needs-list li::before{
+    content:"◆";
+    position:absolute; left:0; top:.15em;
+    font-size: .95rem; line-height:1;
+    color: var(--accent);             /* mettre #222 pour noir */
+    font-weight: 900;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important; animation:none !important}
+  }
+</style>
+</head>
+<body>
+
+  <section class="sheet" aria-labelledby="t-besoins-affectifs">
+    <h2 id="t-besoins-affectifs" style="position:absolute;left:-9999px;">Besoins affectifs de l’enfant</h2>
+
+ 
+
+    <h3 class="subtitle">Les principaux besoins sont&nbsp;:</h3>
+
+    <ul class="needs-list" role="list">
+      <li><strong>Besoin de jouer</strong> et de prendre du plaisir&nbsp;;</li>
+      <li><strong>Manipuler, découvrir, créer, imaginer</strong>&nbsp;;</li>
+      <li><strong>Besoins d’être en mouvement</strong> afin de se connaître et de se situer dans l’espace&nbsp;;</li>
+      <li><strong>Besoin de calme</strong>&nbsp;;</li>
+      <li><strong>Besoin de socialisation</strong> (de s’exprimer et de communiquer avec les autres)&nbsp;;</li>
+      <li><strong>Besoins d’autonomie</strong> (le laisser-faire seul et choix des activités et du matériel).</li>
+    </ul>
+  </section>
+
+</body>
+</html>

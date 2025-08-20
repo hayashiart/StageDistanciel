@@ -1,0 +1,133 @@
+<!-- ============================================================
+     COMPOSANT — ConstraintsAmplified
+     (Section : "Ces contraintes sont amplifiées par …")
+     ============================================================ -->
+     <section class="ConstraintsAmplified container">
+        <h2 class="ConstraintsAmplified__title">
+          Ces contraintes sont amplifiées par :
+        </h2>
+      
+      
+        <ul class="ConstraintsAmplified__list">
+          <!-- Item 1 -->
+          <li class="ConstraintsAmplified__item">
+            <span class="ConstraintsAmplified__icon">⚠️</span>
+            <div>
+              <strong class="ConstraintsAmplified__highlight">L’environnement de travail</strong>
+              <span class="ConstraintsAmplified__text">
+                (bruit des enfants, des jeux, manque d’éclairage, chaleur, sols encombrés, espace insuffisant…).
+                Organisation du travail (horaires variables, temps fractionné, répartition des tâches…).
+              </span>
+            </div>
+          </li>
+      
+      
+          <!-- Item 2 -->
+          <li class="ConstraintsAmplified__item">
+            <span class="ConstraintsAmplified__icon">🤝</span>
+            <div>
+              <strong class="ConstraintsAmplified__highlight">La qualité des relations professionnelles</strong>
+              <span class="ConstraintsAmplified__text">
+                (avec les parents, avec les enfants, avec les collègues, avec la hiérarchie…).
+              </span>
+            </div>
+          </li>
+        </ul>
+      </section>
+      
+      
+      <style>
+      /* ============================================================
+         STYLES — ConstraintsAmplified
+         ============================================================ */
+      :root{
+        --card-bg:#fff;
+        --card-radius:10px;
+        --card-shadow:0 8px 20px rgba(0,0,0,.08);
+      
+      
+        --title-color:#e57f43;   /* orange doux */
+        --highlight:#d9480f;     /* accent fort */
+        --text:#1f2a3a;
+        --muted:#49566b;
+      
+      
+        --container:980px;
+        --gutter:20px;
+      }
+      
+      
+      .container{
+        max-width:var(--container);
+        margin:40px auto;
+        padding:0 var(--gutter);
+      }
+      
+      
+      .ConstraintsAmplified{
+        background:var(--card-bg);
+        border-radius:var(--card-radius);
+        box-shadow:var(--card-shadow);
+        padding:clamp(16px,3vw,28px);
+      }
+      
+      
+      .ConstraintsAmplified__title{
+        margin:0 0 18px;
+        font-size:clamp(1.1rem,1rem + .6vw,1.35rem);
+        font-weight:700;
+        color:var(--title-color);
+      }
+      
+      
+      .ConstraintsAmplified__list{
+        list-style:none;
+        margin:0;
+        padding:0;
+        display:grid;
+        gap:14px;
+      }
+      
+      
+      .ConstraintsAmplified__item{
+        display:flex;
+        align-items:flex-start;
+        gap:12px;
+        background:rgba(229,127,67,.05);
+        border-radius:8px;
+        padding:12px 14px;
+      }
+      
+      
+      .ConstraintsAmplified__icon{
+        font-size:1.3rem;
+        line-height:1;
+        flex:0 0 auto;
+        margin-top:2px;
+      }
+      
+      
+      .ConstraintsAmplified__highlight{
+        color:var(--highlight);
+        font-weight:700;
+      }
+      
+      
+      .ConstraintsAmplified__text{
+        display:block;
+        color:var(--muted);
+        font-size:.95rem;
+        margin-top:2px;
+      }
+      
+      
+      /* Responsive */
+      @media(max-width:600px){
+        .ConstraintsAmplified__item{
+          flex-direction:column;
+          gap:6px;
+        }
+      }
+      </style>
+      
+      

@@ -1,0 +1,51 @@
+<!-- Bloc "Exercice d'application" -->
+<section class="exercise-download" aria-labelledby="ex-title">
+    <div class="ex-card">
+    
+      <!-- Mets ton vrai chemin ici (ex: /assets/docs/les-spheres-exercice.docx) -->
+      <a class="ex-cta" href="/assets/docs/les-spheres-exercice.docx" download
+         aria-label="Télécharger l’exercice d’application (DOCX)">
+        <span class="ex-cta__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" role="img">
+            <path d="M12 3v10.5l3.5-3.5 1.5 1.5-6 6-6-6 1.5-1.5L10 13.5V3h2zM4 20h16v2H4z" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="ex-cta__label">Exercice d’application</span>
+        <span class="ex-cta__meta">DOCX · à compléter</span>
+      </a>
+    </div>
+  </section>
+  
+  <style>
+  :root{
+    --ex-bg: #eef3fb;      /* fond carte */
+    --ex-ring:#d6e2fb;     /* bord */
+    --cta-grad: linear-gradient(135deg,#dfd1a8,#dfd1a8);
+    --cta-color:#fff;
+    --text-dark:#ecf0f4;
+    --radius:18px;
+    --shadow:0 10px 24px rgba(246, 247, 250, 0.14);
+  }
+  .exercise-download{max-width:980px;margin:clamp(16px,4vw,40px) auto;padding:0 16px;
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,"Noto Sans";color:var(--text-dark);}
+  .ex-card{background:white;border:1px solid var(--ex-ring);border-radius:var(--radius);
+    padding:clamp(18px,4vw,36px);box-shadow:var(--shadow);}
+  
+  .ex-text{margin:0 auto clamp(18px,4vw,28px);max-width:70ch;font-size:clamp(15px,2.3vw,18px);line-height:1.6;}
+  .ex-cta{--py:clamp(10px,1.4vw,14px);--px:clamp(16px,2.2vw,22px);
+    display:inline-flex;align-items:center;gap:clamp(10px,1.8vw,14px);
+    padding:var(--py) var(--px);border-radius:999px;background:var(--cta-grad);color:black;
+    text-decoration:none;font-weight:700;letter-spacing:.3px;box-shadow:0 10px 22px rgba(255, 255, 255, 0.25);
+    transition:transform .15s ease,box-shadow .15s ease,filter .15s ease; margin-inline:auto;}
+  .ex-cta{display:flex;justify-content:center}
+  .ex-cta__icon{display:grid;place-items:center}
+  .ex-cta__label{white-space:nowrap}
+  .ex-cta__meta{opacity:.9;font-weight:600;font-size:clamp(12px,1.9vw,14px);
+    padding:.2em .7em;border-radius:999px;background:rgba(255, 252, 252, 0.196)}
+  .ex-cta:hover{transform:translateY(-1px);filter:brightness(1.05);box-shadow:0 14px 28px rgba(246, 247, 248, 0.32)}
+  .ex-cta:active{transform:translateY(0);filter:brightness(.98)}
+  .ex-cta:focus-visible{outline:3px solid #0d0d0d;outline-offset:3px}
+  @media (max-width:560px){.ex-cta{width:100%;}}
+  </style>
+  
+  

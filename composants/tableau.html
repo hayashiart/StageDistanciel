@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tableau — Sommeil de l’enfant</title>
+<style>
+  :root{
+    --bg:#f4f6f8;
+    --paper:#ffffff;
+    --text:#1f2937;
+
+    --blue:#87a0c7;          /* entêtes colonnes */
+    --orange:#d7ae9e;        /* ligne Sommeil 24h */
+    --peach:#f7c6b2;         /* ligne Sommeil diurne (fond clair) */
+
+    --radius:22px;
+    --shadow:0 14px 34px rgba(0,0,0,.08);
+    --border:#e7ebf2;
+    --maxw:1100px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family: system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Helvetica Neue",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.55;
+  }
+
+  /* Feuille */
+  .sheet{
+    max-width:var(--maxw);
+    margin:clamp(16px,3.8vw,48px) auto;
+    padding:clamp(14px,3vw,28px);
+    background:var(--paper);
+    border:1px solid var(--border);
+    border-radius:18px;
+    box-shadow:var(--shadow);
+  }
+
+  /* Wrapper pour scroll horizontal mobile */
+  .table-wrap{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:6px;
+  }
+
+  /* Tableau “pilules” avec espacement pour arrondis propres */
+  .pill-table{
+    border-collapse:separate;
+    border-spacing:10px;                 /* espace blanc entre cellules */
+    width:100%;
+    min-width:880px;                     /* évite écrasement sur petit écran */
+  }
+
+  th, td{
+    padding:14px 16px;
+    text-align:center;
+    font-size:clamp(.95rem,.9rem + .25vw,1.05rem);
+    color:#fff;
+    font-weight:700;
+  }
+
+  /* Ligne 1 : entêtes âges */
+  .row-top th{
+    background:var(--blue);
+    border-radius:0;                     /* reset */
+  }
+  .row-top th:first-child{ border-top-left-radius: var(--radius); }
+  .row-top th:last-child{  border-top-right-radius:var(--radius); }
+
+  /* Ligne 2 : Sommeil par 24h */
+  .row-mid th,
+  .row-mid td{ background:var(--orange); }
+  .row-mid th{ text-align:left; }
+  .row-mid th:first-child{ border-bottom-left-radius:0; border-top-left-radius: var(--radius); }
+  .row-mid td:last-child{  border-top-right-radius: var(--radius); }
+
+  /* Ligne 3 : Sommeil diurne (fond clair + texte sombre) */
+  .row-bot th,
+  .row-bot td{
+    background:var(--peach);
+    color:#2b2b2b;
+    font-weight:600;
+  }
+  .row-bot th{ text-align:left; }
+  .row-bot th:first-child{ border-bottom-left-radius: var(--radius); }
+  .row-bot td:last-child{  border-bottom-right-radius: var(--radius); }
+
+  /* Colonne 1 (libellés) plus large + alignée */
+  .row-mid th, .row-bot th, .row-top th:first-child{
+    min-width:140px;
+  }
+
+  /* Séparateurs visuels (fins) entre colonnes via ombre intérieure douce */
+  .pill-table td, .pill-table th{
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.18);
+  }
+
+  /* Accessibilité : focus quand on tabule dans la zone */
+  .table-wrap:focus-within{ outline:3px solid #c7d2fe; outline-offset:4px; border-radius:14px; }
+
+  @media (max-width: 920px){
+    th, td{ padding:12px 12px; }
+  }
+</style>
+</head>
+<body>
+
+  <section class="sheet" aria-labelledby="tab-title">
+  
+    <div class="table-wrap" tabindex="0">
+      <table class="pill-table" role="table" aria-describedby="tab-title">
+        <!-- Ligne 1 : entêtes -->
+        <tr class="row-top" role="row">
+          <th scope="col">Âge</th>
+          <th scope="col">Nouveau-né</th>
+          <th scope="col">1&nbsp;mois</th>
+          <th scope="col">6&nbsp;mois</th>
+          <th scope="col">12&nbsp;mois</th>
+          <th scope="col">18-24&nbsp;mois</th>
+          <th scope="col">2-3&nbsp;ans</th>
+        </tr>
+
+        <!-- Ligne 2 : Sommeil par 24 heures -->
+        <tr class="row-mid" role="row">
+          <th scope="row">Sommeil par<br/>24&nbsp;heures</th>
+          <td>18 à 20<br/>heures par jour</td>
+          <td>16 à 18<br/>heures par jour</td>
+          <td>14 à 15<br/>heures par jour</td>
+          <td>13 à 14<br/>heures par jour</td>
+          <td>12 à 13<br/>heures par jour</td>
+          <td>12 à 13<br/>heures par jour</td>
+        </tr>
+
+        <!-- Ligne 3 : Sommeil diurne -->
+        <tr class="row-bot" role="row">
+          <th scope="row">Sommeil<br/>diurne</th>
+          <td>Pas d’alternance<br/>jour / nuit</td>
+          <td>7 à 9&nbsp;heures</td>
+          <td>3&nbsp;siestes</td>
+          <td>2&nbsp;siestes</td>
+          <td>1&nbsp;sieste</td>
+          <td>1&nbsp;sieste</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+</body>
+</html>

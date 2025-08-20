@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Composant Liste des Points</title>
+  <style>
+    /* ===========================
+       Composant 2 : Liste des points
+    =========================== */
+    .gjs-a-retenir-list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      text-align: left;
+      max-width: 800px;
+      margin: 40px auto;
+      font-family: Arial, sans-serif;
+      padding: 0 20px;
+    }
+
+    .gjs-a-retenir-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    /* Numéro */
+    .gjs-a-retenir-number {
+      background-color: #3b6ea5;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    /* Ligne verticale entre les numéros */
+    .gjs-a-retenir-item:not(:last-child) .gjs-a-retenir-number::after {
+      content: "";
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 25px;
+      background-color: #cbd6e2;
+    }
+
+    /* Texte */
+    .gjs-a-retenir-content { flex: 1; }
+
+    .gjs-a-retenir-content h4 {
+      margin: 0;
+      font-size: 16px;
+      color: #2b5d92;
+    }
+
+    .gjs-a-retenir-content p {
+      margin: 4px 0 0;
+      font-size: 14px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* ===========================
+       Responsive
+    =========================== */
+    @media (max-width: 600px) {
+      .gjs-a-retenir-content h4 { font-size: 14px; }
+      .gjs-a-retenir-content p  { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===========================
+       Composant 2 : Liste d'éléments
+  =========================== -->
+  <div class="gjs-a-retenir-list">
+
+    <!-- 1 -->
+    <div class="gjs-a-retenir-item">
+      <div class="gjs-a-retenir-number">01</div>
+      <div class="gjs-a-retenir-content">
+        <h4>La croissance</h4>
+        <p>Sécrétion d’une hormone de croissance (<em>somatohormone</em>) au cours du <strong>sommeil lent</strong>.</p>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="gjs-a-retenir-item">
+      <div class="gjs-a-retenir-number">02</div>
+      <div class="gjs-a-retenir-content">
+        <h4>La récupération physique</h4>
+        <p>Elle s’effectue principalement pendant le <strong>sommeil lent</strong>.</p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="gjs-a-retenir-item">
+      <div class="gjs-a-retenir-number">03</div>
+      <div class="gjs-a-retenir-content">
+        <h4>La maturation cérébrale</h4>
+        <p>Processus favorisé durant le <strong>sommeil paradoxal</strong>.</p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="gjs-a-retenir-item">
+      <div class="gjs-a-retenir-number">04</div>
+      <div class="gjs-a-retenir-content">
+        <h4>Apprentissage & mémorisation</h4>
+        <p>Mécanismes renforcés au cours du <strong>sommeil paradoxal</strong>.</p>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

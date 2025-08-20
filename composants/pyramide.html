@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pyramide des besoins</title>
+<style>
+  :root{
+    /* Couleurs des niveaux (du bas vers le haut) */
+    --c1:#223a80;   /* physiologiques */
+    --c2:#3b5ea0;   /* sécurité */
+    --c3:#6f92cc;   /* appartenance */
+    --c4:#8aa7da;   /* estime */
+    --c5:#a9bff0;   /* accomplissement */
+    --text:#ffffff;
+
+    --gap: 12px;    /* séparation blanche entre niveaux */
+    --slope: 8%;    /* inclinaison des trapèzes */
+    --radius: 8px;
+    --shadow: 0 10px 28px rgba(0,0,0,.12);
+    --maxw: 1100px;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", "Noto Sans", sans-serif;
+    background:#f6f7fb;
+    color:#1f2937;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .pyramid{
+    max-width:var(--maxw);
+    margin:clamp(18px,4vw,56px) auto;
+    padding: clamp(12px,2.2vw,20px);
+    background:#fff;
+    border-radius:22px;
+    box-shadow:var(--shadow);
+  }
+
+  /* Trapèze par défaut */
+  .level{
+    width:var(--w);
+    height:clamp(62px, 8.5vw, 120px);
+    margin: var(--gap) auto 0;
+    background:var(--bg);
+    color:var(--text);
+    clip-path: polygon(var(--slope) 0, calc(100% - var(--slope)) 0, 100% 100%, 0 100%);
+    border-radius: var(--radius);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    text-shadow: 0 1px 2px rgba(0,0,0,.15);
+    padding: 6px 14px;
+  }
+
+  /* Textes (plus petits) */
+  .level h3{
+    margin:0 0 .15rem 0;
+    font-size: clamp(.9rem, .8rem + .7vw, 1.25rem);
+    font-weight:900;
+    letter-spacing:.01em;
+  }
+  .level p{
+    margin:.08rem 0 0;
+    font-size: clamp(.82rem, .78rem + .45vw, 1.02rem);
+    opacity:.95;
+  }
+
+  /* Largeurs décroissantes */
+  .physio { --w: 90%; --bg: var(--c1); }
+  .secur  { --w: 72%; --bg: var(--c2); }
+  .appart { --w: 57%; --bg: var(--c3); }
+  .estime { --w: 46%; --bg: var(--c4);   height:clamp(5px, 10vw, 200px); }
+
+  /* ➜ Contrôle spécifique du margin-top de “Besoins d’estime” */
+
+
+  /* Sommet pointu (triangle) */
+  .accomp{
+    --w: 37%;
+    --bg: var(--c5);
+    height:clamp(150px, 19vw, 220px);     /* plus haut = pointe plus marquée */
+    margin-top: calc(var(--gap) - 6px);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    border-radius: 0 0 var(--radius) var(--radius);
+    padding-top: 12px;
+  }
+
+
+  .accomp h3 {
+    font-size: 90%;
+    margin-bottom: 7%;
+    width: 65%;
+    margin-left: -5%;
+  }
+
+
+  .accomp p {
+margin-bottom: -30%;
+font-size: 80%;
+  }
+
+  @media (max-width: 560px){
+    :root{ --slope: 10%; }
+    .level{ height:clamp(58px, 16vw, 110px); }
+    .estime{ --estime-offset: 10px; }
+    .accomp{ height:clamp(110px, 22vw, 200px); }
+  }
+
+</style>
+</head>
+<body>
+
+<section class="pyramid" aria-label="Pyramide des besoins de l'enfant">
+
+  <div class="level accomp">
+    <h3>Besoins d’accomplissement</h3>
+    <p>Réalisation de soi</p>
+  </div>
+
+  <!-- Tu peux aussi contrôler au cas par cas en inline :
+       style="--estime-offset: 26px" -->
+  <div class="level estime">
+    <h3>Besoins d’estime</h3>
+    <p>Reconnaissance, appréciation</p>
+  </div>
+
+  <div class="level appart">
+    <h3>Besoins d’appartenance</h3>
+    <p>Amour, affection des autres</p>
+  </div>
+
+  <div class="level secur">
+    <h3>Besoins de sécurité</h3>
+    <p>Environnement stable et prévisible, sans anxiété ni crise</p>
+  </div>
+
+  <div class="level physio">
+    <h3>Besoins physiologiques</h3>
+    <p>Faim, soif, respiration, sommeil</p>
+  </div>
+</section>
+
+</body>
+</html>

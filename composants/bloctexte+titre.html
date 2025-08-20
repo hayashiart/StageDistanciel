@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>3 - Les besoins fondamentaux de l’enfant</title>
+<style>
+  :root{
+    --bg:#f4f6f8;
+    --paper:#ffffff;
+    --text:#1f2937;
+    --muted:#4b5563;
+    --primary:#4a79c9;     /* bleu du titre */
+    --border:#e7ebf2;
+    --shadow:0 14px 34px rgba(0,0,0,.08);
+    --radius:20px;
+    --maxw:1100px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Helvetica Neue","Noto Sans",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* Feuille blanche */
+  .sheet{
+    max-width:var(--maxw);
+    margin:clamp(16px,3.5vw,48px) auto;
+    padding:clamp(18px,3vw,42px);
+    background:var(--paper);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+  }
+
+  .lead-block{
+    display:grid;
+    gap:clamp(10px,1.8vw,16px);
+    font-size:clamp(1.02rem,.98rem + .3vw,1.12rem);
+    text-align:justify;
+  }
+
+  /* Titre section 3 */
+  .sec-title{
+    margin: clamp(16px,3vw,28px) 0 clamp(8px,1.4vw,10px);
+    color:var(--primary);
+    font-size:clamp(1.4rem,1.1rem + 1.6vw,2rem);
+    font-weight:900;
+    letter-spacing:.2px;
+  }
+
+  .para{
+    margin:0;
+    font-size:clamp(1.02rem,.98rem + .3vw,1.12rem);
+    color:var(--text);
+    text-align:justify;
+  }
+
+  /* Petite ligne douce entre les blocs (optionnelle) */
+  .divider{
+    height:1px;
+    background:linear-gradient(90deg, transparent, #e9edf5, transparent);
+    margin:clamp(14px,2.2vw,20px) 0;
+    border:0;
+  }
+</style>
+</head>
+<body>
+
+  <section class="sheet" aria-labelledby="t-besoins">
+    <!-- Deux paragraphes d’intro -->
+    <div class="lead-block">
+      <p>
+        Un déséquilibre somatique peut provoquer de l’agressivité, un état de fatigue excessif, de la nervosité,
+        un trouble du comportement, ce qui peut créer un déséquilibre de sa croissance.
+      </p>
+      <p>
+        Le rythme alimentaire est généralement de 4&nbsp;heures entre les repas pour répondre aux besoins de l’enfant.
+        Toutefois, si le repas est dépassé, il faudra lui proposer une collation en attendant l’heure du repas.
+        L’adulte sera amené à s’adapter au rythme de l’enfant.
+      </p>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Titre + paragraphe de la section 3 -->
+    <h2 class="sec-title" id="t-besoins">3- Les besoins fondamentaux de l’enfant</h2>
+
+    <p class="para">
+      Tout professionnel de la petite enfance se réfère aux 14 besoins selon Virginia Henderson afin de répondre
+      aux besoins de l’enfant et bien-être de l’enfant. Voici la liste de ces besoins&nbsp;: respirer, boire et manger,
+      éliminer, se mouvoir, maintenir une bonne posture, dormir et se reposer, se vêtir et se dévêtir, maintenir une
+      bonne température du corps, être propre, soigné et protéger ses téguments, éviter les dangers, communiquer,
+      agir selon ses croyances et ses valeurs, s’occuper en vue de se réaliser, se recréer, apprendre.
+    </p>
+  </section>
+
+</body>
+</html>
