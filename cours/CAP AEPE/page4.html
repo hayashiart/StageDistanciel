@@ -4,92 +4,63 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Le contrat de travail et ses annexes</title>
-
     <style>
       /* ===========================================
-           VARIABLES CSS GLOBALES - SYSTÈME DE DESIGN COHÉRENT
+           VARIABLES CSS GLOBALES
            =========================================== */
-
       :root {
-        /* ===========================================
-             PALETTE DE COULEURS - COULEURS PRINCIPALES
-             =========================================== */
-        --primary-color: #5f8bbc; /* Bleu principal - couleur d'accent pour les éléments importants */
-        --primary-color3: #e1d4ff; /* Violet clair - fond pour les tableaux et sections spéciales */
-        --primary-color4: #f0ecc8; /* Jaune clair - fond pour les composants d'information */
-        --secondary-color: #9747ff; /* Violet principal - couleur secondaire pour les accents */
-        --blue-color10: #e6f0fb; /* Bleu très clair - fond pour les dégradés et sections */
-
-        /* ===========================================
-             PALETTE DE COULEURS - COULEURS NEUTRES
-             =========================================== */
-        --gray-color1: #757575; /* Gris moyen - couleur principale du texte */
-        --gray-color6: #ededed; /* Gris clair - fond pour les sections secondaires */
-        --gray-color7: #f7f7f7; /* Gris très clair - fond pour les tableaux et listes */
-        --white-color: #ffffff; /* Blanc pur - fond principal et texte sur fond coloré */
-
-        /* ===========================================
-             SYSTÈME TYPOGRAPHIQUE - ÉCHELLE DE TAILLES
-             =========================================== */
-        --main-font: "Montserrat", sans-serif; /* Police principale - moderne et lisible */
-        --font-size18: 18px; /* Texte de base - paragraphes et contenu principal */
-        --font-size24: 24px; /* Sous-titres - sections et composants */
-        --font-size28: 28px; /* Titres moyens - sections importantes */
-        --font-size32: 32px; /* Titres grands - pages et sections principales */
-        --font-size48: 48px; /* Titres très grands - titres de page */
-
-        /* ===========================================
-             SYSTÈME D'ESPACEMENT - ÉCHELLE COHÉRENTE
-             =========================================== */
-        --spacing-xs: 8px; /* Espacement très petit - marges internes fines */
-        --spacing-sm: 12px; /* Espacement petit - espacement entre éléments proches */
-        --spacing-md: 20px; /* Espacement moyen - espacement standard */
-        --spacing-lg: 30px; /* Espacement grand - espacement entre sections */
-        --spacing-xl: 40px; /* Espacement très grand - espacement entre blocs majeurs */
-
-        /* ===========================================
-             SYSTÈME D'OMBRES - PROFONDEUR VISUELLE
-             =========================================== */
-        --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1); /* Ombre légère - élévation subtile */
-        --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15); /* Ombre moyenne - élévation standard */
-        --shadow-heavy: 0 9px 15px rgba(0, 0, 0, 0.2); /* Ombre forte - élévation importante */
-
-        /* ===========================================
-             SYSTÈME DE TRANSITIONS - ANIMATIONS FLUIDES
-             =========================================== */
-        --transition-fast: 0.3s ease; /* Transition rapide - interactions immédiates */
-        --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transition fluide - animations douces */
+        /* Couleurs */
+        --primary-color: #5f8bbc;
+        --primary-color3: #e1d4ff;
+        --primary-color4: #f0ecc8;
+        --secondary-color: #9747ff;
+        --blue-color10: #e6f0fb;
+        --gray-color1: #757575;
+        --gray-color6: #ededed;
+        --gray-color7: #f7f7f7;
+        --white-color: #ffffff;
+        /* Typographie */
+        --main-font: "Montserrat", sans-serif;
+        --font-size18: 18px;
+        --font-size24: 24px;
+        --font-size28: 28px;
+        --font-size32: 32px;
+        --font-size48: 48px;
+        /* Espacement */
+        --spacing-xs: 8px;
+        --spacing-sm: 12px;
+        --spacing-md: 20px;
+        --spacing-lg: 30px;
+        --spacing-xl: 40px;
+        /* Ombres */
+        --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
+        --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15);
+        --shadow-heavy: 0 9px 15px rgba(0, 0, 0, 0.2);
+        /* Transitions */
+        --transition-fast: 0.3s ease;
+        --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       /* ===========================================
-           RESET ET STYLES DE BASE - FONDATION DU SITE
-           =========================================== */
-
-      /* ===========================================
-           RESET CSS UNIVERSEL - NORMALISATION CROISÉE NAVIGATEURS
+           RESET ET STYLES DE BASE
            =========================================== */
       * {
-        margin: 0; /* Supprime toutes les marges par défaut */
-        padding: 0; /* Supprime tous les paddings par défaut */
-        box-sizing: border-box; /* Modèle de boîte incluant padding et border */
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-
-      /* ===========================================
-           STYLES DE BASE DU BODY - CONFIGURATION GLOBALE
-           =========================================== */
+      html {
+        scroll-behavior: smooth;
+      }
       body {
-        font-family: var(--main-font); /* Police Montserrat pour tout le site */
-        font-size: var(--font-size18); /* Taille de texte standardisée */
-        font-weight: 400; /* Poids de police regular par défaut */
-        line-height: 1.6; /* Interligne confortable pour la lecture */
-        color: #333; /* Couleur de texte par défaut - gris foncé */
-        background-color: #f5f5f5; /* Fond gris clair pour contraste avec le contenu */
-        min-height: 100vh; /* Hauteur minimale = 100% de la hauteur d'écran */
+        font-family: var(--main-font);
+        font-size: var(--font-size18);
+        font-weight: 400;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f5f5f5;
+        min-height: 100vh;
       }
-
-      /* ===========================================
-           STYLES GLOBAUX POUR LES TEXTES - STANDARDISATION
-           =========================================== */
       p,
       li,
       span,
@@ -99,124 +70,128 @@
         font-weight: 400;
         color: #333;
       }
-
-      /* Suppression du gras sur tous les éléments strong */
       strong {
         font-weight: 400 !important;
       }
 
-      /* ===========================================
-           DÉFILEMENT FLUIDE - NAVIGATION SMOOTH SCROLL
-           =========================================== */
-      html {
-        scroll-behavior: smooth; /* Animation douce lors du scroll vers les ancres */
+      /* MEDIA QUERIES POUR STYLES DE BASE (TAILLES DE TEXTE GLOBALE) */
+      @media (min-width: 1440px) {
+        body {
+          font-size: 20px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        body {
+          font-size: 18px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        body {
+          font-size: 16px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 767px) {
+        body {
+          font-size: 14px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 375px) {
+        body {
+          font-size: 12px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 12px;
+        }
       }
 
       /* ===========================================
-           CONTAINER PRINCIPAL - STRUCTURE MAÎTRESSE DE LA PAGE
+           STYLES POUR COMPOSANT CONTAINER PRINCIPAL
            =========================================== */
-
-      /* ===========================================
-           CONTAINER PRINCIPAL - CENTRAGE ET OMBRE PORTÉE
-           =========================================== */
+      /* .main-container : Container principal pour centrer et styliser la page */
       .main-container {
-        width: 60%; /* Largeur relative pour s'adapter aux écrans */
-        max-width: 1200px; /* Largeur maximale pour éviter l'étirement excessif */
-        margin: 40px auto; /* Centrage horizontal avec marge verticale augmentée */
-        background: var(
-          --white-color
-        ); /* Fond blanc pour contraste avec l'arrière-plan */
-        border-radius: 12px; /* Coins arrondis pour un design moderne */
-        box-shadow: var(
-          --shadow-heavy
-        ); /* Ombre portée pour effet de profondeur */
-        padding: 40px; /* Espacement interne augmenté pour le contenu */
-        position: relative; /* Position relative pour les éléments enfants */
-        overflow: hidden; /* Masque le débordement pour les animations */
-      }
-
-      /* ===========================================
-           LAYOUT ET STRUCTURE
-           =========================================== */
-
-      /* Container de la page avec flexbox */
-      .page-container {
-        display: flex;
-        gap: 25px;
+        width: 60%;
+        max-width: 1200px;
+        margin: 40px auto;
+        background: var(--white-color);
+        border-radius: 12px;
+        box-shadow: var(--shadow-heavy);
+        padding: 40px;
         position: relative;
-        align-items: flex-start;
-        width: 100%;
-      }
-
-      /* Contenu principal avec gestion du débordement */
-      .main-content {
-        flex: 1;
-        padding: 20px;
-        transition: margin-left var(--transition-fast);
-        min-width: 0;
         overflow: hidden;
-        width: 100%;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT CONTAINER PRINCIPAL */
+      @media (min-width: 1440px) {
+        .main-container {
+          width: 60%;
+          margin: 40px auto;
+          padding: 40px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .main-container {
+          width: 70%;
+          margin: 40px auto;
+          padding: 35px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .main-container {
+          width: 80%;
+          margin: 20px auto;
+          padding: 25px;
+        }
+      }
+      @media (max-width: 767px) {
+        .main-container {
+          width: 95%;
+          margin: 15px auto;
+          padding: 20px;
+        }
+      }
+      @media (max-width: 375px) {
+        .main-container {
+          width: 98%;
+          margin: 10px auto;
+          padding: 15px;
+        }
       }
 
       /* ===========================================
-           MARGES ENTRE LES ÉLÉMENTS - ESPACEMENT GLOBAL
+           STYLES POUR COMPOSANT MENU BURGER
            =========================================== */
-
-      /* Marges entre les sections */
-      section {
-        margin-bottom: 30px;
-      }
-
-      /* Marges entre les sous-sections */
-      .subsection {
-        margin-bottom: 25px;
-      }
-
-      /* Marges entre les paragraphes */
-      p {
-        margin-bottom: 15px;
-        text-align: left;
-      }
-
-      /* Marges entre les titres et le contenu */
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        margin-bottom: 20px;
-      }
-
-      /* Marges entre les composants */
-      .imageHautTexteBas-container,
-      .accord-engagement,
-      .periode-essai-unique,
-      .periode-essai-example-unique,
-      .formalites-embauche-unique {
-        margin-bottom: 30px;
-      }
-
-      /* Marges entre les éléments de liste */
-      ul,
-      ol {
-        margin-bottom: 20px;
-      }
-
-      li {
-        margin-bottom: 8px;
-      }
-
-      /* ===========================================
-           MENU BURGER - SYSTÈME DE NAVIGATION
-           =========================================== */
-
-      /* Checkbox caché pour contrôler l'état du menu */
+      /* .menu-toggle-checkbox : Checkbox caché pour contrôler l'état du menu */
       .menu-toggle-checkbox {
         display: none;
       }
-
-      /* Bouton menu burger - visible sur tous les formats */
+      /* .menu-toggle : Bouton menu burger - visible sur tous les formats */
       .menu-toggle {
         display: block;
         position: fixed;
@@ -226,6 +201,8 @@
         height: 40px;
         cursor: pointer;
         z-index: 2001;
+        opacity: 0.8;
+        transition: opacity var(--transition-fast);
         background: var(--white-color);
         border-radius: 8px;
         padding: 8px;
@@ -235,16 +212,18 @@
         justify-content: center;
         align-items: center;
       }
-
-      /* Image du menu burger - reste constante */
+      /* .menu-toggle:hover : Effet hover sur le bouton menu burger */
+      .menu-toggle:hover {
+        opacity: 1;
+      }
+      /* .menu-toggle img : Image du menu burger - reste constante */
       .menu-toggle img {
         width: 100%;
         height: 100%;
         object-fit: contain;
         transition: none;
       }
-
-      /* Menu latéral qui glisse depuis la gauche */
+      /* .menu : Menu latéral qui glisse depuis la gauche */
       .menu {
         position: fixed;
         top: 0;
@@ -252,84 +231,125 @@
         width: 70%;
         max-width: 300px;
         height: 100%;
-        background: var(--white-color);
+        background: #ffffff;
         box-shadow: 4px 0 16px rgba(0, 0, 0, 0.15);
         transform: translateX(-100%);
-        transition: transform var(--transition-fast);
-        padding: 100px 30px 40px 30px; /* Augmenté le padding pour éviter le chevauchement */
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 100px 30px 40px 30px;
         z-index: 1500;
         border-right: 1px solid #e0e0e0;
-        overflow-y: auto; /* Permet le défilement vertical */
-        overflow-x: hidden; /* Cache le défilement horizontal */
+        overflow-y: auto;
+        overflow-x: hidden;
       }
-
-      /* Affiche le menu quand le checkbox est coché (glissement vers la droite) */
+      /* .menu-toggle-checkbox:checked + .menu-toggle + .menu : Affiche le menu quand le checkbox est coché (glissement vers la droite) */
       .menu-toggle-checkbox:checked + .menu-toggle + .menu {
         transform: translateX(0);
       }
-
-      /* Supprime les puces de la liste du menu */
+      /* .menu ul : Supprime les puces de la liste du menu */
       .menu ul {
         list-style: none;
       }
-
-      /* Espacement entre les éléments du menu */
+      /* .menu ul li : Espacement entre les éléments du menu */
       .menu ul li {
-        margin-bottom: 25px; /* Augmenté l'espacement entre les liens */
+        margin-bottom: 25px;
       }
-
-      /* Liens de navigation dans le menu burger */
+      /* .menu ul li a : Liens de navigation dans le menu burger */
       .menu ul li a {
         color: #333;
         text-decoration: none;
         font-weight: 600;
         font-size: var(--font-size18);
+        transition: all 0.3s ease;
         display: block;
-        padding: 18px 20px; /* Augmenté le padding pour plus d'espace */
+        padding: 18px 20px;
         border-radius: 10px;
-        background: var(--white-color);
+        background: #ffffff;
         border: 1px solid #e0e0e0;
-        margin-bottom: 10px; /* Espacement supplémentaire entre les liens */
+        margin-bottom: 10px;
       }
-
-      /* ===========================================
-           PERSONNALISATION DE LA BARRE DE DÉFILEMENT
-           =========================================== */
-
-      /* Masque la barre de défilement par défaut */
+      /* .menu ul li a:hover : Effet hover sur les liens du menu burger */
+      .menu ul li a:hover {
+        color: var(--primary-color);
+        background: #e6f0fb;
+        transform: translateX(10px);
+        box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
+        transition: all 0.3s ease;
+      }
+      /* .menu::-webkit-scrollbar : Personnalisation de la barre de défilement - Masque la barre de défilement par défaut */
       .menu::-webkit-scrollbar {
         width: 6px;
       }
-
-      /* Piste de la barre de défilement */
+      /* .menu::-webkit-scrollbar-track : Piste de la barre de défilement */
       .menu::-webkit-scrollbar-track {
         background: transparent;
       }
-
-      /* Curseur de la barre de défilement */
+      /* .menu::-webkit-scrollbar-thumb : Curseur de la barre de défilement */
       .menu::-webkit-scrollbar-thumb {
         background: var(--primary-color);
         border-radius: 3px;
         opacity: 0.7;
       }
-
-      /* Effet hover sur le curseur */
+      /* .menu::-webkit-scrollbar-thumb:hover : Effet hover sur le curseur */
       .menu::-webkit-scrollbar-thumb:hover {
         background: #4a7aa3;
         opacity: 1;
       }
-
-      /* Support pour Firefox */
+      /* .menu : Support pour Firefox */
       .menu {
         scrollbar-width: thin;
         scrollbar-color: var(--primary-color) transparent;
       }
 
-      /* ===========================================
-            TITRES ET EN-TÊTES
-            =========================================== */
+      /* MEDIA QUERIES POUR COMPOSANT MENU BURGER */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .menu {
+          width: 60%;
+          max-width: 280px;
+          padding: 70px 20px 25px;
+        }
+        .menu-toggle {
+          width: 35px;
+          height: 35px;
+          padding: 6px;
+        }
+      }
+      @media (max-width: 767px) {
+        .menu {
+          width: 75%;
+          max-width: 250px;
+          padding: 60px 15px 20px;
+        }
+        .menu-toggle {
+          width: 32px;
+          height: 32px;
+          padding: 5px;
+          top: 20px;
+          left: 20px;
+        }
+        .menu-toggle img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      @media (max-width: 375px) {
+        .menu {
+          width: 85%;
+          max-width: 280px;
+          padding: 50px 10px 15px;
+        }
+        .menu-toggle {
+          width: 28px;
+          height: 28px;
+          padding: 4px;
+          top: 15px;
+          left: 15px;
+        }
+      }
 
-      /* Titre principal de la page */
+      /* ===========================================
+           STYLES POUR COMPOSANT TITRE PRINCIPAL
+            =========================================== */
+      /* .intro-title : Titre principal de la page */
       .intro-title {
         font-family: var(--main-font);
         font-weight: 700;
@@ -340,7 +360,39 @@
         margin: 30px 0 40px 0;
       }
 
-      /* Image principale en haut de la page */
+      /* MEDIA QUERIES POUR COMPOSANT TITRE PRINCIPAL - IDENTIQUES À PAGE1.HTML */
+      @media (min-width: 1440px) {
+        .intro-title {
+          font-size: 42px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .intro-title {
+          font-size: 32px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .intro-title {
+          font-size: 32px;
+        }
+      }
+      @media (max-width: 767px) {
+        .intro-title {
+          font-size: 24px;
+          margin: 20px 0 30px 0;
+        }
+      }
+      @media (max-width: 375px) {
+        .intro-title {
+          font-size: 18px;
+          margin: 15px 0 20px 0;
+        }
+      }
+
+      /* ===========================================
+           STYLES POUR COMPOSANT IMAGE PRINCIPALE
+           =========================================== */
+      /* .intro-image : Image principale en haut de la page */
       .intro-image {
         display: block;
         max-width: 100%;
@@ -350,7 +402,22 @@
         box-shadow: var(--shadow-medium);
       }
 
-      /* Container des en-têtes de section (numéro + titre) */
+      /* MEDIA QUERIES POUR COMPOSANT IMAGE PRINCIPALE */
+      @media (max-width: 767px) {
+        .intro-image {
+          margin: 20px auto;
+        }
+      }
+      @media (max-width: 375px) {
+        .intro-image {
+          margin: 15px auto;
+        }
+      }
+
+      /* ===========================================
+           STYLES POUR COMPOSANT TITRES DE SECTION (NUMÉRO + TITRE)
+           =========================================== */
+      /* .section-header : Container des en-têtes de section (numéro + titre) */
       .section-header {
         display: flex;
         align-items: center;
@@ -362,8 +429,7 @@
         box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
         overflow: hidden;
       }
-
-      /* Numéro de section (01, 02, etc.) - partie bleue à gauche */
+      /* .section-number : Numéro de section (01, 02, etc.) - partie bleue à gauche */
       .section-number {
         background: #3b6ea5;
         color: var(--white-color);
@@ -381,8 +447,7 @@
         flex-shrink: 0;
         align-self: stretch;
       }
-
-      /* Titre de section (texte principal) - partie droite */
+      /* .section-title : Titre de section (texte principal) - partie droite */
       .section-title {
         color: #3b6ea5;
         font-family: var(--main-font);
@@ -397,15 +462,67 @@
         min-height: 100px;
       }
 
-      /* Liste à puces dans le contenu des sections */
-      .section-list {
-        margin-left: 25px;
-        margin-bottom: 25px;
-        font-size: 18px;
-        line-height: 1.8;
+      /* MEDIA QUERIES POUR COMPOSANT TITRES DE SECTION - IDENTIQUES À PAGE1.HTML */
+      @media (min-width: 1440px) {
+        .section-number {
+          font-size: 36px;
+        }
+        .section-title {
+          font-size: 24px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .section-number {
+          font-size: 36px;
+        }
+        .section-title {
+          font-size: 24px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .section-number {
+          font-size: 36px;
+        }
+        .section-title {
+          font-size: 24px;
+        }
+      }
+      @media (max-width: 767px) {
+        .section-header {
+          flex-direction: column;
+          text-align: center;
+          margin: 30px 0 20px;
+        }
+        .section-number {
+          border-radius: 12px 12px 0 0;
+          width: 100%;
+          text-align: center;
+          font-size: 28px;
+        }
+        .section-title {
+          border-radius: 0 0 12px 12px;
+          width: 100%;
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 375px) {
+        .section-header {
+          margin: 20px 0 15px;
+        }
+        .section-number {
+          font-size: 24px;
+          padding: 15px 20px;
+        }
+        .section-title {
+          font-size: 16px;
+          padding: 15px 20px;
+        }
       }
 
-      /* Sous-titres (A., B., etc.) dans les sections */
+      /* ===========================================
+           STYLES POUR COMPOSANT TITRES DE SOUS-SECTION (A., B.)
+           =========================================== */
+      /* .subsection-heading : Titres de niveau 3 pour sous-sections (A., B.) */
       .subsection-heading {
         font-family: "Montserrat", sans-serif;
         font-weight: 700;
@@ -416,177 +533,103 @@
         background: #f8fbff;
         border-left: 5px solid #5f8bbc;
         border-radius: 0 8px 8px 0;
-        text-align: left; /* Alignement à gauche explicite */
-      }
-
-      /* Texte de contenu des sections (paragraphes) */
-      .section-text {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 400;
-        color: #000000;
-        font-size: 18px;
-        margin-bottom: 15px;
-        line-height: 1.7;
+        text-align: left;
       }
 
       /* ===========================================
-            LAYOUT FLEXIBLE
+           STYLES POUR PARAGRAPHES DES SOUS-SECTIONS
             =========================================== */
-
-      /* Container flexible pour texte + image côte à côte */
-      .flex-container {
-        display: flex;
-        align-items: flex-start;
-        gap: 30px;
-        flex-wrap: wrap;
-        margin: 30px 0;
-        padding: 25px;
-        background: #fafbfc;
-        border-radius: 12px;
-        border: 1px solid #e0e0e0;
-      }
-
-      /* Zone de texte dans le layout flexible */
-      .text-content {
-        flex: 1;
-        min-width: 350px;
-      }
-
-      /* Images dans le layout flexible */
-      .office-image {
-        max-width: 350px;
-        width: 100%;
-        height: auto;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      }
-
-      /* ===========================================
-           COMPOSANT CONCLUSION
-           =========================================== */
-
-      /* Classes utilitaires pour le composant Conclusion */
-      .is-flex {
-        display: flex;
-      }
-
-      .is-flex-wrap-wrap-mobile {
-        flex-wrap: wrap;
-      }
-
-      .col-1 {
-        width: 8.333333%;
-      }
-
-      .col-11 {
-        width: 91.666667%;
-      }
-
-      /* ===========================================
-           COMPOSANT CONCLUSION - STYLES ORIGINAUX
-           =========================================== */
-
-      /* Variables CSS nécessaires pour le composant */
-      :root {
-        --main-font: "Montserrat", sans-serif;
-        --font-size18: 18px;
-        --font-size24: 24px;
-        --font-size32: 32px;
-        --font-size48: 48px;
-        --primary-color: #9747ff;
-        --gray-color1: #757575;
-        --white-color: #ffffff;
-      }
-
-      /* Classes utilitaires */
-      .is-flex {
-        display: flex;
-      }
-
-      .is-flex-wrap-wrap-mobile {
-        flex-wrap: wrap;
-      }
-
-      .col-1 {
-        width: 8.333333%;
-      }
-      .col-11 {
-        width: 91.666667%;
-      }
-
-      /* Block */
-      .block:not(:last-child),
-      .block:not(:last-child) {
-        margin-bottom: 24px;
-      }
-
-      /* Title H2 With background */
-      .bg-title-h2 {
+      /* .subsection-paragraph : Paragraphes dans les sous-sections */
+      .subsection-paragraph {
         font-family: var(--main-font);
-        color: var(--gray-color1);
-        font-size: var(--font-size32);
-        font-weight: 600;
-        background-color: var(--primary-color);
-        padding: 8px 14px;
-        border-radius: 10px;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
+        font-size: var(--font-size18);
+        font-weight: 400;
+        line-height: 1.6;
+        color: #333;
         margin-bottom: 20px;
+        text-align: justify;
+        padding: 0 20px;
       }
 
-      /* à retenir */
-      .steps {
-        padding: 20px;
+      /* MEDIA QUERIES POUR COMPOSANT TITRES DE SOUS-SECTION - IDENTIQUES À PAGE1.HTML */
+      @media (min-width: 1440px) {
+        .subsection-heading {
+          font-size: 26px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .subsection-heading {
+          font-size: 26px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .subsection-heading {
+          font-size: 26px;
+        }
+      }
+      @media (max-width: 767px) {
+        .subsection-heading {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 375px) {
+        .subsection-heading {
+          font-size: 16px;
+        }
       }
 
-      .step {
+      /* ===========================================
+           MEDIA QUERIES POUR PARAGRAPHES DES SOUS-SECTIONS - IDENTIQUES À PAGE1.HTML
+           =========================================== */
+      /* DESKTOP (1440px+) */
+      @media (min-width: 1440px) {
+        .subsection-paragraph {
+          font-size: 20px;
+        }
+      }
+      /* LAPTOP (1024px - 1439px) */
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .subsection-paragraph {
+          font-size: 18px;
+        }
+      }
+      /* TABLETTE (768px - 1023px) */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .subsection-paragraph {
+          font-size: 16px;
+        }
+      }
+      /* MOBILE (767px et moins) */
+      @media (max-width: 767px) {
+        .subsection-paragraph {
+          font-size: 14px;
+        }
+      }
+      /* MOBILE TRÈS PETIT (375px et moins) */
+      @media (max-width: 375px) {
+        .subsection-paragraph {
+          font-size: 12px;
+        }
+      }
+
+      /* ===========================================
+           STYLES POUR COMPOSANT CONCLUSION - À RETENIR
+           =========================================== */
+      /* .container-a-retenir : Container principal du composant conclusion avec espacement */
+      .container-a-retenir {
+        padding: 35px;
+        margin: 45px 0;
+      }
+      /* .wrap-title-retenir-conclusion : Wrapper pour le titre et l'image - disposition verticale centrée */
+      .wrap-title-retenir-conclusion {
         flex-direction: column;
-        position: relative;
         align-items: center;
       }
-
-      .number {
-        font-size: 18px;
-        font-family: var(--main-font);
-        font-weight: bold;
-        color: var(--white-color);
-        border-radius: 50%;
-        padding: 8px;
-        background-color: var(--primary-color);
-        width: 50px;
-        height: 50px;
-        align-items: center;
-        justify-content: center;
+      /* .retenir-img : Image au-dessus du titre "À retenir" - taille adaptative */
+      .retenir-img {
+        width: 35%;
       }
-
-      .text {
-        font-family: var(--main-font);
-        color: var(--primary-color);
-        text-align: justify;
-        font-size: var(--font-size24);
-        font-weight: 600;
-        margin: 0;
-        padding-left: 15px;
-      }
-
-      .sub-text {
-        font-family: var(--main-font);
-        color: var(--gray-color1);
-        font-size: 18px;
-        margin: 0;
-        text-align: justify;
-        padding-left: 15px;
-      }
-
-      .line {
-        display: none;
-      }
-
-      .steps .step-content:last-child .line {
-        display: none;
-      }
-
+      /* .title-retenir-conclusion : Titre principal "À RETENIR" - style typographique */
       .title-retenir-conclusion {
         color: var(--gray-color1);
         text-align: center;
@@ -597,54 +640,19 @@
         text-transform: uppercase;
         margin-top: 20px;
       }
-
-      .wrap-title-retenir-conclusion {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .retenir-img {
-        width: 35%;
-      }
-
-      /* Composant conclusion - styles exacts de page1.html */
-      .container-a-retenir {
-        padding: 35px;
-        margin: 45px 0;
-      }
-
-      .wrap-title-retenir-conclusion {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .retenir-img {
-        width: 35%;
-      }
-
-      .title-retenir-conclusion {
-        color: var(--gray-color1);
-        text-align: center;
-        font-family: var(--main-font);
-        font-size: var(--font-size24);
-        font-weight: 600;
-        line-height: normal;
-        text-transform: uppercase;
-        margin-top: 20px;
-      }
-
+      /* .steps : Container des étapes numérotées */
       .steps {
         padding: 20px;
       }
-
+      /* .step : Structure de chaque étape - disposition verticale centrée */
       .step {
         flex-direction: column;
         position: relative;
         align-items: center;
       }
-
+      /* .number : Numéro de l'étape - cercle coloré avec le numéro */
       .number {
-        font-size: var(--font-size18);
+        font-size: 18px;
         font-family: var(--main-font);
         font-weight: bold;
         color: var(--white-color);
@@ -654,20 +662,10 @@
         width: 50px;
         height: 50px;
         display: flex;
-        justify-content: center;
         align-items: center;
-        margin-bottom: 10px;
+        justify-content: center;
       }
-
-      .line {
-        display: none;
-      }
-
-      .steps .step-content:last-child .line {
-        display: none;
-      }
-
-      /* Styles spécifiques pour les textes du composant conclusion */
+      /* .text : Texte principal de l'étape - titre en gras */
       .text {
         font-family: var(--main-font);
         color: var(--primary-color);
@@ -677,7 +675,7 @@
         margin: 0;
         padding-left: 15px;
       }
-
+      /* .sub-text : Texte secondaire de l'étape - description détaillée */
       .sub-text {
         font-family: var(--main-font);
         color: var(--gray-color1);
@@ -686,30 +684,163 @@
         text-align: justify;
         padding-left: 15px;
       }
+      /* .line : Ligne verticale pointillée entre les étapes */
+      .line {
+        display: none;
+      }
+      /* .steps .step-content:last-child .line : Affichage de la ligne pour la dernière étape */
+      .steps .step-content:last-child .line {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .container-a-retenir {
+          text-align: center;
+        }
+        .steps {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+        .step-content {
+          width: 100%;
+          max-width: 600px;
+          margin-bottom: 24px;
+        }
+        .text,
+        .sub-text {
+          text-align: center;
+        }
+        .steps .step-content:last-child .line {
+          display: block;
+        }
+      }
+
+      /* TABLETTE (992px - 768px) */
+      @media (max-width: 992px) and (min-width: 768px) {
+        .container-a-retenir {
+          text-align: center;
+        }
+        .steps {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+        .step-content {
+          width: 100%;
+          max-width: 600px;
+          margin-bottom: 24px;
+        }
+        .text,
+        .sub-text {
+          text-align: center;
+        }
+        .steps .step-content:last-child .line {
+          display: block;
+        }
+      }
 
       /* ===========================================
-            COMPOSANTS SPÉCIFIQUES ORIGINAUX DE PAGE4
+           RESPONSIVE DESIGN GLOBAL - GROUPÉ PAR BREAKPOINTS
+           =========================================== */
+      @media (min-width: 1440px) {
+        .main-content {
+          margin-left: 0;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .main-content {
+          margin-left: 0;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .main-content {
+          margin-left: 0;
+        }
+        .main-container {
+          width: 80%;
+          margin: 20px auto;
+          padding: 25px;
+        }
+      }
+      @media (max-width: 767px) {
+        .main-content {
+          margin-left: 0;
+        }
+        .main-container {
+          width: 95%;
+          margin: 15px auto;
+          padding: 20px;
+        }
+        .page-container {
+          flex-direction: column;
+        }
+        .main-content {
+          padding: 15px;
+          overflow: visible;
+        }
+      }
+      @media (max-width: 375px) {
+        .main-container {
+          width: 98%;
+          margin: 10px auto;
+          padding: 15px;
+        }
+        .main-content {
+          padding: 10px;
+        }
+      }
+      @media (max-width: 480px) {
+        .main-container {
+          width: 100%;
+          margin: 10px;
+          padding: 15px;
+        }
+      }
+
+      /* ===========================================
+           CLASSES UTILITAIRES - SYSTÈME DE LAYOUT
+           =========================================== */
+      .is-flex {
+        display: flex;
+      }
+      .is-flex-wrap-wrap-mobile {
+        flex-wrap: wrap;
+      }
+      .col-1 {
+        width: 8.333333%;
+      }
+      .col-11 {
+        width: 91.666667%;
+      }
+
+      /* ===========================================
+           COMPOSANTS SPÉCIFIQUES DE PAGE4.HTML - VERSION MODERNISÉE
             =========================================== */
 
       /* ===========================================
-            COMPOSANT IMAGE HAUT TEXTE BAS
+           COMPOSANT IMAGE HAUT TEXTE BAS - MODERNISÉ
             =========================================== */
       .imageHautTexteBas-container {
-        width: 400px;
+        width: 600px;
         height: auto;
-        background-color: #f0ecc8;
-        margin: 0 auto;
+        background-color: var(--primary-color4);
+        margin: 40px auto;
         overflow: hidden;
         position: relative;
         border-radius: 20px;
-        margin-top: 10%;
-        margin-bottom: 10%;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: transform var(--transition-smooth),
+          box-shadow var(--transition-smooth);
+        box-shadow: var(--shadow-medium);
       }
 
       .imageHautTexteBas-container:hover {
         transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        box-shadow: var(--shadow-heavy);
       }
 
       .imageHautTexteBas-header-image {
@@ -719,99 +850,107 @@
       }
 
       .imageHautTexteBas-text-box {
-        background-color: rgba(250, 248, 247, 0.7);
-        padding: 20px;
-        margin: 20px;
-        border-radius: 20px;
+        background-color: rgba(250, 248, 247, 0.9);
+        padding: var(--spacing-lg);
+        margin: var(--spacing-lg);
+        border-radius: 15px;
         box-sizing: border-box;
         overflow-y: auto;
-        min-height: 100px;
+        min-height: 120px;
+        box-shadow: var(--shadow-light);
       }
 
       .imageHautTexteBas-text-box p {
-        font-size: 16px;
+        font-family: var(--main-font);
+        font-size: var(--font-size18);
         line-height: 1.6;
         color: #333;
         margin: 0;
         overflow-wrap: break-word;
+        text-align: left;
       }
 
       /* ===========================================
-            COMPOSANT ACCORD D'ENGAGEMENT
+           COMPOSANT ACCORD D'ENGAGEMENT - MODERNISÉ
             =========================================== */
       .accord-engagement {
         max-width: 900px;
-        margin: 50px auto;
-        font-family: Arial, sans-serif;
+        margin: var(--spacing-xl) auto;
+        font-family: var(--main-font);
       }
 
       .accord-cards-container {
         display: flex;
         flex-direction: column;
-        gap: 25px;
+        gap: var(--spacing-lg);
       }
 
       .accord-card {
         display: flex;
         align-items: flex-start;
-        gap: 15px;
+        gap: var(--spacing-md);
         background-color: #fdf9f1;
         border: 1px solid #e0ddd2;
         border-radius: 12px;
-        padding: 20px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        padding: var(--spacing-lg);
+        box-shadow: var(--shadow-light);
+        transition: transform var(--transition-fast),
+          box-shadow var(--transition-fast);
       }
 
       .accord-card:hover {
         transform: scale(1.01);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        box-shadow: var(--shadow-medium);
       }
 
       .accord-icon {
-        font-size: 24px;
+        font-size: var(--font-size24);
         margin-top: 4px;
+        flex-shrink: 0;
       }
 
       .accord-card p {
         margin: 0;
-        font-size: 16px;
+        font-family: var(--main-font);
+        font-size: var(--font-size18);
         color: #333;
         line-height: 1.6;
+        text-align: left;
       }
 
       /* ===========================================
-            COMPOSANT PÉRIODE D'ESSAI - CARTES COLORÉES
+           COMPOSANT PÉRIODE D'ESSAI - CARTES COLORÉES MODERNISÉES
             =========================================== */
       .periode-essai-unique {
         max-width: 1000px;
-        margin: 40px auto;
-        font-family: Arial, sans-serif;
+        margin: var(--spacing-xl) auto;
+        font-family: var(--main-font);
       }
 
       .periode-grid-unique {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: var(--spacing-lg);
       }
 
       .periode-card-unique {
         background: #f9f9f9;
         border-radius: 15px;
-        padding: 15px;
+        padding: var(--spacing-md);
         text-align: center;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: var(--shadow-light);
         display: flex;
         flex-direction: column;
         align-items: center;
         max-width: 70%;
         margin: 0 auto;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: transform var(--transition-smooth),
+          box-shadow var(--transition-smooth);
       }
 
       .periode-card-unique:hover {
         transform: translateY(-3px);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        box-shadow: var(--shadow-medium);
       }
 
       .periode-image-container-unique {
@@ -820,8 +959,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 15px;
-        margin-bottom: 15px;
+        padding: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
       }
 
       .card-violet-unique .periode-image-container-unique {
@@ -846,10 +985,12 @@
       }
 
       .periode-card-unique p {
-        font-size: 14px;
+        font-family: var(--main-font);
+        font-size: var(--font-size18);
         line-height: 1.5;
         color: #000;
         max-width: 90%;
+        text-align: left;
       }
 
       .periode-card-unique a {
@@ -872,15 +1013,15 @@
       }
 
       /* ===========================================
-            COMPOSANT EXEMPLE PÉRIODE D'ESSAI
+           COMPOSANT EXEMPLE PÉRIODE D'ESSAI - MODERNISÉ
             =========================================== */
       .periode-essai-example-unique {
         display: flex;
-        border-radius: 10px;
+        border-radius: 12px;
         overflow: hidden;
-        margin-top: 20px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        margin-bottom: 10%;
+        margin-top: var(--spacing-lg);
+        box-shadow: var(--shadow-medium);
+        margin-bottom: var(--spacing-xl);
       }
 
       .example-left-unique {
@@ -891,68 +1032,73 @@
       .example-right-unique {
         flex: 1;
         background-color: #f5f5f5;
-        padding: 20px;
+        padding: var(--spacing-lg);
         text-align: left;
       }
 
       .example-title-unique {
         color: #3b6ea5;
-        font-size: 16px;
+        font-family: var(--main-font);
+        font-size: var(--font-size18);
         font-weight: bold;
-        margin-bottom: 10px;
+        margin-bottom: var(--spacing-sm);
         margin-left: 10%;
       }
 
       .example-text-unique {
-        font-size: 14px;
+        font-family: var(--main-font);
+        font-size: var(--font-size18);
         margin: 5px 0;
         color: #000;
         line-height: 1.6;
         width: 90%;
         margin-left: 10%;
+        text-align: left;
       }
 
       /* ===========================================
-             COMPOSANT FORMALITÉS D'EMBAUCHE
+           COMPOSANT FORMALITÉS D'EMBAUCHE - MODERNISÉ
              =========================================== */
       .formalites-embauche-unique {
         max-width: 800px;
-        margin: 60px auto;
-        padding: 20px;
+        margin: var(--spacing-xl) auto;
+        padding: var(--spacing-lg);
         background-color: #fdf9f1;
         border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        box-shadow: var(--shadow-medium);
       }
 
       .formalites-container-unique {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: var(--spacing-lg);
       }
 
       .formalite-card-unique {
         display: flex;
         align-items: flex-start;
-        gap: 20px;
-        background-color: #ffffff;
+        gap: var(--spacing-lg);
+        background-color: var(--white-color);
         border-radius: 10px;
-        padding: 20px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        padding: var(--spacing-lg);
+        box-shadow: var(--shadow-light);
+        transition: transform var(--transition-fast),
+          box-shadow var(--transition-fast);
       }
 
       .formalite-card-unique:hover {
         transform: translateY(-3px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        box-shadow: var(--shadow-medium);
       }
 
       .formalite-number {
         min-width: 40px;
         min-height: 40px;
-        background-color: #3b6ea5;
-        color: #fff;
+        background-color: var(--primary-color);
+        color: var(--white-color);
         font-weight: bold;
-        font-size: 18px;
+        font-family: var(--main-font);
+        font-size: var(--font-size18);
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -962,280 +1108,69 @@
 
       .formalite-card-unique p {
         margin: 0;
-        font-size: 15px;
+        font-family: var(--main-font);
+        font-size: var(--font-size18);
         line-height: 1.6;
         color: #333;
+        text-align: left;
       }
 
       /* ===========================================
-           RESPONSIVE DESIGN
+           RESPONSIVE DESIGN POUR COMPOSANTS SPÉCIFIQUES MODERNISÉS
            =========================================== */
 
-      /* Desktop (1200px+) */
-      @media (min-width: 1200px) {
-        .main-content {
-          margin-left: 0;
-        }
-      }
-
-      /* Laptop (1024px - 1199px) */
-      @media (max-width: 1199px) and (min-width: 1024px) {
-        .main-content {
-          margin-left: 0;
-        }
-      }
-
-      /* Tablette (768px - 1023px) */
-      @media (max-width: 1023px) and (min-width: 768px) {
-        .main-content {
-          margin-left: 0;
-        }
-
-        .main-container {
-          width: 80%;
-          margin: 20px auto;
-          padding: 25px;
-        }
-
-        /* Menu plus petit sur tablette */
-        .menu {
-          width: 60%;
-          max-width: 280px;
-          padding: 70px 20px 25px;
-        }
-
-        /* Bouton burger plus petit sur tablette */
-        .menu-toggle {
-          width: 35px;
-          height: 35px;
-          padding: 6px;
-        }
-
-        .menu-toggle span {
-          width: 8px;
-          height: 1.5px;
-          margin: 1px 0;
-        }
-
-        /* Animation du menu burger sur tablette - flèche gauche */
-        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(1) {
-          transform: rotate(-45deg) translate(0.5px, 0px);
-        }
-
-        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(2) {
-          opacity: 0;
-        }
-
-        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(3) {
-          transform: rotate(45deg) translate(0.5px, 0px);
-        }
-
-        /* Composant Conclusion sur tablette */
-        .text,
-        .sub-text {
-          text-align: center;
-        }
-
-        .step-content {
-          margin-bottom: 24px;
-        }
-
-        .steps .step-content:last-child .line {
-          display: block;
-        }
-      }
-
-      /* Mobile (≤767px) */
-      @media (max-width: 767px) {
-        .main-container {
-          width: 95%;
-          margin: 10px auto;
-          padding: 15px;
-        }
-
-        .main-content {
-          margin-left: 0;
-          padding: 10px;
-        }
-
-        /* Menu plus large sur mobile */
-        .menu {
-          width: 85%;
-          max-width: 320px;
-          padding: 70px 20px 25px;
-        }
-
-        /* Bouton burger plus grand sur mobile */
-        .menu-toggle {
-          width: 45px;
-          height: 45px;
-          padding: 10px;
-          top: 15px;
-          left: 15px;
-        }
-
-        .menu-toggle span {
-          width: 12px;
-          height: 2px;
-          margin: 2px 0;
-        }
-
-        /* Animation du menu burger sur mobile - flèche gauche */
-        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(1) {
-          transform: rotate(-45deg) translate(1.5px, 0px);
-        }
-
-        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(2) {
-          opacity: 0;
-        }
-
-        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(3) {
-          transform: rotate(45deg) translate(1.5px, 0px);
-        }
-
-        /* Titre principal plus petit sur mobile */
-        .intro-title {
-          font-size: 24px;
-          margin: 20px 0 30px 0;
-        }
-
-        .section-number {
-          font-size: 28px;
-        }
-
-        .section-title {
-          font-size: 20px;
-        }
-
-        .subsection-heading {
-          font-size: 18px;
-        }
-
-        /* Titres des composants */
-        .title-retenir-conclusion {
-          font-size: 16px;
-        }
-
-        .text {
-          font-size: 14px;
-        }
-
-        .sub-text {
-          font-size: 14px;
-        }
-
-        .accord-card h3 {
-          font-size: 18px;
-        }
-
-        .imageHautTexteBas-text-box h3 {
-          font-size: 18px;
-        }
-
-        .example-text-unique h3 {
-          font-size: 18px;
-        }
-
-        /* En-têtes de section adaptés au mobile */
-        .section-header {
-          flex-direction: column;
-          margin: 30px 0 20px;
-        }
-
-        .section-number {
-          width: 100%;
-          min-width: auto;
-          padding: 15px;
-          font-size: 28px;
-        }
-
-        .section-title {
-          padding: 15px;
-          font-size: 20px;
-          min-height: auto;
-        }
-
-        /* Sous-titres plus petits sur mobile */
-        .subsection-heading {
-          font-size: 22px;
-          margin: 30px 0 15px;
-          padding: 12px 15px;
-        }
-
-        /* Texte plus petit sur mobile */
-        .section-text {
-          font-size: 16px;
-          margin-bottom: 20px;
-        }
-
-        /* Layout flexible adapté au mobile */
-        .flex-container {
-          flex-direction: column;
-          gap: 20px;
-          padding: 20px;
-        }
-
-        .text-content {
-          min-width: auto;
-        }
-
-        .office-image {
-          max-width: 100%;
-        }
-
-        /* Composant Conclusion sur mobile */
-        .text,
-        .sub-text {
-          text-align: center;
-        }
-
-        .step-content {
-          margin-bottom: 24px;
-        }
-
-        .steps .step-content:last-child .line {
-          display: block;
-        }
-
-        .title-retenir-conclusion {
-          font-size: 20px;
-        }
-
-        .retenir-img {
-          width: 50%;
-        }
-      }
-
-      /* ===========================================
-            RESPONSIVE DESIGN POUR COMPOSANTS SPÉCIFIQUES
-            =========================================== */
-
-      /* Desktop (≥1200px) */
-      @media (min-width: 1200px) {
+      /* Desktop (1440px+) */
+      @media (min-width: 1440px) {
         .imageHautTexteBas-container {
-          width: 400px;
+          width: 700px;
         }
-
+        .imageHautTexteBas-text-box p {
+          font-size: 20px;
+        }
+        .accord-card p {
+          font-size: 20px;
+        }
+        .periode-card-unique p {
+          font-size: 20px;
+        }
+        .example-text-unique {
+          font-size: 20px;
+        }
+        .formalite-card-unique p {
+          font-size: 20px;
+        }
         .periode-grid-unique {
           grid-template-columns: repeat(2, 1fr);
         }
-
         .formalites-embauche-unique {
           max-width: 700px;
         }
       }
 
-      /* Laptop (1024px - 1199px) */
-      @media (max-width: 1199px) and (min-width: 1024px) {
+      /* Laptop (1024px - 1439px) */
+      @media (max-width: 1439px) and (min-width: 1024px) {
         .imageHautTexteBas-container {
-          width: 350px;
+          width: 500px;
         }
-
+        .imageHautTexteBas-text-box p {
+          font-size: 18px;
+        }
+        .accord-card p {
+          font-size: 18px;
+        }
+        .periode-card-unique p {
+          font-size: 18px;
+        }
+        .example-text-unique {
+          font-size: 18px;
+        }
+        .formalite-card-unique p {
+          font-size: 18px;
+        }
         .periode-grid-unique {
           grid-template-columns: repeat(2, 1fr);
-          gap: 15px;
+          gap: var(--spacing-md);
         }
-
         .formalites-embauche-unique {
           max-width: 650px;
         }
@@ -1244,23 +1179,34 @@
       /* Tablette (768px - 1023px) */
       @media (max-width: 1023px) and (min-width: 768px) {
         .imageHautTexteBas-container {
-          width: 300px;
+          width: 450px;
         }
-
+        .imageHautTexteBas-text-box p {
+          font-size: 16px;
+        }
+        .accord-card p {
+          font-size: 16px;
+        }
+        .periode-card-unique p {
+          font-size: 16px;
+        }
+        .example-text-unique {
+          font-size: 16px;
+        }
+        .formalite-card-unique p {
+          font-size: 16px;
+        }
         .periode-grid-unique {
           grid-template-columns: repeat(2, 1fr);
-          gap: 15px;
+          gap: var(--spacing-md);
         }
-
         .periode-card-unique {
           max-width: 85%;
         }
-
         .formalites-embauche-unique {
           max-width: 600px;
-          margin: 40px auto;
+          margin: var(--spacing-xl) auto;
         }
-
         .accord-engagement {
           max-width: 800px;
         }
@@ -1270,78 +1216,137 @@
       @media (max-width: 767px) {
         .imageHautTexteBas-container {
           width: 90%;
-          margin: 20px auto;
+          margin: var(--spacing-lg) auto;
         }
-
         .imageHautTexteBas-header-image {
           height: 200px;
         }
-
+        .imageHautTexteBas-text-box p {
+          font-size: 14px;
+        }
+        .accord-card p {
+          font-size: 14px;
+        }
+        .periode-card-unique p {
+          font-size: 14px;
+        }
+        .example-text-unique {
+          font-size: 14px;
+        }
+        .formalite-card-unique p {
+          font-size: 14px;
+        }
         .periode-grid-unique {
           grid-template-columns: 1fr;
-          gap: 15px;
+          gap: var(--spacing-md);
         }
-
         .periode-card-unique {
           max-width: 100%;
         }
-
         .periode-image-unique {
           max-height: 80px;
         }
-
         .formalites-embauche-unique {
           max-width: 95%;
-          margin: 30px auto;
-          padding: 15px;
+          margin: var(--spacing-lg) auto;
+          padding: var(--spacing-md);
         }
-
         .formalite-card-unique {
-          padding: 15px;
-          gap: 15px;
+          padding: var(--spacing-md);
+          gap: var(--spacing-md);
         }
-
         .formalite-number {
           min-width: 35px;
           min-height: 35px;
           font-size: 16px;
         }
-
         .accord-engagement {
           max-width: 100%;
-          margin: 30px auto;
+          margin: var(--spacing-lg) auto;
         }
-
         .accord-card {
-          padding: 15px;
-          gap: 12px;
+          padding: var(--spacing-md);
+          gap: var(--spacing-sm);
         }
-
         .accord-icon {
           font-size: 20px;
         }
-
         .periode-essai-example-unique {
           flex-direction: column;
         }
-
         .example-left-unique {
           width: 100%;
           height: 10px;
         }
-
         .example-right-unique {
-          padding: 15px;
+          padding: var(--spacing-md);
         }
-
         .example-title-unique {
           margin-left: 0;
           text-align: center;
         }
-
         .example-text-unique {
           margin-left: 0;
           width: 100%;
+        }
+      }
+
+      /* ===========================================
+           MOBILE (767px et moins) - ADAPTATION COMPLÈTE
+           =========================================== */
+      @media (max-width: 767px) {
+        /* Layout principal adapté pour mobile */
+        .main-content {
+          margin-left: 0;
+        }
+        .main-container {
+          width: 95%;
+          margin: 15px auto;
+          padding: 20px;
+        }
+        .page-container {
+          flex-direction: column;
+        }
+        .main-content {
+          padding: 15px;
+          overflow: visible;
+        }
+        /* Menu burger optimisé pour mobile */
+        .menu {
+          width: 75%;
+          max-width: 250px;
+          padding: 60px 15px 20px;
+        }
+        .menu-toggle {
+          width: 32px;
+          height: 32px;
+          padding: 5px;
+          top: 20px;
+          left: 20px;
+        }
+        .menu-toggle img {
+          width: 100%;
+          height: 100%;
+        }
+        /* TEXTES NORMAUX - 14px uniforme */
+        .main-content p,
+        .main-content li,
+        .main-content span,
+        .main-content div,
+        .text,
+        .sub-text,
+        .container-a-retenir .text,
+        .container-a-retenir .sub-text {
+          font-size: 14px;
+        }
+        /* TITRES - 16px (légèrement plus grands) */
+        .main-content h3,
+        .main-content h4,
+        .main-content h5,
+        .main-content h6,
+        .subsection-heading,
+        .title-retenir-conclusion {
+          font-size: 16px;
         }
       }
 
@@ -1349,728 +1354,450 @@
            PETIT MOBILE (480px et moins) - OPTIMISATION EXTRÊME
            =========================================== */
       @media (max-width: 480px) {
-        /* Container principal avec marges minimales */
-        .main-container {
+        .imageHautTexteBas-container {
           width: 100%;
-          margin: 10px;
-          padding: 15px;
+          margin: var(--spacing-sm) auto;
         }
-
-        .main-content {
-          padding: 10px;
-        }
-
-        .intro-title {
-          font-size: 28px;
-          margin: 15px 0 25px 0;
-        }
-
-        .menu {
-          width: 90%;
-          max-width: 260px;
-          padding: 70px 15px 25px 15px;
-        }
-
-        .menu-toggle {
-          width: 40px;
-          height: 40px;
-          padding: 8px;
-          top: 15px;
-          left: 15px;
-        }
-
-        .menu-toggle span {
-          width: 10px;
-          height: 2px;
-          margin: 1.5px 0;
-        }
-
-        /* Animation du menu burger sur petit mobile */
-        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(1) {
-          transform: rotate(-45deg) translate(1px, 0px);
-        }
-
-        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(2) {
-          opacity: 0;
-        }
-
-        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(3) {
-          transform: rotate(45deg) translate(1px, 0px);
-        }
-
-        /* Titres adaptés */
-        .section-header {
-          margin: 25px 0 15px;
-        }
-
-        .section-number {
-          font-size: 24px;
-          padding: 12px 15px;
-          min-width: 80px;
-          width: 80px;
-        }
-
-        .section-title {
-          font-size: 18px;
-          padding: 12px 15px;
-          min-height: 60px;
-        }
-
-        .subsection-heading {
-          font-size: 20px;
-          margin: 20px 0 12px;
-          padding: 10px 12px;
-        }
-
-        /* Layout flexible en colonne */
-        .flex-container {
-          flex-direction: column;
-          padding: 15px;
-          gap: 15px;
-        }
-
-        .text-content {
-          min-width: auto;
-        }
-
-        .office-image {
-          max-width: 100%;
-        }
-
-        /* Composants spécifiques */
-        .imageHautTexteBas-container,
-        .imageGaucheTexteDroit-container,
-        .imageDroiteTextGauche-container {
-          flex-direction: column;
-          align-items: center;
-          min-height: 250px;
-          padding: 20px;
-        }
-
-        .imageHautTexteBas-header-image,
-        .imageGaucheTexteDroit-header-image,
-        .imageDroiteTextGauche-header-image {
-          max-width: 100%;
-          width: 100%;
-        }
-
-        .accord-cards-container {
-          flex-direction: column;
-          gap: 15px;
-        }
-
-        .accord-card {
-          padding: 15px;
-        }
-
-        .accord-icon {
-          font-size: 24px;
-          margin-bottom: 10px;
-        }
-
-        .periode-essai-example-unique {
-          flex-direction: column;
-          padding: 15px;
-          gap: 15px;
-        }
-
-        .example-title-unique {
-          margin-left: 0;
-          text-align: center;
-        }
-
-        .example-text-unique {
-          margin-left: 0;
-          width: 100%;
-        }
-
-        /* Composant Conclusion sur petit mobile */
-        .container-a-retenir {
-          padding: 25px;
-          margin: 30px 0;
-        }
-
-        .text,
-        .sub-text {
-          text-align: center;
-        }
-
-        .step-content {
-          margin-bottom: 20px;
-        }
-
-        .text,
-        .sub-text {
-          text-align: center;
-        }
-
-        /* Centrage et débordement pour tous les éléments */
-        .imageHautTexteBas-container,
-        .accord-cards-container,
-        .periode-essai-example-unique {
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          padding: 15px;
-        }
-
-        /* Réduction de la taille des textes pour éviter le débordement */
-        .imageHautTexteBas-text-box p,
-        .accord-card p,
-        .example-text-unique {
-          font-size: 16px;
-          line-height: 1.5;
-          padding: 15px;
-          word-wrap: break-word;
-          overflow-wrap: break-word;
-        }
-
-        /* Images centrées et redimensionnées */
         .imageHautTexteBas-header-image {
-          max-width: 200px;
-          margin: 0 auto;
+          height: 150px;
         }
-      }
-
-      /* Centrage du composant conclusion en responsive */
-      @media (max-width: 768px) {
-        .container-a-retenir {
-          text-align: center;
+        .imageHautTexteBas-text-box {
+          padding: var(--spacing-md);
+          margin: var(--spacing-md);
         }
-
-        .steps {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          max-width: 800px;
-          margin: 0 auto;
+        .imageHautTexteBas-text-box p {
+          font-size: 14px;
         }
-
-        .step-content {
-          width: 100%;
-          max-width: 600px;
-          margin-bottom: 20px;
+        .accord-engagement {
+          margin: var(--spacing-lg) auto;
         }
-
-        .text,
-        .sub-text {
-          text-align: center;
+        .accord-card {
+          padding: var(--spacing-sm);
+          gap: var(--spacing-sm);
         }
-      }
-
-      @media (max-width: 992px) and (min-width: 768px) {
-        /* Titres adaptés pour tablette */
-        .intro-title {
-          font-size: 32px;
-        }
-
-        .section-number {
-          font-size: 32px;
-        }
-
-        .section-title {
-          font-size: 22px;
-        }
-
-        .subsection-heading {
-          font-size: 20px;
-        }
-
-        /* Titres des composants pour tablette */
-        .title-retenir-conclusion {
+        .accord-icon {
           font-size: 18px;
         }
-
-        .text {
-          font-size: 16px;
+        .accord-card p {
+          font-size: 14px;
         }
-
-        .sub-text {
-          font-size: 16px;
+        .periode-essai-unique {
+          margin: var(--spacing-lg) auto;
         }
-
-        .accord-card h3 {
-          font-size: 20px;
+        .periode-grid-unique {
+          gap: var(--spacing-sm);
         }
-
-        .imageHautTexteBas-text-box h3 {
-          font-size: 20px;
+        .periode-card-unique {
+          padding: var(--spacing-sm);
         }
-
-        .example-text-unique h3 {
-          font-size: 20px;
+        .periode-card-unique p {
+          font-size: 14px;
         }
-        .container-a-retenir {
-          text-align: center;
+        .periode-image-unique {
+          max-height: 60px;
         }
-
-        .steps {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          max-width: 800px;
-          margin: 0 auto;
+        .formalites-embauche-unique {
+          margin: var(--spacing-lg) auto;
+          padding: var(--spacing-sm);
         }
-
-        .step-content {
-          width: 100%;
-          max-width: 600px;
-          margin-bottom: 20px;
+        .formalite-card-unique {
+          padding: var(--spacing-sm);
+          gap: var(--spacing-sm);
         }
-
-        .text,
-        .sub-text {
-          text-align: center;
+        .formalite-card-unique p {
+          font-size: 14px;
+        }
+        .formalite-number {
+          min-width: 30px;
+          min-height: 30px;
+          font-size: 14px;
+        }
+        .example-text-unique {
+          font-size: 14px;
         }
       }
 
       /* ===========================================
-           TRÈS PETITS ÉCRANS (iPhone 5/SE, iPhone 12 Pro) - 375px et moins
+           TRÈS PETITS ÉCRANS (375px et moins)
            =========================================== */
       @media (max-width: 375px) {
-        /* Layout principal ultra-compact */
-        .main-container {
-          width: 98%;
-          margin: 10px auto;
-          padding: 15px;
+        .imageHautTexteBas-container {
+          width: 100%;
+          margin: var(--spacing-sm) auto;
         }
-
-        .main-content {
-          padding: 10px;
+        .imageHautTexteBas-header-image {
+          height: 120px;
         }
-
-        /* Menu burger ultra-compact */
-        .menu {
-          width: 85%;
-          max-width: 280px;
-          padding: 50px 10px 15px;
+        .imageHautTexteBas-text-box {
+          padding: var(--spacing-sm);
+          margin: var(--spacing-sm);
         }
-
-        .menu-toggle {
-          width: 28px;
-          height: 28px;
-          padding: 4px;
-          top: 15px;
-          left: 15px;
+        .imageHautTexteBas-text-box p {
+          font-size: 12px;
         }
-
-        /* Titres ultra-compacts */
-        .intro-title {
-          font-size: 20px;
-          margin: 15px 0 20px 0;
+        .accord-engagement {
+          margin: var(--spacing-md) auto;
         }
-
-        .section-header {
-          margin: 20px 0 15px;
+        .accord-card {
+          padding: var(--spacing-sm);
+          gap: var(--spacing-xs);
         }
-
-        .section-number {
-          font-size: 24px;
-          padding: 15px 20px;
-        }
-
-        .section-title {
+        .accord-icon {
           font-size: 16px;
-          padding: 15px 20px;
         }
-
-        .subsection-heading {
-          font-size: 16px;
-          padding: 8px 12px;
+        .accord-card p {
+          font-size: 12px;
         }
-
-        /* Centrage ultra-perfect pour tous les composants */
-        .imageHautTexteBas-container,
-        .accord-cards-container,
-        .periode-essai-example-unique,
-        .flex-container,
-        .imageGaucheTexteDroit-container,
-        .imageDroiteTextGauche-container {
-          display: flex !important;
-          flex-direction: column !important;
-          align-items: center !important;
-          justify-content: center !important;
-          text-align: center !important;
-          width: 100% !important;
-          max-width: 100% !important;
-          padding: 10px !important;
-          margin: 10px 0 !important;
+        .periode-essai-unique {
+          margin: var(--spacing-md) auto;
         }
-
-        /* Composant à retenir ultra-compact */
-        .container-a-retenir {
-          padding: 15px !important;
-          margin: 20px 0 !important;
+        .periode-grid-unique {
+          gap: var(--spacing-xs);
         }
-
-        .step-content {
-          flex-direction: column !important;
-          align-items: center !important;
-          text-align: center !important;
-          gap: 10px !important;
+        .periode-card-unique {
+          padding: var(--spacing-sm);
         }
-
-        .step-text {
-          text-align: center !important;
-          width: 100% !important;
+        .periode-card-unique p {
+          font-size: 12px;
         }
-
-        .number {
-          width: 40px !important;
-          height: 40px !important;
-          font-size: 14px !important;
+        .periode-image-unique {
+          max-height: 50px;
         }
-
-        /* Tailles de police ultra-compactes */
-        .imageHautTexteBas-text-box p,
-        .accord-card p,
-        .example-text-unique,
-        .flex-container p,
-        .imageGaucheTexteDroit-text p,
-        .imageDroiteTextGauche-text p {
-          font-size: 12px !important;
-          line-height: 1.4 !important;
-          word-wrap: break-word !important;
-          overflow-wrap: break-word !important;
+        .formalites-embauche-unique {
+          margin: var(--spacing-md) auto;
+          padding: var(--spacing-sm);
         }
-
-        .text {
-          font-size: 14px !important;
+        .formalite-card-unique {
+          padding: var(--spacing-sm);
+          gap: var(--spacing-sm);
         }
-
-        .sub-text {
-          font-size: 12px !important;
+        .formalite-card-unique p {
+          font-size: 12px;
         }
-
-        .title-retenir-conclusion {
-          font-size: 14px !important;
+        .formalite-number {
+          min-width: 25px;
+          min-height: 25px;
+          font-size: 12px;
         }
-
-        .container-a-retenir .text {
-          font-size: 14px !important;
-        }
-
-        .container-a-retenir .sub-text {
-          font-size: 12px !important;
-        }
-
-        /* Images ultra-compactes */
-        .imageHautTexteBas-header-image,
-        .imageGaucheTexteDroit-header-image,
-        .imageDroiteTextGauche-header-image,
-        .flex-container img {
-          max-width: 120px !important;
-          margin: 0 auto !important;
-          height: auto !important;
+        .example-text-unique {
+          font-size: 12px;
         }
       }
     </style>
   </head>
-
   <body>
-    <!-- Menu Burger -->
-    <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" />
-    <label for="menu-toggle" class="menu-toggle">
-      <img src="../../images/png/menuBurger.png" alt="Menu" />
-    </label>
-
-    <!-- Menu de navigation -->
-    <nav class="menu">
-      <ul>
-        <li>
-          <a href="#section1">1 - Qu'est ce qu'un contrat de travail ?</a>
-        </li>
-        <li><a href="#section2">2 - Accord d'engagement avant-contrat</a></li>
-        <li><a href="#section3">3 - Période d'essai</a></li>
-        <li><a href="#section4">4 - Formalités d'embauche</a></li>
-        <li>
-          <a href="#section5"
-            >5 - Modèle du contrat de travail et ses annexes</a
-          >
-        </li>
-        <li><a href="#section6">6 - A retenir</a></li>
-      </ul>
-    </nav>
-
-    <!-- Container principal -->
+    <!-- ===========================================
+         CONTAINER PRINCIPAL - STRUCTURE MAÎTRESSE
+         =========================================== -->
     <div class="main-container">
+      <!-- ===========================================
+           MENU BURGER - SYSTÈME DE NAVIGATION
+           =========================================== -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" />
+      <label for="menu-toggle" class="menu-toggle">
+        <img src="../../images/png/menuBurger.png" alt="Menu" />
+      </label>
+      <!-- Menu latéral de navigation -->
+      <nav class="menu">
+        <ul>
+          <li>
+            <a href="#section1">1 - Qu'est ce qu'un contrat de travail ?</a>
+          </li>
+          <li><a href="#section2">2 - Accord d'engagement avant-contrat</a></li>
+          <li><a href="#section3">3 - Période d'essai</a></li>
+          <li><a href="#section4">4 - Formalités d'embauche</a></li>
+          <li>
+            <a href="#section5"
+              >5 - Modèle du contrat de travail et ses annexes</a
+            >
+          </li>
+          <li><a href="#conc">6 - À retenir</a></li>
+        </ul>
+      </nav>
+      <!-- ===========================================
+           CONTENU PRINCIPAL DE LA PAGE
+           =========================================== -->
       <div class="page-container">
-        <div class="main-content">
-          <!-- Titre principal -->
+        <main class="main-content">
+          <!-- ===========================================
+               TITRE PRINCIPAL
+               =========================================== -->
           <h1 class="intro-title">Le contrat de travail et ses annexes</h1>
-
-          <!-- Image principale -->
+          <!-- ===========================================
+               IMAGE PRINCIPALE
+               =========================================== -->
           <img
+            class="intro-image"
             src="../../images/CAP AEPE/page4/imagePage4.png"
             alt="Contrat de travail"
-            class="intro-image"
           />
-
-          <!-- Section 1 -->
-          <div class="section-header" id="section1">
-            <div class="section-number">01</div>
-            <div class="section-title">
-              Qu'est ce qu'un contrat de travail ?
+          <!-- ===========================================
+               SECTION 1
+               =========================================== -->
+          <section id="section1">
+            <div class="section-header">
+              <span class="section-number">01</span>
+              <span class="section-title"
+                >Qu'est ce qu'un contrat de travail ?</span
+              >
             </div>
-          </div>
-
-          <!-- Composant original imageHautTexteBas -->
-          <div class="imageHautTexteBas-container">
-            <img
-              src="../../images/CAP AEPE/page4/imageBureau.png"
-              alt="Image d'en-tête"
-              class="imageHautTexteBas-header-image"
-            />
-            <div class="imageHautTexteBas-text-box">
-              <p>
-                <span style="color: #1f4ca3; font-weight: bold"
-                  >Le contrat de travail est un accord entre un salarié et un
-                  employeur</span
-                >, pour lequel le salarié s'engage à effectuer un travail au
-                profit de l'employeur, en contrepartie d'un salaire. Ce contrat
-                entraîne des obligations et des droits des deux parties comme le
-                respect des horaires, de la rémunération… <br /><br />
-                Ces contrats peuvent être à durée indéterminée (CDI) ou à durée
-                déterminée (CDD).
-              </p>
-            </div>
-          </div>
-
-          <!-- Section 2 -->
-          <div class="section-header" id="section2">
-            <div class="section-number">02</div>
-            <div class="section-title">Accord d'engagement avant-contrat</div>
-          </div>
-
-          <!-- Composant original accord-engagement -->
-          <section class="accord-engagement" id="section2">
-            <div class="accord-cards-container">
-              <!-- Bloc 1 -->
-              <div class="accord-card">
-                <div class="accord-icon">🤝</div>
-                <p>
-                  <strong
-                    >Le particulier employeur et l'assistante maternelle se
-                    mettent d'accord sur le principe de l'embauche avant
-                    signature du contrat (horaires / rémunération / congé-payé /
-                    frais d'entretiens / jours fériés ou chômés / repos
-                    hebdomadaire).</strong
-                  >
-                </p>
-              </div>
-
-              <!-- Bloc 2 -->
-              <div class="accord-card">
-                <div class="accord-icon">📄</div>
-                <p>
-                  <strong
-                    >Cet accord d'engagement vaut promesse d'embauche.</strong
-                  >
-                </p>
-              </div>
-
-              <!-- Bloc 3 -->
-              <div class="accord-card">
-                <div class="accord-icon">⚖️</div>
-                <p>
-                  <strong
-                    >Au cas où l'une des deux parties ne donne suite, elle
-                    versera à l'autre une indemnité forfaitaire
-                    compensatrice.</strong
-                  >
+            <!-- Composant spécifique imageHautTexteBas -->
+            <div class="imageHautTexteBas-container">
+              <img
+                src="../../images/CAP AEPE/page4/imageBureau.png"
+                alt="Image d'en-tête"
+                class="imageHautTexteBas-header-image"
+              />
+              <div class="imageHautTexteBas-text-box">
+                <p class="subsection-paragraph">
+                  <span
+                    >Le contrat de travail est un accord entre un salarié et un
+                    employeur</span
+                  >, pour lequel le salarié s'engage à effectuer un travail au
+                  profit de l'employeur, en contrepartie d'un salaire. Ce
+                  contrat entraîne des obligations et des droits des deux
+                  parties comme le respect des horaires, de la rémunération…
+                  <br /><br />
+                  Ces contrats peuvent être à durée indéterminée (CDI) ou à
+                  durée déterminée (CDD).
                 </p>
               </div>
             </div>
           </section>
-
-          <!-- Section 3 -->
-          <div class="section-header" id="section3">
-            <div class="section-number">03</div>
-            <div class="section-title">Période d'essai</div>
-          </div>
-
-          <!-- Composant original periode-essai avec cartes colorées -->
-          <section class="periode-essai-unique">
-            <div class="periode-grid-unique">
-              <!-- Carte 1 -->
-              <div class="periode-card-unique card-violet-unique">
-                <div class="periode-image-container-unique">
-                  <img
-                    src="../../images/CAP AEPE/page4/certificate.svg"
-                    alt="Contrat d'assistante maternelle"
-                    class="periode-image-unique"
-                  />
+          <!-- ===========================================
+               SECTION 2
+               =========================================== -->
+          <section id="section2">
+            <div class="section-header">
+              <span class="section-number">02</span>
+              <span class="section-title"
+                >Accord d'engagement avant-contrat</span
+              >
+            </div>
+            <!-- Composant accord-engagement -->
+            <div class="accord-engagement">
+              <div class="accord-cards-container">
+                <!-- Bloc 1 -->
+                <div class="accord-card">
+                  <div class="accord-icon">🤝</div>
+                  <p class="subsection-paragraph">
+                    <strong
+                      >Le particulier employeur et l'assistante maternelle se
+                      mettent d'accord sur le principe de l'embauche avant
+                      signature du contrat (horaires / rémunération / congé-payé
+                      / frais d'entretiens / jours fériés ou chômés / repos
+                      hebdomadaire).</strong
+                    >
+                  </p>
                 </div>
-                <p>
-                  Elle est fixée par le
-                  <a href="#">contrat d'assistante maternelle</a>. Si tel n'est
-                  pas le cas, il n'y a pas de période d'essai, et le premier
-                  jour de travail marque l'embauche définitive.
-                </p>
+                <!-- Bloc 2 -->
+                <div class="accord-card">
+                  <div class="accord-icon">📄</div>
+                  <p class="subsection-paragraph">
+                    <strong
+                      >Cet accord d'engagement vaut promesse d'embauche.</strong
+                    >
+                  </p>
+                </div>
+                <!-- Bloc 3 -->
+                <div class="accord-card">
+                  <div class="accord-icon">⚖️</div>
+                  <p class="subsection-paragraph">
+                    <strong
+                      >Au cas où l'une des deux parties ne donne suite, elle
+                      versera à l'autre une indemnité forfaitaire
+                      compensatrice.</strong
+                    >
+                  </p>
+                </div>
               </div>
-
-              <!-- Carte 2 -->
-              <div class="periode-card-unique card-jaune-unique">
-                <div class="periode-image-container-unique">
-                  <img
-                    src="../../images/CAP AEPE/page4/baby.svg"
-                    alt="Convention collective"
-                    class="periode-image-unique"
-                  />
+            </div>
+          </section>
+          <!-- ===========================================
+               SECTION 3
+               =========================================== -->
+          <section id="section3">
+            <div class="section-header">
+              <span class="section-number">03</span>
+              <span class="section-title">Période d'essai</span>
+            </div>
+            <!-- Composant periode-essai avec cartes colorées -->
+            <div class="periode-essai-unique">
+              <div class="periode-grid-unique">
+                <!-- Carte 1 -->
+                <div class="periode-card-unique card-violet-unique">
+                  <div class="periode-image-container-unique">
+                    <img
+                      src="../../images/CAP AEPE/page4/certificate.svg"
+                      alt="Contrat d'assistante maternelle"
+                      class="periode-image-unique"
+                    />
+                  </div>
+                  <p class="subsection-paragraph">
+                    Elle est fixée par le
+                    <a href="#">contrat d'assistante maternelle</a>. Si tel
+                    n'est pas le cas, il n'y a pas de période d'essai, et le
+                    premier jour de travail marque l'embauche définitive.
+                  </p>
                 </div>
-                <p>
-                  C'est la
-                  <a href="#"
-                    >convention collective des assistantes maternelles</a
-                  >
-                  qui détermine la durée maximale de la période d'essai :
-                  <strong>3 mois</strong> si moins de 4 jours/semaine,
-                  <strong>2 mois</strong> sinon.
-                </p>
+                <!-- Carte 2 -->
+                <div class="periode-card-unique card-jaune-unique">
+                  <div class="periode-image-container-unique">
+                    <img
+                      src="../../images/CAP AEPE/page4/baby.svg"
+                      alt="Convention collective"
+                      class="periode-image-unique"
+                    />
+                  </div>
+                  <p class="subsection-paragraph">
+                    C'est la
+                    <a href="#"
+                      >convention collective des assistantes maternelles</a
+                    >
+                    qui détermine la durée maximale de la période d'essai :
+                    <strong>3 mois</strong> si moins de 4 jours/semaine,
+                    <strong>2 mois</strong> sinon.
+                  </p>
+                </div>
+                <!-- Carte 3 -->
+                <div class="periode-card-unique card-bleue-unique">
+                  <div class="periode-image-container-unique">
+                    <img
+                      src="../../images/CAP AEPE/page4/warning.svg"
+                      alt="Important"
+                      class="periode-image-unique"
+                    />
+                  </div>
+                  <p class="subsection-paragraph">
+                    <strong>Important :</strong> une assistante maternelle
+                    agréée n'effectue qu'une seule période d'essai. La famille
+                    ne peut pas exiger de renouvellement.
+                  </p>
+                </div>
+                <!-- Carte 4 -->
+                <div class="periode-card-unique card-grise-unique">
+                  <div class="periode-image-container-unique">
+                    <img
+                      src="../../images/CAP AEPE/page4/motherhood.svg"
+                      alt="Deuxième enfant"
+                      class="periode-image-unique"
+                    />
+                  </div>
+                  <p class="subsection-paragraph">
+                    Si une famille confie son 2e enfant alors qu'elle garde déjà
+                    le premier depuis plus de 3 mois,
+                    <strong>aucune période d'essai</strong> ne peut être
+                    imposée.
+                  </p>
+                </div>
               </div>
-
-              <!-- Carte 3 -->
-              <div class="periode-card-unique card-bleue-unique">
-                <div class="periode-image-container-unique">
-                  <img
-                    src="../../images/CAP AEPE/page4/warning.svg"
-                    alt="Important"
-                    class="periode-image-unique"
-                  />
-                </div>
-                <p>
-                  <strong>Important :</strong> une assistante maternelle agréée
-                  n'effectue qu'une seule période d'essai. La famille ne peut
-                  pas exiger de renouvellement.
+            </div>
+            <!-- Composant spécifique exemple periode d'essai -->
+            <div class="periode-essai-example-unique">
+              <div class="example-left-unique"></div>
+              <div class="example-right-unique">
+                <h3 class="subsection-heading">
+                  Puis-je rompre ma période d'essai ?
+                </h3>
+                <p class="subsection-paragraph">
+                  Les assistantes maternelles peuvent mettre fin à leur période
+                  d'essai sans aucun motif, tout comme la famille qui l'emploie
+                  peut le faire à tout moment. Il suffit de rédiger et d'envoyer
+                  avec accusé de réception ou de remettre en main propre une
+                  lettre de rupture.
                 </p>
-              </div>
-
-              <!-- Carte 4 -->
-              <div class="periode-card-unique card-grise-unique">
-                <div class="periode-image-container-unique">
-                  <img
-                    src="../../images/CAP AEPE/page4/motherhood.svg"
-                    alt="Deuxième enfant"
-                    class="periode-image-unique"
-                  />
-                </div>
-                <p>
-                  Si une famille confie son 2e enfant alors qu'elle garde déjà
-                  le premier depuis plus de 3 mois,
-                  <strong>aucune période d'essai</strong> ne peut être imposée.
+                <p class="subsection-paragraph">
+                  <strong>Pour les CDD :</strong> la durée maximale de la
+                  période d'essai est la même que pour tout autre salarié (pour
+                  les CDD de 6 mois, elle est de 2 semaines maximum).
                 </p>
               </div>
             </div>
           </section>
-
-          <!-- Composant original exemple periode d'essai -->
-          <div class="periode-essai-example-unique">
-            <div class="example-left-unique"></div>
-            <div class="example-right-unique">
-              <h3 class="example-title-unique">
-                Puis-je rompre ma période d'essai ?
-              </h3>
-              <p class="example-text-unique">
-                Les assistantes maternelles peuvent mettre fin à leur période
-                d'essai sans aucun motif, tout comme la famille qui l'emploie
-                peut le faire à tout moment. Il suffit de rédiger et d'envoyer
-                avec accusé de réception ou de remettre en main propre une
-                lettre de rupture.
-              </p>
-              <p class="example-text-unique">
-                <strong>Pour les CDD :</strong> la durée maximale de la période
-                d'essai est la même que pour tout autre salarié (pour les CDD de
-                6 mois, elle est de 2 semaines maximum).
-              </p>
+          <!-- ===========================================
+               SECTION 4
+               =========================================== -->
+          <section id="section4">
+            <div class="section-header">
+              <span class="section-number">04</span>
+              <span class="section-title">Formalités d'embauche</span>
             </div>
-          </div>
-
-          <!-- Section 4 -->
-          <div class="section-header" id="section4">
-            <div class="section-number">04</div>
-            <div class="section-title">Formalités d'embauche</div>
-          </div>
-
-          <!-- Composant original formalités d'embauche -->
-          <section class="formalites-embauche-unique">
-            <div class="formalites-container-unique">
-              <!-- Étape 1 -->
-              <div class="formalite-card-unique">
-                <div class="formalite-number">1</div>
-                <p>
-                  Le particulier employeur demande à l'assistante maternelle une
-                  photocopie de son agrément et ses attestations d'assurance
-                  responsabilité civile professionnelle et automobile.
-                </p>
-              </div>
-
-              <!-- Étape 2 -->
-              <div class="formalite-card-unique">
-                <div class="formalite-number">2</div>
-                <p>
-                  Il peut aussi lui demander son nom de jeune fille, sa date de
-                  naissance et son numéro de sécurité sociale.
-                </p>
-              </div>
-
-              <!-- Étape 3 -->
-              <div class="formalite-card-unique">
-                <div class="formalite-number">3</div>
-                <p>
-                  Puis le particulier employeur fera une demande d'inscription
-                  au centre de Pajemploi... Après vérification de l'identité de
-                  l'assistante maternelle, ils transmettront un numéro
-                  d'immatriculation.
-                </p>
-              </div>
-
-              <!-- Étape 4 -->
-              <div class="formalite-card-unique">
-                <div class="formalite-number">4</div>
-                <p>
-                  L'employeur déclare le salaire à Pajemploi puis rémunère
-                  l'assistante maternelle. L'aide CAF est versée et les
-                  cotisations URSSAF sont réglées.
-                </p>
-              </div>
-
-              <!-- Étape 5 -->
-              <div class="formalite-card-unique">
-                <div class="formalite-number">5</div>
-                <p>
-                  Pajemploi calcule les cotisations sociales, qui sont ensuite
-                  prélevées directement sur le compte bancaire de l'employeur.
-                </p>
-              </div>
-
-              <!-- Étape 6 -->
-              <div class="formalite-card-unique">
-                <div class="formalite-number">6</div>
-                <p>
-                  Si l'employeur n'a pas droit à l'aide de la P.A.J.E., il devra
-                  tout gérer seul : paiement, bulletin de salaire et déclaration
-                  à l'URSSAF.
-                </p>
+            <!-- Composant formalités d'embauche -->
+            <div class="formalites-embauche-unique">
+              <div class="formalites-container-unique">
+                <!-- Étape 1 -->
+                <div class="formalite-card-unique">
+                  <div class="formalite-number">1</div>
+                  <p class="subsection-paragraph">
+                    Le particulier employeur demande à l'assistante maternelle
+                    une photocopie de son agrément et ses attestations
+                    d'assurance responsabilité civile professionnelle et
+                    automobile.
+                  </p>
+                </div>
+                <!-- Étape 2 -->
+                <div class="formalite-card-unique">
+                  <div class="formalite-number">2</div>
+                  <p class="subsection-paragraph">
+                    Il peut aussi lui demander son nom de jeune fille, sa date
+                    de naissance et son numéro de sécurité sociale.
+                  </p>
+                </div>
+                <!-- Étape 3 -->
+                <div class="formalite-card-unique">
+                  <div class="formalite-number">3</div>
+                  <p class="subsection-paragraph">
+                    Puis le particulier employeur fera une demande d'inscription
+                    au centre de Pajemploi... Après vérification de l'identité
+                    de l'assistante maternelle, ils transmettront un numéro
+                    d'immatriculation.
+                  </p>
+                </div>
+                <!-- Étape 4 -->
+                <div class="formalite-card-unique">
+                  <div class="formalite-number">4</div>
+                  <p class="subsection-paragraph">
+                    L'employeur déclare le salaire à Pajemploi puis rémunère
+                    l'assistante maternelle. L'aide CAF est versée et les
+                    cotisations URSSAF sont réglées.
+                  </p>
+                </div>
+                <!-- Étape 5 -->
+                <div class="formalite-card-unique">
+                  <div class="formalite-number">5</div>
+                  <p class="subsection-paragraph">
+                    Pajemploi calcule les cotisations sociales, qui sont ensuite
+                    prélevées directement sur le compte bancaire de l'employeur.
+                  </p>
+                </div>
+                <!-- Étape 6 -->
+                <div class="formalite-card-unique">
+                  <div class="formalite-number">6</div>
+                  <p class="subsection-paragraph">
+                    Si l'employeur n'a pas droit à l'aide de la P.A.J.E., il
+                    devra tout gérer seul : paiement, bulletin de salaire et
+                    déclaration à l'URSSAF.
+                  </p>
+                </div>
               </div>
             </div>
           </section>
-
-          <!-- Section 5 -->
-          <div class="section-header" id="section5">
-            <div class="section-number">05</div>
-            <div class="section-title">
-              Modèle du contrat de travail et ses annexes
+          <!-- ===========================================
+               SECTION 5
+               =========================================== -->
+          <section id="section5">
+            <div class="section-header">
+              <span class="section-number">05</span>
+              <span class="section-title"
+                >Modèle du contrat de travail et ses annexes</span
+              >
             </div>
-          </div>
-
-          <!-- Composant original lien simple -->
-          <div class="section-text">
-            <p>
+            <p class="subsection-paragraph">
               Les conventions collectives nationales des assistantes maternelles
               proposent un modèle de contrat de travail. Disponible sur le site
               :
             </p>
-            <p>
+            <p class="subsection-paragraph">
               <a
                 href="https://www.pajemploi.urssaf.fr/pajewebinfo/cms/sites/pajewebinfo/accueil.html"
                 target="_blank"
@@ -2079,120 +1806,89 @@
                   text-decoration: underline;
                   font-weight: 500;
                 "
-                >https://www.pajemploi.urssaf.fr/pajewebinfo/cms/sites/pajewebinfo/accueil.html</a
               >
+                https://www.pajemploi.urssaf.fr/pajewebinfo/cms/sites/pajewebinfo/accueil.html
+              </a>
             </p>
-          </div>
-
-          <!-- Section 6 - Conclusion -->
-
-          <div class="container-a-retenir">
-            <div
-              class="wrap-title-retenir-conclusion is-flex is-flex-wrap-wrap-mobile"
-            >
-              <img
-                alt=""
-                src="../../images/png/imageRetenir.svg"
-                class="retenir-img"
-              />
-              <h2 class="title-retenir-conclusion">à retenir</h2>
+          </section>
+          <!-- ===========================================
+               COMPOSANT FINAL - À RETENIR
+               =========================================== -->
+          <section id="conc">
+            <div class="block">
+              <div class="container-a-retenir">
+                <div
+                  class="wrap-title-retenir-conclusion is-flex is-flex-wrap-wrap-mobile"
+                >
+                  <img
+                    alt=""
+                    src="../../images/png/imageRetenir.svg"
+                    class="retenir-img"
+                  />
+                  <h2 class="title-retenir-conclusion">à retenir</h2>
+                </div>
+                <div class="steps">
+                  <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                    <div class="step col-1 is-flex">
+                      <span class="number is-flex">01.</span>
+                    </div>
+                    <div class="step-text col-11">
+                      <p class="text">
+                        Le contrat de travail est un accord entre un salarié et
+                        un employeur
+                      </p>
+                      <p class="sub-text">
+                        pour lequel le salarié s'engage à effectuer un travail
+                        au profit de l'employeur, en contrepartie d'un salaire.
+                        Ce contrat entraîne des obligations et des droits des
+                        deux parties comme le respect des horaires, de la
+                        rémunération… Ces contrats peuvent être à durée
+                        indéterminée (CDI) ou à durée déterminée (CDD).
+                      </p>
+                    </div>
+                  </div>
+                  <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                    <div class="step col-1 is-flex">
+                      <span class="number is-flex">02.</span>
+                    </div>
+                    <div class="step-text col-11">
+                      <p class="text">
+                        Le particulier employeur et l'assistante maternelle se
+                        mettent d'accord
+                      </p>
+                      <p class="sub-text">
+                        sur le principe de l'embauche avant signature du contrat
+                        (horaires / rémunération / congé payé / frais
+                        d'entretiens / jours fériés ou chômés / repos
+                        hebdomadaire). Cet accord d'engagement vaut promesse
+                        d'embauche.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                    <div class="step col-1 is-flex">
+                      <span class="number is-flex">03.</span>
+                    </div>
+                    <div class="step-text col-11">
+                      <p class="text">
+                        Les assistantes maternelles peuvent mettre fin à leur
+                        période d'essai sans aucun motif
+                      </p>
+                      <p class="sub-text">
+                        tout comme la famille qui l'emploie peut le faire à tout
+                        moment. Il suffit pour cela de rédiger et d'envoyer avec
+                        accusé de réception ou de remettre en mains propres
+                        contre décharge une lettre de rupture de période
+                        d'essai.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="steps">
-              <div class="step-content is-flex is-flex-wrap-wrap-mobile">
-                <div class="step col-1 is-flex">
-                  <span class="number is-flex">01.</span>
-                </div>
-                <div class="step-text col-11">
-                  <p class="text">
-                    Le contrat de travail est un accord entre un salarié et un
-                    employeur
-                  </p>
-                  <p class="sub-text">
-                    pour lequel le salarié s'engage à effectuer un travail au
-                    profit de l'employeur, en contrepartie d'un salaire. Ce
-                    contrat entraîne des obligations et des droits des deux
-                    parties comme le respect des horaires, de la rémunération…
-                    Ces contrats peuvent être à durée indéterminée (CDI) ou à
-                    durée déterminée (CDD).
-                  </p>
-                </div>
-              </div>
-              <div class="step-content is-flex is-flex-wrap-wrap-mobile">
-                <div class="step col-1 is-flex">
-                  <span class="number is-flex">02.</span>
-                </div>
-                <div class="step-text col-11">
-                  <p class="text">
-                    Le particulier employeur et l'assistante maternelle se
-                    mettent d'accord
-                  </p>
-                  <p class="sub-text">
-                    sur le principe de l'embauche avant signature du contrat
-                    (horaires / rémunération / congé payé / frais d'entretiens /
-                    jours fériés ou chômés / repos hebdomadaire). Cet accord
-                    d'engagement vaut promesse d'embauche.
-                  </p>
-                </div>
-              </div>
-              <div class="step-content is-flex is-flex-wrap-wrap-mobile">
-                <div class="step col-1 is-flex">
-                  <span class="number is-flex">03.</span>
-                </div>
-                <div class="step-text col-11">
-                  <p class="text">
-                    Les assistantes maternelles peuvent mettre fin à leur
-                    période d'essai sans aucun motif
-                  </p>
-                  <p class="sub-text">
-                    tout comme la famille qui l'emploie peut le faire à tout
-                    moment. Il suffit pour cela de rédiger et d'envoyer avec
-                    accusé de réception ou de remettre en mains propres contre
-                    décharge une lettre de rupture de période d'essai.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          </section>
+        </main>
       </div>
     </div>
   </body>
-
-  <style>
-    /* ===========================================
-         LAPTOP (1024px - 1439px) - ADAPTATION LARGE
-         =========================================== */
-    @media (min-width: 1024px) and (max-width: 1439px) {
-      /* Tous les textes normaux */
-      .imageHautTexteBas-text-box p,
-      .accord-card p,
-      .example-text-unique,
-      .sub-text {
-        font-size: 18px;
-      }
-
-      /* Tous les titres légèrement plus grands */
-      .text {
-        font-size: 20px;
-      }
-    }
-
-    /* ===========================================
-         DESKTOP (1440px et plus) - ADAPTATION TRÈS LARGE
-         =========================================== */
-    @media (min-width: 1440px) {
-      /* Tous les textes normaux */
-      .imageHautTexteBas-text-box p,
-      .accord-card p,
-      .example-text-unique,
-      .sub-text {
-        font-size: 20px;
-      }
-
-      /* Tous les titres légèrement plus grands */
-      .text {
-        font-size: 22px;
-      }
-    }
-  </style>
 </html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>La législation en faveur des personnes handicapées</title>
+    <title>Page Squelette</title>
     <style>
       /* ===========================================
            VARIABLES CSS GLOBALES
@@ -42,16 +42,19 @@
       }
 
       /* ===========================================
-           RESET ET STYLES DE BASE
+           COMPOSANT RESET ET STYLES DE BASE
            =========================================== */
+      /* * : Réinitialisation des marges et paddings pour tous les éléments */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
+      /* html : Active le défilement fluide pour les ancres */
       html {
         scroll-behavior: smooth;
       }
+      /* body : Style de base pour le corps de la page */
       body {
         font-family: var(--main-font);
         font-size: var(--font-size18);
@@ -61,6 +64,7 @@
         background-color: #f5f5f5;
         min-height: 100vh;
       }
+      /* p, li, span, div : Style par défaut pour les éléments de texte */
       p,
       li,
       span,
@@ -70,11 +74,12 @@
         font-weight: 400;
         color: #333;
       }
+      /* strong : Surcharge pour éviter les gras indésirables */
       strong {
         font-weight: 400 !important;
       }
 
-      /* MEDIA QUERIES POUR STYLES DE BASE (TAILLES DE TEXTE GLOBALE) */
+      /* MEDIA QUERIES POUR COMPOSANT RESET ET STYLES DE BASE */
       @media (min-width: 1440px) {
         body {
           font-size: 20px;
@@ -132,8 +137,9 @@
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT CONTAINER PRINCIPAL
+           COMPOSANT CONTAINER PRINCIPAL
            =========================================== */
+      /* .main-container : Container principal pour centrer et styliser la page */
       .main-container {
         width: 60%;
         max-width: 1200px;
@@ -184,11 +190,85 @@
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT MENU BURGER
+           COMPOSANT LAYOUT ET STRUCTURE
            =========================================== */
+      /* .page-container : Container pour disposition flex de la page */
+      .page-container {
+        display: flex;
+        gap: 25px;
+        position: relative;
+        align-items: flex-start;
+        width: 100%;
+      }
+      /* .main-content : Contenu principal avec gestion du débordement */
+      .main-content {
+        flex: 1;
+        padding: 20px;
+        transition: margin-left var(--transition-fast);
+        min-width: 0;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT LAYOUT ET STRUCTURE */
+      @media (max-width: 767px) {
+        .page-container {
+          flex-direction: column;
+        }
+        .main-content {
+          padding: 15px;
+          overflow: visible;
+        }
+      }
+      @media (max-width: 375px) {
+        .main-content {
+          padding: 10px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT ESPACEMENT GLOBAL
+           =========================================== */
+      /* section : Marges pour les sections */
+      section {
+        margin-bottom: 30px;
+      }
+      /* .subsection : Marges pour les sous-sections */
+      .subsection {
+        margin-bottom: 25px;
+      }
+      /* p : Marges pour les paragraphes */
+      p {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+      /* h1, h2, h3, h4, h5, h6 : Marges pour les titres */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-bottom: 20px;
+      }
+      /* ul, ol : Marges pour les listes */
+      ul,
+      ol {
+        margin-bottom: 20px;
+      }
+      /* li : Marges pour les éléments de liste */
+      li {
+        margin-bottom: 8px;
+      }
+
+      /* ===========================================
+           COMPOSANT MENU BURGER
+           =========================================== */
+      /* .menu-toggle-checkbox : Checkbox caché pour contrôler l'état du menu */
       .menu-toggle-checkbox {
         display: none;
       }
+      /* .menu-toggle : Bouton menu burger - visible sur tous les formats */
       .menu-toggle {
         display: block;
         position: fixed;
@@ -209,15 +289,18 @@
         justify-content: center;
         align-items: center;
       }
+      /* .menu-toggle:hover : Effet hover sur le bouton menu burger */
       .menu-toggle:hover {
         opacity: 1;
       }
+      /* .menu-toggle img : Image du menu burger - reste constante */
       .menu-toggle img {
         width: 100%;
         height: 100%;
         object-fit: contain;
         transition: none;
       }
+      /* .menu : Menu latéral qui glisse depuis la gauche */
       .menu {
         position: fixed;
         top: 0;
@@ -235,15 +318,19 @@
         overflow-y: auto;
         overflow-x: hidden;
       }
+      /* .menu-toggle-checkbox:checked + .menu-toggle + .menu : Affiche le menu quand le checkbox est coché */
       .menu-toggle-checkbox:checked + .menu-toggle + .menu {
         transform: translateX(0);
       }
+      /* .menu ul : Supprime les puces de la liste du menu */
       .menu ul {
         list-style: none;
       }
+      /* .menu ul li : Espacement entre les éléments du menu */
       .menu ul li {
         margin-bottom: 25px;
       }
+      /* .menu ul li a : Liens de navigation dans le menu burger */
       .menu ul li a {
         color: #333;
         text-decoration: none;
@@ -257,6 +344,7 @@
         border: 1px solid #e0e0e0;
         margin-bottom: 10px;
       }
+      /* .menu ul li a:hover : Effet hover sur les liens du menu burger */
       .menu ul li a:hover {
         color: var(--primary-color);
         background: #e6f0fb;
@@ -264,21 +352,26 @@
         box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
         transition: all 0.3s ease;
       }
+      /* .menu::-webkit-scrollbar : Personnalisation de la barre de défilement */
       .menu::-webkit-scrollbar {
         width: 6px;
       }
+      /* .menu::-webkit-scrollbar-track : Piste de la barre de défilement */
       .menu::-webkit-scrollbar-track {
         background: transparent;
       }
+      /* .menu::-webkit-scrollbar-thumb : Curseur de la barre de défilement */
       .menu::-webkit-scrollbar-thumb {
         background: var(--primary-color);
         border-radius: 3px;
         opacity: 0.7;
       }
+      /* .menu::-webkit-scrollbar-thumb:hover : Effet hover sur le curseur */
       .menu::-webkit-scrollbar-thumb:hover {
         background: #4a7aa3;
         opacity: 1;
       }
+      /* .menu : Support pour Firefox */
       .menu {
         scrollbar-width: thin;
         scrollbar-color: var(--primary-color) transparent;
@@ -331,8 +424,9 @@
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT TITRE PRINCIPAL
-            =========================================== */
+           COMPOSANT TITRE PRINCIPAL
+           =========================================== */
+      /* .intro-title : Titre principal de la page */
       .intro-title {
         font-family: var(--main-font);
         font-weight: 700;
@@ -346,7 +440,7 @@
       /* MEDIA QUERIES POUR COMPOSANT TITRE PRINCIPAL */
       @media (min-width: 1440px) {
         .intro-title {
-          font-size: 42px;
+          font-size: 36px;
         }
       }
       @media (max-width: 1439px) and (min-width: 1024px) {
@@ -367,14 +461,15 @@
       }
       @media (max-width: 375px) {
         .intro-title {
-          font-size: 18px;
+          font-size: 20px;
           margin: 15px 0 20px 0;
         }
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT IMAGE PRINCIPALE
+           COMPOSANT IMAGE PRINCIPALE
            =========================================== */
+      /* .intro-image : Image principale en haut de la page */
       .intro-image {
         display: block;
         max-width: 100%;
@@ -397,8 +492,9 @@
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT TITRES DE SECTION
+           COMPOSANT TITRES DE SECTION
            =========================================== */
+      /* .section-header : Container des en-têtes de section (numéro + titre) */
       .section-header {
         display: flex;
         align-items: center;
@@ -410,6 +506,7 @@
         box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
         overflow: hidden;
       }
+      /* .section-number : Numéro de section (01, 02, etc.) - partie bleue à gauche */
       .section-number {
         background: #3b6ea5;
         color: var(--white-color);
@@ -427,6 +524,7 @@
         flex-shrink: 0;
         align-self: stretch;
       }
+      /* .section-title : Titre de section (texte principal) - partie droite */
       .section-title {
         color: #3b6ea5;
         font-family: var(--main-font);
@@ -444,65 +542,88 @@
       /* MEDIA QUERIES POUR COMPOSANT TITRES DE SECTION */
       @media (min-width: 1440px) {
         .section-number {
-          font-size: 36px;
+          font-size: 24px;
+          padding: 8px 12px;
         }
         .section-title {
-          font-size: 24px;
+          font-size: 18px;
+          padding: 8px 12px;
         }
       }
       @media (max-width: 1439px) and (min-width: 1024px) {
         .section-number {
-          font-size: 36px;
+          font-size: 22px;
+          padding: 6px 10px;
         }
         .section-title {
-          font-size: 24px;
+          font-size: 16px;
+          padding: 6px 10px;
         }
       }
       @media (max-width: 1023px) and (min-width: 768px) {
+        .section-header {
+          margin: 20px 0 15px;
+          padding: 0;
+        }
         .section-number {
-          font-size: 36px;
+          font-size: 20px;
+          padding: 5px 8px;
+          min-width: 80px;
+          width: 80px;
         }
         .section-title {
-          font-size: 24px;
+          font-size: 14px;
+          padding: 5px 8px;
+          min-height: 60px;
         }
       }
       @media (max-width: 767px) {
         .section-header {
           flex-direction: column;
           text-align: center;
-          margin: 30px 0 20px;
+          margin: 15px 0 10px;
+          padding: 0;
         }
         .section-number {
           border-radius: 12px 12px 0 0;
           width: 100%;
           text-align: center;
-          font-size: 28px;
+          font-size: 18px;
+          padding: 4px 6px;
+          min-width: auto;
+          min-height: 40px;
         }
         .section-title {
           border-radius: 0 0 12px 12px;
           width: 100%;
-          font-size: 20px;
+          font-size: 12px;
+          padding: 4px 6px;
+          min-height: 40px;
         }
       }
       @media (max-width: 375px) {
         .section-header {
-          margin: 20px 0 15px;
+          margin: 10px 0 5px;
+          padding: 0;
         }
         .section-number {
-          font-size: 24px;
-          padding: 15px 20px;
+          font-size: 16px;
+          padding: 3px 5px;
+          min-height: 30px;
         }
         .section-title {
-          font-size: 16px;
-          padding: 15px 20px;
+          font-size: 10px;
+          padding: 3px 5px;
+          min-height: 30px;
         }
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT TITRES DE SOUS-SECTION
+           COMPOSANT TITRES DE SOUS-SECTION
            =========================================== */
+      /* .subsection-heading : Titres de niveau 3 pour sous-sections (A., B.) */
       .subsection-heading {
-        font-family: "Montserrat", sans-serif;
+        font-family: var(--main-font);
         font-weight: 700;
         color: #5f8bbc;
         font-size: 26px;
@@ -514,88 +635,51 @@
         text-align: left;
       }
 
-      /* ===========================================
-           STYLES POUR PARAGRAPHES DES SOUS-SECTIONS
-           =========================================== */
-      .subsection-paragraph {
-        font-family: var(--main-font);
-        font-size: var(--font-size18);
-        font-weight: 400;
-        line-height: 1.6;
-        color: #333;
-        margin-bottom: 20px;
-        text-align: justify;
-        padding: 0 20px;
-      }
-
       /* MEDIA QUERIES POUR COMPOSANT TITRES DE SOUS-SECTION */
       @media (min-width: 1440px) {
         .subsection-heading {
-          font-size: 26px;
+          font-size: 28px;
         }
       }
       @media (max-width: 1439px) and (min-width: 1024px) {
         .subsection-heading {
-          font-size: 26px;
+          font-size: 24px;
         }
       }
       @media (max-width: 1023px) and (min-width: 768px) {
         .subsection-heading {
-          font-size: 26px;
+          font-size: 22px;
         }
       }
       @media (max-width: 767px) {
         .subsection-heading {
-          font-size: 16px;
-        }
-      }
-      @media (max-width: 375px) {
-        .subsection-heading {
-          font-size: 16px;
-        }
-      }
-
-      /* MEDIA QUERIES POUR PARAGRAPHES DES SOUS-SECTIONS */
-      @media (min-width: 1440px) {
-        .subsection-paragraph {
-          font-size: 20px;
-        }
-      }
-      @media (max-width: 1439px) and (min-width: 1024px) {
-        .subsection-paragraph {
           font-size: 18px;
         }
       }
-      @media (max-width: 1023px) and (min-width: 768px) {
-        .subsection-paragraph {
-          font-size: 16px;
-        }
-      }
-      @media (max-width: 767px) {
-        .subsection-paragraph {
-          font-size: 14px;
-        }
-      }
       @media (max-width: 375px) {
-        .subsection-paragraph {
-          font-size: 12px;
+        .subsection-heading {
+          font-size: 14px;
         }
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT CONCLUSION - À RETENIR
+           COMPOSANT CONCLUSION - À RETENIR
            =========================================== */
+      /* .container-a-retenir : Container principal du composant conclusion avec espacement */
       .container-a-retenir {
         padding: 35px;
         margin: 45px 0;
       }
+      /* .wrap-title-retenir-conclusion : Wrapper pour le titre et l'image - disposition verticale centrée */
       .wrap-title-retenir-conclusion {
         flex-direction: column;
         align-items: center;
       }
+      /* .retenir-img : Image au-dessus du titre "À retenir" - taille adaptative */
       .retenir-img {
         width: 35%;
       }
+      /* .title-retenir-conclusion : Titre principal "À RETENIR" - style typographique */
       .title-retenir-conclusion {
         color: var(--gray-color1);
         text-align: center;
@@ -606,14 +690,17 @@
         text-transform: uppercase;
         margin-top: 20px;
       }
+      /* .steps : Container des étapes numérotées */
       .steps {
         padding: 20px;
       }
+      /* .step : Structure de chaque étape - disposition verticale centrée */
       .step {
         flex-direction: column;
         position: relative;
         align-items: center;
       }
+      /* .number : Numéro de l'étape - cercle coloré avec le numéro */
       .number {
         font-size: 18px;
         font-family: var(--main-font);
@@ -628,6 +715,7 @@
         align-items: center;
         justify-content: center;
       }
+      /* .text : Texte principal de l'étape - titre en gras */
       .text {
         font-family: var(--main-font);
         color: var(--primary-color);
@@ -637,6 +725,7 @@
         margin: 0;
         padding-left: 15px;
       }
+      /* .sub-text : Texte secondaire de l'étape - description détaillée */
       .sub-text {
         font-family: var(--main-font);
         color: var(--gray-color1);
@@ -645,22 +734,29 @@
         text-align: justify;
         padding-left: 15px;
       }
+      /* .line : Ligne verticale pointillée entre les étapes */
       .line {
         display: none;
       }
+      /* .steps .step-content:last-child .line : Désactive la ligne pour la dernière étape */
       .steps .step-content:last-child .line {
         display: none;
       }
 
-      /* MEDIA QUERIES POUR COMPOSANT CONCLUSION */
+      /* MEDIA QUERIES POUR COMPOSANT CONCLUSION - À RETENIR */
       @media (min-width: 1440px) {
         .title-retenir-conclusion {
-          font-size: 24px;
+          font-size: 22px;
         }
         .text {
-          font-size: 24px;
+          font-size: 22px;
         }
         .sub-text {
+          font-size: 20px;
+        }
+        .number {
+          width: 50px;
+          height: 50px;
           font-size: 18px;
         }
       }
@@ -674,6 +770,11 @@
         .sub-text {
           font-size: 18px;
         }
+        .number {
+          width: 45px;
+          height: 45px;
+          font-size: 16px;
+        }
       }
       @media (max-width: 1023px) and (min-width: 768px) {
         .title-retenir-conclusion {
@@ -684,6 +785,24 @@
         }
         .sub-text {
           font-size: 16px;
+        }
+        .number {
+          width: 40px;
+          height: 40px;
+          font-size: 14px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 15px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
         }
       }
       @media (max-width: 767px) {
@@ -696,16 +815,52 @@
         .sub-text {
           font-size: 14px;
         }
+        .number {
+          width: 35px;
+          height: 35px;
+          font-size: 12px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 15px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
       }
       @media (max-width: 375px) {
         .title-retenir-conclusion {
-          font-size: 16px;
+          font-size: 14px;
         }
         .text {
-          font-size: 16px;
+          font-size: 14px;
         }
         .sub-text {
-          font-size: 14px;
+          font-size: 12px;
+        }
+        .number {
+          width: 30px;
+          height: 30px;
+          font-size: 10px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 10px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
         }
       }
       @media (max-width: 768px) {
@@ -758,8 +913,14 @@
       }
 
       /* ===========================================
-           RESPONSIVE DESIGN GLOBAL
+           COMPOSANT RESPONSIVE DESIGN GLOBAL
            =========================================== */
+      /* .main-content : Ajustement de la marge pour responsivité */
+      .main-content {
+        margin-left: 0;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT RESPONSIVE DESIGN GLOBAL */
       @media (min-width: 1440px) {
         .main-content {
           margin-left: 0;
@@ -816,298 +977,23 @@
       }
 
       /* ===========================================
-           CLASSES UTILITAIRES
+           COMPOSANT CLASSES UTILITAIRES
            =========================================== */
+      /* .is-flex : Active la disposition flexbox */
       .is-flex {
         display: flex;
       }
+      /* .is-flex-wrap-wrap-mobile : Permet le retour à la ligne pour petits écrans */
       .is-flex-wrap-wrap-mobile {
         flex-wrap: wrap;
       }
+      /* .col-1 : Colonne occupant 1/12 de la largeur */
       .col-1 {
         width: 8.333333%;
       }
+      /* .col-11 : Colonne occupant 11/12 de la largeur */
       .col-11 {
         width: 91.666667%;
-      }
-
-      /* ===========================================
-           COMPOSANTS SPÉCIFIQUES PAGE3 - MODERNISÉS
-           =========================================== */
-
-      /* ===========================================
-           COMPOSANTS SPÉCIFIQUES PAGE3 - SECTION 1 RECODÉE
-           =========================================== */
-
-      /* ===========================================
-           COMPOSANT IMAGE + TEXTE - SECTION 1
-           =========================================== */
-      .imageGaucheTexteDroit-container,
-      .imageDroiteTextGauche-container {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        justify-content: center;
-        background-color: #f5f2e9;
-        border-radius: 20px;
-        padding: 50px;
-        margin: 25px auto;
-        width: 100%;
-        max-width: 100%;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        gap: 35px;
-        height: auto;
-        transition: all var(--transition-fast);
-      }
-
-      .imageDroiteTextGauche-container {
-        flex-direction: row-reverse;
-      }
-
-      .imageGaucheTexteDroit-container:hover,
-      .imageDroiteTextGauche-container:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(95, 139, 188, 0.3);
-        background-color: #f0ede4;
-      }
-
-      .imageGaucheTexteDroit-header-image,
-      .imageDroiteTextGauche-header-image {
-        flex: 0 0 200px;
-        max-width: 200px;
-        border-radius: 15px;
-        object-fit: cover;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform var(--transition-fast);
-      }
-
-      .imageGaucheTexteDroit-container:hover
-        .imageGaucheTexteDroit-header-image,
-      .imageDroiteTextGauche-container:hover
-        .imageDroiteTextGauche-header-image {
-        transform: scale(1.05);
-      }
-
-      .scroll-box {
-        flex: 1;
-        background-color: transparent;
-        padding: 0;
-        border-radius: 0;
-        box-shadow: none;
-        min-height: auto;
-        overflow: visible;
-      }
-
-      .colored-title {
-        font-size: 1.2rem;
-        margin-bottom: 15px;
-        font-weight: 700;
-        font-family: var(--main-font);
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        border-bottom: 2px solid currentColor;
-        padding-bottom: 8px;
-        display: inline-block;
-      }
-
-      .scrollable-text p {
-        font-size: var(--font-size18);
-        line-height: 1.6;
-        margin-bottom: 8px;
-        font-family: var(--main-font);
-        font-weight: 400;
-        color: #333;
-      }
-
-      /* ===========================================
-           COULEURS THÉMATIQUES SECTION 1
-           =========================================== */
-      /* Tous les titres utilisent maintenant la couleur par défaut */
-      .colored-title {
-        color: #333 !important;
-        border-bottom-color: #5f8bbc !important;
-      }
-
-      /* Composant flex container modernisé */
-      .flex-container {
-        display: flex;
-        align-items: flex-start;
-        gap: 15px;
-        flex-wrap: wrap;
-        margin: 15px 0;
-        padding: 15px;
-        background: #fafbfc;
-        border-radius: 12px;
-        border: 1px solid #e0e0e0;
-        transition: all var(--transition-fast);
-      }
-
-      .flex-container:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(95, 139, 188, 0.2);
-      }
-
-      .text-content {
-        flex: 1;
-        min-width: 350px;
-      }
-
-      .section-text {
-        font-family: var(--main-font);
-        font-weight: 400;
-        color: #000000;
-        font-size: var(--font-size18);
-        margin-bottom: 20px;
-        line-height: 1.7;
-      }
-
-      .section-list {
-        margin-left: 25px;
-        margin-bottom: 25px;
-        font-size: var(--font-size18);
-        line-height: 1.8;
-        font-family: var(--main-font);
-        font-weight: 400;
-        color: #333;
-      }
-
-      .section-list li {
-        margin-bottom: 8px;
-        font-family: var(--main-font);
-        font-size: var(--font-size18);
-        font-weight: 400;
-        color: #333;
-      }
-
-      /* ===========================================
-           MEDIA QUERIES POUR COMPOSANTS SECTION 1
-           =========================================== */
-
-      /* DESKTOP (1440px+) */
-      @media (min-width: 1440px) {
-        .imageGaucheTexteDroit-container,
-        .imageDroiteTextGauche-container {
-          padding: 60px;
-          gap: 40px;
-        }
-
-        .imageGaucheTexteDroit-header-image,
-        .imageDroiteTextGauche-header-image {
-          flex: 0 0 250px;
-          max-width: 250px;
-        }
-
-        .colored-title {
-          font-size: 1.4rem;
-        }
-
-        .scrollable-text p {
-          font-size: 20px;
-        }
-      }
-
-      /* LAPTOP (1024px - 1439px) */
-      @media (max-width: 1439px) and (min-width: 1024px) {
-        .imageGaucheTexteDroit-container,
-        .imageDroiteTextGauche-container {
-          padding: 50px;
-          gap: 35px;
-        }
-
-        .imageGaucheTexteDroit-header-image,
-        .imageDroiteTextGauche-header-image {
-          flex: 0 0 200px;
-          max-width: 200px;
-        }
-
-        .colored-title {
-          font-size: 1.2rem;
-        }
-
-        .scrollable-text p {
-          font-size: 18px;
-        }
-      }
-
-      /* TABLETTE (768px - 1023px) */
-      @media (max-width: 1023px) and (min-width: 768px) {
-        .imageGaucheTexteDroit-container,
-        .imageDroiteTextGauche-container {
-          padding: 40px;
-          gap: 30px;
-        }
-
-        .imageGaucheTexteDroit-header-image,
-        .imageDroiteTextGauche-header-image {
-          flex: 0 0 180px;
-          max-width: 180px;
-        }
-
-        .colored-title {
-          font-size: 1.1rem;
-        }
-
-        .scrollable-text p {
-          font-size: 16px;
-        }
-      }
-
-      /* MOBILE (767px et moins) */
-      @media (max-width: 767px) {
-        .imageGaucheTexteDroit-container,
-        .imageDroiteTextGauche-container {
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          padding: 25px;
-          gap: 20px;
-        }
-
-        .imageGaucheTexteDroit-header-image,
-        .imageDroiteTextGauche-header-image {
-          max-width: 150px;
-          margin: 0 auto;
-        }
-
-        .colored-title {
-          font-size: 1rem;
-        }
-
-        .scrollable-text p {
-          font-size: 14px;
-        }
-
-        .flex-container {
-          flex-direction: column;
-          padding: 20px;
-          gap: 20px;
-        }
-
-        .text-content {
-          min-width: auto;
-        }
-      }
-
-      /* MOBILE TRÈS PETIT (375px et moins) */
-      @media (max-width: 375px) {
-        .imageGaucheTexteDroit-container,
-        .imageDroiteTextGauche-container {
-          padding: 15px;
-          gap: 15px;
-        }
-
-        .imageGaucheTexteDroit-header-image,
-        .imageDroiteTextGauche-header-image {
-          max-width: 120px;
-        }
-
-        .colored-title {
-          font-size: 0.9rem;
-        }
-
-        .scrollable-text p {
-          font-size: 12px;
-        }
       }
     </style>
   </head>
@@ -1118,7 +1004,7 @@
     <div class="main-container">
       <!-- ===========================================
            MENU BURGER - SYSTÈME DE NAVIGATION
-          =========================================== -->
+           =========================================== -->
       <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" />
       <label for="menu-toggle" class="menu-toggle">
         <img src="../../images/png/menuBurger.png" alt="Menu" />
@@ -1126,18 +1012,9 @@
       <!-- Menu latéral de navigation -->
       <nav class="menu">
         <ul>
-          <li>
-            <a href="#section1"
-              >1 - La Prise en charge des enfants handicapés</a
-            >
-          </li>
-          <li><a href="#section2">2 - La Notion d'inclusion</a></li>
-          <li>
-            <a href="#section3"
-              >3 - Les actions sanitaires pour prévenir les handicaps</a
-            >
-          </li>
-          <li><a href="#conc">À retenir</a></li>
+          <li><a href="#section1">1 - Titre Section 1</a></li>
+          <li><a href="#section2">2 - Titre Section 2</a></li>
+          <li><a href="#conc">3 - À retenir</a></li>
         </ul>
       </nav>
       <!-- ===========================================
@@ -1148,225 +1025,80 @@
           <!-- ===========================================
                TITRE PRINCIPAL
                =========================================== -->
-          <h1 class="intro-title">
-            La législation en faveur des personnes handicapées
-          </h1>
+          <h1 class="intro-title">Titre Principal de la Page</h1>
           <!-- ===========================================
                IMAGE PRINCIPALE
                =========================================== -->
           <img
             class="intro-image"
-            src="../../images/CAP AEPE/page3/imageHandicap.png"
-            alt="Handicap"
+            src="placeholder-image.jpg"
+            alt="Image principale"
           />
           <!-- ===========================================
-                     SECTION 1 : PRISE EN CHARGE DES ENFANTS HANDICAPÉS
-                     =========================================== -->
+               SECTION 1
+               =========================================== -->
           <section id="section1">
             <div class="section-header">
               <span class="section-number">01</span>
-              <span class="section-title"
-                >La Prise en charge des enfants handicapés</span
-              >
+              <span class="section-title">Titre Section 1</span>
             </div>
-            <!-- Bloc 1 - Législation (bleu) -->
-            <div class="imageGaucheTexteDroit-container blue-title">
-              <img
-                src="../../images/CAP AEPE/page3/imageDiplome.png"
-                alt="Diplôme"
-                class="imageGaucheTexteDroit-header-image"
-              />
-              <div class="scroll-box">
-                <h3 class="colored-title">La législation</h3>
-                <div class="scrollable-text">
-                  <p class="subsection-paragraph">
-                    Les droits des personnes en situation de handicap sont
-                    précisés dans la loi de février 2005. Cette loi a défini
-                    l'objectif d'accès au droit commun avec le droit à la
-                    compensation. L'idée est de favoriser l'accès à l'autonomie
-                    des personnes en situation de handicap. La loi donne de
-                    nouveaux droits aux parents d'enfants handicapés : comme le
-                    droit à l'enfant d'être scolarisé dans l'école la plus
-                    proche de son domicile. La loi de février 2005 a instauré la
-                    création des Maisons Départementales des Personnes
-                    Handicapées (MDPH).
-                  </p>
-                </div>
-              </div>
+            <!-- Sous-section A -->
+            <div id="subsection-a" class="subsection">
+              <h3 class="subsection-heading">A. Titre Sous-section A</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
             </div>
-
-            <!-- Bloc 2 - CDAPH (violet foncé) -->
-            <div class="imageDroiteTextGauche-container purple-title">
-              <img
-                src="../../images/CAP AEPE/page3/imageBalance.png"
-                alt="Balance"
-                class="imageDroiteTextGauche-header-image"
-              />
-              <div class="scroll-box">
-                <h3 class="colored-title">Commission des Droits</h3>
-                <div class="scrollable-text">
-                  <p class="subsection-paragraph">
-                    Dans le cadre de la MDPH, la Commission des Droits et de
-                    l'Autonomie des Personnes Handicapées (CDAPH) décide des
-                    droits de la personne handicapée. Elle dépend de
-                    l'évaluation réalisée par l'équipe pluridisciplinaire et du
-                    plan de compensation. La commission précise le taux
-                    d'incapacité de la personne, offre la prestation de
-                    compensation, accorde la qualité de travailleur handicapé,
-                    et formule le projet aidant à l'insertion scolaire.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Bloc 3 - École maternelle (orange) -->
-            <div class="imageGaucheTexteDroit-container orange-title">
-              <img
-                src="../../images/CAP AEPE/page3/imageToys.png"
-                alt="Toys"
-                class="imageGaucheTexteDroit-header-image"
-              />
-              <div class="scroll-box">
-                <h3 class="colored-title">École maternelle</h3>
-                <div class="scrollable-text">
-                  <p class="subsection-paragraph">
-                    La scolarisation d'un enfant en situation de handicap est un
-                    droit. La CDAPH élabore le projet personnalisé de
-                    scolarisation dans un plan personnalisé de compensation.
-                    Ensuite, l'Éducation Nationale met en œuvre les actions
-                    décidées par la MDPH. Un enfant en situation de handicap
-                    peut ainsi être scolarisé dès l'âge de trois ans à l'école.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Bloc 4 - Crèches (vert) -->
-            <div class="imageDroiteTextGauche-container green-title">
-              <img
-                src="../../images/CAP AEPE/page3/imageMaison.png"
-                alt="Maison"
-                class="imageDroiteTextGauche-header-image"
-              />
-              <div class="scroll-box">
-                <h3 class="colored-title">Accueil en crèche</h3>
-                <div class="scrollable-text">
-                  <p class="subsection-paragraph">
-                    Pour améliorer l'accueil des jeunes enfants en situation de
-                    handicap dans les crèches, le gouvernement propose un «
-                    bonus inclusion handicap » depuis janvier 2019. C'est une
-                    aide financière pour les établissements d'accueil du jeune
-                    accueillant au moins un enfant bénéficiant de l'Allocation
-                    d'Éducation Enfant Handicapé (AEEH). Depuis le 1er janvier
-                    2020, les critères d'attribution concernent un nombre plus
-                    important d'établissements.
-                  </p>
-                </div>
-              </div>
+            <!-- Sous-section B -->
+            <div id="subsection-b" class="subsection">
+              <h3 class="subsection-heading">B. Titre Sous-section B</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
             </div>
           </section>
-
           <!-- ===========================================
-                     SECTION 2 : NOTION D'INCLUSION
-                     =========================================== -->
+               SECTION 2
+               =========================================== -->
           <section id="section2">
             <div class="section-header">
               <span class="section-number">02</span>
-              <span class="section-title">La Notion d'inclusion</span>
+              <span class="section-title">Titre Section 2</span>
             </div>
-
-            <div class="flex-container">
-              <div class="text-content">
-                <p class="section-text">
-                  <strong>La loi du 11 février 2005</strong> et la loi pour la
-                  refonte de l'École de la République du 8 juillet 2013 ont pour
-                  objectif de développer un projet d'école plus inclusive.
-                  C'est-à-dire que l'école doit s'adapter aux besoins
-                  spécifiques des enfants.
-                  <strong
-                    >L'école doit prévoir des ajustements pour accueillir
-                    l'enfant.</strong
-                  >
-                </p>
-              </div>
+            <!-- Sous-section A -->
+            <div id="subsection-a" class="subsection">
+              <h3 class="subsection-heading">A. Titre Sous-section A</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
             </div>
-          </section>
-
-          <!-- ===========================================
-               SECTION 3 : ACTIONS SANITAIRES - COMPOSANT RECODÉ DE ZÉRO
-                     =========================================== -->
-          <section id="section3">
-            <div class="section-header">
-              <span class="section-number">03</span>
-              <span class="section-title"
-                >Les actions sanitaires pour prévenir les handicaps</span
-              >
-            </div>
-
-            <!-- Sous-section A - Actions de prévention -->
-            <div id="subsection-a">
-              <h3 class="subsection-heading">
-                A. Les quatre actions de prévention du handicap
-              </h3>
-
-              <div class="flex-container">
-                <div class="text-content">
-                  <p class="subsection-paragraph">
-                    <strong
-                      >Il existe quatre actions de prévention du
-                      handicap</strong
-                    >
-                    qui sont essentielles pour réduire les risques et améliorer
-                    la qualité de vie des enfants :
-                  </p>
-
-                  <ul class="section-list">
-                    <li>
-                      <strong>La Vaccination :</strong>
-                      <span class="subsection-paragraph"
-                        >Antipoliomyélitique et autres vaccins essentiels pour
-                        prévenir les maladies qui peuvent causer des
-                        handicaps.</span
-                      >
-                    </li>
-                    <li>
-                      <strong>Le dépistage prénatal :</strong>
-                      <span class="subsection-paragraph"
-                        >Diagnostic prénatal si la grossesse est à risque, on
-                        instaure alors une surveillance médicale
-                        renforcée.</span
-                      >
-                    </li>
-                    <li>
-                      <strong
-                        >La surveillance de l'état de santé du nouveau-né
-                        :</strong
-                      >
-                      <span class="subsection-paragraph"
-                        >Dépistage de la phénylcétonurie, de la drépanocytose et
-                        autres maladies génétiques.</span
-                      >
-                    </li>
-                    <li>
-                      <strong
-                        >Une surveillance médicale du nourrisson et du jeune
-                        enfant :</strong
-                      >
-                      <span class="subsection-paragraph"
-                        >Suivi médical régulier pour détecter précocement les
-                        troubles du développement et intervenir
-                        rapidement.</span
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </div>
+            <!-- Sous-section B -->
+            <div id="subsection-b" class="subsection">
+              <h3 class="subsection-heading">B. Titre Sous-section B</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
             </div>
           </section>
-
           <!-- ===========================================
                COMPOSANT FINAL - À RETENIR
-                     =========================================== -->
+               =========================================== -->
           <section id="conc">
             <div class="block">
               <div class="container-a-retenir">
@@ -1387,12 +1119,14 @@
                     </div>
                     <div class="step-text col-11">
                       <p class="text">
-                        La loi de février 2005 définit les droits des personnes
-                        handicapées
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       </p>
                       <p class="sub-text">
-                        Cette loi a instauré l'objectif d'accès au droit commun
-                        avec le droit à la compensation et la création des MDPH.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.
                       </p>
                     </div>
                   </div>
@@ -1402,12 +1136,14 @@
                     </div>
                     <div class="step-text col-11">
                       <p class="text">
-                        La CDAPH décide des droits de la personne handicapée
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       </p>
                       <p class="sub-text">
-                        Elle précise le taux d'incapacité, offre la prestation
-                        de compensation et formule le projet d'insertion
-                        scolaire.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.
                       </p>
                     </div>
                   </div>
@@ -1417,12 +1153,12 @@
                     </div>
                     <div class="step-text col-11">
                       <p class="text">
-                        La scolarisation est un droit pour tous les enfants
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       </p>
                       <p class="sub-text">
-                        Un enfant en situation de handicap peut être scolarisé
-                        dès l'âge de trois ans avec un projet personnalisé de
-                        scolarisation.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua.
                       </p>
                     </div>
                   </div>
@@ -1432,12 +1168,14 @@
                     </div>
                     <div class="step-text col-11">
                       <p class="text">
-                        Quatre actions de prévention sont essentielles
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       </p>
                       <p class="sub-text">
-                        La vaccination, le dépistage prénatal, la surveillance
-                        du nouveau-né et le suivi médical régulier du jeune
-                        enfant.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.
                       </p>
                     </div>
                   </div>

@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Le cadre réglementaire : chartes, lois, règlements</title>
+    <style>
+      /* ===========================================
+           VARIABLES CSS GLOBALES
+           =========================================== */
+           :root {
+        /* Couleurs */
+        --primary-color: #5f8bbc;
+        --primary-color3: #e1d4ff;
+        --primary-color4: #f0ecc8;
+        --secondary-color: #9747ff;
+        --blue-color10: #e6f0fb;
+        --gray-color1: #757575;
+        --gray-color6: #ededed;
+        --gray-color7: #f7f7f7;
+        --white-color: #ffffff;
+        /* Typographie */
+        --main-font: "Montserrat", sans-serif;
+        --font-size18: 18px;
+        --font-size24: 24px;
+        --font-size28: 28px;
+        --font-size32: 32px;
+        --font-size48: 48px;
+        /* Espacement */
+        --spacing-xs: 8px;
+        --spacing-sm: 12px;
+        --spacing-md: 20px;
+        --spacing-lg: 30px;
+        --spacing-xl: 40px;
+        /* Ombres */
+        --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
+        --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15);
+        --shadow-heavy: 0 9px 15px rgba(0, 0, 0, 0.2);
+        /* Transitions */
+        --transition-fast: 0.3s ease;
+        --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* ===========================================
+           COMPOSANT RESET ET STYLES DE BASE
+           =========================================== */
+      /* * : Réinitialisation des marges et paddings pour tous les éléments */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      /* html : Active le défilement fluide pour les ancres */
+      html {
+        scroll-behavior: smooth;
+      }
+      /* body : Style de base pour le corps de la page */
+      body {
+        font-family: var(--main-font);
+        font-size: var(--font-size18);
+        font-weight: 400;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f5f5f5;
+        min-height: 100vh;
+      }
+      /* p, li, span, div : Style par défaut pour les éléments de texte */
+      p,
+      li,
+      span,
+      div {
+        font-family: var(--main-font);
+        font-size: var(--font-size18);
+        font-weight: 400;
+        color: #333;
+      }
+      /* strong : Surcharge pour éviter les gras indésirables */
+      strong {
+        font-weight: 400 !important;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT RESET ET STYLES DE BASE */
+      @media (min-width: 1440px) {
+        body {
+          font-size: 20px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        body {
+          font-size: 18px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        body {
+          font-size: 16px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 767px) {
+        body {
+          font-size: 14px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 375px) {
+        body {
+          font-size: 12px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 12px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT CONTAINER PRINCIPAL
+           =========================================== */
+      /* .main-container : Container principal pour centrer et styliser la page */
+      .main-container {
+        width: 60%;
+        max-width: 1200px;
+        margin: 40px auto;
+        background: var(--white-color);
+        border-radius: 12px;
+        box-shadow: var(--shadow-heavy);
+        padding: 40px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT CONTAINER PRINCIPAL */
+      @media (min-width: 1440px) {
+        .main-container {
+          width: 60%;
+          margin: 40px auto;
+          padding: 40px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .main-container {
+          width: 70%;
+          margin: 40px auto;
+          padding: 35px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .main-container {
+          width: 80%;
+          margin: 20px auto;
+          padding: 25px;
+        }
+      }
+      @media (max-width: 767px) {
+        .main-container {
+          width: 95%;
+          margin: 15px auto;
+          padding: 20px;
+        }
+      }
+      @media (max-width: 375px) {
+        .main-container {
+          width: 98%;
+          margin: 10px auto;
+          padding: 15px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT LAYOUT ET STRUCTURE
+           =========================================== */
+      /* .page-container : Container pour disposition flex de la page */
+      .page-container {
+        display: flex;
+        gap: 25px;
+        position: relative;
+        align-items: flex-start;
+        width: 100%;
+      }
+      /* .main-content : Contenu principal avec gestion du débordement */
+      .main-content {
+        flex: 1;
+        padding: 20px;
+        transition: margin-left var(--transition-fast);
+        min-width: 0;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT LAYOUT ET STRUCTURE */
+      @media (max-width: 767px) {
+        .page-container {
+          flex-direction: column;
+        }
+        .main-content {
+          padding: 15px;
+          overflow: visible;
+        }
+      }
+      @media (max-width: 375px) {
+        .main-content {
+          padding: 10px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT ESPACEMENT GLOBAL
+           =========================================== */
+      /* section : Marges pour les sections */
+      section {
+        margin-bottom: 30px;
+      }
+      /* .subsection : Marges pour les sous-sections */
+      .subsection {
+        margin-bottom: 25px;
+      }
+      /* p : Marges pour les paragraphes */
+      p {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+      /* h1, h2, h3, h4, h5, h6 : Marges pour les titres */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-bottom: 20px;
+      }
+      /* ul, ol : Marges pour les listes */
+      ul,
+      ol {
+        margin-bottom: 20px;
+      }
+      /* li : Marges pour les éléments de liste */
+      li {
+        margin-bottom: 8px;
+      }
+
+      /* ===========================================
+           COMPOSANT MENU BURGER
+           =========================================== */
+      /* .menu-toggle-checkbox : Checkbox caché pour contrôler l'état du menu */
+      .menu-toggle-checkbox {
+        display: none;
+      }
+      /* .menu-toggle : Bouton menu burger - visible sur tous les formats */
+      .menu-toggle {
+        display: block;
+        position: fixed;
+        top: var(--spacing-lg);
+        left: var(--spacing-lg);
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        z-index: 2001;
+        opacity: 0.8;
+        transition: opacity var(--transition-fast);
+        background: var(--white-color);
+        border-radius: 8px;
+        padding: 8px;
+        box-shadow: var(--shadow-light);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      /* .menu-toggle:hover : Effet hover sur le bouton menu burger */
+      .menu-toggle:hover {
+        opacity: 1;
+      }
+      /* .menu-toggle img : Image du menu burger - reste constante */
+      .menu-toggle img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: none;
+      }
+      /* .menu : Menu latéral qui glisse depuis la gauche */
+      .menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 70%;
+        max-width: 300px;
+        height: 100%;
+        background: #ffffff;
+        box-shadow: 4px 0 16px rgba(0, 0, 0, 0.15);
+        transform: translateX(-100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 100px 30px 40px 30px;
+        z-index: 1500;
+        border-right: 1px solid #e0e0e0;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+      /* .menu-toggle-checkbox:checked + .menu-toggle + .menu : Affiche le menu quand le checkbox est coché */
+      .menu-toggle-checkbox:checked + .menu-toggle + .menu {
+        transform: translateX(0);
+      }
+      /* .menu ul : Supprime les puces de la liste du menu */
+      .menu ul {
+        list-style: none;
+      }
+      /* .menu ul li : Espacement entre les éléments du menu */
+      .menu ul li {
+        margin-bottom: 25px;
+      }
+      /* .menu ul li a : Liens de navigation dans le menu burger */
+      .menu ul li a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: var(--font-size18);
+        transition: all 0.3s ease;
+        display: block;
+        padding: 18px 20px;
+        border-radius: 10px;
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
+        margin-bottom: 10px;
+      }
+      /* .menu ul li a:hover : Effet hover sur les liens du menu burger */
+      .menu ul li a:hover {
+        color: var(--primary-color);
+        background: #e6f0fb;
+        transform: translateX(10px);
+        box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
+        transition: all 0.3s ease;
+      }
+      /* .menu::-webkit-scrollbar : Personnalisation de la barre de défilement */
+      .menu::-webkit-scrollbar {
+        width: 6px;
+      }
+      /* .menu::-webkit-scrollbar-track : Piste de la barre de défilement */
+      .menu::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      /* .menu::-webkit-scrollbar-thumb : Curseur de la barre de défilement */
+      .menu::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: 3px;
+        opacity: 0.7;
+      }
+      /* .menu::-webkit-scrollbar-thumb:hover : Effet hover sur le curseur */
+      .menu::-webkit-scrollbar-thumb:hover {
+        background: #4a7aa3;
+        opacity: 1;
+      }
+      /* .menu : Support pour Firefox */
+      .menu {
+        scrollbar-width: thin;
+        scrollbar-color: var(--primary-color) transparent;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT MENU BURGER */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .menu {
+          width: 60%;
+          max-width: 280px;
+          padding: 70px 20px 25px;
+        }
+        .menu-toggle {
+          width: 35px;
+          height: 35px;
+          padding: 6px;
+        }
+      }
+      @media (max-width: 767px) {
+        .menu {
+          width: 75%;
+          max-width: 250px;
+          padding: 60px 15px 20px;
+        }
+        .menu-toggle {
+          width: 32px;
+          height: 32px;
+          padding: 5px;
+          top: 20px;
+          left: 20px;
+        }
+        .menu-toggle img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      @media (max-width: 375px) {
+        .menu {
+          width: 85%;
+          max-width: 280px;
+          padding: 50px 10px 15px;
+        }
+        .menu-toggle {
+          width: 28px;
+          height: 28px;
+          padding: 4px;
+          top: 15px;
+          left: 15px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT TITRE PRINCIPAL
+           =========================================== */
+      /* .intro-title : Titre principal de la page */
+      .intro-title {
+        font-family: var(--main-font);
+        font-weight: 700;
+        color: #5f8bbc;
+        font-size: 42px;
+        text-align: center;
+        text-decoration: underline;
+        margin: 30px 0 40px 0;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT TITRE PRINCIPAL */
+      @media (min-width: 1440px) {
+        .intro-title {
+          font-size: 36px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .intro-title {
+          font-size: 32px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .intro-title {
+          font-size: 32px;
+        }
+      }
+      @media (max-width: 767px) {
+        .intro-title {
+          font-size: 24px;
+          margin: 20px 0 30px 0;
+        }
+      }
+      @media (max-width: 375px) {
+        .intro-title {
+          font-size: 20px;
+          margin: 15px 0 20px 0;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT IMAGE PRINCIPALE
+           =========================================== */
+      /* .intro-image : Image principale en haut de la page */
+      .intro-image {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin: 30px auto;
+        border-radius: 12px;
+        box-shadow: var(--shadow-medium);
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT IMAGE PRINCIPALE */
+      @media (max-width: 767px) {
+        .intro-image {
+          margin: 20px auto;
+        }
+      }
+      @media (max-width: 375px) {
+        .intro-image {
+          margin: 15px auto;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT TITRES DE SECTION
+           =========================================== */
+      /* .section-header : Container des en-têtes de section (numéro + titre) */
+      .section-header {
+        display: flex;
+        align-items: center;
+        background: #e6f0fb;
+        border: 2px solid #3b6ea5e3;
+        border-radius: 15px;
+        padding: 0;
+        margin: 40px 0 30px 0;
+        box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
+        overflow: hidden;
+      }
+      /* .section-number : Numéro de section (01, 02, etc.) - partie bleue à gauche */
+      .section-number {
+        background: #3b6ea5;
+        color: var(--white-color);
+        font-family: var(--main-font);
+        font-weight: 700;
+        font-size: 36px;
+        padding: 25px 30px;
+        min-width: 120px;
+        width: 120px;
+        text-align: center;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        align-self: stretch;
+      }
+      /* .section-title : Titre de section (texte principal) - partie droite */
+      .section-title {
+        color: #3b6ea5;
+        font-family: var(--main-font);
+        font-weight: 700;
+        font-size: 24px;
+        text-align: center;
+        flex: 1;
+        padding: 25px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100px;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT TITRES DE SECTION */
+      @media (min-width: 1440px) {
+        .section-number {
+          font-size: 24px;
+          padding: 8px 12px;
+        }
+        .section-title {
+          font-size: 18px;
+          padding: 8px 12px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .section-number {
+          font-size: 22px;
+          padding: 6px 10px;
+        }
+        .section-title {
+          font-size: 16px;
+          padding: 6px 10px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .section-header {
+          margin: 20px 0 15px;
+          padding: 0;
+        }
+        .section-number {
+          font-size: 20px;
+          padding: 5px 8px;
+          min-width: 80px;
+          width: 80px;
+        }
+        .section-title {
+          font-size: 14px;
+          padding: 5px 8px;
+          min-height: 60px;
+        }
+      }
+      @media (max-width: 767px) {
+        .section-header {
+          flex-direction: column;
+          text-align: center;
+          margin: 15px 0 10px;
+          padding: 0;
+        }
+        .section-number {
+          border-radius: 12px 12px 0 0;
+          width: 100%;
+          text-align: center;
+          font-size: 18px;
+          padding: 4px 6px;
+          min-width: auto;
+          min-height: 40px;
+        }
+        .section-title {
+          border-radius: 0 0 12px 12px;
+          width: 100%;
+          font-size: 12px;
+          padding: 4px 6px;
+          min-height: 40px;
+        }
+      }
+      @media (max-width: 375px) {
+        .section-header {
+          margin: 10px 0 5px;
+          padding: 0;
+        }
+        .section-number {
+          font-size: 16px;
+          padding: 3px 5px;
+          min-height: 30px;
+        }
+        .section-title {
+          font-size: 10px;
+          padding: 3px 5px;
+          min-height: 30px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT TITRES DE SOUS-SECTION
+           =========================================== */
+      /* .subsection-heading : Titres de niveau 3 pour sous-sections (A., B.) */
+      .subsection-heading {
+        font-family: var(--main-font);
+        font-weight: 700;
+        color: #5f8bbc;
+        font-size: 26px;
+        margin: 35px 0 25px 0;
+        padding: 15px 20px;
+        background: #f8fbff;
+        border-left: 5px solid #5f8bbc;
+        border-radius: 0 8px 8px 0;
+        text-align: left;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT TITRES DE SOUS-SECTION */
+      @media (min-width: 1440px) {
+        .subsection-heading {
+          font-size: 28px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .subsection-heading {
+          font-size: 24px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .subsection-heading {
+          font-size: 22px;
+        }
+      }
+      @media (max-width: 767px) {
+        .subsection-heading {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 375px) {
+        .subsection-heading {
+          font-size: 14px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT CONCLUSION - À RETENIR
+           =========================================== */
+      /* .container-a-retenir : Container principal du composant conclusion avec espacement */
+      .container-a-retenir {
+        padding: 35px;
+        margin: 45px 0;
+      }
+      /* .wrap-title-retenir-conclusion : Wrapper pour le titre et l'image - disposition verticale centrée */
+      .wrap-title-retenir-conclusion {
+        flex-direction: column;
+        align-items: center;
+      }
+      /* .retenir-img : Image au-dessus du titre "À retenir" - taille adaptative */
+      .retenir-img {
+        width: 35%;
+      }
+      /* .title-retenir-conclusion : Titre principal "À RETENIR" - style typographique */
+      .title-retenir-conclusion {
+        color: var(--gray-color1);
+        text-align: center;
+        font-family: var(--main-font);
+        font-size: 24px;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: uppercase;
+        margin-top: 20px;
+      }
+      /* .steps : Container des étapes numérotées */
+      .steps {
+        padding: 20px;
+      }
+      /* .step : Structure de chaque étape - disposition verticale centrée */
+      .step {
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+      }
+      /* .number : Numéro de l'étape - cercle coloré avec le numéro */
+      .number {
+        font-size: 18px;
+        font-family: var(--main-font);
+        font-weight: bold;
+        color: var(--white-color);
+        border-radius: 50%;
+        padding: 8px;
+        background-color: var(--primary-color);
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      /* .text : Texte principal de l'étape - titre en gras */
+      .text {
+        font-family: var(--main-font);
+        color: var(--primary-color);
+        text-align: justify;
+        font-size: var(--font-size24);
+        font-weight: 600;
+        margin: 0;
+        padding-left: 15px;
+      }
+      /* .sub-text : Texte secondaire de l'étape - description détaillée */
+      .sub-text {
+        font-family: var(--main-font);
+        color: var(--gray-color1);
+        font-size: 18px;
+        margin: 0;
+        text-align: justify;
+        padding-left: 15px;
+      }
+      /* .line : Ligne verticale pointillée entre les étapes */
+      .line {
+        display: none;
+      }
+      /* .steps .step-content:last-child .line : Désactive la ligne pour la dernière étape */
+      .steps .step-content:last-child .line {
+        display: none;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT CONCLUSION - À RETENIR */
+      @media (min-width: 1440px) {
+        .title-retenir-conclusion {
+          font-size: 22px;
+        }
+        .text {
+          font-size: 22px;
+        }
+        .sub-text {
+          font-size: 20px;
+        }
+        .number {
+          width: 50px;
+          height: 50px;
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .title-retenir-conclusion {
+          font-size: 20px;
+        }
+        .text {
+          font-size: 20px;
+        }
+        .sub-text {
+          font-size: 18px;
+        }
+        .number {
+          width: 45px;
+          height: 45px;
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .title-retenir-conclusion {
+          font-size: 18px;
+        }
+        .text {
+          font-size: 18px;
+        }
+        .sub-text {
+          font-size: 16px;
+        }
+        .number {
+          width: 40px;
+          height: 40px;
+          font-size: 14px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 15px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+      @media (max-width: 767px) {
+        .title-retenir-conclusion {
+          font-size: 16px;
+        }
+        .text {
+          font-size: 16px;
+        }
+        .sub-text {
+          font-size: 14px;
+        }
+        .number {
+          width: 35px;
+          height: 35px;
+          font-size: 12px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 15px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+      @media (max-width: 375px) {
+        .title-retenir-conclusion {
+          font-size: 14px;
+        }
+        .text {
+          font-size: 14px;
+        }
+        .sub-text {
+          font-size: 12px;
+        }
+        .number {
+          width: 30px;
+          height: 30px;
+          font-size: 10px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 10px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+      @media (max-width: 768px) {
+        .container-a-retenir {
+          text-align: center;
+        }
+        .steps {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+        .step-content {
+          width: 100%;
+          max-width: 600px;
+          margin-bottom: 24px;
+        }
+        .text,
+        .sub-text {
+          text-align: center;
+        }
+        .steps .step-content:last-child .line {
+          display: block;
+        }
+      }
+      @media (max-width: 992px) and (min-width: 768px) {
+        .container-a-retenir {
+          text-align: center;
+        }
+        .steps {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+        .step-content {
+          width: 100%;
+          max-width: 600px;
+          margin-bottom: 24px;
+        }
+        .text,
+        .sub-text {
+          text-align: center;
+        }
+        .steps .step-content:last-child .line {
+          display: block;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT RESPONSIVE DESIGN GLOBAL
+           =========================================== */
+      /* .main-content : Ajustement de la marge pour responsivité */
+      .main-content {
+        margin-left: 0;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT RESPONSIVE DESIGN GLOBAL */
+      @media (min-width: 1440px) {
+        .main-content {
+          margin-left: 0;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .main-content {
+          margin-left: 0;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .main-content {
+          margin-left: 0;
+        }
+        .main-container {
+          width: 80%;
+          margin: 20px auto;
+          padding: 25px;
+        }
+      }
+      @media (max-width: 767px) {
+        .main-content {
+          margin-left: 0;
+        }
+        .main-container {
+          width: 95%;
+          margin: 15px auto;
+          padding: 20px;
+        }
+        .page-container {
+          flex-direction: column;
+        }
+        .main-content {
+          padding: 15px;
+          overflow: visible;
+        }
+      }
+      @media (max-width: 375px) {
+        .main-container {
+          width: 98%;
+          margin: 10px auto;
+          padding: 15px;
+        }
+        .main-content {
+          padding: 10px;
+        }
+      }
+      @media (max-width: 480px) {
+        .main-container {
+          width: 100%;
+          margin: 10px;
+          padding: 15px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT CLASSES UTILITAIRES
+           =========================================== */
+      /* .is-flex : Active la disposition flexbox */
+      .is-flex {
+        display: flex;
+      }
+      /* .is-flex-wrap-wrap-mobile : Permet le retour à la ligne pour petits écrans */
+      .is-flex-wrap-wrap-mobile {
+        flex-wrap: wrap;
+      }
+      /* .col-1 : Colonne occupant 1/12 de la largeur */
+      .col-1 {
+        width: 8.333333%;
+      }
+      /* .col-11 : Colonne occupant 11/12 de la largeur */
+      .col-11 {
+        width: 91.666667%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===========================================
+         CONTAINER PRINCIPAL - STRUCTURE MAÎTRESSE
+         =========================================== -->
+    <div class="main-container">
+      <!-- ===========================================
+           MENU BURGER - SYSTÈME DE NAVIGATION
+           =========================================== -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" />
+      <label for="menu-toggle" class="menu-toggle">
+        <img src="../../images/png/menuBurger.png" alt="Menu" />
+      </label>
+      <!-- Menu latéral de navigation -->
+      <nav class="menu">
+        <ul>
+          <li>
+            <a href="#section1">1 - Ne pas confondre loi, règlement, charte</a>
+          </li>
+          <li><a href="#section2">2 - Exemple de hiérarchie en droit</a></li>
+          <li><a href="#conc">3 - À retenir</a></li>
+        </ul>
+      </nav>
+
+      <!-- ===========================================
+           CONTENU PRINCIPAL DE LA PAGE
+           =========================================== -->
+      <div class="page-container">
+        <main class="main-content">
+          <!-- ===========================================
+               TITRE PRINCIPAL
+               =========================================== -->
+          <h1 class="intro-title">
+            Le cadre réglementaire : chartes, lois, règlements
+          </h1>
+
+          <!-- ===========================================
+               IMAGE PRINCIPALE
+               =========================================== -->
+          <img
+            src="../../images/CAP AEPE/page2/imageSerrerMain.png"
+            alt="Image de serrer la main"
+            class="intro-image"
+          />
+
+          <!-- ===========================================
+               SECTION 1 - NE PAS CONFONDRE LOI, RÈGLEMENT, CHARTE
+               =========================================== -->
+          <section id="section1">
+            <div class="section-header">
+              <span class="section-number">01</span>
+              <span class="section-title"
+                >Ne pas confondre loi, règlement, charte</span
+              >
+            </div>
+
+            <!-- Container pour les cartes -->
+            <div class="container">
+              <!-- Carte 1 - La loi -->
+              <div class="card">
+                <img
+                  src="../../images/CAP AEPE/page2/imageLois.png"
+                  alt="Loi"
+                />
+                <div class="text">
+                  <p class="title">
+                    <strong
+                      >La loi est un texte adopté par le Parlement et promulgué
+                      par le président de la République.</strong
+                    >
+                  </p>
+                  <p>
+                    Elle s'impose à tous dès lors qu'elle est promulguée et
+                    publiée au Journal officiel. Elle n'est cependant applicable
+                    que dans la mesure où des textes d'application sont adoptés
+                    et publiés.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Carte 2 - Le règlement -->
+              <div class="card">
+                <img
+                  src="../../images/CAP AEPE/page2/imageReglement.gif"
+                  alt="Règlement"
+                />
+                <div class="text">
+                  <p class="title">
+                    <strong
+                      >Le règlement englobe l'ensemble des décisions du pouvoir
+                      exécutif et des autorités administratives.</strong
+                    >
+                  </p>
+                  <p>
+                    Cette notion regroupe différentes sortes de textes qui se
+                    situent, les uns par rapport aux autres, dans un ordre
+                    hiérarchique. Au premier rang de ces textes figurent les
+                    décrets puis les arrêtés réglementaires (exemple : arrêté
+                    ministériel, préfectoral, municipal).
+                  </p>
+                </div>
+              </div>
+
+              <!-- Carte 3 - La charte -->
+              <div class="card">
+                <img
+                  src="../../images/CAP AEPE/page2/imageCharte.png"
+                  alt="Charte"
+                />
+                <div class="text">
+                  <p class="title">
+                    <strong
+                      >La charte est un texte juridique solennel ou une règle
+                      fondamentale</strong
+                    >
+                  </p>
+                  <p>
+                    censée s'appliquer à tous, ayant pour but de garantir des
+                    libertés, des droits ou des devoirs. Il existe plusieurs
+                    types de charte.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section document -->
+            <div class="document-container">
+              <div class="document-img">
+                <img
+                  src="../../images/CAP AEPE/page2/imageDocument.png"
+                  alt="Illustration de document"
+                />
+              </div>
+              <div class="document-highlight">
+                <p>
+                  La charte peut être un écrit solennel destiné à consigner des
+                  droits ou à régler des intérêts. Cela peut être l'ensemble des
+                  textes constitutionnels d'un pays. Dans ce cas, la Charte est
+                  avec une majuscule le plus souvent. Il existe des chartes au
+                  sein de certaines organisations : Aujourd'hui, de nombreuses
+                  entreprises possèdent une charte ayant pour objet de définir «
+                  leur culture d'entreprise », c'est-à-dire les valeurs ou
+                  règles auxquelles elles adhèrent. Exemple: Charte du
+                  développement durable, Charte des valeurs, Charte éthique,
+                  Charte qualité... Les chartes n'ont aucun caractère normatif
+                  et n'ont pas de véritable valeur juridique en soi, à la
+                  différence du règlement intérieur régulièrement déposé.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===========================================
+               SECTION 2 - EXEMPLE DE HIÉRARCHIE EN DROIT
+               =========================================== -->
+          <section id="section2">
+            <div class="section-header">
+              <span class="section-number">02</span>
+              <span class="section-title">Exemple de hiérarchie en droit</span>
+            </div>
+
+            <!-- Container hiérarchie -->
+            <div class="legal-blocks-container">
+              <!-- Première ligne : 2 blocs -->
+              <div class="legal-blocks-row">
+                <div class="legal-block">
+                  <div class="legal-block-header">Le bloc constitutionnel</div>
+                  <div class="legal-block-content">
+                    Déclaration des droits de l'Homme, Constitution, Charte de
+                    l'environnement, etc.
+                  </div>
+                </div>
+                <div class="legal-block">
+                  <div class="legal-block-header">Le bloc législatif</div>
+                  <div class="legal-block-content">
+                    En France : lois, codes, ordonnances et décisions ; au
+                    niveau communautaire : directive européenne, règlement
+                    communautaire.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Deuxième ligne : 3 blocs -->
+              <div class="legal-blocks-row">
+                <div class="legal-block">
+                  <div class="legal-block-header">Le bloc réglementaire</div>
+                  <div class="legal-block-content">
+                    Règlements. Ensemble des actes réglementaires : décrets et
+                    arrêtés.
+                  </div>
+                </div>
+                <div class="legal-block">
+                  <div class="legal-block-header">Le bloc contractuel</div>
+                  <div class="legal-block-content">
+                    Constitué des contrats, conventions, règlements intérieurs,
+                    etc.
+                  </div>
+                </div>
+                <div class="legal-block">
+                  <div class="legal-block-header">Le bloc conventionnel</div>
+                  <div class="legal-block-content">
+                    Conventions collectives, accords de branche, accords
+                    d'entreprise, etc.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===========================================
+               COMPOSANT FINAL - À RETENIR
+               =========================================== -->
+          <section id="conc">
+            <div class="block">
+              <div class="container-a-retenir">
+                <div
+                  class="wrap-title-retenir-conclusion is-flex is-flex-wrap-wrap-mobile"
+                >
+                  <img
+                    alt=""
+                    src="../../images/png/imageRetenir.svg"
+                    class="retenir-img"
+                  />
+                  <h2 class="title-retenir-conclusion">à retenir</h2>
+                </div>
+                <div class="steps">
+                  <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                    <div class="step col-1 is-flex">
+                      <span class="number is-flex">01.</span>
+                    </div>
+                    <div class="step-text col-11">
+                      <p class="text">
+                        La loi est un texte adopté par le Parlement et promulgué
+                        par le président de la République.
+                      </p>
+                      <p class="sub-text">
+                        Elle s'impose à tous dès lors qu'elle est promulguée et
+                        publiée au Journal officiel. Elle n'est cependant
+                        applicable que dans la mesure où des textes
+                        d'application sont adoptés et publiés.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                    <div class="step col-1 is-flex">
+                      <span class="number is-flex">02.</span>
+                    </div>
+                    <div class="step-text col-11">
+                      <p class="text">
+                        Le règlement englobe l'ensemble des décisions du pouvoir
+                        exécutif et des autorités administratives.
+                      </p>
+                      <p class="sub-text">
+                        Cette notion regroupe différentes sortes de textes qui
+                        se situent, les uns par rapport aux autres, dans un
+                        ordre hiérarchique. Au premier rang de ces textes
+                        figurent les décrets puis les arrêtés réglementaires
+                        (exemple : arrêté ministériel, préfectoral, municipal).
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                    <div class="step col-1 is-flex">
+                      <span class="number is-flex">03.</span>
+                    </div>
+                    <div class="step-text col-11">
+                      <p class="text">
+                        La charte est un texte juridique solennel ou une règle
+                        fondamentale
+                      </p>
+                      <p class="sub-text">
+                        Censée s'appliquer à tous, ayant pour but de garantir
+                        des libertés, des droits ou des devoirs. Il existe
+                        plusieurs types de charte.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
