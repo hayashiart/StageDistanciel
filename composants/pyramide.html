@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Pyramide des besoins</title>
 <style>
+
   :root{
     /* Couleurs des niveaux (du bas vers le haut) */
     --c1:#223a80;   /* physiologiques */
@@ -22,7 +23,8 @@
   }
 
   *{box-sizing:border-box}
-  body{
+
+  body {
     margin:0;
     font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", "Noto Sans", sans-serif;
     background:#f6f7fb;
@@ -30,7 +32,7 @@
     -webkit-font-smoothing:antialiased;
   }
 
-  .pyramid{
+  .pyramid {
     max-width:var(--maxw);
     margin:clamp(18px,4vw,56px) auto;
     padding: clamp(12px,2.2vw,20px);
@@ -40,7 +42,7 @@
   }
 
   /* Trapèze par défaut */
-  .level{
+  .level {
     width:var(--w);
     height:clamp(62px, 8.5vw, 120px);
     margin: var(--gap) auto 0;
@@ -55,41 +57,52 @@
   }
 
   /* Textes (plus petits) */
-  .level h3{
+
+  .level h3 {
     margin:0 0 .15rem 0;
     font-size: clamp(.9rem, .8rem + .7vw, 1.25rem);
     font-weight:900;
     letter-spacing:.01em;
   }
-  .level p{
+
+  .level p {
     margin:.08rem 0 0;
     font-size: clamp(.82rem, .78rem + .45vw, 1.02rem);
     opacity:.95;
   }
 
+
+
+
+
+
   /* Largeurs décroissantes */
-  .physio { --w: 90%; --bg: var(--c1); }
-  .secur  { --w: 72%; --bg: var(--c2); }
-  .appart { --w: 57%; --bg: var(--c3); }
-  .estime { --w: 46%; --bg: var(--c4);   height:clamp(5px, 10vw, 200px); }
+  .physio { --w: 90%; --bg: var(--c1); height:clamp(19px, 15vw, 200px); }
+  .secur  { --w: 70%; --bg: var(--c2);  height:clamp(19px, 12vw, 200px);}
+  .appart { --w: 53%; --bg: var(--c3);  height:clamp(19px, 9vw, 200px);}
+  .estime { --w: 40%; --bg: var(--c4);   height:clamp(19px, 9vw, 200px); }
+
 
   /* ➜ Contrôle spécifique du margin-top de “Besoins d’estime” */
 
 
+
   /* Sommet pointu (triangle) */
+
   .accomp{
-    --w: 37%;
+    --w: 30%;
     --bg: var(--c5);
-    height:clamp(150px, 19vw, 220px);     /* plus haut = pointe plus marquée */
+    height:clamp(150px, 100vw, 220px);     /* plus haut = pointe plus marquée */
     margin-top: calc(var(--gap) - 6px);
     clip-path: polygon(50% 0, 100% 100%, 0 100%);
     border-radius: 0 0 var(--radius) var(--radius);
     padding-top: 12px;
+
   }
 
 
   .accomp h3 {
-    font-size: 90%;
+    font-size: 130%;
     margin-bottom: 7%;
     width: 65%;
     margin-left: -5%;
@@ -97,15 +110,76 @@
 
 
   .accomp p {
-margin-bottom: -30%;
-font-size: 80%;
+    margin-bottom: -30%;
+    font-size: 80%;
   }
+   
+
+
+
+
 
   @media (max-width: 560px){
     :root{ --slope: 10%; }
     .level{ height:clamp(58px, 16vw, 110px); }
     .estime{ --estime-offset: 10px; }
     .accomp{ height:clamp(110px, 22vw, 200px); }
+
+
+    .level h3 {
+    font-size: 45%;
+  }
+
+  .level p {
+    font-size: 40%;
+  }
+    
+
+  .accomp h3 {
+    font-size: 45%;
+    margin-left: -10%;
+    margin-top: 10%;
+  
+  }
+
+
+  .accomp p {
+    
+    font-size: 40%;
+    margin-bottom: -20%;
+  }
+
+
+
+/* Largeurs décroissantes */
+  .physio { --w: 90%; --bg: var(--c1); height:clamp(19px, 15vw, 200px); }
+  .secur  { --w: 70%; --bg: var(--c2);  height:clamp(19px, 12vw, 200px);}
+  .appart { --w: 53%; --bg: var(--c3);  height:clamp(19px, 9vw, 200px);}
+  .estime { --w: 40%; --bg: var(--c4);   height:clamp(19px, 9vw, 200px); }
+
+
+
+
+  .accomp{
+    --w: 30%;
+    --bg: var(--c5);
+    height:clamp(100px, 5vw, 120px);     /* plus haut = pointe plus marquée */
+   
+
+  }
+
+  .accomp h3{
+    font-size: 30%;
+    margin-left: -2%;
+    margin-bottom: 10%;
+  }
+
+  .accomp p {
+    margin-bottom: -50%;
+
+  }
+
+
   }
 
 </style>
