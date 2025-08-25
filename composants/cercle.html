@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Schéma – Développement de l’enfant</title>
+<title>Cercles</title>
 <style>
+
+
 /* =========================
    Variables & base
    ========================= */
@@ -12,47 +14,56 @@
   --circle-bg:#5e86c2;        /* bleu des bulles */
   --text:#fff;
   --ring:#dfe8f6;             /* anneau pâle décoratif */
-  --gap: min(2.2vw, 18px);    /* espace entre bulles */
+  --gap: min(2.4vmin, 18px);  /* espace entre bulles (fluide) */
   --shadow: 0 8px 18px rgba(0,0,0,.08);
   --radius: 999px;
-  --font: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue",
-          Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+  --font: system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji";
 }
 
-/* GrapesJS-friendly reset */
 *{box-sizing:border-box}
-body{margin:0;font-family:var(--font);color:#182230}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--font);
+  color:#182230;
+  background:#fff;
+  overflow-x:hidden; /* évite tout débordement latéral */
+}
 
 /* =========================
    Wrapper
    ========================= */
 .dev-circles{
   position:relative;
-  width: min(1100px, 100%);
+  width:min(1100px, 96vw);    /* on reste toujours dans l’écran */
   margin: clamp(12px, 4vw, 40px) auto;
-  padding: clamp(12px, 2.6vw, 28px);
+  padding: clamp(8px, 2.4vw, 28px);
   isolation:isolate; /* pour que l’anneau passe derrière */
 }
 
-/* Anneau décoratif (deux arcs doux) */
+/* Anneau décoratif (deux arcs doux) — conservé à toutes tailles */
 .dev-circles::before,
 .dev-circles::after{
   content:"";
-  position:absolute; inset: 6% 10%;
-  border: clamp(10px,1.2vw,16px) solid var(--ring);
-  border-radius: var(--radius);
+  position:absolute;
+  inset: 6% 10%;
+  border: clamp(6px,1.2vmin,16px) solid var(--ring);
+  border-radius: 9999px;
   z-index:0;
+  pointer-events:none;
 }
 .dev-circles::after{
   inset: 18% 22%;
-  opacity:.8;
+  opacity:.85;
 }
 
-/* Grille responsive : 3x3 sur desktop, 1 colonne sur mobile */
+/* =========================
+   Grille 3x3 (inchangée sur mobile)
+   ========================= */
 .dev-grid{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, minmax(140px, 1fr));
+  grid-template-rows: repeat(4, minmax(0, 1fr));
   gap: var(--gap);
   position:relative;
   z-index:1;
@@ -67,21 +78,27 @@ body{margin:0;font-family:var(--font);color:#182230}
   border-radius:var(--radius);
   display:flex; align-items:center; justify-content:center;
   text-align:center;
-  padding: clamp(10px,1.8vw,18px);
+  padding: clamp(100px,1.8vmin,18px);
   box-shadow: var(--shadow);
-  /* tailles fluides */
-  min-height: clamp(120px, 18vw, 240px);
+  height: 100%;
+
+  /* tailles fluides mais mêmes proportions desktop → mobile */
+  min-height: clamp(140px, 29vmin, 200px);
   font-weight:800;
   line-height:1.2;
   letter-spacing:.2px;
-  font-size: clamp(16px, 2.4vw, 28px);
+  font-size: clamp(17px, 2.4vmin, 28px);
+
+  /* pour éviter que le texte déborde sur très petit écran */
+  overflow-wrap:anywhere;
+  hyphens:auto;
 }
 
-/* Centre plus grand */
+/* Centre plus grand (comme sur desktop) */
 .bubble--center{
   grid-area: 2 / 2 / 3 / 3;    /* centre dans la grille */
-  min-height: clamp(160px, 24vw, 320px);
-  font-size: clamp(18px, 2.8vw, 32px);
+  min-height: clamp(120px, 28vmin, 320px);
+  font-size: clamp(16px, 2.8vmin, 32px);
 }
 
 /* Satellites : positions dans la grille 3x3 */
@@ -91,47 +108,79 @@ body{margin:0;font-family:var(--font);color:#182230}
 .bubble--bottom-r  { grid-area: 3 / 3 / 4 / 4; }
 .bubble--top       { grid-area: 1 / 2 / 2 / 3; }
 
-/* État “4 sphères” : on masque la cognitive en haut */
+/* État “4 sphères” : on masque juste la cognitive du haut, le reste ne bouge pas */
 .hide-cognitive .bubble--top{ display:none; }
 
 /* =========================
-   Mobile : pile vertical
+   Ajustements fins par paliers
+   (on NE change PAS la grille)
    ========================= */
-@media (max-width: 720px){
-  .dev-circles::before,
-  .dev-circles::after{ display:none; } /* on simplifie l’anneau */
+
+/* Tablette & petit laptop */
+@media (max-width: 1024px){
+  .dev-circles{ padding: clamp(8px, 2.2vw, 24px); }
+  .bubble{
+    min-height: clamp(84px, 24vmin, 220px);
+    font-size: clamp(13px, 2.2vmin, 24px);
+  }
+  .bubble--center{
+    min-height: clamp(110px, 30vmin, 300px);
+    font-size: clamp(14px, 2.6vmin, 28px);
+  }
 
   .dev-grid{
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+ 
+}
+
+
+}
+
+/* Téléphones ≤ 720px : on garde 3×3 + anneau, juste plus compact */
+
+@media (max-width: 720px){
+  .dev-circles::before,
+  .dev-circles::after{
+    inset: 8% 8%;
+    border-width: clamp(4px, 1vmin, 10px);
+    opacity:.9;
+    
+  }
+
+  .bubble{
+    min-height: clamp(78px, 26vmin, 200px);
+    font-size: clamp(12px, 2.2vmin, 20px);
+    padding: clamp(6px, 1.6vmin, 14px);
   }
 
   .bubble--center{
-    order:0;
-    min-height: clamp(160px, 40vw, 260px);
+    min-height: clamp(100px, 32vmin, 260px);
+    font-size: clamp(13px, 2.6vmin, 22px);
   }
 
-  /* On empile joliment avec de petites bulles */
+}
+
+/* Très petits téléphones ≤ 360px : encore un cran */
+@media (max-width: 360px){
   .bubble{
-    min-height: clamp(96px, 30vw, 180px);
-    font-size: clamp(16px, 5vw, 22px);
+    min-height: clamp(72px, 28vmin, 180px);
+    font-size: clamp(11px, 2vmin, 18px);
+  }
+  .bubble--center{
+    min-height: clamp(92px, 34vmin, 240px);
+    font-size: clamp(12px, 2.4vmin, 20px);
   }
 
-  .bubble--left,
-  .bubble--right,
-  .bubble--bottom-l,
-  .bubble--bottom-r,
-  .bubble--top{
-    grid-area:auto;
-  }
+
 }
 </style>
 </head>
 <body>
 
-<!-- Ajoute la classe "hide-cognitive" si tu ne veux PAS la sphère du haut -->
+<!-- Ajoute la classe "hide-cognitive" au <section> si tu ne veux PAS la sphère du haut -->
 <section class="dev-circles" aria-label="Schéma des sphères du développement de l’enfant">
-  <div class="dev-grid">
+  <div class="dev-grid" role="group" aria-label="Cinq sphères autour du centre">
     <div class="bubble bubble--top" aria-label="Sphère cognitive">Sphère<br>cognitive</div>
 
     <div class="bubble bubble--left" aria-label="Sphère physique et motrice">
@@ -158,4 +207,3 @@ body{margin:0;font-family:var(--font);color:#182230}
 
 </body>
 </html>
-
