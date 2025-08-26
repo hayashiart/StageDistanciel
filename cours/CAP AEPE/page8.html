@@ -7,119 +7,157 @@
 
     <style>
       /* ===========================================
-           VARIABLES CSS GLOBALES - SYSTÈME DE DESIGN COHÉRENT
+           COMPOSANT RESET ET STYLES DE BASE
            =========================================== */
-
-      :root {
-        /* ===========================================
-             PALETTE DE COULEURS - COULEURS PRINCIPALES
-             =========================================== */
-        --primary-color: #5f8bbc; /* Bleu principal - couleur d'accent pour les éléments importants */
-        --primary-color3: #e1d4ff; /* Violet clair - fond pour les tableaux et sections spéciales */
-        --primary-color4: #f0ecc8; /* Jaune clair - fond pour les composants d'information */
-        --secondary-color: #9747ff; /* Violet principal - couleur secondaire pour les accents */
-        --blue-color10: #e6f0fb; /* Bleu très clair - fond pour les dégradés et sections */
-
-        /* ===========================================
-             PALETTE DE COULEURS - COULEURS NEUTRES
-             =========================================== */
-        --gray-color1: #757575; /* Gris moyen - couleur principale du texte */
-        --gray-color6: #ededed; /* Gris clair - fond pour les sections secondaires */
-        --gray-color7: #f7f7f7; /* Gris très clair - fond pour les tableaux et listes */
-        --white-color: #ffffff; /* Blanc pur - fond principal et texte sur fond coloré */
-
-        /* ===========================================
-             SYSTÈME TYPOGRAPHIQUE - ÉCHELLE DE TAILLES
-             =========================================== */
-        --main-font: "Montserrat", sans-serif; /* Police principale - moderne et lisible */
-        --font-size18: 18px; /* Texte de base - paragraphes et contenu principal */
-        --font-size24: 24px; /* Sous-titres - sections et composants */
-        --font-size28: 28px; /* Titres moyens - sections importantes */
-        --font-size32: 32px; /* Titres grands - pages et sections principales */
-        --font-size48: 48px; /* Titres très grands - titres de page */
-
-        /* ===========================================
-             SYSTÈME D'ESPACEMENT - ÉCHELLE COHÉRENTE
-             =========================================== */
-        --spacing-xs: 8px; /* Espacement très petit - marges internes fines */
-        --spacing-sm: 12px; /* Espacement petit - espacement entre éléments proches */
-        --spacing-md: 20px; /* Espacement moyen - espacement standard */
-        --spacing-lg: 30px; /* Espacement grand - espacement entre sections */
-        --spacing-xl: 40px; /* Espacement très grand - espacement entre blocs majeurs */
-
-        /* ===========================================
-             SYSTÈME D'OMBRES - PROFONDEUR VISUELLE
-             =========================================== */
-        --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1); /* Ombre légère - élévation subtile */
-        --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15); /* Ombre moyenne - élévation standard */
-        --shadow-heavy: 0 9px 15px rgba(0, 0, 0, 0.2); /* Ombre forte - élévation importante */
-
-        /* ===========================================
-             SYSTÈME DE TRANSITIONS - ANIMATIONS FLUIDES
-             =========================================== */
-        --transition-fast: 0.3s ease; /* Transition rapide - interactions immédiates */
-        --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transition fluide - animations douces */
-      }
-
-      /* ===========================================
-           RESET ET STYLES DE BASE - FONDATION DU SITE
-           =========================================== */
-
-      /* ===========================================
-           RESET CSS UNIVERSEL - NORMALISATION CROISÉE NAVIGATEURS
-           =========================================== */
+      /* * : Réinitialisation des marges et paddings pour tous les éléments */
       * {
-        margin: 0; /* Supprime toutes les marges par défaut */
-        padding: 0; /* Supprime tous les paddings par défaut */
-        box-sizing: border-box; /* Modèle de boîte incluant padding et border */
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-
-      /* ===========================================
-           STYLES DE BASE DU BODY - CONFIGURATION GLOBALE
-           =========================================== */
-      body {
-        font-family: var(--main-font); /* Police Montserrat pour tout le site */
-        line-height: 1.6; /* Interligne confortable pour la lecture */
-        color: #333; /* Couleur de texte par défaut - gris foncé */
-        background-color: #f5f5f5; /* Fond gris clair pour contraste avec le contenu */
-        min-height: 100vh; /* Hauteur minimale = 100% de la hauteur d'écran */
-      }
-
-      /* ===========================================
-           DÉFILEMENT FLUIDE - NAVIGATION SMOOTH SCROLL
-           =========================================== */
+      /* html : Active le défilement fluide pour les ancres */
       html {
-        scroll-behavior: smooth; /* Animation douce lors du scroll vers les ancres */
+        scroll-behavior: smooth;
+      }
+      /* body : Style de base pour le corps de la page */
+      body {
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f5f5f5;
+        min-height: 100vh;
+      }
+      /* p, li, span, div : Style par défaut pour les éléments de texte */
+      p,
+      li,
+      span,
+      div {
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        color: #333;
+      }
+      /* strong : Surcharge pour éviter les gras indésirables */
+      strong {
+        font-weight: 400 !important;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT RESET ET STYLES DE BASE */
+      @media (min-width: 1440px) {
+        body {
+          font-size: 20px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        body {
+          font-size: 18px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        body {
+          font-size: 16px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 767px) {
+        body {
+          font-size: 14px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 375px) {
+        body {
+          font-size: 12px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 12px;
+        }
       }
 
       /* ===========================================
-           CONTAINER PRINCIPAL - STRUCTURE MAÎTRESSE DE LA PAGE
+           COMPOSANT CONTAINER PRINCIPAL
            =========================================== */
-
-      /* ===========================================
-           CONTAINER PRINCIPAL - CENTRAGE ET OMBRE PORTÉE
-           =========================================== */
+      /* .main-container : Container principal pour centrer et styliser la page */
       .main-container {
-        width: 60%; /* Largeur relative pour s'adapter aux écrans */
-        max-width: 1200px; /* Largeur maximale pour éviter l'étirement excessif */
-        margin: var(--spacing-lg) auto; /* Centrage horizontal avec marge verticale */
-        background: var(
-          --white-color
-        ); /* Fond blanc pour contraste avec l'arrière-plan */
-        border-radius: 12px; /* Coins arrondis pour un design moderne */
-        box-shadow: var(
-          --shadow-heavy
-        ); /* Ombre portée pour effet de profondeur */
-        padding: var(--spacing-lg); /* Espacement interne pour le contenu */
-        position: relative; /* Position relative pour les éléments enfants */
-        overflow: hidden; /* Masque le débordement pour les animations */
+        width: 60%;
+        max-width: 1200px;
+        margin: 40px auto;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 9px 15px rgba(0, 0, 0, 0.2);
+        padding: 40px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT CONTAINER PRINCIPAL */
+      @media (min-width: 1440px) {
+        .main-container {
+          width: 60%;
+          margin: 40px auto;
+          padding: 40px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .main-container {
+          width: 70%;
+          margin: 40px auto;
+          padding: 35px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .main-container {
+          width: 80%;
+          margin: 20px auto;
+          padding: 25px;
+        }
+      }
+      @media (max-width: 767px) {
+        .main-container {
+          width: 95%;
+          margin: 15px auto;
+          padding: 20px;
+        }
+      }
+      @media (max-width: 375px) {
+        .main-container {
+          width: 98%;
+          margin: 10px auto;
+          padding: 15px;
+        }
       }
 
       /* ===========================================
-           LAYOUT ET STRUCTURE
+           COMPOSANT LAYOUT ET STRUCTURE
            =========================================== */
-
-      /* Container de la page avec flexbox */
+      /* .page-container : Container pour disposition flex de la page */
       .page-container {
         display: flex;
         gap: 25px;
@@ -127,68 +165,107 @@
         align-items: flex-start;
         width: 100%;
       }
-
-      /* Contenu principal avec gestion du débordement */
+      /* .main-content : Contenu principal avec gestion du débordement */
       .main-content {
         flex: 1;
-        padding: var(--spacing-md);
-        transition: margin-left var(--transition-fast);
+        padding: 20px;
+        transition: margin-left 0.3s ease;
         min-width: 0;
         overflow: hidden;
         width: 100%;
       }
 
-      /* ===========================================
-           MENU BURGER - SYSTÈME DE NAVIGATION
-           =========================================== */
+      /* MEDIA QUERIES POUR COMPOSANT LAYOUT ET STRUCTURE */
+      @media (max-width: 767px) {
+        .page-container {
+          flex-direction: column;
+        }
+        .main-content {
+          padding: 15px;
+          overflow: visible;
+        }
+      }
+      @media (max-width: 375px) {
+        .main-content {
+          padding: 10px;
+        }
+      }
 
-      /* Checkbox caché pour contrôler l'état du menu */
+      /* ===========================================
+           COMPOSANT ESPACEMENT GLOBAL
+           =========================================== */
+      /* section : Marges pour les sections */
+      section {
+        margin-bottom: 30px;
+      }
+      /* .subsection : Marges pour les sous-sections */
+      .subsection {
+        margin-bottom: 25px;
+      }
+      /* p : Marges pour les paragraphes */
+      p {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+      /* h1, h2, h3, h4, h5, h6 : Marges pour les titres */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-bottom: 20px;
+      }
+      /* ul, ol : Marges pour les listes */
+      ul,
+      ol {
+        margin-bottom: 20px;
+      }
+      /* li : Marges pour les éléments de liste */
+      li {
+        margin-bottom: 8px;
+      }
+
+      /* ===========================================
+           COMPOSANT MENU BURGER
+           =========================================== */
+      /* .menu-toggle-checkbox : Checkbox caché pour contrôler l'état du menu */
       .menu-toggle-checkbox {
         display: none;
       }
-
-      /* Bouton menu burger - visible sur tous les formats */
+      /* .menu-toggle : Bouton menu burger - visible sur tous les formats */
       .menu-toggle {
         display: block;
         position: fixed;
-        top: var(--spacing-lg);
-        left: var(--spacing-lg);
+        top: 30px;
+        left: 30px;
         width: 40px;
         height: 40px;
         cursor: pointer;
         z-index: 2001;
         opacity: 0.8;
-        transition: opacity var(--transition-fast);
-        background: var(--white-color);
+        transition: opacity 0.3s ease;
+        background: #ffffff;
         border-radius: 8px;
         padding: 8px;
-        box-shadow: var(--shadow-light);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
       }
-
-      /* Effet hover sur le bouton menu burger */
+      /* .menu-toggle:hover : Effet hover sur le bouton menu burger */
       .menu-toggle:hover {
         opacity: 1;
       }
-
-      /* Image du menu burger par défaut */
+      /* .menu-toggle img : Image du menu burger - reste constante */
       .menu-toggle img {
         width: 100%;
         height: 100%;
         object-fit: contain;
-        transition: all var(--transition-smooth);
+        transition: none;
       }
-
-      /* Image de la croix quand le menu est ouvert */
-      .menu-toggle-checkbox:checked + .menu-toggle img {
-        content: url("../../images/png/croix.png");
-        transform: none;
-      }
-
-      /* Menu latéral qui glisse depuis la gauche */
+      /* .menu : Menu latéral qui glisse depuis la gauche */
       .menu {
         position: fixed;
         top: 0;
@@ -196,150 +273,193 @@
         width: 70%;
         max-width: 300px;
         height: 100%;
-        background: var(--white-color);
+        background: #ffffff;
         box-shadow: 4px 0 16px rgba(0, 0, 0, 0.15);
         transform: translateX(-100%);
-        transition: transform var(--transition-fast);
-        padding: 80px 25px var(--spacing-lg);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 100px 30px 40px 30px;
         z-index: 1500;
         border-right: 1px solid #e0e0e0;
-        overflow-y: auto; /* Permet le défilement vertical */
-        overflow-x: hidden; /* Cache le défilement horizontal */
+        overflow-y: auto;
+        overflow-x: hidden;
       }
-
-      /* Affiche le menu quand le checkbox est coché (glissement vers la droite) */
+      /* .menu-toggle-checkbox:checked + .menu-toggle + .menu : Affiche le menu quand le checkbox est coché */
       .menu-toggle-checkbox:checked + .menu-toggle + .menu {
         transform: translateX(0);
       }
-
-      /* Supprime les puces de la liste du menu */
+      /* .menu ul : Supprime les puces de la liste du menu */
       .menu ul {
         list-style: none;
       }
-
-      /* Espacement entre les éléments du menu */
+      /* .menu ul li : Espacement entre les éléments du menu */
       .menu ul li {
-        margin-bottom: var(--spacing-md);
+        margin-bottom: 25px;
       }
-
-      /* Liens de navigation dans le menu burger */
+      /* .menu ul li a : Liens de navigation dans le menu burger */
       .menu ul li a {
         color: #333;
         text-decoration: none;
         font-weight: 600;
-        font-size: var(--font-size18);
-        transition: all var(--transition-fast);
+        font-size: 18px;
+        transition: all 0.3s ease;
         display: block;
-        padding: 15px var(--spacing-md);
+        padding: 18px 20px;
         border-radius: 10px;
-        background: var(--white-color);
+        background: #ffffff;
         border: 1px solid #e0e0e0;
+        margin-bottom: 10px;
       }
-
-      /* Effet hover sur les liens du menu burger */
+      /* .menu ul li a:hover : Effet hover sur les liens du menu burger */
       .menu ul li a:hover {
-        color: var(--primary-color);
-        background: var(--blue-color10);
+        color: #5f8bbc;
+        background: #e6f0fb;
         transform: translateX(10px);
         box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
+        transition: all 0.3s ease;
       }
-
-      /* ===========================================
-           SOUS-SECTIONS DU MENU BURGER
-           =========================================== */
-
-      /* Container des sous-listes (A, B, C, etc.) */
-      .menu ul ul {
-        margin-top: var(--spacing-sm);
-        margin-left: var(--spacing-md);
-        border-left: 2px solid var(--primary-color);
-        padding-left: var(--spacing-sm);
-      }
-
-      /* Espacement réduit entre les sous-sections */
-      .menu ul ul li {
-        margin-bottom: var(--spacing-sm);
-      }
-
-      /* Liens des sous-sections (A, B, C, etc.) - plus petits et moins mis en valeur */
-      .menu ul ul li a {
-        font-size: 14px; /* Plus petit que les sections principales (18px) */
-        font-weight: 400; /* Plus léger que les sections principales (600) */
-        padding: 8px var(--spacing-sm); /* Padding réduit */
-        background: transparent; /* Pas de fond blanc */
-        border: none; /* Pas de bordure */
-        color: var(--gray-color1); /* Couleur plus discrète */
-        opacity: 0.8; /* Légèrement transparent */
-      }
-
-      /* Effet hover sur les sous-sections - plus subtil */
-      .menu ul ul li a:hover {
-        color: var(--primary-color);
-        background: transparent;
-        transform: translateX(5px); /* Déplacement plus petit */
-        box-shadow: none; /* Pas d'ombre */
-        opacity: 1;
-      }
-
-      /* ===========================================
-           PERSONNALISATION DE LA BARRE DE DÉFILEMENT
-           =========================================== */
-
-      /* Masque la barre de défilement par défaut */
+      /* .menu::-webkit-scrollbar : Personnalisation de la barre de défilement */
       .menu::-webkit-scrollbar {
         width: 6px;
       }
-
-      /* Piste de la barre de défilement */
+      /* .menu::-webkit-scrollbar-track : Piste de la barre de défilement */
       .menu::-webkit-scrollbar-track {
         background: transparent;
       }
-
-      /* Curseur de la barre de défilement */
+      /* .menu::-webkit-scrollbar-thumb : Curseur de la barre de défilement */
       .menu::-webkit-scrollbar-thumb {
-        background: var(--primary-color);
+        background: #5f8bbc;
         border-radius: 3px;
         opacity: 0.7;
       }
-
-      /* Effet hover sur le curseur */
+      /* .menu::-webkit-scrollbar-thumb:hover : Effet hover sur le curseur */
       .menu::-webkit-scrollbar-thumb:hover {
         background: #4a7aa3;
         opacity: 1;
       }
-
-      /* Support pour Firefox */
+      /* .menu : Support pour Firefox */
       .menu {
         scrollbar-width: thin;
-        scrollbar-color: var(--primary-color) transparent;
+        scrollbar-color: #5f8bbc transparent;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT MENU BURGER */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .menu {
+          width: 60%;
+          max-width: 280px;
+          padding: 70px 20px 25px;
+        }
+        .menu-toggle {
+          width: 35px;
+          height: 35px;
+          padding: 6px;
+        }
+      }
+      @media (max-width: 767px) {
+        .menu {
+          width: 75%;
+          max-width: 250px;
+          padding: 60px 15px 20px;
+        }
+        .menu-toggle {
+          width: 32px;
+          height: 32px;
+          padding: 5px;
+          top: 20px;
+          left: 20px;
+        }
+        .menu-toggle img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      @media (max-width: 375px) {
+        .menu {
+          width: 85%;
+          max-width: 280px;
+          padding: 50px 10px 15px;
+        }
+        .menu-toggle {
+          width: 28px;
+          height: 28px;
+          padding: 4px;
+          top: 15px;
+          left: 15px;
+        }
       }
 
       /* ===========================================
-            TITRES ET EN-TÊTES
-            =========================================== */
-
-      /* Titre principal de la page */
+           COMPOSANT TITRE PRINCIPAL
+           =========================================== */
+      /* .intro-title : Titre principal de la page */
       .intro-title {
-        font-family: var(--main-font);
+        font-family: "Montserrat", sans-serif;
         font-weight: 700;
         color: #5f8bbc;
         font-size: 42px;
         text-align: center;
         text-decoration: underline;
-        margin: var(--spacing-lg) 0 50px 0;
+        margin: 30px 0 40px 0;
       }
 
-      /* Image principale en haut de la page */
+      /* MEDIA QUERIES POUR COMPOSANT TITRE PRINCIPAL */
+      @media (min-width: 1440px) {
+        .intro-title {
+          font-size: 36px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .intro-title {
+          font-size: 32px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .intro-title {
+          font-size: 32px;
+        }
+      }
+      @media (max-width: 767px) {
+        .intro-title {
+          font-size: 24px;
+          margin: 20px 0 30px 0;
+        }
+      }
+      @media (max-width: 375px) {
+        .intro-title {
+          font-size: 20px;
+          margin: 15px 0 20px 0;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT IMAGE PRINCIPALE
+           =========================================== */
+      /* .intro-image : Image principale en haut de la page */
       .intro-image {
         display: block;
         max-width: 100%;
         height: auto;
-        margin: var(--spacing-lg) auto;
+        margin: 30px auto;
         border-radius: 12px;
-        box-shadow: var(--shadow-medium);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       }
 
-      /* Container des en-têtes de section (numéro + titre) */
+      /* MEDIA QUERIES POUR COMPOSANT IMAGE PRINCIPALE */
+      @media (max-width: 767px) {
+        .intro-image {
+          margin: 20px auto;
+        }
+      }
+      @media (max-width: 375px) {
+        .intro-image {
+          margin: 15px auto;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT TITRES DE SECTION
+           =========================================== */
+      /* .section-header : Container des en-têtes de section (numéro + titre) */
       .section-header {
         display: flex;
         align-items: center;
@@ -347,16 +467,15 @@
         border: 2px solid #3b6ea5e3;
         border-radius: 15px;
         padding: 0;
-        margin: 50px 0 var(--spacing-lg);
+        margin: 40px 0 30px 0;
         box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
         overflow: hidden;
       }
-
-      /* Numéro de section (01, 02, etc.) - partie bleue à gauche */
+      /* .section-number : Numéro de section (01, 02, etc.) - partie bleue à gauche */
       .section-number {
         background: #3b6ea5;
-        color: var(--white-color);
-        font-family: var(--main-font);
+        color: #ffffff;
+        font-family: "Montserrat", sans-serif;
         font-weight: 700;
         font-size: 36px;
         padding: 25px 30px;
@@ -370,11 +489,10 @@
         flex-shrink: 0;
         align-self: stretch;
       }
-
-      /* Titre de section (texte principal) - partie droite */
+      /* .section-title : Titre de section (texte principal) - partie droite */
       .section-title {
         color: #3b6ea5;
-        font-family: var(--main-font);
+        font-family: "Montserrat", sans-serif;
         font-weight: 700;
         font-size: 24px;
         text-align: center;
@@ -386,1272 +504,849 @@
         min-height: 100px;
       }
 
-      /* Liste à puces dans le contenu des sections */
-      .section-list {
-        margin-left: 25px;
-        margin-bottom: 25px;
-        font-size: 18px;
-        line-height: 1.8;
+      /* MEDIA QUERIES POUR COMPOSANT TITRES DE SECTION */
+      @media (min-width: 1440px) {
+        .section-number {
+          font-size: 24px;
+          padding: 8px 12px;
+        }
+        .section-title {
+          font-size: 18px;
+          padding: 8px 12px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .section-number {
+          font-size: 22px;
+          padding: 6px 10px;
+        }
+        .section-title {
+          font-size: 16px;
+          padding: 6px 10px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .section-header {
+          margin: 20px 0 15px;
+          padding: 0;
+        }
+        .section-number {
+          font-size: 20px;
+          padding: 5px 8px;
+          min-width: 80px;
+          width: 80px;
+        }
+        .section-title {
+          font-size: 14px;
+          padding: 5px 8px;
+          min-height: 60px;
+        }
+      }
+      @media (max-width: 767px) {
+        .section-header {
+          flex-direction: column;
+          text-align: center;
+          margin: 15px 0 10px;
+          padding: 0;
+        }
+        .section-number {
+          border-radius: 12px 12px 0 0;
+          width: 100%;
+          text-align: center;
+          font-size: 18px;
+          padding: 4px 6px;
+          min-width: auto;
+          min-height: 40px;
+        }
+        .section-title {
+          border-radius: 0 0 12px 12px;
+          width: 100%;
+          font-size: 12px;
+          padding: 4px 6px;
+          min-height: 40px;
+        }
+      }
+      @media (max-width: 375px) {
+        .section-header {
+          margin: 10px 0 5px;
+          padding: 0;
+        }
+        .section-number {
+          font-size: 16px;
+          padding: 3px 5px;
+          min-height: 30px;
+        }
+        .section-title {
+          font-size: 10px;
+          padding: 3px 5px;
+          min-height: 30px;
+        }
       }
 
-      /* Sous-titres (A., B., etc.) dans les sections */
+      /* ===========================================
+           COMPOSANT TITRES DE SOUS-SECTION
+           =========================================== */
+      /* .subsection-heading : Titres de niveau 3 pour sous-sections (A., B.) */
       .subsection-heading {
         font-family: "Montserrat", sans-serif;
         font-weight: 700;
         color: #5f8bbc;
         font-size: 26px;
-        margin: 40px 0 20px;
+        margin: 35px 0 25px 0;
         padding: 15px 20px;
         background: #f8fbff;
         border-left: 5px solid #5f8bbc;
         border-radius: 0 8px 8px 0;
+        text-align: left;
       }
 
-      /* Texte de contenu des sections (paragraphes) */
-      .section-text {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 400;
-        color: #000000;
-        font-size: 18px;
-        margin-bottom: 25px;
-        line-height: 1.7;
+      /* MEDIA QUERIES POUR COMPOSANT TITRES DE SOUS-SECTION */
+      @media (min-width: 1440px) {
+        .subsection-heading {
+          font-size: 28px;
+        }
       }
-
-      /* ===========================================
-            LAYOUT FLEXIBLE
-            =========================================== */
-
-      /* Container flexible pour texte + image côte à côte */
-      .flex-container {
-        display: flex;
-        align-items: flex-start;
-        gap: 30px;
-        flex-wrap: wrap;
-        margin: 30px 0;
-        padding: 25px;
-        background: #fafbfc;
-        border-radius: 12px;
-        border: 1px solid #e0e0e0;
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .subsection-heading {
+          font-size: 24px;
+        }
       }
-
-      /* Zone de texte dans le layout flexible */
-      .text-content {
-        flex: 1;
-        min-width: 350px;
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .subsection-heading {
+          font-size: 22px;
+        }
       }
-
-      /* Images dans le layout flexible */
-      .office-image {
-        max-width: 350px;
-        width: 100%;
-        height: auto;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      @media (max-width: 767px) {
+        .subsection-heading {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 375px) {
+        .subsection-heading {
+          font-size: 14px;
+        }
       }
 
       /* ===========================================
-           COMPOSANT CONCLUSION
+           COMPOSANT CONCLUSION - À RETENIR
            =========================================== */
-
-      /* Classes utilitaires pour le composant Conclusion */
-      .is-flex {
-        display: flex;
+      /* .container-a-retenir : Container principal du composant conclusion avec espacement */
+      .container-a-retenir {
+        padding: 35px;
+        margin: 45px 0;
       }
-
-      .is-flex-wrap-wrap-mobile {
-        flex-wrap: wrap;
-      }
-
-      .col-1 {
-        width: 8.333333%;
-      }
-
-      .col-11 {
-        width: 91.666667%;
-      }
-
-      /* ===========================================
-           COMPOSANT CONCLUSION - STYLES ORIGINAUX
-           =========================================== */
-
-      /* Variables CSS nécessaires pour le composant */
-      :root {
-        --main-font: "Montserrat", sans-serif;
-        --font-size18: 18px;
-        --font-size24: 24px;
-        --font-size32: 32px;
-        --font-size48: 48px;
-        --primary-color: #9747ff;
-        --gray-color1: #757575;
-        --white-color: #ffffff;
-      }
-
-      /* Classes utilitaires */
-      .is-flex {
-        display: flex;
-      }
-
-      .is-flex-wrap-wrap-mobile {
-        flex-wrap: wrap;
-      }
-
-      .col-1 {
-        width: 8.333333%;
-      }
-      .col-11 {
-        width: 91.666667%;
-      }
-
-      /* Block */
-      .block:not(:last-child),
-      .block:not(:last-child) {
-        margin-bottom: 24px;
-      }
-
-      /* Title H2 With background */
-      .bg-title-h2 {
-        font-family: var(--main-font);
-        color: var(--gray-color1);
-        font-size: var(--font-size32);
-        font-weight: 600;
-        background-color: var(--primary-color);
-        padding: 8px 14px;
-        border-radius: 10px;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 20px;
-      }
-
-      /* à retenir */
-      .steps {
-        padding: 20px;
-      }
-
-      .step {
+      /* .wrap-title-retenir-conclusion : Wrapper pour le titre et l'image - disposition verticale centrée */
+      .wrap-title-retenir-conclusion {
         flex-direction: column;
-        position: relative;
         align-items: center;
       }
-
-      .number {
-        font-size: 18px;
-        font-family: var(--main-font);
-        font-weight: bold;
-        color: var(--white-color);
-        border-radius: 50%;
-        padding: 8px;
-        background-color: var(--primary-color);
-        width: 50px;
-        height: 50px;
-        align-items: center;
-        justify-content: center;
+      /* .retenir-img : Image au-dessus du titre "À retenir" - taille adaptative */
+      .retenir-img {
+        width: 35%;
       }
-
-      .text {
-        font-family: var(--main-font);
-        color: var(--primary-color);
-        text-align: justify;
-        font-size: var(--font-size24);
-        font-weight: 600;
-        margin: 0;
-        padding-left: 15px;
-      }
-
-      .sub-text {
-        font-family: var(--main-font);
-        color: var(--gray-color1);
-        font-size: 18px;
-        margin: 0;
-        text-align: justify;
-        padding-left: 15px;
-      }
-
-      .line {
-        display: none;
-      }
-
-      .steps .step-content:last-child .line {
-        display: none;
-      }
-
+      /* .title-retenir-conclusion : Titre principal "À RETENIR" - style typographique */
       .title-retenir-conclusion {
-        color: var(--gray-color1);
+        color: #757575;
         text-align: center;
-        font-family: var(--main-font);
+        font-family: "Montserrat", sans-serif;
         font-size: 24px;
         font-weight: 600;
         line-height: normal;
         text-transform: uppercase;
         margin-top: 20px;
       }
-
-      .wrap-title-retenir-conclusion {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .retenir-img {
-        width: 35%;
-      }
-
-      /* Container principal du composant Conclusion */
-      .container-a-retenir {
-        padding: 30px;
-        margin: 40px 0;
-      }
-
-      /* ===========================================
-           STRUCTURES D'ACCUEIL - RECTANGLES JAUNES
-           =========================================== */
-
-      /* Paragraphe d'introduction centré */
-      .structures-intro {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 600;
-        color: #5f8bbc;
-        font-size: 22px;
-        text-align: center;
-        margin: 40px 0 30px;
+      /* .steps : Container des étapes numérotées */
+      .steps {
         padding: 20px;
-        background: #f8fbff;
-        border-radius: 12px;
-        border: 2px solid #e0e0e0;
       }
-
-      /* Container pour la grille 2x2 des rectangles */
-      .structures-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
-        margin: 20px auto;
-        padding: 12px;
-        max-width: 800px;
+      /* .step : Structure de chaque étape - disposition verticale centrée */
+      .step {
+        flex-direction: column;
+        position: relative;
+        align-items: center;
       }
-
-      /* Rectangle jaune individuel */
-      .structure-box {
-        background-color: #f0ecc8;
-        border-radius: 8px;
-        padding: 12px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        border: 2px solid #e0e0e0;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        min-height: 160px; /* Hauteur minimale pour contenir le texte */
+      /* .number : Numéro de l'étape - cercle coloré avec le numéro */
+      .number {
+        font-size: 18px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: bold;
+        color: #ffffff;
+        border-radius: 50%;
+        padding: 8px;
+        background-color: #5f8bbc;
+        width: 50px;
+        height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
       }
-
-      /* Effet hover sur les rectangles */
-      .structure-box:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-      }
-
-      /* Contenu intérieur des rectangles */
-      .structure-content {
-        background-color: #fdfbed;
-        padding: 10px;
-        border-radius: 5px;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-      }
-
-      /* Texte dans chaque rectangle */
-      .structure-content p {
+      /* .text : Texte principal de l'étape - titre en gras */
+      .text {
         font-family: "Montserrat", sans-serif;
-        font-weight: 400;
-        color: #333;
-        font-size: 12px;
-        line-height: 1.5;
-        text-align: center;
+        color: #5f8bbc;
+        text-align: justify;
+        font-size: 24px;
+        font-weight: 600;
         margin: 0;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        hyphens: auto;
+        padding-left: 15px;
+      }
+      /* .sub-text : Texte secondaire de l'étape - description détaillée */
+      .sub-text {
+        font-family: "Montserrat", sans-serif;
+        color: #757575;
+        font-size: 18px;
+        margin: 0;
+        text-align: justify;
+        padding-left: 15px;
+      }
+      /* .line : Ligne verticale pointillée entre les étapes */
+      .line {
+        display: none;
+      }
+      /* .steps .step-content:last-child .line : Désactive la ligne pour la dernière étape */
+      .steps .step-content:last-child .line {
+        display: none;
       }
 
-      /* ===========================================
-           RESPONSIVE DESIGN
-           =========================================== */
-
-      /* Desktop (1200px+) */
-      @media (min-width: 1200px) {
-        .main-content {
-          margin-left: 0;
-        }
-      }
-
-      /* Laptop (1024px - 1199px) */
-      @media (max-width: 1199px) and (min-width: 1024px) {
-        .main-content {
-          margin-left: 0;
-        }
-      }
-
-      /* Tablette (768px - 1023px) */
-      @media (max-width: 1023px) and (min-width: 768px) {
-        .main-content {
-          margin-left: 0;
-        }
-
-        .main-container {
-          width: 80%;
-          margin: 20px auto;
-          padding: 25px;
-        }
-
-        /* Menu plus petit sur tablette */
-        .menu {
-          width: 60%;
-          max-width: 280px;
-          padding: 70px 20px 25px;
-        }
-
-        /* Bouton burger plus petit sur tablette */
-        .menu-toggle {
-          width: 35px;
-          height: 35px;
-          padding: 6px;
-        }
-
-        .menu-toggle span {
-          width: 8px;
-          height: 1.5px;
-          margin: 1px 0;
-        }
-
-        /* Animation du menu burger sur tablette - flèche gauche */
-        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(1) {
-          transform: rotate(-45deg) translate(0.5px, 0px);
-        }
-
-        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(2) {
-          opacity: 0;
-        }
-
-        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(3) {
-          transform: rotate(45deg) translate(0.5px, 0px);
-        }
-
-        /* Composant Conclusion sur tablette */
-        .text,
-        .sub-text {
-          text-align: center;
-        }
-
-        .step-content {
-          margin-bottom: 24px;
-        }
-
-        .steps .step-content:last-child .line {
-          display: none;
-        }
-
-        /* Structures d'accueil sur tablette */
-        .structures-grid {
-          grid-template-columns: 1fr;
-          gap: 12px;
-          padding: 10px;
-        }
-
-        .structure-box {
-          padding: 10px;
-          min-height: 180px; /* Hauteur minimale adaptée pour tablette */
-        }
-
-        .structure-content {
-          padding: 8px;
-        }
-
-        .structure-content p {
-          font-size: 11px;
-          line-height: 1.4;
-        }
-
-        /* Texte sur image de couverture sur tablette */
-        .intro-image-text {
-          font-size: 15px;
-          max-width: 70%;
-          left: 15px;
-          padding: 12px;
-        }
-      }
-
-      /* Mobile (767px et moins) */
-      @media (max-width: 767px) {
-        .main-content {
-          margin-left: 0;
-        }
-
-        .main-container {
-          width: 95%;
-          margin: 15px auto;
-          padding: 20px;
-          overflow: visible;
-        }
-
-        .page-container {
-          flex-direction: column;
-        }
-
-        .main-content {
-          padding: 15px;
-          overflow: visible;
-        }
-
-        /* Menu plus petit sur mobile */
-        .menu {
-          width: 75%;
-          max-width: 250px;
-          padding: 60px 15px 20px;
-        }
-
-        /* Bouton burger plus petit sur mobile */
-        .menu-toggle {
-          width: 32px;
-          height: 32px;
-          padding: 5px;
-          top: 20px;
-          left: 20px;
-        }
-
-        .menu-toggle span {
-          width: 7px;
-          height: 1.5px;
-          margin: 0.5px 0;
-        }
-
-        /* Animation du menu burger sur mobile - flèche gauche */
-        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(1) {
-          transform: rotate(-45deg) translate(0.3px, 0px);
-        }
-
-        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(2) {
-          opacity: 0;
-        }
-
-        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(3) {
-          transform: rotate(45deg) translate(0.3px, 0px);
-        }
-
-        /* Titres adaptés */
-        .intro-title {
-          font-size: 24px;
-          margin: 20px 0 30px 0;
-        }
-
-        .section-number {
-          font-size: 28px;
-        }
-
-        .section-title {
-          font-size: 20px;
-        }
-
-        .subsection-heading {
-          font-size: 18px;
-        }
-
-        /* Titres des composants */
+      /* MEDIA QUERIES POUR COMPOSANT CONCLUSION - À RETENIR */
+      @media (min-width: 1440px) {
         .title-retenir-conclusion {
-          font-size: 16px;
-        }
-
-        .text {
-          font-size: 14px;
-        }
-
-        .sub-text {
-          font-size: 14px;
-        }
-
-        .section-header {
-          flex-direction: column;
-          text-align: center;
-          margin: 30px 0 20px;
-        }
-
-        .section-number {
-          border-radius: 12px 12px 0 0;
-          width: 100%;
-          text-align: center;
-        }
-
-        .section-text {
-          border-radius: 0 0 12px 12px;
-          width: 100%;
-        }
-
-        /* Structures d'accueil sur mobile */
-        .structures-grid {
-          grid-template-columns: 1fr;
-          gap: 10px;
-          padding: 8px;
-        }
-
-        .structure-box {
-          padding: 8px;
-          min-height: 140px; /* Hauteur minimale adaptée pour mobile */
-        }
-
-        .structure-content {
-          padding: 6px;
-        }
-
-        .structure-content p {
-          font-size: 10px;
-          line-height: 1.3;
-        }
-
-        .subsection-heading {
-          font-size: 18px;
-          margin: 25px 0 15px;
-        }
-
-        /* Layout flexible en colonne */
-        .flex-container {
-          flex-direction: column;
-          padding: 20px;
-          gap: 20px;
-        }
-
-        .text-content {
-          min-width: auto;
-        }
-
-        .office-image {
-          max-width: 100%;
-        }
-
-        /* Composant Conclusion sur mobile */
-        .text,
-        .sub-text {
-          text-align: center;
-        }
-
-        .step-content {
-          margin-bottom: 24px;
-        }
-
-        .steps .step-content:last-child .line {
-          display: none;
-        }
-      }
-
-      /* Petit mobile (480px et moins) */
-      @media (max-width: 480px) {
-        .main-container {
-          width: 100%;
-          margin: 10px;
-          padding: 15px;
-        }
-
-        .intro-title {
-          font-size: 24px;
-        }
-
-        .section-text {
-          font-size: 16px;
-        }
-
-        .subsection-heading {
-          font-size: 20px;
-        }
-
-        .section-number {
-          font-size: 28px;
-          padding: 15px 20px;
-        }
-
-        .section-title {
-          font-size: 28px;
-          padding: 15px 20px;
-          min-height: 70px;
-        }
-
-        /* Structures d'accueil sur très petit mobile */
-        .structures-grid {
-          gap: 8px;
-          padding: 6px;
-        }
-
-        .structure-box {
-          padding: 6px;
-          min-height: 120px;
-        }
-
-        .structure-content {
-          padding: 5px;
-        }
-
-        .structure-content p {
-          font-size: 9px;
-          line-height: 1.2;
-        }
-
-        /* Composant Conclusion sur petit mobile */
-        .text,
-        .sub-text {
-          text-align: center;
-        }
-
-        .step-content {
-          margin-bottom: 24px;
-        }
-
-        .steps .step-content:last-child .line {
-          display: none;
-        }
-
-        /* Centrage et débordement pour tous les éléments */
-        .flex-container,
-        .structures-grid,
-        .structure-box {
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          padding: 15px;
-          justify-content: center;
-          width: 100%;
-          max-width: 100%;
-        }
-
-        /* Réduction de la taille des textes pour éviter le débordement */
-        .section-text,
-        .text,
-        .sub-text,
-        .structure-content p {
-          font-size: 16px;
-          line-height: 1.5;
-          padding: 20px;
-          word-wrap: break-word;
-          overflow-wrap: break-word;
-        }
-
-        /* Images centrées et redimensionnées */
-        .office-image {
-          max-width: 200px;
-          margin: 0 auto;
-        }
-      }
-
-      /* ===========================================
-           TABLETTE (768px - 1023px) - ADAPTATION MOYENNE
-           =========================================== */
-      @media (max-width: 1023px) and (min-width: 768px) {
-        /* Titres adaptés pour tablette */
-        .intro-title {
-          font-size: 32px;
-        }
-
-        .section-number {
-          font-size: 32px;
-        }
-
-        .section-title {
           font-size: 22px;
         }
-
-        .subsection-heading {
+        .text {
+          font-size: 22px;
+        }
+        .sub-text {
           font-size: 20px;
         }
-
-        /* Titres des composants pour tablette */
+        .number {
+          width: 50px;
+          height: 50px;
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .title-retenir-conclusion {
+          font-size: 20px;
+        }
+        .text {
+          font-size: 20px;
+        }
+        .sub-text {
+          font-size: 18px;
+        }
+        .number {
+          width: 45px;
+          height: 45px;
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
         .title-retenir-conclusion {
           font-size: 18px;
         }
-
+        .text {
+          font-size: 18px;
+        }
+        .sub-text {
+          font-size: 16px;
+        }
+        .number {
+          width: 40px;
+          height: 40px;
+          font-size: 14px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 15px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+      @media (max-width: 767px) {
+        .title-retenir-conclusion {
+          font-size: 16px;
+        }
         .text {
           font-size: 16px;
         }
-
         .sub-text {
-          font-size: 16px;
+          font-size: 14px;
         }
-
-        /* Centrage pour tablette */
-        .container-a-retenir,
-        .steps,
-        .step-content,
-        .text,
-        .sub-text {
-          text-align: center;
-          justify-content: center;
-          align-items: center;
+        .number {
+          width: 35px;
+          height: 35px;
+          font-size: 12px;
         }
-
-        .steps {
+        .step-content {
           flex-direction: column;
           align-items: center;
+          text-align: center;
         }
-
+        .step {
+          margin-bottom: 15px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+      @media (max-width: 375px) {
+        .title-retenir-conclusion {
+          font-size: 14px;
+        }
+        .text {
+          font-size: 14px;
+        }
+        .sub-text {
+          font-size: 12px;
+        }
+        .number {
+          width: 30px;
+          height: 30px;
+          font-size: 10px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 10px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+      @media (max-width: 768px) {
+        .container-a-retenir {
+          text-align: center;
+        }
+        .steps {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          max-width: 800px;
+          margin: 0 auto;
+        }
         .step-content {
           width: 100%;
           max-width: 600px;
+          margin-bottom: 24px;
+        }
+        .text,
+        .sub-text {
+          text-align: center;
+        }
+        .steps .step-content:last-child .line {
+          display: block;
+        }
+      }
+      @media (max-width: 992px) and (min-width: 768px) {
+        .container-a-retenir {
+          text-align: center;
+        }
+        .steps {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          max-width: 800px;
           margin: 0 auto;
         }
+        .step-content {
+          width: 100%;
+          max-width: 600px;
+          margin-bottom: 24px;
+        }
+        .text,
+        .sub-text {
+          text-align: center;
+        }
+        .steps .step-content:last-child .line {
+          display: block;
+        }
       }
 
-      /* Variables CSS nécessaires */
-      :root {
-        --main-font: "Montserrat", sans-serif;
-        --font-size28: 28px;
-        --primary-color: #9747ff;
-        --primary-color3: #e1d4ff;
-        --gray-color1: #757575;
-        --gray-color6: #ededed;
-        --gray-color7: #f7f7f7;
-        --white-color: #ffffff;
-      }
-
-      /* Styles de base */
-      * {
-        word-break: break-word;
-        box-sizing: border-box;
-      }
-
-      /* Classes utilitaires */
+      /* ===========================================
+           COMPOSANT CLASSES UTILITAIRES
+           =========================================== */
+      /* .is-flex : Active la disposition flexbox */
       .is-flex {
         display: flex;
       }
-
-      .is-align-items-center {
-        align-items: center;
-      }
-
-      /* Block */
-      .block:not(:last-child),
-      .block:not(:last-child) {
-        margin-bottom: 24px;
-      }
-
-      /* Title Table style */
-      .loader-title-table {
-        justify-content: center;
-      }
-
-      .loader div,
-      .loader-title-table div {
-        color: var(--primary-color);
-        display: inline-block;
-        margin-right: 20px;
-      }
-
-      .title-table {
-        color: var(--gray-color1);
-        font-size: var(--font-size28);
-        font-family: "Montserrat", sans-serif;
-        margin-top: 10px;
-        margin-bottom: 10px;
-      }
-
-      /* Table styles */
-      .table-wrapper {
-        width: 100%;
-        display: block;
-        overflow-x: auto;
-        border-radius: 20px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        margin: 20px 0;
-        max-width: 100%;
-      }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        table-layout: fixed;
-        max-width: 100%;
-      }
-
-      thead tr {
-        background-color: var(--primary-color3);
-      }
-
-      thead tr th:not(:last-child) {
-        border-right: 10px solid var(--white-color);
-      }
-
-      tbody tr {
-        background-color: var(--gray-color7);
-      }
-
-      tbody tr:not(:last-child) {
-        border-bottom: 8px solid var(--white-color);
-      }
-
-      tbody tr:hover {
-        background-color: var(--gray-color6);
-        transition: background-color 0.2s ease;
-      }
-
-      th,
-      td {
-        font-family: "Montserrat", sans-serif;
-        color: var(--gray-color1);
-        padding: 12px 16px;
-        text-align: left;
-        vertical-align: top;
-        line-height: 1.4;
-        word-wrap: break-word;
-        white-space: normal;
-        overflow-wrap: break-word;
-      }
-
-      th {
-        font-weight: 600;
-        font-size: 14px;
-      }
-
-      td {
-        font-size: 13px;
-      }
-
-      /* Colonnes spécifiques avec largeurs relatives */
-      th:nth-child(1),
-      td:nth-child(1) {
-        width: 15%;
-      }
-
-      th:nth-child(2),
-      td:nth-child(2) {
-        width: 25%;
-      }
-
-      th:nth-child(3),
-      td:nth-child(3) {
-        width: 35%;
-      }
-
-      th:nth-child(4),
-      td:nth-child(4) {
-        width: 25%;
-      }
-
-      /* Mobile */
-      @media (max-width: 768px) {
-        .wrap-title-table {
-          flex-wrap: wrap;
-          justify-content: center;
-        }
-
-        .loader-title-table {
-          align-items: center;
-          align-content: center;
-          flex-direction: row;
-        }
-
-        .title-table {
-          text-align: center;
-        }
-
-        /* Tableau responsive sur mobile */
-        .table-wrapper {
-          overflow-x: auto;
-          border-radius: 12px;
-        }
-
-        table {
-          min-width: 600px;
-        }
-
-        th,
-        td {
-          padding: 8px 12px;
-          font-size: 12px;
-        }
-      }
-
-      /* Tablet */
-      @media (max-width: 992px) and (min-width: 768px) {
-        .wrap-title-table {
-          flex-wrap: wrap;
-          justify-content: center;
-        }
-
-        .loader-title-table {
-          align-items: center;
-          align-content: center;
-          flex-direction: row;
-        }
-
-        .title-table {
-          text-align: center;
-        }
-
-        /* Tableau responsive sur tablette */
-        .table-wrapper {
-          overflow-x: auto;
-        }
-
-        table {
-          min-width: 700px;
-        }
-
-        th,
-        td {
-          padding: 10px 14px;
-          font-size: 13px;
-        }
-      }
-
-      /* Variables CSS nécessaires */
-      :root {
-        --main-font: "Montserrat", sans-serif;
-        --font-size18: 18px;
-        --gray-color1: #757575;
-        --primary-color: #9747ff;
-        --secondary-color: #0074c0;
-        --primary-color4: #efe8ff;
-        --blue-color10: #e6f0ff;
-        --gray-color6: #ededed;
-      }
-
-      /* Styles de base */
-      * {
-        word-break: break-word;
-        box-sizing: border-box;
-      }
-
-      /* Classes utilitaires */
-      .is-flex {
-        display: flex;
-      }
-
-      .is-flex-gap {
-        gap: 24px;
-      }
-
+      /* .is-flex-wrap-wrap-mobile : Permet le retour à la ligne pour petits écrans */
       .is-flex-wrap-wrap-mobile {
         flex-wrap: wrap;
       }
-
+      /* .is-flex-gap : Ajoute un espacement entre les éléments flex */
+      .is-flex-gap {
+        gap: 20px;
+      }
+      /* .center : Centrage des éléments */
+      .center {
+        text-align: center;
+      }
+      /* .p-5 : Padding de 5 unités */
+      .p-5 {
+        padding: 20px;
+      }
+      /* .mt-4 : Margin-top de 4 unités */
+      .mt-4 {
+        margin-top: 16px;
+      }
+      /* .col-1 : Colonne occupant 1/12 de la largeur */
       .col-1 {
         width: 8.333333%;
       }
-
+      /* .col-11 : Colonne occupant 11/12 de la largeur */
       .col-11 {
         width: 91.666667%;
       }
 
-      .p-5 {
-        padding: 20px !important;
+      /* MEDIA QUERIES POUR COMPOSANT CLASSES UTILITAIRES */
+      @media (max-width: 768px) {
+        .col-1,
+        .col-2,
+        .col-3,
+        .col-4,
+        .col-5,
+        .col-6,
+        .col-7,
+        .col-8,
+        .col-9,
+        .col-10,
+        .col-11,
+        .col-12 {
+          width: 100%;
+        }
+        .p-5 {
+          padding: 15px;
+        }
+      }
+      @media (max-width: 992px) and (min-width: 768px) {
+        .col-1,
+        .col-2,
+        .col-3,
+        .col-4,
+        .col-5,
+        .col-6,
+        .col-7,
+        .col-8,
+        .col-9,
+        .col-10,
+        .col-11,
+        .col-12 {
+          width: 100%;
+        }
       }
 
-      .mt-4 {
-        margin-top: 16px !important;
-      }
-
-      .center {
-        text-align: center !important;
-      }
-
-      /* Block */
-      .block:not(:last-child),
-      .block:not(:last-child) {
-        margin-bottom: 24px;
-      }
-
-      /* Box ligne entière container */
+      /* ===========================================
+           COMPOSANT BOX LIGNE ENTIÈRE
+           =========================================== */
+      /* .box-ligne-entiere-container : Container principal des boxes */
       .box-ligne-entiere-container {
         width: 100%;
         margin: 0 auto;
         max-width: none;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
       }
-
-      /* Box */
+      /* .box : Style des boxes individuelles */
       .box {
         border-radius: 20px;
         background: white;
         box-shadow: 0px 4px 8px rgba(117, 117, 117, 0.15);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
-
+      /* .box:hover : Effet hover sur les boxes */
       .box:hover {
         transform: translateY(-10px);
         box-shadow: 0px 12px 24px rgba(117, 117, 117, 0.2);
       }
-
-      /* Images */
+      /* .img-fluid : Images responsives */
       .img-fluid {
         max-width: 100%;
         height: auto;
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 50%;
       }
-
-      /* Paragraphe */
+      /* .paragraphe : Style des paragraphes dans les boxes */
       .paragraphe {
         text-align: justify;
         color: #000000;
         font-family: "Montserrat", sans-serif;
-        font-size: var(--font-size18);
+        font-size: 18px;
         font-weight: 400;
       }
 
-      /* Colors */
-      .primary-color {
-        color: var(--primary-color) !important;
-      }
-
-      .secondary-color {
-        color: var(--secondary-color) !important;
-      }
-
-      .gray-color1 {
-        color: var(--gray-color1) !important;
-      }
-
-      .bg-primary-color4 {
-        background-color: var(--primary-color4) !important;
-      }
-
-      .bg-blue-color10 {
-        background-color: var(--blue-color10) !important;
-      }
-
-      .bg-gray-color6 {
-        background-color: var(--gray-color6) !important;
-      }
-
-      /* Mobile */
+      /* MEDIA QUERIES POUR COMPOSANT BOX LIGNE ENTIÈRE */
       @media (max-width: 768px) {
         .box-ligne-entiere-container {
           width: 100%;
           margin: 0 auto;
+          gap: 20px;
         }
-
-        .col-1,
-        .col-2,
-        .col-3,
-        .col-4,
-        .col-5,
-        .col-6,
-        .col-7,
-        .col-8,
-        .col-9,
-        .col-10,
-        .col-11,
-        .col-12 {
-          width: 100%;
+        .img-fluid {
+          width: 50px;
+          height: 50px;
+        }
+        .paragraphe {
+          font-size: 14px;
         }
       }
-
-      /* Tablet */
       @media (max-width: 992px) and (min-width: 768px) {
         .box-ligne-entiere-container {
           width: 100%;
           margin: 0 auto;
+          gap: 22px;
         }
-
-        .col-1,
-        .col-2,
-        .col-3,
-        .col-4,
-        .col-5,
-        .col-6,
-        .col-7,
-        .col-8,
-        .col-9,
-        .col-10,
-        .col-11,
-        .col-12 {
-          width: 100%;
+        .img-fluid {
+          width: 55px;
+          height: 55px;
+        }
+        .paragraphe {
+          font-size: 16px;
         }
       }
-
-      /* Variables CSS nécessaires */
-      :root {
-        --main-font: "Poppins", serif;
-        --font-size18: 18px;
-        --font-size24: 24px;
-        --font-size32: 32px;
-        --font-size48: 48px;
-        --primary-color: #9747ff;
-        --gray-color1: #757575;
-        --white-color: #ffffff;
+      @media (min-width: 1024px) and (max-width: 1439px) {
+        .img-fluid {
+          width: 60px;
+          height: 60px;
+        }
+        .paragraphe {
+          font-size: 18px;
+        }
+      }
+      @media (min-width: 1440px) {
+        .img-fluid {
+          width: 65px;
+          height: 65px;
+        }
+        .paragraphe {
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 375px) {
+        .box-ligne-entiere-container {
+          gap: 15px;
+        }
+        .img-fluid {
+          width: 45px;
+          height: 45px;
+        }
+        .paragraphe {
+          font-size: 12px;
+        }
       }
 
-      /* Styles de base */
-      * {
-        word-break: break-word;
-        box-sizing: border-box;
+      /* ===========================================
+           COMPOSANT CLASSES DE FOND
+           =========================================== */
+      /* .bg-box-1 : Première box - Couleur E4DDEC */
+      .bg-box-1 {
+        background-color: #e4ddec !important;
+      }
+      /* .bg-box-2 : Deuxième box - Couleur E5EFF9 */
+      .bg-box-2 {
+        background-color: #e5eff9 !important;
+      }
+      /* .bg-box-3 : Troisième box - Couleur EBEBEB */
+      .bg-box-3 {
+        background-color: #ebebeb !important;
       }
 
-      /* Classes utilitaires */
-      .is-flex {
+      /* ===========================================
+           COMPOSANT IMAGE SECTION 1A
+           =========================================== */
+      /* .office-image : Image de la section 1A */
+      .office-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 15px;
+        margin: 20px auto;
+        display: block;
+        width: 400px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT IMAGE SECTION 1A */
+      @media (max-width: 1440px) {
+        .office-image {
+          width: 350px;
+          margin: 18px auto;
+          border-radius: 12px;
+        }
+      }
+      @media (max-width: 1024px) {
+        .office-image {
+          width: 300px;
+          margin: 15px auto;
+          border-radius: 10px;
+        }
+      }
+      @media (max-width: 768px) {
+        .office-image {
+          width: 250px;
+          margin: 12px auto;
+          border-radius: 8px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+      }
+      @media (max-width: 480px) {
+        .office-image {
+          width: 200px;
+          margin: 10px auto;
+          border-radius: 6px;
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+        }
+      }
+      @media (max-width: 375px) {
+        .office-image {
+          width: 180px;
+          margin: 8px auto;
+          border-radius: 5px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT TABLEAU
+           =========================================== */
+      /* .wrap-title-table : Container du titre du tableau */
+      .wrap-title-table {
         display: flex;
-      }
-
-      .is-flex-wrap-wrap-mobile {
-        flex-wrap: wrap;
-      }
-
-      .col-1 {
-        width: 8.333333%;
-      }
-      .col-11 {
-        width: 91.666667%;
-      }
-
-      /* Block */
-      .block:not(:last-child),
-      .block:not(:last-child) {
-        margin-bottom: 24px;
-      }
-
-      /* Title H2 With background */
-      .bg-title-h2 {
-        font-family: var(--main-font);
-        color: var(--gray-color);
-        font-size: var(--font-size32);
-        font-weight: 600;
-        background-color: var(--primary-color5);
-        padding: 8px 14px;
-        border-radius: 10px;
-        display: inline-flex;
-        justify-content: center;
         align-items: center;
       }
-
-      /* à retenir */
-      .steps {
-        padding: 20px;
-      }
-
-      .step {
-        flex-direction: column;
-        position: relative;
-        align-items: center;
-      }
-
-      .number {
-        font-size: 18px;
-        font-family: var(--main-font);
-        font-weight: bold;
-        color: var(--white-color);
-        border-radius: 50%;
-        padding: 8px;
-        background-color: var(--primary-color);
-        width: 50px;
-        height: 50px;
-        align-items: center;
+      /* .loader-title-table : Container des points de chargement */
+      .loader-title-table {
         justify-content: center;
       }
-
-      .text {
-        font-family: var(--main-font);
-        color: var(--primary-color);
-        text-align: justify;
-        font-size: var(--font-size24);
-        font-weight: 600;
-        margin: 0;
-        padding-left: 15px;
+      /* .loader div, .loader-title-table div : Points de chargement */
+      .loader div,
+      .loader-title-table div {
+        color: #9747ff;
+        display: inline-block;
+        margin-right: 20px;
       }
-
-      .sub-text {
-        font-family: var(--main-font);
-        color: var(--gray-color1);
+      /* .title-table : Titre du tableau */
+      .title-table {
+        color: #757575;
+        font-size: 28px;
+        font-family: "Poppins", serif;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      /* .table-wrapper : Container du tableau avec scroll */
+      .table-wrapper {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: block;
+        overflow-x: auto;
+        border-radius: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+      /* table : Style du tableau */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 16px;
+      }
+      /* thead tr : En-tête du tableau */
+      thead tr {
+        background-color: #e1d4ff;
+      }
+      /* thead tr th:not(:last-child) : Bordures entre colonnes d'en-tête */
+      thead tr th:not(:last-child) {
+        border-right: 8px solid #ffffff;
+      }
+      /* tbody tr : Lignes du corps du tableau */
+      tbody tr {
+        background-color: #f7f7f7;
+      }
+      /* tbody tr:not(:last-child) : Bordures entre lignes */
+      tbody tr:not(:last-child) {
+        border-bottom: 6px solid #ffffff;
+      }
+      /* tbody tr:hover : Effet hover sur les lignes */
+      tbody tr:hover {
+        background-color: #ededed;
+        transition: background-color 0.2s ease;
+      }
+      /* th, td : Cellules du tableau */
+      th,
+      td {
+        font-family: "Poppins", serif;
+        color: #757575;
+        padding: 10px 12px;
+        text-align: left;
+        font-size: 16px;
+      }
+      /* th : En-têtes en gras */
+      th {
+        font-weight: 600;
         font-size: 18px;
-        margin: 0;
-        text-align: justify;
-        padding-left: 15px;
       }
 
-      .line {
-        display: none;
+      /* MEDIA QUERIES POUR COMPOSANT TABLEAU */
+      @media (max-width: 1440px) {
+        .table-wrapper {
+          max-width: 1000px;
+        }
+        th,
+        td {
+          font-size: 15px;
+          padding: 8px 10px;
+        }
+        th {
+          font-size: 17px;
+        }
       }
-
-      .steps .step-content:last-child .line {
-        display: none;
+      @media (max-width: 1024px) {
+        .table-wrapper {
+          max-width: 900px;
+        }
+        th,
+        td {
+          font-size: 14px;
+          padding: 8px 10px;
+        }
+        th {
+          font-size: 16px;
+        }
+        thead tr th:not(:last-child) {
+          border-right: 6px solid #ffffff;
+        }
+        tbody tr:not(:last-child) {
+          border-bottom: 4px solid #ffffff;
+        }
       }
-
-      .title-retenir-conclusion {
-        color: var(--gray-color1);
-        text-align: center;
-        font-family: var(--main-font);
-        font-size: 24px;
-        font-weight: 600;
-        line-height: normal;
-        text-transform: uppercase;
-      }
-
-      .wrap-title-retenir-conclusion {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .retenir-img {
-        width: 35%;
-      }
-
-      /* Mobile */
       @media (max-width: 768px) {
-        .text,
-        .sub-text {
+        .table-wrapper {
+          max-width: 100%;
+          border-radius: 15px;
+          margin: 0 auto;
+          overflow-x: hidden;
+        }
+        table {
+          width: 100%;
+          table-layout: fixed;
+        }
+        .wrap-title-table {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .loader-title-table {
+          align-items: center;
+          align-content: center;
+          flex-direction: row;
+        }
+        .title-table {
           text-align: center;
+          font-size: 20px;
         }
-
-        .step-content {
-          margin-bottom: 24px;
+        th,
+        td {
+          font-size: 11px;
+          padding: 4px 3px;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+          hyphens: auto;
         }
-
-        .steps .step-content:last-child .line {
-          display: none;
+        th {
+          font-size: 13px;
+        }
+        thead tr th:not(:last-child) {
+          border-right: 2px solid #ffffff;
+        }
+        tbody tr:not(:last-child) {
+          border-bottom: 2px solid #ffffff;
         }
       }
-
-      /* Tablet */
+      @media (max-width: 480px) {
+        .table-wrapper {
+          max-width: 100%;
+          border-radius: 10px;
+          margin: 0 auto;
+          overflow-x: hidden;
+        }
+        table {
+          width: 100%;
+          table-layout: fixed;
+        }
+        th,
+        td {
+          font-size: 10px;
+          padding: 3px 2px;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+          hyphens: auto;
+        }
+        th {
+          font-size: 12px;
+        }
+        thead tr th:not(:last-child) {
+          border-right: 1px solid #ffffff;
+        }
+        tbody tr:not(:last-child) {
+          border-bottom: 1px solid #ffffff;
+        }
+      }
+      @media (max-width: 375px) {
+        .table-wrapper {
+          max-width: 100%;
+          margin: 0 auto;
+          overflow-x: hidden;
+        }
+        table {
+          width: 100%;
+          table-layout: fixed;
+        }
+        th,
+        td {
+          font-size: 9px;
+          padding: 2px 1px;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+          hyphens: auto;
+        }
+        th {
+          font-size: 11px;
+        }
+        thead tr th:not(:last-child) {
+          border-right: 1px solid #ffffff;
+        }
+        tbody tr:not(:last-child) {
+          border-bottom: 1px solid #ffffff;
+        }
+      }
       @media (max-width: 992px) and (min-width: 768px) {
-        .text,
-        .sub-text {
+        .wrap-title-table {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .loader-title-table {
+          align-items: center;
+          align-content: center;
+          flex-direction: row;
+        }
+        .title-table {
           text-align: center;
         }
-
-        .step-content {
-          margin-bottom: 24px;
-        }
-
-        .steps .step-content:last-child .line {
-          display: none;
-        }
       }
-
-      /* ===========================================
-           EFFETS HOVER SUR LES COMPOSANTS - INTERACTIONS UTILISATEUR
-           =========================================== */
-
-      /* ===========================================
-           HOVER SUR LES STRUCTURES GRID - EFFET D'ÉLÉVATION
-           =========================================== */
-      .structure-box:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(95, 139, 188, 0.3);
-        transition: all 0.3s ease;
-      }
-
-      /* ===========================================
-           HOVER SUR LES COMPOSANTS AVEC TEXTE SEULEMENT
-           =========================================== */
-
-      /* ===========================================
-           HOVER SUR LE FLEX CONTAINER - EFFET D'ÉLÉVATION
-           =========================================== */
-      .flex-container:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(95, 139, 188, 0.2);
-        transition: all 0.3s ease;
-      }
-
-      /* ===========================================
-           HOVER SUR LES SOUS-SECTIONS - EFFET SUBTIL
-           =========================================== */
     </style>
   </head>
 
@@ -1908,7 +1603,7 @@
               <div class="box-ligne-entiere-container">
                 <!-- Box 1 : Statut et rôle -->
                 <div
-                  class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-primary-color4"
+                  class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-box-1"
                 >
                   <div class="col-1 center">
                     <img
@@ -1918,7 +1613,7 @@
                     />
                   </div>
                   <div class="col-11">
-                    <p class="paragraphe primary-color">
+                    <p class="paragraphe" style="color: #9747ff">
                       <strong>Statut et rôle :</strong>
                     </p>
                     <p class="paragraphe">
@@ -1946,7 +1641,7 @@
 
                 <!-- Box 2 : Obtention de l'agrément -->
                 <div
-                  class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-blue-color10"
+                  class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-box-2"
                 >
                   <div class="col-1 center">
                     <img
@@ -1956,7 +1651,7 @@
                     />
                   </div>
                   <div class="col-11">
-                    <p class="paragraphe secondary-color">
+                    <p class="paragraphe" style="color: #5f8bbc">
                       <strong>Obtention de l'agrément :</strong>
                     </p>
                     <p class="paragraphe">
@@ -1992,7 +1687,7 @@
 
                 <!-- Box 3 : Formation et renouvellement -->
                 <div
-                  class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-gray-color6"
+                  class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-box-3"
                 >
                   <div class="col-1 center">
                     <img
@@ -2046,7 +1741,7 @@
                 <div class="box-ligne-entiere-container">
                   <!-- Box 1 : Statut et rôle -->
                   <div
-                    class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-primary-color4"
+                    class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-box-1"
                   >
                     <div class="col-1 center">
                       <img
@@ -2056,7 +1751,7 @@
                       />
                     </div>
                     <div class="col-11">
-                      <p class="paragraphe primary-color">
+                      <p class="paragraphe" style="color: #9747ff">
                         <strong>Objectifs pédagogiques : </strong>
                       </p>
 
@@ -2087,7 +1782,7 @@
 
                   <!-- Box 2 : Obtention de l'agrément -->
                   <div
-                    class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-blue-color10"
+                    class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-box-2"
                   >
                     <div class="col-1 center">
                       <img
@@ -2097,7 +1792,7 @@
                       />
                     </div>
                     <div class="col-11">
-                      <p class="paragraphe secondary-color">
+                      <p class="paragraphe" style="color: #5f8bbc">
                         <strong>Activités proposées :</strong>
                       </p>
                       <ul class="section-list">
@@ -2132,7 +1827,7 @@
 
                   <!-- Box 3 : Formation et renouvellement -->
                   <div
-                    class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-gray-color6"
+                    class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-box-3"
                   >
                     <div class="col-1 center">
                       <img
@@ -2264,40 +1959,4 @@
       </div>
     </div>
   </body>
-
-  <style>
-    /* ===========================================
-         LAPTOP (1024px - 1439px) - ADAPTATION LARGE
-         =========================================== */
-    @media (min-width: 1024px) and (max-width: 1439px) {
-      /* Tous les textes normaux */
-      .section-text,
-      .structure-content p,
-      .sub-text {
-        font-size: 18px;
-      }
-
-      /* Tous les titres légèrement plus grands */
-      .text {
-        font-size: 20px;
-      }
-    }
-
-    /* ===========================================
-         DESKTOP (1440px et plus) - ADAPTATION TRÈS LARGE
-         =========================================== */
-    @media (min-width: 1440px) {
-      /* Tous les textes normaux */
-      .section-text,
-      .structure-content p,
-      .sub-text {
-        font-size: 20px;
-      }
-
-      /* Tous les titres légèrement plus grands */
-      .text {
-        font-size: 22px;
-      }
-    }
-  </style>
 </html>

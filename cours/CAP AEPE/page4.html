@@ -42,16 +42,19 @@
       }
 
       /* ===========================================
-           RESET ET STYLES DE BASE
+           COMPOSANT RESET ET STYLES DE BASE
            =========================================== */
+      /* * : Réinitialisation des marges et paddings pour tous les éléments */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
+      /* html : Active le défilement fluide pour les ancres */
       html {
         scroll-behavior: smooth;
       }
+      /* body : Style de base pour le corps de la page */
       body {
         font-family: var(--main-font);
         font-size: var(--font-size18);
@@ -61,6 +64,7 @@
         background-color: #f5f5f5;
         min-height: 100vh;
       }
+      /* p, li, span, div : Style par défaut pour les éléments de texte */
       p,
       li,
       span,
@@ -70,11 +74,12 @@
         font-weight: 400;
         color: #333;
       }
+      /* strong : Surcharge pour éviter les gras indésirables */
       strong {
         font-weight: 400 !important;
       }
 
-      /* MEDIA QUERIES POUR STYLES DE BASE (TAILLES DE TEXTE GLOBALE) */
+      /* MEDIA QUERIES POUR COMPOSANT RESET ET STYLES DE BASE */
       @media (min-width: 1440px) {
         body {
           font-size: 20px;
@@ -132,7 +137,7 @@
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT CONTAINER PRINCIPAL
+           COMPOSANT CONTAINER PRINCIPAL
            =========================================== */
       /* .main-container : Container principal pour centrer et styliser la page */
       .main-container {
@@ -185,7 +190,79 @@
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT MENU BURGER
+           COMPOSANT LAYOUT ET STRUCTURE
+           =========================================== */
+      /* .page-container : Container pour disposition flex de la page */
+      .page-container {
+        display: flex;
+        gap: 25px;
+        position: relative;
+        align-items: flex-start;
+        width: 100%;
+      }
+      /* .main-content : Contenu principal avec gestion du débordement */
+      .main-content {
+        flex: 1;
+        padding: 20px;
+        transition: margin-left var(--transition-fast);
+        min-width: 0;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT LAYOUT ET STRUCTURE */
+      @media (max-width: 767px) {
+        .page-container {
+          flex-direction: column;
+        }
+        .main-content {
+          padding: 15px;
+          overflow: visible;
+        }
+      }
+      @media (max-width: 375px) {
+        .main-content {
+          padding: 10px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT ESPACEMENT GLOBAL
+           =========================================== */
+      /* section : Marges pour les sections */
+      section {
+        margin-bottom: 30px;
+      }
+      /* .subsection : Marges pour les sous-sections */
+      .subsection {
+        margin-bottom: 25px;
+      }
+      /* p : Marges pour les paragraphes */
+      p {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+      /* h1, h2, h3, h4, h5, h6 : Marges pour les titres */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-bottom: 20px;
+      }
+      /* ul, ol : Marges pour les listes */
+      ul,
+      ol {
+        margin-bottom: 20px;
+      }
+      /* li : Marges pour les éléments de liste */
+      li {
+        margin-bottom: 8px;
+      }
+
+      /* ===========================================
+           COMPOSANT MENU BURGER
            =========================================== */
       /* .menu-toggle-checkbox : Checkbox caché pour contrôler l'état du menu */
       .menu-toggle-checkbox {
@@ -241,7 +318,7 @@
         overflow-y: auto;
         overflow-x: hidden;
       }
-      /* .menu-toggle-checkbox:checked + .menu-toggle + .menu : Affiche le menu quand le checkbox est coché (glissement vers la droite) */
+      /* .menu-toggle-checkbox:checked + .menu-toggle + .menu : Affiche le menu quand le checkbox est coché */
       .menu-toggle-checkbox:checked + .menu-toggle + .menu {
         transform: translateX(0);
       }
@@ -275,7 +352,7 @@
         box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
         transition: all 0.3s ease;
       }
-      /* .menu::-webkit-scrollbar : Personnalisation de la barre de défilement - Masque la barre de défilement par défaut */
+      /* .menu::-webkit-scrollbar : Personnalisation de la barre de défilement */
       .menu::-webkit-scrollbar {
         width: 6px;
       }
@@ -347,8 +424,8 @@
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT TITRE PRINCIPAL
-            =========================================== */
+           COMPOSANT TITRE PRINCIPAL
+           =========================================== */
       /* .intro-title : Titre principal de la page */
       .intro-title {
         font-family: var(--main-font);
@@ -360,10 +437,10 @@
         margin: 30px 0 40px 0;
       }
 
-      /* MEDIA QUERIES POUR COMPOSANT TITRE PRINCIPAL - IDENTIQUES À PAGE1.HTML */
+      /* MEDIA QUERIES POUR COMPOSANT TITRE PRINCIPAL */
       @media (min-width: 1440px) {
         .intro-title {
-          font-size: 42px;
+          font-size: 36px;
         }
       }
       @media (max-width: 1439px) and (min-width: 1024px) {
@@ -384,13 +461,13 @@
       }
       @media (max-width: 375px) {
         .intro-title {
-          font-size: 18px;
+          font-size: 20px;
           margin: 15px 0 20px 0;
         }
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT IMAGE PRINCIPALE
+           COMPOSANT IMAGE PRINCIPALE
            =========================================== */
       /* .intro-image : Image principale en haut de la page */
       .intro-image {
@@ -415,7 +492,7 @@
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT TITRES DE SECTION (NUMÉRO + TITRE)
+           COMPOSANT TITRES DE SECTION
            =========================================== */
       /* .section-header : Container des en-têtes de section (numéro + titre) */
       .section-header {
@@ -462,69 +539,91 @@
         min-height: 100px;
       }
 
-      /* MEDIA QUERIES POUR COMPOSANT TITRES DE SECTION - IDENTIQUES À PAGE1.HTML */
+      /* MEDIA QUERIES POUR COMPOSANT TITRES DE SECTION */
       @media (min-width: 1440px) {
         .section-number {
-          font-size: 36px;
+          font-size: 24px;
+          padding: 8px 12px;
         }
         .section-title {
-          font-size: 24px;
+          font-size: 18px;
+          padding: 8px 12px;
         }
       }
       @media (max-width: 1439px) and (min-width: 1024px) {
         .section-number {
-          font-size: 36px;
+          font-size: 22px;
+          padding: 6px 10px;
         }
         .section-title {
-          font-size: 24px;
+          font-size: 16px;
+          padding: 6px 10px;
         }
       }
       @media (max-width: 1023px) and (min-width: 768px) {
+        .section-header {
+          margin: 20px 0 15px;
+          padding: 0;
+        }
         .section-number {
-          font-size: 36px;
+          font-size: 20px;
+          padding: 5px 8px;
+          min-width: 80px;
+          width: 80px;
         }
         .section-title {
-          font-size: 24px;
+          font-size: 14px;
+          padding: 5px 8px;
+          min-height: 60px;
         }
       }
       @media (max-width: 767px) {
         .section-header {
           flex-direction: column;
           text-align: center;
-          margin: 30px 0 20px;
+          margin: 15px 0 10px;
+          padding: 0;
         }
         .section-number {
           border-radius: 12px 12px 0 0;
           width: 100%;
           text-align: center;
-          font-size: 28px;
+          font-size: 18px;
+          padding: 4px 6px;
+          min-width: auto;
+          min-height: 40px;
         }
         .section-title {
           border-radius: 0 0 12px 12px;
           width: 100%;
-          font-size: 20px;
+          font-size: 12px;
+          padding: 4px 6px;
+          min-height: 40px;
         }
       }
       @media (max-width: 375px) {
         .section-header {
-          margin: 20px 0 15px;
+          margin: 10px 0 5px;
+          padding: 0;
         }
         .section-number {
-          font-size: 24px;
-          padding: 15px 20px;
+          font-size: 16px;
+          padding: 3px 5px;
+          min-height: 30px;
         }
         .section-title {
-          font-size: 16px;
-          padding: 15px 20px;
+          font-size: 10px;
+          padding: 3px 5px;
+          min-height: 30px;
         }
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT TITRES DE SOUS-SECTION (A., B.)
+           COMPOSANT TITRES DE SOUS-SECTION
            =========================================== */
       /* .subsection-heading : Titres de niveau 3 pour sous-sections (A., B.) */
       .subsection-heading {
-        font-family: "Montserrat", sans-serif;
+        font-family: var(--main-font);
         font-weight: 700;
         color: #5f8bbc;
         font-size: 26px;
@@ -536,84 +635,35 @@
         text-align: left;
       }
 
-      /* ===========================================
-           STYLES POUR PARAGRAPHES DES SOUS-SECTIONS
-            =========================================== */
-      /* .subsection-paragraph : Paragraphes dans les sous-sections */
-      .subsection-paragraph {
-        font-family: var(--main-font);
-        font-size: var(--font-size18);
-        font-weight: 400;
-        line-height: 1.6;
-        color: #333;
-        margin-bottom: 20px;
-        text-align: justify;
-        padding: 0 20px;
-      }
-
-      /* MEDIA QUERIES POUR COMPOSANT TITRES DE SOUS-SECTION - IDENTIQUES À PAGE1.HTML */
+      /* MEDIA QUERIES POUR COMPOSANT TITRES DE SOUS-SECTION */
       @media (min-width: 1440px) {
         .subsection-heading {
-          font-size: 26px;
+          font-size: 28px;
         }
       }
       @media (max-width: 1439px) and (min-width: 1024px) {
         .subsection-heading {
-          font-size: 26px;
+          font-size: 24px;
         }
       }
       @media (max-width: 1023px) and (min-width: 768px) {
         .subsection-heading {
-          font-size: 26px;
+          font-size: 22px;
         }
       }
       @media (max-width: 767px) {
         .subsection-heading {
-          font-size: 16px;
-        }
-      }
-      @media (max-width: 375px) {
-        .subsection-heading {
-          font-size: 16px;
-        }
-      }
-
-      /* ===========================================
-           MEDIA QUERIES POUR PARAGRAPHES DES SOUS-SECTIONS - IDENTIQUES À PAGE1.HTML
-           =========================================== */
-      /* DESKTOP (1440px+) */
-      @media (min-width: 1440px) {
-        .subsection-paragraph {
-          font-size: 20px;
-        }
-      }
-      /* LAPTOP (1024px - 1439px) */
-      @media (max-width: 1439px) and (min-width: 1024px) {
-        .subsection-paragraph {
           font-size: 18px;
         }
       }
-      /* TABLETTE (768px - 1023px) */
-      @media (max-width: 1023px) and (min-width: 768px) {
-        .subsection-paragraph {
-          font-size: 16px;
-        }
-      }
-      /* MOBILE (767px et moins) */
-      @media (max-width: 767px) {
-        .subsection-paragraph {
-          font-size: 14px;
-        }
-      }
-      /* MOBILE TRÈS PETIT (375px et moins) */
       @media (max-width: 375px) {
-        .subsection-paragraph {
-          font-size: 12px;
+        .subsection-heading {
+          font-size: 14px;
         }
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT CONCLUSION - À RETENIR
+           COMPOSANT CONCLUSION - À RETENIR
            =========================================== */
       /* .container-a-retenir : Container principal du composant conclusion avec espacement */
       .container-a-retenir {
@@ -688,11 +738,131 @@
       .line {
         display: none;
       }
-      /* .steps .step-content:last-child .line : Affichage de la ligne pour la dernière étape */
+      /* .steps .step-content:last-child .line : Désactive la ligne pour la dernière étape */
       .steps .step-content:last-child .line {
         display: none;
       }
 
+      /* MEDIA QUERIES POUR COMPOSANT CONCLUSION - À RETENIR */
+      @media (min-width: 1440px) {
+        .title-retenir-conclusion {
+          font-size: 22px;
+        }
+        .text {
+          font-size: 22px;
+        }
+        .sub-text {
+          font-size: 20px;
+        }
+        .number {
+          width: 50px;
+          height: 50px;
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .title-retenir-conclusion {
+          font-size: 20px;
+        }
+        .text {
+          font-size: 20px;
+        }
+        .sub-text {
+          font-size: 18px;
+        }
+        .number {
+          width: 45px;
+          height: 45px;
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .title-retenir-conclusion {
+          font-size: 18px;
+        }
+        .text {
+          font-size: 18px;
+        }
+        .sub-text {
+          font-size: 16px;
+        }
+        .number {
+          width: 40px;
+          height: 40px;
+          font-size: 14px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 15px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+      @media (max-width: 767px) {
+        .title-retenir-conclusion {
+          font-size: 16px;
+        }
+        .text {
+          font-size: 16px;
+        }
+        .sub-text {
+          font-size: 14px;
+        }
+        .number {
+          width: 35px;
+          height: 35px;
+          font-size: 12px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 15px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+      @media (max-width: 375px) {
+        .title-retenir-conclusion {
+          font-size: 14px;
+        }
+        .text {
+          font-size: 14px;
+        }
+        .sub-text {
+          font-size: 12px;
+        }
+        .number {
+          width: 30px;
+          height: 30px;
+          font-size: 10px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 10px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
       @media (max-width: 768px) {
         .container-a-retenir {
           text-align: center;
@@ -717,8 +887,6 @@
           display: block;
         }
       }
-
-      /* TABLETTE (992px - 768px) */
       @media (max-width: 992px) and (min-width: 768px) {
         .container-a-retenir {
           text-align: center;
@@ -745,170 +913,211 @@
       }
 
       /* ===========================================
-           RESPONSIVE DESIGN GLOBAL - GROUPÉ PAR BREAKPOINTS
+           COMPOSANT CLASSES UTILITAIRES
            =========================================== */
-      @media (min-width: 1440px) {
-        .main-content {
-          margin-left: 0;
-        }
-      }
-      @media (max-width: 1439px) and (min-width: 1024px) {
-        .main-content {
-          margin-left: 0;
-        }
-      }
-      @media (max-width: 1023px) and (min-width: 768px) {
-        .main-content {
-          margin-left: 0;
-        }
-        .main-container {
-          width: 80%;
-          margin: 20px auto;
-          padding: 25px;
-        }
-      }
-      @media (max-width: 767px) {
-        .main-content {
-          margin-left: 0;
-        }
-        .main-container {
-          width: 95%;
-          margin: 15px auto;
-          padding: 20px;
-        }
-        .page-container {
-          flex-direction: column;
-        }
-        .main-content {
-          padding: 15px;
-          overflow: visible;
-        }
-      }
-      @media (max-width: 375px) {
-        .main-container {
-          width: 98%;
-          margin: 10px auto;
-          padding: 15px;
-        }
-        .main-content {
-          padding: 10px;
-        }
-      }
-      @media (max-width: 480px) {
-        .main-container {
-          width: 100%;
-          margin: 10px;
-          padding: 15px;
-        }
-      }
-
-      /* ===========================================
-           CLASSES UTILITAIRES - SYSTÈME DE LAYOUT
-           =========================================== */
+      /* .is-flex : Active la disposition flexbox */
       .is-flex {
         display: flex;
       }
+      /* .is-flex-wrap-wrap-mobile : Permet le retour à la ligne pour petits écrans */
       .is-flex-wrap-wrap-mobile {
         flex-wrap: wrap;
       }
+      /* .col-1 : Colonne occupant 1/12 de la largeur */
       .col-1 {
         width: 8.333333%;
       }
+      /* .col-11 : Colonne occupant 11/12 de la largeur */
       .col-11 {
         width: 91.666667%;
       }
 
       /* ===========================================
-           COMPOSANTS SPÉCIFIQUES DE PAGE4.HTML - VERSION MODERNISÉE
-            =========================================== */
+           COMPOSANTS SPÉCIFIQUES DE PAGE4BIS.HTML
+           =========================================== */
 
       /* ===========================================
-           COMPOSANT IMAGE HAUT TEXTE BAS - MODERNISÉ
+            COMPOSANT IMAGE HAUT TEXTE BAS - SECTION 1 (NOUVELLE VERSION)
             =========================================== */
-      .imageHautTexteBas-container {
+      /* .section1-card : Container principal du composant section 1 */
+      .section1-card {
         width: 600px;
-        height: auto;
         background-color: var(--primary-color4);
         margin: 40px auto;
-        overflow: hidden;
-        position: relative;
         border-radius: 20px;
+        box-shadow: var(--shadow-medium);
         transition: transform var(--transition-smooth),
           box-shadow var(--transition-smooth);
-        box-shadow: var(--shadow-medium);
+        overflow: hidden;
       }
-
-      .imageHautTexteBas-container:hover {
+      /* .section1-card:hover : Effet hover sur le container */
+      .section1-card:hover {
         transform: translateY(-5px);
         box-shadow: var(--shadow-heavy);
       }
-
-      .imageHautTexteBas-header-image {
+      /* .section1-image : Image d'en-tête du composant */
+      .section1-image {
         width: 100%;
         height: 300px;
         object-fit: cover;
+        display: block;
       }
-
-      .imageHautTexteBas-text-box {
+      /* .section1-content : Zone de contenu avec padding */
+      .section1-content {
+        padding: 20px;
+      }
+      /* .section1-text : Boîte de texte avec fond semi-transparent */
+      .section1-text {
         background-color: rgba(250, 248, 247, 0.9);
-        padding: var(--spacing-lg);
-        margin: var(--spacing-lg);
+        padding: 20px;
         border-radius: 15px;
-        box-sizing: border-box;
-        overflow-y: auto;
-        min-height: 120px;
         box-shadow: var(--shadow-light);
+        text-align: center;
       }
-
-      .imageHautTexteBas-text-box p {
+      /* .section1-text p : Paragraphes dans la boîte de texte */
+      .section1-text p {
         font-family: var(--main-font);
         font-size: var(--font-size18);
         line-height: 1.6;
         color: #333;
         margin: 0;
-        overflow-wrap: break-word;
         text-align: left;
       }
 
-      /* ===========================================
-           COMPOSANT ACCORD D'ENGAGEMENT - MODERNISÉ
-            =========================================== */
-      .accord-engagement {
-        max-width: 900px;
-        margin: var(--spacing-xl) auto;
-        font-family: var(--main-font);
+      /* MEDIA QUERIES POUR COMPOSANT IMAGE HAUT TEXTE BAS */
+      @media (min-width: 1440px) {
+        .section1-card {
+          width: 700px;
+        }
+        .section1-text p {
+          font-size: 20px;
+          text-align: left;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .section1-card {
+          width: 500px;
+        }
+        .section1-text p {
+          font-size: 18px;
+          text-align: left;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .section1-card {
+          width: 450px;
+        }
+        .section1-text p {
+          font-size: 16px;
+          text-align: left;
+        }
+      }
+      @media (max-width: 767px) {
+        .section1-card {
+          width: 90%;
+          margin: var(--spacing-lg) auto;
+        }
+        .section1-image {
+          height: 200px;
+        }
+        .section1-content {
+          padding: 15px;
+        }
+        .section1-text {
+          padding: 15px;
+        }
+        .section1-text p {
+          font-size: 14px;
+          text-align: left;
+        }
+      }
+      @media (max-width: 480px) {
+        .section1-card {
+          width: 100%;
+          margin: var(--spacing-sm) auto;
+        }
+        .section1-image {
+          height: 150px;
+        }
+        .section1-content {
+          padding: 10px;
+        }
+        .section1-text {
+          padding: 15px;
+        }
+        .section1-text p {
+          font-size: 14px;
+          text-align: left;
+        }
+      }
+      @media (max-width: 375px) {
+        .section1-card {
+          width: 100%;
+          margin: var(--spacing-sm) auto;
+        }
+        .section1-image {
+          height: 120px;
+        }
+        .section1-content {
+          padding: 8px;
+        }
+        .section1-text {
+          padding: 12px;
+        }
+        .section1-text p {
+          font-size: 12px;
+          text-align: left;
+        }
       }
 
+      /* ===========================================
+           COMPOSANT ACCORD D'ENGAGEMENT - SECTION 2
+           =========================================== */
+      /* .accord-engagement : Container principal du composant accord d'engagement */
+      .accord-engagement {
+        max-width: 900px;
+        margin: 40px auto;
+        font-family: var(--main-font);
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      /* .accord-cards-container : Container des cartes d'accord */
       .accord-cards-container {
         display: flex;
         flex-direction: column;
-        gap: var(--spacing-lg);
+        gap: 25px;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        margin: 20px 0;
       }
-
+      /* .accord-card : Carte individuelle d'accord */
       .accord-card {
         display: flex;
         align-items: flex-start;
-        gap: var(--spacing-md);
         background-color: #fdf9f1;
         border: 1px solid #e0ddd2;
-        border-radius: 12px;
-        padding: var(--spacing-lg);
+        border-radius: 15px;
+        padding: 25px;
         box-shadow: var(--shadow-light);
         transition: transform var(--transition-fast),
           box-shadow var(--transition-fast);
+        width: 100%;
+        max-width: 800px;
+        justify-content: flex-start;
+        margin: 0 auto;
       }
-
+      /* .accord-card:hover : Effet hover sur les cartes */
       .accord-card:hover {
         transform: scale(1.01);
         box-shadow: var(--shadow-medium);
       }
 
-      .accord-icon {
-        font-size: var(--font-size24);
-        margin-top: 4px;
-        flex-shrink: 0;
-      }
-
+      /* .accord-card p : Paragraphes dans les cartes d'accord */
       .accord-card p {
         margin: 0;
         font-family: var(--main-font);
@@ -918,72 +1127,172 @@
         text-align: left;
       }
 
-      /* ===========================================
-           COMPOSANT PÉRIODE D'ESSAI - CARTES COLORÉES MODERNISÉES
-            =========================================== */
-      .periode-essai-unique {
-        max-width: 1000px;
-        margin: var(--spacing-xl) auto;
-        font-family: var(--main-font);
+      /* MEDIA QUERIES POUR COMPOSANT ACCORD D'ENGAGEMENT */
+      @media (min-width: 1440px) {
+        .accord-card p {
+          font-size: 20px;
+          text-align: left;
+        }
+        .accord-engagement {
+          padding: 35px;
+        }
+        .accord-card {
+          padding: 30px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .accord-card p {
+          font-size: 18px;
+          text-align: left;
+        }
+        .accord-engagement {
+          padding: 30px;
+        }
+        .accord-card {
+          padding: 25px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .accord-card p {
+          font-size: 16px;
+          text-align: left;
+        }
+        .accord-engagement {
+          max-width: 800px;
+          padding: 25px;
+        }
+        .accord-card {
+          padding: 20px;
+        }
+      }
+      @media (max-width: 767px) {
+        .accord-card p {
+          font-size: 14px;
+          text-align: left;
+        }
+        .accord-engagement {
+          max-width: 100%;
+          margin: 30px auto;
+          padding: 20px;
+        }
+        .accord-card {
+          padding: 20px;
+        }
+      }
+      @media (max-width: 480px) {
+        .accord-engagement {
+          margin: 25px auto;
+          padding: 15px;
+        }
+        .accord-card {
+          padding: 15px;
+        }
+        .accord-card p {
+          font-size: 14px;
+          text-align: left;
+        }
+      }
+      @media (max-width: 375px) {
+        .accord-engagement {
+          margin: 20px auto;
+          padding: 15px;
+        }
+        .accord-card {
+          padding: 15px;
+        }
+        .accord-card p {
+          font-size: 12px;
+          text-align: left;
+        }
       }
 
+      /* ===========================================
+           COMPOSANT PÉRIODE D'ESSAI - CARTES COLORÉES - SECTION 3
+           =========================================== */
+      /* .periode-essai-unique : Container principal du composant période d'essai */
+      .periode-essai-unique {
+        max-width: 1000px;
+        margin: 40px auto;
+        font-family: var(--main-font);
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      /* .periode-grid-unique : Grille des cartes de période d'essai */
       .periode-grid-unique {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-lg);
+        gap: 30px;
+        width: 100%;
+        max-width: 900px;
+        margin: 20px auto;
+        justify-items: center;
+        align-items: stretch;
+        /* Force toutes les cartes à s'étendre sur toute la hauteur disponible */
+        grid-auto-rows: 1fr;
       }
-
+      /* .periode-card-unique : Carte individuelle de période d'essai */
       .periode-card-unique {
         background: #f9f9f9;
         border-radius: 15px;
-        padding: var(--spacing-md);
+        padding: 25px;
         text-align: center;
         box-shadow: var(--shadow-light);
         display: flex;
         flex-direction: column;
         align-items: center;
-        max-width: 70%;
-        margin: 0 auto;
+        justify-content: flex-start;
+        width: 100%;
+        height: 100%;
+        min-height: 300px;
         transition: transform var(--transition-smooth),
           box-shadow var(--transition-smooth);
+        /* Force toutes les cartes à avoir la même hauteur */
+        align-self: stretch;
+        margin: 0 auto;
       }
-
+      /* .periode-card-unique:hover : Effet hover sur les cartes */
       .periode-card-unique:hover {
         transform: translateY(-3px);
         box-shadow: var(--shadow-medium);
       }
-
+      /* .periode-image-container-unique : Container des images dans les cartes */
       .periode-image-container-unique {
         border-radius: 12px;
         width: 100%;
+        height: 120px;
         display: flex;
         justify-content: center;
         align-items: center;
         padding: var(--spacing-md);
-        margin-bottom: var(--spacing-md);
+        margin: 0;
+        flex-shrink: 0;
       }
-
+      /* .card-violet-unique .periode-image-container-unique : Fond violet pour carte 1 */
       .card-violet-unique .periode-image-container-unique {
         background-color: #dab4db;
       }
-
+      /* .card-jaune-unique .periode-image-container-unique : Fond jaune pour carte 2 */
       .card-jaune-unique .periode-image-container-unique {
         background-color: #f8da88;
       }
-
+      /* .card-bleue-unique .periode-image-container-unique : Fond bleu pour carte 3 */
       .card-bleue-unique .periode-image-container-unique {
         background-color: #b4d9db;
       }
-
+      /* .card-grise-unique .periode-image-container-unique : Fond gris pour carte 4 */
       .card-grise-unique .periode-image-container-unique {
         background-color: #dcdddd;
       }
-
+      /* .periode-image-unique : Images dans les cartes */
       .periode-image-unique {
         max-height: 120px;
         width: auto;
       }
-
+      /* .periode-card-unique p : Paragraphes dans les cartes */
       .periode-card-unique p {
         font-family: var(--main-font);
         font-size: var(--font-size18);
@@ -991,106 +1300,329 @@
         color: #000;
         max-width: 90%;
         text-align: left;
+        margin-top: var(--spacing-md);
       }
-
+      /* .periode-card-unique a : Liens dans les cartes */
       .periode-card-unique a {
         text-decoration: underline;
         color: #000;
         font-weight: normal;
       }
-
+      /* .card-violet-unique : Fond violet pour carte 1 */
       .card-violet-unique {
         background-color: #e8dae6;
       }
+      /* .card-jaune-unique : Fond jaune pour carte 2 */
       .card-jaune-unique {
         background-color: #f0dfbf;
       }
+      /* .card-bleue-unique : Fond bleu pour carte 3 */
       .card-bleue-unique {
         background-color: #c2e7eb;
       }
+      /* .card-grise-unique : Fond gris pour carte 4 */
       .card-grise-unique {
         background-color: #eeeeee;
       }
 
+      /* MEDIA QUERIES POUR COMPOSANT PÉRIODE D'ESSAI - CARTES COLORÉES */
+      @media (min-width: 1440px) {
+        .periode-card-unique p {
+          font-size: 20px;
+          text-align: left;
+        }
+        .periode-grid-unique {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 35px;
+        }
+        .periode-card-unique {
+          padding: 30px;
+        }
+        .periode-essai-unique {
+          padding: 35px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .periode-card-unique p {
+          font-size: 18px;
+          text-align: left;
+        }
+        .periode-grid-unique {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 25px;
+        }
+        .periode-card-unique {
+          padding: 25px;
+        }
+        .periode-essai-unique {
+          padding: 30px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .periode-card-unique p {
+          font-size: 16px;
+          text-align: left;
+        }
+        .periode-grid-unique {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+          max-width: 700px;
+          grid-auto-rows: 1fr;
+        }
+        .periode-card-unique {
+          min-height: 280px;
+          align-self: stretch;
+          padding: 20px;
+        }
+        .periode-image-container-unique {
+          height: 100px;
+        }
+        .periode-essai-unique {
+          padding: 25px;
+        }
+      }
+      @media (max-width: 767px) {
+        .periode-card-unique p {
+          font-size: 14px;
+          text-align: left;
+        }
+        .periode-grid-unique {
+          grid-template-columns: 1fr;
+          gap: var(--spacing-md);
+          max-width: 500px;
+          grid-auto-rows: 1fr;
+        }
+        .periode-card-unique {
+          min-height: 250px;
+          align-self: stretch;
+        }
+        .periode-image-container-unique {
+          height: 80px;
+        }
+        .periode-image-unique {
+          max-height: 80px;
+        }
+      }
+      @media (max-width: 480px) {
+        .periode-essai-unique {
+          margin: var(--spacing-lg) auto;
+        }
+        .periode-grid-unique {
+          gap: var(--spacing-sm);
+          max-width: 100%;
+          grid-auto-rows: 1fr;
+        }
+        .periode-card-unique {
+          padding: var(--spacing-sm);
+          min-height: 220px;
+          align-self: stretch;
+        }
+        .periode-card-unique p {
+          font-size: 14px;
+          text-align: left;
+        }
+        .periode-image-container-unique {
+          height: 60px;
+        }
+        .periode-image-unique {
+          max-height: 60px;
+        }
+      }
+      @media (max-width: 375px) {
+        .periode-essai-unique {
+          margin: var(--spacing-md) auto;
+        }
+        .periode-grid-unique {
+          gap: var(--spacing-xs);
+          max-width: 100%;
+          grid-auto-rows: 1fr;
+        }
+        .periode-card-unique {
+          padding: var(--spacing-sm);
+          min-height: 200px;
+          align-self: stretch;
+        }
+        .periode-card-unique p {
+          font-size: 12px;
+          text-align: left;
+        }
+        .periode-image-container-unique {
+          height: 50px;
+        }
+        .periode-image-unique {
+          max-height: 50px;
+        }
+      }
+
       /* ===========================================
-           COMPOSANT EXEMPLE PÉRIODE D'ESSAI - MODERNISÉ
-            =========================================== */
-      .periode-essai-example-unique {
+           COMPOSANT QUESTION BOX - SECTION 3
+           =========================================== */
+      /* .question-box : Container principal du composant question */
+      .question-box {
         display: flex;
+        background-color: #ffffff;
         border-radius: 12px;
         overflow: hidden;
         margin-top: var(--spacing-lg);
         box-shadow: var(--shadow-medium);
         margin-bottom: var(--spacing-xl);
+        border: 1px solid #e0e0e0;
       }
-
-      .example-left-unique {
-        width: 20%;
-        background-color: #c7def5;
+      /* .question-blue-bar : Bande bleue à gauche */
+      .question-blue-bar {
+        width: 20px;
+        background-color: #3b6ea5;
+        flex-shrink: 0;
       }
-
-      .example-right-unique {
+      /* .question-content : Zone de contenu principale */
+      .question-content {
         flex: 1;
-        background-color: #f5f5f5;
-        padding: var(--spacing-lg);
+        padding: 30px;
+        background-color: #ffffff;
+      }
+      /* .question-title : Titre en bleu */
+      .question-title {
+        color: var(--primary-color);
+        font-family: var(--main-font);
+        font-size: var(--font-size24);
+        font-weight: 600;
+        margin-bottom: var(--spacing-md);
         text-align: left;
       }
-
-      .example-title-unique {
-        color: #3b6ea5;
+      /* .question-text : Texte du contenu */
+      .question-text {
         font-family: var(--main-font);
         font-size: var(--font-size18);
-        font-weight: bold;
         margin-bottom: var(--spacing-sm);
-        margin-left: 10%;
+        color: #333;
+        line-height: 1.6;
+        text-align: left;
       }
 
-      .example-text-unique {
-        font-family: var(--main-font);
-        font-size: var(--font-size18);
-        margin: 5px 0;
-        color: #000;
-        line-height: 1.6;
-        width: 90%;
-        margin-left: 10%;
-        text-align: left;
+      /* MEDIA QUERIES POUR COMPOSANT QUESTION BOX */
+      @media (min-width: 1440px) {
+        .question-title {
+          font-size: 26px;
+        }
+        .question-text {
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .question-title {
+          font-size: 24px;
+        }
+        .question-text {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .question-title {
+          font-size: 22px;
+        }
+        .question-text {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 767px) {
+        .question-title {
+          font-size: 20px;
+        }
+        .question-text {
+          font-size: 14px;
+        }
+        .question-box {
+          flex-direction: row;
+        }
+        .question-blue-bar {
+          width: 20px;
+          height: auto;
+        }
+        .question-content {
+          padding: 20px;
+        }
+      }
+      @media (max-width: 480px) {
+        .question-title {
+          font-size: 18px;
+        }
+        .question-text {
+          font-size: 14px;
+        }
+        .question-box {
+          flex-direction: row;
+        }
+        .question-blue-bar {
+          width: 20px;
+          height: auto;
+        }
+      }
+      @media (max-width: 375px) {
+        .question-title {
+          font-size: 16px;
+        }
+        .question-text {
+          font-size: 12px;
+        }
+        .question-box {
+          flex-direction: row;
+        }
+        .question-blue-bar {
+          width: 20px;
+          height: auto;
+        }
       }
 
       /* ===========================================
-           COMPOSANT FORMALITÉS D'EMBAUCHE - MODERNISÉ
-             =========================================== */
+           COMPOSANT FORMALITÉS D'EMBAUCHE - SECTION 4
+           =========================================== */
+      /* .formalites-embauche-unique : Container principal du composant formalités */
       .formalites-embauche-unique {
-        max-width: 800px;
-        margin: var(--spacing-xl) auto;
-        padding: var(--spacing-lg);
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
         background-color: #fdf9f1;
-        border-radius: 12px;
+        border-radius: 15px;
         box-shadow: var(--shadow-medium);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
       }
-
+      /* .formalites-container-unique : Container des étapes de formalités */
       .formalites-container-unique {
         display: flex;
         flex-direction: column;
-        gap: var(--spacing-lg);
+        gap: 25px;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        max-width: 100%;
+        margin: 20px auto;
+        padding: 20px;
       }
-
+      /* .formalite-card-unique : Carte individuelle d'étape */
       .formalite-card-unique {
         display: flex;
         align-items: flex-start;
-        gap: var(--spacing-lg);
+        gap: 25px;
         background-color: var(--white-color);
-        border-radius: 10px;
-        padding: var(--spacing-lg);
+        border-radius: 15px;
+        padding: 25px;
         box-shadow: var(--shadow-light);
         transition: transform var(--transition-fast),
           box-shadow var(--transition-fast);
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
       }
-
+      /* .formalite-card-unique:hover : Effet hover sur les cartes */
       .formalite-card-unique:hover {
         transform: translateY(-3px);
         box-shadow: var(--shadow-medium);
       }
-
+      /* .formalite-number : Numéro de l'étape */
       .formalite-number {
         min-width: 40px;
         min-height: 40px;
@@ -1105,7 +1637,7 @@
         justify-content: center;
         flex-shrink: 0;
       }
-
+      /* .formalite-card-unique p : Paragraphes dans les cartes */
       .formalite-card-unique p {
         margin: 0;
         font-family: var(--main-font);
@@ -1115,372 +1647,139 @@
         text-align: left;
       }
 
-      /* ===========================================
-           RESPONSIVE DESIGN POUR COMPOSANTS SPÉCIFIQUES MODERNISÉS
-           =========================================== */
-
-      /* Desktop (1440px+) */
+      /* MEDIA QUERIES POUR COMPOSANT FORMALITÉS D'EMBAUCHE */
       @media (min-width: 1440px) {
-        .imageHautTexteBas-container {
-          width: 700px;
-        }
-        .imageHautTexteBas-text-box p {
-          font-size: 20px;
-        }
-        .accord-card p {
-          font-size: 20px;
-        }
-        .periode-card-unique p {
-          font-size: 20px;
-        }
-        .example-text-unique {
-          font-size: 20px;
-        }
         .formalite-card-unique p {
           font-size: 20px;
-        }
-        .periode-grid-unique {
-          grid-template-columns: repeat(2, 1fr);
+          text-align: left;
         }
         .formalites-embauche-unique {
-          max-width: 700px;
+          max-width: 900px;
+          padding: 35px;
         }
-      }
-
-      /* Laptop (1024px - 1439px) */
-      @media (max-width: 1439px) and (min-width: 1024px) {
-        .imageHautTexteBas-container {
-          width: 500px;
+        .formalites-container-unique {
+          padding: 25px;
         }
-        .imageHautTexteBas-text-box p {
-          font-size: 18px;
-        }
-        .accord-card p {
-          font-size: 18px;
-        }
-        .periode-card-unique p {
-          font-size: 18px;
-        }
-        .example-text-unique {
-          font-size: 18px;
-        }
-        .formalite-card-unique p {
-          font-size: 18px;
-        }
-        .periode-grid-unique {
-          grid-template-columns: repeat(2, 1fr);
-          gap: var(--spacing-md);
-        }
-        .formalites-embauche-unique {
-          max-width: 650px;
-        }
-      }
-
-      /* Tablette (768px - 1023px) */
-      @media (max-width: 1023px) and (min-width: 768px) {
-        .imageHautTexteBas-container {
-          width: 450px;
-        }
-        .imageHautTexteBas-text-box p {
-          font-size: 16px;
-        }
-        .accord-card p {
-          font-size: 16px;
-        }
-        .periode-card-unique p {
-          font-size: 16px;
-        }
-        .example-text-unique {
-          font-size: 16px;
-        }
-        .formalite-card-unique p {
-          font-size: 16px;
-        }
-        .periode-grid-unique {
-          grid-template-columns: repeat(2, 1fr);
-          gap: var(--spacing-md);
-        }
-        .periode-card-unique {
-          max-width: 85%;
-        }
-        .formalites-embauche-unique {
-          max-width: 600px;
-          margin: var(--spacing-xl) auto;
-        }
-        .accord-engagement {
-          max-width: 800px;
-        }
-      }
-
-      /* Mobile (≤767px) */
-      @media (max-width: 767px) {
-        .imageHautTexteBas-container {
-          width: 90%;
-          margin: var(--spacing-lg) auto;
-        }
-        .imageHautTexteBas-header-image {
-          height: 200px;
-        }
-        .imageHautTexteBas-text-box p {
-          font-size: 14px;
-        }
-        .accord-card p {
-          font-size: 14px;
-        }
-        .periode-card-unique p {
-          font-size: 14px;
-        }
-        .example-text-unique {
-          font-size: 14px;
-        }
-        .formalite-card-unique p {
-          font-size: 14px;
-        }
-        .periode-grid-unique {
-          grid-template-columns: 1fr;
-          gap: var(--spacing-md);
-        }
-        .periode-card-unique {
+        .formalite-card-unique {
+          padding: 30px;
           max-width: 100%;
         }
-        .periode-image-unique {
-          max-height: 80px;
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .formalite-card-unique p {
+          font-size: 18px;
+          text-align: left;
+        }
+        .formalites-embauche-unique {
+          max-width: 900px;
+          padding: 30px;
+        }
+        .formalites-container-unique {
+          padding: 20px;
+        }
+        .formalite-card-unique {
+          padding: 25px;
+          max-width: 100%;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .formalite-card-unique p {
+          font-size: 16px;
+          text-align: left;
         }
         .formalites-embauche-unique {
           max-width: 95%;
-          margin: var(--spacing-lg) auto;
-          padding: var(--spacing-md);
+          margin: var(--spacing-xl) auto;
+          padding: 15px;
+        }
+        .formalites-container-unique {
+          padding: 10px;
         }
         .formalite-card-unique {
-          padding: var(--spacing-md);
+          padding: 15px;
+          max-width: 100%;
+        }
+      }
+      @media (max-width: 767px) {
+        .formalite-card-unique p {
+          font-size: 14px;
+          text-align: left;
+        }
+        .formalites-embauche-unique {
+          max-width: 98%;
+          margin: var(--spacing-lg) auto;
+          padding: 12px;
+        }
+        .formalites-container-unique {
+          padding: 8px;
+        }
+        .formalite-card-unique {
+          padding: 12px;
           gap: var(--spacing-md);
+          max-width: 100%;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
         }
         .formalite-number {
           min-width: 35px;
           min-height: 35px;
           font-size: 16px;
-        }
-        .accord-engagement {
-          max-width: 100%;
-          margin: var(--spacing-lg) auto;
-        }
-        .accord-card {
-          padding: var(--spacing-md);
-          gap: var(--spacing-sm);
-        }
-        .accord-icon {
-          font-size: 20px;
-        }
-        .periode-essai-example-unique {
-          flex-direction: column;
-        }
-        .example-left-unique {
-          width: 100%;
-          height: 10px;
-        }
-        .example-right-unique {
-          padding: var(--spacing-md);
-        }
-        .example-title-unique {
-          margin-left: 0;
-          text-align: center;
-        }
-        .example-text-unique {
-          margin-left: 0;
-          width: 100%;
+          margin: 0 auto;
         }
       }
-
-      /* ===========================================
-           MOBILE (767px et moins) - ADAPTATION COMPLÈTE
-           =========================================== */
-      @media (max-width: 767px) {
-        /* Layout principal adapté pour mobile */
-        .main-content {
-          margin-left: 0;
-        }
-        .main-container {
-          width: 95%;
-          margin: 15px auto;
-          padding: 20px;
-        }
-        .page-container {
-          flex-direction: column;
-        }
-        .main-content {
-          padding: 15px;
-          overflow: visible;
-        }
-        /* Menu burger optimisé pour mobile */
-        .menu {
-          width: 75%;
-          max-width: 250px;
-          padding: 60px 15px 20px;
-        }
-        .menu-toggle {
-          width: 32px;
-          height: 32px;
-          padding: 5px;
-          top: 20px;
-          left: 20px;
-        }
-        .menu-toggle img {
-          width: 100%;
-          height: 100%;
-        }
-        /* TEXTES NORMAUX - 14px uniforme */
-        .main-content p,
-        .main-content li,
-        .main-content span,
-        .main-content div,
-        .text,
-        .sub-text,
-        .container-a-retenir .text,
-        .container-a-retenir .sub-text {
-          font-size: 14px;
-        }
-        /* TITRES - 16px (légèrement plus grands) */
-        .main-content h3,
-        .main-content h4,
-        .main-content h5,
-        .main-content h6,
-        .subsection-heading,
-        .title-retenir-conclusion {
-          font-size: 16px;
-        }
-      }
-
-      /* ===========================================
-           PETIT MOBILE (480px et moins) - OPTIMISATION EXTRÊME
-           =========================================== */
       @media (max-width: 480px) {
-        .imageHautTexteBas-container {
-          width: 100%;
-          margin: var(--spacing-sm) auto;
-        }
-        .imageHautTexteBas-header-image {
-          height: 150px;
-        }
-        .imageHautTexteBas-text-box {
-          padding: var(--spacing-md);
-          margin: var(--spacing-md);
-        }
-        .imageHautTexteBas-text-box p {
-          font-size: 14px;
-        }
-        .accord-engagement {
-          margin: var(--spacing-lg) auto;
-        }
-        .accord-card {
-          padding: var(--spacing-sm);
-          gap: var(--spacing-sm);
-        }
-        .accord-icon {
-          font-size: 18px;
-        }
-        .accord-card p {
-          font-size: 14px;
-        }
-        .periode-essai-unique {
-          margin: var(--spacing-lg) auto;
-        }
-        .periode-grid-unique {
-          gap: var(--spacing-sm);
-        }
-        .periode-card-unique {
-          padding: var(--spacing-sm);
-        }
-        .periode-card-unique p {
-          font-size: 14px;
-        }
-        .periode-image-unique {
-          max-height: 60px;
-        }
         .formalites-embauche-unique {
           margin: var(--spacing-lg) auto;
-          padding: var(--spacing-sm);
+          padding: 10px;
+        }
+        .formalites-container-unique {
+          padding: 6px;
         }
         .formalite-card-unique {
-          padding: var(--spacing-sm);
+          padding: 10px;
           gap: var(--spacing-sm);
+          max-width: 100%;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
         }
         .formalite-card-unique p {
           font-size: 14px;
+          text-align: left;
         }
         .formalite-number {
           min-width: 30px;
           min-height: 30px;
           font-size: 14px;
-        }
-        .example-text-unique {
-          font-size: 14px;
+          margin: 0 auto;
         }
       }
-
-      /* ===========================================
-           TRÈS PETITS ÉCRANS (375px et moins)
-           =========================================== */
       @media (max-width: 375px) {
-        .imageHautTexteBas-container {
-          width: 100%;
-          margin: var(--spacing-sm) auto;
-        }
-        .imageHautTexteBas-header-image {
-          height: 120px;
-        }
-        .imageHautTexteBas-text-box {
-          padding: var(--spacing-sm);
-          margin: var(--spacing-sm);
-        }
-        .imageHautTexteBas-text-box p {
-          font-size: 12px;
-        }
-        .accord-engagement {
-          margin: var(--spacing-md) auto;
-        }
-        .accord-card {
-          padding: var(--spacing-sm);
-          gap: var(--spacing-xs);
-        }
-        .accord-icon {
-          font-size: 16px;
-        }
-        .accord-card p {
-          font-size: 12px;
-        }
-        .periode-essai-unique {
-          margin: var(--spacing-md) auto;
-        }
-        .periode-grid-unique {
-          gap: var(--spacing-xs);
-        }
-        .periode-card-unique {
-          padding: var(--spacing-sm);
-        }
-        .periode-card-unique p {
-          font-size: 12px;
-        }
-        .periode-image-unique {
-          max-height: 50px;
-        }
         .formalites-embauche-unique {
           margin: var(--spacing-md) auto;
-          padding: var(--spacing-sm);
+          padding: 8px;
+        }
+        .formalites-container-unique {
+          padding: 5px;
         }
         .formalite-card-unique {
-          padding: var(--spacing-sm);
+          padding: 8px;
           gap: var(--spacing-sm);
+          max-width: 100%;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
         }
         .formalite-card-unique p {
           font-size: 12px;
+          text-align: left;
         }
         .formalite-number {
           min-width: 25px;
           min-height: 25px;
           font-size: 12px;
-        }
-        .example-text-unique {
-          font-size: 12px;
+          margin: 0 auto;
         }
       }
     </style>
@@ -1541,26 +1840,28 @@
                 >Qu'est ce qu'un contrat de travail ?</span
               >
             </div>
-            <!-- Composant spécifique imageHautTexteBas -->
-            <div class="imageHautTexteBas-container">
+            <!-- Composant spécifique section 1 -->
+            <div class="section1-card">
               <img
                 src="../../images/CAP AEPE/page4/imageBureau.png"
                 alt="Image d'en-tête"
-                class="imageHautTexteBas-header-image"
+                class="section1-image"
               />
-              <div class="imageHautTexteBas-text-box">
-                <p class="subsection-paragraph">
-                  <span
-                    >Le contrat de travail est un accord entre un salarié et un
-                    employeur</span
-                  >, pour lequel le salarié s'engage à effectuer un travail au
-                  profit de l'employeur, en contrepartie d'un salaire. Ce
-                  contrat entraîne des obligations et des droits des deux
-                  parties comme le respect des horaires, de la rémunération…
-                  <br /><br />
-                  Ces contrats peuvent être à durée indéterminée (CDI) ou à
-                  durée déterminée (CDD).
-                </p>
+              <div class="section1-content">
+                <div class="section1-text">
+                  <p class="subsection-paragraph">
+                    <span
+                      >Le contrat de travail est un accord entre un salarié et
+                      un employeur</span
+                    >, pour lequel le salarié s'engage à effectuer un travail au
+                    profit de l'employeur, en contrepartie d'un salaire. Ce
+                    contrat entraîne des obligations et des droits des deux
+                    parties comme le respect des horaires, de la rémunération…
+                    <br /><br />
+                    Ces contrats peuvent être à durée indéterminée (CDI) ou à
+                    durée déterminée (CDD).
+                  </p>
+                </div>
               </div>
             </div>
           </section>
@@ -1579,7 +1880,6 @@
               <div class="accord-cards-container">
                 <!-- Bloc 1 -->
                 <div class="accord-card">
-                  <div class="accord-icon">🤝</div>
                   <p class="subsection-paragraph">
                     <strong
                       >Le particulier employeur et l'assistante maternelle se
@@ -1592,7 +1892,6 @@
                 </div>
                 <!-- Bloc 2 -->
                 <div class="accord-card">
-                  <div class="accord-icon">📄</div>
                   <p class="subsection-paragraph">
                     <strong
                       >Cet accord d'engagement vaut promesse d'embauche.</strong
@@ -1601,7 +1900,6 @@
                 </div>
                 <!-- Bloc 3 -->
                 <div class="accord-card">
-                  <div class="accord-icon">⚖️</div>
                   <p class="subsection-paragraph">
                     <strong
                       >Au cas où l'une des deux parties ne donne suite, elle
@@ -1634,9 +1932,8 @@
                     />
                   </div>
                   <p class="subsection-paragraph">
-                    Elle est fixée par le
-                    <a href="#">contrat d'assistante maternelle</a>. Si tel
-                    n'est pas le cas, il n'y a pas de période d'essai, et le
+                    Elle est fixée par le contrat d'assistante maternelle. Si
+                    tel n'est pas le cas, il n'y a pas de période d'essai, et le
                     premier jour de travail marque l'embauche définitive.
                   </p>
                 </div>
@@ -1650,10 +1947,7 @@
                     />
                   </div>
                   <p class="subsection-paragraph">
-                    C'est la
-                    <a href="#"
-                      >convention collective des assistantes maternelles</a
-                    >
+                    C'est la convention collective des assistantes maternelles
                     qui détermine la durée maximale de la période d'essai :
                     <strong>3 mois</strong> si moins de 4 jours/semaine,
                     <strong>2 mois</strong> sinon.
@@ -1693,20 +1987,20 @@
               </div>
             </div>
             <!-- Composant spécifique exemple periode d'essai -->
-            <div class="periode-essai-example-unique">
-              <div class="example-left-unique"></div>
-              <div class="example-right-unique">
-                <h3 class="subsection-heading">
+            <div class="question-box">
+              <div class="question-blue-bar"></div>
+              <div class="question-content">
+                <h3 class="question-title">
                   Puis-je rompre ma période d'essai ?
                 </h3>
-                <p class="subsection-paragraph">
+                <p class="question-text">
                   Les assistantes maternelles peuvent mettre fin à leur période
                   d'essai sans aucun motif, tout comme la famille qui l'emploie
                   peut le faire à tout moment. Il suffit de rédiger et d'envoyer
                   avec accusé de réception ou de remettre en main propre une
                   lettre de rupture.
                 </p>
-                <p class="subsection-paragraph">
+                <p class="question-text">
                   <strong>Pour les CDD :</strong> la durée maximale de la
                   période d'essai est la même que pour tout autre salarié (pour
                   les CDD de 6 mois, elle est de 2 semaines maximum).
@@ -1796,8 +2090,6 @@
               Les conventions collectives nationales des assistantes maternelles
               proposent un modèle de contrat de travail. Disponible sur le site
               :
-            </p>
-            <p class="subsection-paragraph">
               <a
                 href="https://www.pajemploi.urssaf.fr/pajewebinfo/cms/sites/pajewebinfo/accueil.html"
                 target="_blank"
@@ -1807,7 +2099,7 @@
                   font-weight: 500;
                 "
               >
-                https://www.pajemploi.urssaf.fr/pajewebinfo/cms/sites/pajewebinfo/accueil.html
+                pajemploi.urssaf.fr
               </a>
             </p>
           </section>

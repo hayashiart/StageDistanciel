@@ -9,78 +9,425 @@
       /* ===========================================
            VARIABLES CSS GLOBALES
            =========================================== */
-      :root {
+           :root {
+        /* Couleurs */
+        --primary-color: #5f8bbc;
+        --primary-color3: #e1d4ff;
+        --primary-color4: #f0ecc8;
+        --secondary-color: #9747ff;
+        --blue-color10: #e6f0fb;
+        --gray-color1: #757575;
+        --gray-color6: #ededed;
+        --gray-color7: #f7f7f7;
+        --white-color: #ffffff;
+        /* Typographie */
         --main-font: "Montserrat", sans-serif;
         --font-size18: 18px;
         --font-size24: 24px;
-        --gray-color1: #757575;
-        --secondary-color: #0074c0;
-        --white-color: #ffffff;
-        --primary-color: #9747ff;
-        --blue-color: #5f8bbc;
-        --blue-color10: #e6f0fb;
-        --yellow-light: #f0ecc8;
-        --blue-light: #a9c4e3;
-        --violet-light: #E4DDEC;
-        --blue-very-light: #E5EFF9;
-        --yellow-very-light: #FDF7E2;
-        --gray-light: #EBEBEB;
+        --font-size28: 28px;
+        --font-size32: 32px;
+        --font-size48: 48px;
+        /* Espacement */
+        --spacing-xs: 8px;
+        --spacing-sm: 12px;
+        --spacing-md: 20px;
+        --spacing-lg: 30px;
+        --spacing-xl: 40px;
+        /* Ombres */
         --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
         --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15);
+        --shadow-heavy: 0 9px 15px rgba(0, 0, 0, 0.2);
+        /* Transitions */
         --transition-fast: 0.3s ease;
         --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        --spacing-lg: 30px;
       }
 
       /* ===========================================
-           RESET ET STYLES DE BASE
+           COMPOSANT RESET ET STYLES DE BASE
            =========================================== */
+      /* * : Réinitialisation des marges et paddings pour tous les éléments */
       * {
-        word-break: break-word;
-        box-sizing: border-box;
-        font-family: var(--main-font);
-      }
-
-html {
-        scroll-behavior: smooth; /* Animation douce lors du scroll vers les ancres */
-      }
-
-      body {
-        font-family: var(--main-font);
         margin: 0;
         padding: 0;
-        background-color: #f5f5f5;
-        color: #333;
+        box-sizing: border-box;
+      }
+      /* html : Active le défilement fluide pour les ancres */
+      html {
+        scroll-behavior: smooth;
+      }
+      /* body : Style de base pour le corps de la page */
+      body {
+        font-family: var(--main-font);
+        font-size: var(--font-size18);
+        font-weight: 400;
         line-height: 1.6;
+        color: #333;
+        background-color: #f5f5f5;
+        min-height: 100vh;
+      }
+      /* p, li, span, div : Style par défaut pour les éléments de texte */
+      p,
+      li,
+      span,
+      div {
+        font-family: var(--main-font);
+        font-size: var(--font-size18);
+        font-weight: 400;
+        color: #333;
+      }
+      /* strong : Surcharge pour éviter les gras indésirables */
+      strong {
+        font-weight: 400 !important;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT RESET ET STYLES DE BASE */
+      @media (min-width: 1440px) {
+        body {
+          font-size: 20px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        body {
+          font-size: 18px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        body {
+          font-size: 16px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 767px) {
+        body {
+          font-size: 14px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 375px) {
+        body {
+          font-size: 12px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 12px;
+        }
       }
 
       /* ===========================================
-           LAYOUT PRINCIPAL
+           COMPOSANT CONTAINER PRINCIPAL
            =========================================== */
+      /* .main-container : Container principal pour centrer et styliser la page */
       .main-container {
         width: 60%;
         max-width: 1200px;
-        margin: 0 auto;
+        margin: 40px auto;
         background: var(--white-color);
-        box-shadow: var(--shadow-medium);
         border-radius: 12px;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .page-container {
-        padding: 0;
-        margin: 0;
-      }
-
-      .main-content {
+        box-shadow: var(--shadow-heavy);
         padding: 40px;
-  margin: 0;
-}
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT CONTAINER PRINCIPAL */
+      @media (min-width: 1440px) {
+        .main-container {
+          width: 60%;
+          margin: 40px auto;
+          padding: 40px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .main-container {
+          width: 70%;
+          margin: 40px auto;
+          padding: 35px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .main-container {
+          width: 80%;
+          margin: 20px auto;
+          padding: 25px;
+        }
+      }
+      @media (max-width: 767px) {
+        .main-container {
+          width: 95%;
+          margin: 15px auto;
+          padding: 20px;
+        }
+      }
+      @media (max-width: 375px) {
+        .main-container {
+          width: 98%;
+          margin: 10px auto;
+          padding: 15px;
+        }
+      }
 
       /* ===========================================
-           TITRES ET EN-TÊTES
+           COMPOSANT LAYOUT ET STRUCTURE
            =========================================== */
+      /* .page-container : Container pour disposition flex de la page */
+      .page-container {
+        display: flex;
+        gap: 25px;
+        position: relative;
+        align-items: flex-start;
+        width: 100%;
+      }
+      /* .main-content : Contenu principal avec gestion du débordement */
+      .main-content {
+        flex: 1;
+        padding: 20px;
+        transition: margin-left var(--transition-fast);
+        min-width: 0;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT LAYOUT ET STRUCTURE */
+      @media (max-width: 767px) {
+        .page-container {
+          flex-direction: column;
+        }
+        .main-content {
+          padding: 15px;
+          overflow: visible;
+        }
+      }
+      @media (max-width: 375px) {
+        .main-content {
+          padding: 10px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT ESPACEMENT GLOBAL
+           =========================================== */
+      /* section : Marges pour les sections */
+      section {
+        margin-bottom: 30px;
+      }
+      /* .subsection : Marges pour les sous-sections */
+      .subsection {
+        margin-bottom: 25px;
+      }
+      /* p : Marges pour les paragraphes */
+      p {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+      /* h1, h2, h3, h4, h5, h6 : Marges pour les titres */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-bottom: 20px;
+      }
+      /* ul, ol : Marges pour les listes */
+      ul,
+      ol {
+        margin-bottom: 20px;
+      }
+      /* li : Marges pour les éléments de liste */
+      li {
+        margin-bottom: 8px;
+      }
+
+      /* ===========================================
+           COMPOSANT MENU BURGER
+           =========================================== */
+      /* .menu-toggle-checkbox : Checkbox caché pour contrôler l'état du menu */
+      .menu-toggle-checkbox {
+        display: none;
+      }
+      /* .menu-toggle : Bouton menu burger - visible sur tous les formats */
+      .menu-toggle {
+        display: block;
+        position: fixed;
+        top: var(--spacing-lg);
+        left: var(--spacing-lg);
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        z-index: 2001;
+        opacity: 0.8;
+        transition: opacity var(--transition-fast);
+        background: var(--white-color);
+        border-radius: 8px;
+        padding: 8px;
+        box-shadow: var(--shadow-light);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      /* .menu-toggle:hover : Effet hover sur le bouton menu burger */
+      .menu-toggle:hover {
+        opacity: 1;
+      }
+      /* .menu-toggle img : Image du menu burger - reste constante */
+      .menu-toggle img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: none;
+      }
+      /* .menu : Menu latéral qui glisse depuis la gauche */
+      .menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 70%;
+        max-width: 300px;
+        height: 100%;
+        background: #ffffff;
+        box-shadow: 4px 0 16px rgba(0, 0, 0, 0.15);
+        transform: translateX(-100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 100px 30px 40px 30px;
+        z-index: 1500;
+        border-right: 1px solid #e0e0e0;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+      /* .menu-toggle-checkbox:checked + .menu-toggle + .menu : Affiche le menu quand le checkbox est coché */
+      .menu-toggle-checkbox:checked + .menu-toggle + .menu {
+        transform: translateX(0);
+      }
+      /* .menu ul : Supprime les puces de la liste du menu */
+      .menu ul {
+        list-style: none;
+      }
+      /* .menu ul li : Espacement entre les éléments du menu */
+      .menu ul li {
+        margin-bottom: 25px;
+      }
+      /* .menu ul li a : Liens de navigation dans le menu burger */
+      .menu ul li a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: var(--font-size18);
+        transition: all 0.3s ease;
+        display: block;
+        padding: 18px 20px;
+        border-radius: 10px;
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
+        margin-bottom: 10px;
+      }
+      /* .menu ul li a:hover : Effet hover sur les liens du menu burger */
+      .menu ul li a:hover {
+        color: var(--primary-color);
+        background: #e6f0fb;
+        transform: translateX(10px);
+        box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
+        transition: all 0.3s ease;
+      }
+      /* .menu::-webkit-scrollbar : Personnalisation de la barre de défilement */
+      .menu::-webkit-scrollbar {
+        width: 6px;
+      }
+      /* .menu::-webkit-scrollbar-track : Piste de la barre de défilement */
+      .menu::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      /* .menu::-webkit-scrollbar-thumb : Curseur de la barre de défilement */
+      .menu::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: 3px;
+        opacity: 0.7;
+      }
+      /* .menu::-webkit-scrollbar-thumb:hover : Effet hover sur le curseur */
+      .menu::-webkit-scrollbar-thumb:hover {
+        background: #4a7aa3;
+        opacity: 1;
+      }
+      /* .menu : Support pour Firefox */
+      .menu {
+        scrollbar-width: thin;
+        scrollbar-color: var(--primary-color) transparent;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT MENU BURGER */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .menu {
+          width: 60%;
+          max-width: 280px;
+          padding: 70px 20px 25px;
+        }
+        .menu-toggle {
+          width: 35px;
+          height: 35px;
+          padding: 6px;
+        }
+      }
+      @media (max-width: 767px) {
+        .menu {
+          width: 75%;
+          max-width: 250px;
+          padding: 60px 15px 20px;
+        }
+        .menu-toggle {
+          width: 32px;
+          height: 32px;
+          padding: 5px;
+          top: 20px;
+          left: 20px;
+        }
+        .menu-toggle img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      @media (max-width: 375px) {
+        .menu {
+          width: 85%;
+          max-width: 280px;
+          padding: 50px 10px 15px;
+        }
+        .menu-toggle {
+          width: 28px;
+          height: 28px;
+          padding: 4px;
+          top: 15px;
+          left: 15px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT TITRE PRINCIPAL
+           =========================================== */
+      /* .intro-title : Titre principal de la page */
       .intro-title {
         font-family: var(--main-font);
         font-weight: 700;
@@ -91,161 +438,64 @@ html {
         margin: 30px 0 40px 0;
       }
 
-      /* ===========================================
-           COMPOSANT IMAGE PRINCIPALE AVEC TEXTE SUPERPOSÉ
-           =========================================== */
-      .intro-image-container {
-        position: relative;
-        max-width: 800px;
-        margin: 30px auto;
+      /* MEDIA QUERIES POUR COMPOSANT TITRE PRINCIPAL */
+      @media (min-width: 1440px) {
+        .intro-title {
+          font-size: 36px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .intro-title {
+          font-size: 32px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .intro-title {
+          font-size: 32px;
+        }
+      }
+      @media (max-width: 767px) {
+        .intro-title {
+          font-size: 24px;
+          margin: 20px 0 30px 0;
+        }
+      }
+      @media (max-width: 375px) {
+        .intro-title {
+          font-size: 20px;
+          margin: 15px 0 20px 0;
+        }
       }
 
+      /* ===========================================
+           COMPOSANT IMAGE PRINCIPALE
+           =========================================== */
+      /* .intro-image : Image principale en haut de la page */
       .intro-image {
-        width: 100%;
-        max-width: 800px;
+        display: block;
+        max-width: 100%;
         height: auto;
+        margin: 30px auto;
         border-radius: 12px;
         box-shadow: var(--shadow-medium);
-        margin: 30px auto;
-        display: block;
       }
 
-      .intro-lorem-overlay {
-        position: absolute;
-        top: 50%;
-        left: 35%;
-        transform: translate(-50%, -50%);
-        padding: 20px;
-        border-radius: 12px;
-        max-width: 70%;
-        text-align: center;
+      /* MEDIA QUERIES POUR COMPOSANT IMAGE PRINCIPALE */
+      @media (max-width: 767px) {
+        .intro-image {
+          margin: 20px auto;
+        }
       }
-
-      .intro-lorem-text {
-        font-family: var(--main-font);
-        font-size: 12px;
-        line-height: 1.4;
-        color: white;
-        font-weight: bold;
-        margin: 0;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+      @media (max-width: 375px) {
+        .intro-image {
+          margin: 15px auto;
+        }
       }
 
       /* ===========================================
-           COMPOSANT MENU BURGER (IDENTIQUE À PAGE1)
+           COMPOSANT TITRES DE SECTION
            =========================================== */
-.menu-toggle-checkbox {
-  display: none;
-}
-
-.menu-toggle {
-        display: block;
-  position: fixed;
-        top: var(--spacing-lg);
-        left: var(--spacing-lg);
-        width: 40px;
-        height: 40px;
-  cursor: pointer;
-  z-index: 2001;
-        background: #ffffff;
-        border-radius: 8px;
-        padding: 8px;
-        box-shadow: var(--shadow-light);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-
-      /* Image du menu burger - reste constante */
-      .menu-toggle img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        transition: none;
-      }
-
-.menu {
-  position: fixed;
-  top: 0;
-        left: 0;
-        width: 70%;
-  max-width: 300px;
-  height: 100%;
-        background: #ffffff;
-        box-shadow: 4px 0 16px rgba(0, 0, 0, 0.15);
-        transform: translateX(-100%);
-        transition: transform var(--transition-fast);
-        padding: 100px 30px 40px 30px;
-  z-index: 1500;
-        border-right: 1px solid #e0e0e0;
-        overflow-y: auto;
-        overflow-x: hidden;
-}
-
-.menu-toggle-checkbox:checked + .menu-toggle + .menu {
-  transform: translateX(0);
-}
-
-.menu ul {
-  list-style: none;
-}
-
-.menu ul li {
-        margin-bottom: 25px;
-}
-
-.menu ul li a {
-        color: #333;
-  text-decoration: none;
-        font-weight: 600;
-        font-size: var(--font-size18);
-        transition: all var(--transition-fast);
-        display: block;
-        padding: 18px 20px;
-        border-radius: 10px;
-        background: #ffffff;
-        border: 1px solid #e0e0e0;
-        margin-bottom: 10px;
-      }
-
-.menu ul li a:hover {
-        color: var(--primary-color);
-        background: var(--blue-color10);
-        transform: translateX(10px);
-        box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
-      }
-
-      /* ===========================================
-           PERSONNALISATION DE LA BARRE DE DÉFILEMENT
-           =========================================== */
-      .menu::-webkit-scrollbar {
-        width: 6px;
-      }
-
-      .menu::-webkit-scrollbar-track {
-        background: transparent;
-      }
-
-      .menu::-webkit-scrollbar-thumb {
-        background: var(--primary-color);
-        border-radius: 3px;
-        opacity: 0.7;
-      }
-
-      .menu::-webkit-scrollbar-thumb:hover {
-        background: #4a7aa3;
-        opacity: 1;
-      }
-
-      .menu {
-        scrollbar-width: thin;
-        scrollbar-color: var(--primary-color) transparent;
-      }
-
-      /* ===========================================
-           COMPOSANT SECTIONS ET SOUS-SECTIONS
-           =========================================== */
+      /* .section-header : Container des en-têtes de section (numéro + titre) */
       .section-header {
         display: flex;
         align-items: center;
@@ -255,9 +505,9 @@ html {
         padding: 0;
         margin: 40px 0 30px 0;
         box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
-    overflow: hidden;
+        overflow: hidden;
       }
-
+      /* .section-number : Numéro de section (01, 02, etc.) - partie bleue à gauche */
       .section-number {
         background: #3b6ea5;
         color: var(--white-color);
@@ -275,23 +525,106 @@ html {
         flex-shrink: 0;
         align-self: stretch;
       }
-
+      /* .section-title : Titre de section (texte principal) - partie droite */
       .section-title {
         color: #3b6ea5;
         font-family: var(--main-font);
         font-weight: 700;
         font-size: 24px;
-        text-align: left;
+        text-align: center;
         flex: 1;
         padding: 25px 30px;
         display: flex;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: center;
         min-height: 100px;
       }
 
+      /* MEDIA QUERIES POUR COMPOSANT TITRES DE SECTION */
+      @media (min-width: 1440px) {
+        .section-number {
+          font-size: 24px;
+          padding: 8px 12px;
+        }
+        .section-title {
+          font-size: 18px;
+          padding: 8px 12px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .section-number {
+          font-size: 22px;
+          padding: 6px 10px;
+        }
+        .section-title {
+          font-size: 16px;
+          padding: 6px 10px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .section-header {
+          margin: 20px 0 15px;
+          padding: 0;
+        }
+        .section-number {
+          font-size: 20px;
+          padding: 5px 8px;
+          min-width: 80px;
+          width: 80px;
+        }
+        .section-title {
+          font-size: 14px;
+          padding: 5px 8px;
+          min-height: 60px;
+        }
+      }
+      @media (max-width: 767px) {
+        .section-header {
+          flex-direction: column;
+          text-align: center;
+          margin: 15px 0 10px;
+          padding: 0;
+        }
+        .section-number {
+          border-radius: 12px 12px 0 0;
+          width: 100%;
+          text-align: center;
+          font-size: 18px;
+          padding: 4px 6px;
+          min-width: auto;
+          min-height: 40px;
+        }
+        .section-title {
+          border-radius: 0 0 12px 12px;
+          width: 100%;
+          font-size: 12px;
+          padding: 4px 6px;
+          min-height: 40px;
+        }
+      }
+      @media (max-width: 375px) {
+        .section-header {
+          margin: 10px 0 5px;
+          padding: 0;
+        }
+        .section-number {
+          font-size: 16px;
+          padding: 3px 5px;
+          min-height: 30px;
+        }
+        .section-title {
+          font-size: 10px;
+          padding: 3px 5px;
+          min-height: 30px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT TITRES DE SOUS-SECTION
+           =========================================== */
+      /* .subsection-heading : Titres de niveau 3 pour sous-sections (A., B.) */
       .subsection-heading {
-        font-family: "Montserrat", sans-serif;
+        font-family: var(--main-font);
         font-weight: 700;
         color: #5f8bbc;
         font-size: 26px;
@@ -300,35 +633,333 @@ html {
         background: #f8fbff;
         border-left: 5px solid #5f8bbc;
         border-radius: 0 8px 8px 0;
-        text-align: left; /* Alignement à gauche explicite */
+        text-align: left;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT TITRES DE SOUS-SECTION */
+      @media (min-width: 1440px) {
+        .subsection-heading {
+          font-size: 28px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .subsection-heading {
+          font-size: 24px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .subsection-heading {
+          font-size: 22px;
+        }
+      }
+      @media (max-width: 767px) {
+        .subsection-heading {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 375px) {
+        .subsection-heading {
+          font-size: 14px;
+        }
       }
 
       /* ===========================================
-           COMPOSANT LIGNES3 (2 COLONNES)
+           COMPOSANT CONCLUSION - À RETENIR
            =========================================== */
-      .lignes3-container {
-        width: 100%;
-        max-width: 800px;
-        margin: 0 auto;
-        display: flex;
+      /* .container-a-retenir : Container principal du composant conclusion avec espacement */
+      .container-a-retenir {
+        padding: 35px;
+         margin: 10px 0;
+      }
+      /* .wrap-title-retenir-conclusion : Wrapper pour le titre et l'image - disposition verticale centrée */
+      .wrap-title-retenir-conclusion {
         flex-direction: column;
-        gap: 20px;
-        box-sizing: border-box;
-  padding: 20px;
-}
+        align-items: center;
+      }
+      /* .retenir-img : Image au-dessus du titre "À retenir" - taille adaptative */
+      .retenir-img {
+        width: 35%;
+      }
+      /* .title-retenir-conclusion : Titre principal "À RETENIR" - style typographique */
+      .title-retenir-conclusion {
+        color: var(--gray-color1);
+        text-align: center;
+        font-family: var(--main-font);
+        font-size: 24px;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: uppercase;
+        margin-top: 20px;
+      }
+      /* .steps : Container des étapes numérotées */
+      .steps {
+        padding: 20px;
+      }
+      /* .step : Structure de chaque étape - disposition verticale centrée */
+      .step {
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+      }
+      /* .number : Numéro de l'étape - cercle coloré avec le numéro */
+      .number {
+        font-size: 18px;
+        font-family: var(--main-font);
+        font-weight: bold;
+        color: var(--white-color);
+        border-radius: 50%;
+        padding: 8px;
+        background-color: var(--primary-color);
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      /* .text : Texte principal de l'étape - titre en gras */
+      .text {
+        font-family: var(--main-font);
+        color: var(--primary-color);
+        text-align: justify;
+        font-size: var(--font-size24);
+        font-weight: 600;
+        margin: 0;
+        padding-left: 15px;
+      }
+      /* .sub-text : Texte secondaire de l'étape - description détaillée */
+      .sub-text {
+        font-family: var(--main-font);
+        color: var(--gray-color1);
+        font-size: 18px;
+        margin: 0;
+        text-align: justify;
+        padding-left: 15px;
+      }
+      /* .line : Ligne verticale pointillée entre les étapes */
+      .line {
+        display: none;
+      }
+      /* .steps .step-content:last-child .line : Désactive la ligne pour la dernière étape */
+      .steps .step-content:last-child .line {
+        display: none;
+      }
 
+      /* MEDIA QUERIES POUR COMPOSANT CONCLUSION - À RETENIR */
+      @media (min-width: 1440px) {
+        .title-retenir-conclusion {
+          font-size: 22px;
+        }
+        .text {
+          font-size: 22px;
+        }
+        .sub-text {
+          font-size: 20px;
+        }
+        .number {
+          width: 50px;
+          height: 50px;
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .title-retenir-conclusion {
+          font-size: 20px;
+        }
+        .text {
+          font-size: 20px;
+        }
+        .sub-text {
+          font-size: 18px;
+        }
+        .number {
+          width: 45px;
+          height: 45px;
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .title-retenir-conclusion {
+          font-size: 18px;
+        }
+        .text {
+          font-size: 18px;
+        }
+        .sub-text {
+          font-size: 16px;
+        }
+        .number {
+          width: 40px;
+          height: 40px;
+          font-size: 14px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 15px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+      @media (max-width: 767px) {
+        .title-retenir-conclusion {
+          font-size: 16px;
+        }
+        .text {
+          font-size: 16px;
+        }
+        .sub-text {
+          font-size: 14px;
+        }
+        .number {
+          width: 35px;
+          height: 35px;
+          font-size: 12px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 15px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+      @media (max-width: 375px) {
+        .title-retenir-conclusion {
+          font-size: 14px;
+        }
+        .text {
+          font-size: 14px;
+        }
+        .sub-text {
+          font-size: 12px;
+        }
+        .number {
+          width: 30px;
+          height: 30px;
+          font-size: 10px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 10px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+      @media (max-width: 768px) {
+        .container-a-retenir {
+          text-align: center;
+        }
+        .steps {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+        .step-content {
+          width: 100%;
+          max-width: 600px;
+          margin-bottom: 24px;
+        }
+        .text,
+        .sub-text {
+          text-align: center;
+        }
+        .steps .step-content:last-child .line {
+          display: block;
+        }
+      }
+      @media (max-width: 992px) and (min-width: 768px) {
+        .container-a-retenir {
+          text-align: center;
+        }
+        .steps {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+        .step-content {
+          width: 100%;
+          max-width: 600px;
+          margin-bottom: 24px;
+        }
+        .text,
+        .sub-text {
+          text-align: center;
+        }
+        .steps .step-content:last-child .line {
+          display: block;
+        }
+      }
+
+
+      /* ===========================================
+           COMPOSANT CLASSES UTILITAIRES
+           =========================================== */
+      /* .is-flex : Active la disposition flexbox */
+      .is-flex {
+        display: flex;
+      }
+      /* .is-flex-wrap-wrap-mobile : Permet le retour à la ligne pour petits écrans */
+      .is-flex-wrap-wrap-mobile {
+        flex-wrap: wrap;
+      }
+      /* .col-1 : Colonne occupant 1/12 de la largeur */
+      .col-1 {
+        width: 8.333333%;
+      }
+      /* .col-11 : Colonne occupant 11/12 de la largeur */
+      .col-11 {
+        width: 91.666667%;
+      }
+
+             /* ===========================================
+            COMPOSANTS SPÉCIFIQUES DE PAGE6 - SECTION 1 (LIGNES3)
+            =========================================== */
+       /* .lignes3-container : Container principal pour les rectangles bleus/jaunes */
+       .lignes3-container {
+         width: 100%;
+         max-width: 800px;
+         margin: 0 auto;
+         display: flex;
+         flex-direction: column;
+         gap: 20px;
+         box-sizing: border-box;
+         padding: 10px;
+       }
+      /* .lignes3-rectangle-container : Container pour chaque paire rectangle bleu/jaune */
       .lignes3-rectangle-container {
         position: relative;
         display: flex;
         align-items: stretch;
         margin: 0;
         padding: 0;
-        min-height: 120px;
       }
-
+      /* .lignes3-rectangle : Rectangle bleu à gauche avec titre */
       .lignes3-rectangle {
         width: 120px;
-        background: var(--blue-light);
+        background: #b3cae3;
         border-radius: 8px;
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
@@ -337,30 +968,25 @@ html {
         justify-content: center;
         flex-shrink: 0;
       }
-
+      /* .lignes3-yellow-rectangle : Rectangle jaune à droite avec contenu */
       .lignes3-yellow-rectangle {
         flex: 1;
-        background: var(--yellow-light);
+        background: #f0ecc8;
         border-radius: 8px;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
-        overflow: hidden;
-        min-height: 120px;
-        display: flex;
-        align-items: center;
+        overflow: visible;
       }
-
+      /* .lignes3-scroll-content : Contenu scrollable du rectangle jaune */
       .lignes3-scroll-content {
         width: 100%;
-        height: 100%;
-    overflow: hidden;
+        height: auto;
+        overflow: visible;
         padding: 15px;
-        display: flex;
-        align-items: center;
       }
-
+      /* .lignes3-yellow-text : Liste dans le rectangle jaune */
       .lignes3-yellow-text {
-        font-family: var(--main-font);
+        font-family: Arial, sans-serif;
         font-size: 14px;
         color: #333;
         text-align: left;
@@ -368,24 +994,130 @@ html {
         line-height: 1.5;
         list-style: disc;
         padding-left: 20px;
-        width: 100%;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
       }
-
+      /* .lignes3-yellow-text li : Éléments de la liste */
+      .lignes3-yellow-text li {
+        margin-bottom: 8px;
+        padding-left: 0;
+      }
+      /* .lignes3-scroll-indicator : Indicateur de scroll (masqué) */
+      .lignes3-scroll-indicator {
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 20px;
+        display: none;
+        margin: 0;
+        padding: 0;
+        z-index: 10;
+      }
+      /* .lignes3-scroll-link : Lien de scroll (masqué) */
+      .lignes3-scroll-link {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color: white;
+        font-size: 16px;
+        opacity: 1;
+        text-decoration: none;
+      }
+      /* .lignes3-content-end : Espace de fin (masqué) */
+      .lignes3-content-end {
+        height: 0;
+      }
+      /* .lignes3-title : Titre dans le rectangle bleu */
       .lignes3-title {
-        font-family: var(--main-font);
+        font-family: Arial, sans-serif;
         font-size: 14px;
         font-weight: bold;
         color: white;
         text-align: center;
         margin: 0;
-        padding: 10px;
+      }
+      /* Hover sur l'ensemble du composant lignes3 (bleu + jaune) */
+      .lignes3-rectangle-container:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(95, 139, 188, 0.25);
+        transition: all 0.3s ease;
+      }
+      .lignes3-rectangle-container:hover .lignes3-yellow-rectangle {
+        background: #e8e0b0;
+        transition: all 0.3s ease;
       }
 
+             /* MEDIA QUERIES POUR COMPOSANT LIGNES3 */
+       @media (max-width: 1023px) and (min-width: 768px) {
+         .lignes3-container {
+           width: 100%;
+           max-width: 600px;
+           gap: 15px;
+         }
+         .lignes3-rectangle {
+           width: 100px;
+         }
+         .lignes3-title {
+           font-size: 12px;
+         }
+         .lignes3-yellow-text {
+           font-size: 12px;
+         }
+       }
+       @media (max-width: 767px) {
+         .lignes3-container {
+           width: 100%;
+           max-width: 500px;
+           gap: 12px;
+         }
+         .lignes3-rectangle {
+           width: 90px;
+         }
+         .lignes3-title {
+           font-size: 11px;
+         }
+         .lignes3-yellow-text {
+           font-size: 11px;
+         }
+       }
+       @media (max-width: 480px) {
+         .lignes3-container {
+           width: 100%;
+           max-width: 400px;
+           gap: 10px;
+         }
+         .lignes3-rectangle {
+           width: 75px;
+         }
+         .lignes3-title {
+           font-size: 10px;
+         }
+         .lignes3-yellow-text {
+           font-size: 10px;
+         }
+       }
+       @media (max-width: 375px) {
+         .lignes3-container {
+           width: 100%;
+           max-width: 350px;
+           gap: 8px;
+         }
+         .lignes3-rectangle {
+           width: 65px;
+         }
+         .lignes3-title {
+           font-size: 9px;
+         }
+         .lignes3-yellow-text {
+           font-size: 9px;
+         }
+       }
+
       /* ===========================================
-           COMPOSANT HIERARCHIE (SIGNES PHYSIQUES/PSYCHIQUES)
+           COMPOSANTS SPÉCIFIQUES DE PAGE6 - SECTION 1B (HIERARCHIE)
            =========================================== */
+      /* .hierarchie-container : Container principal pour les blocs de signes */
       .hierarchie-container {
         width: 100%;
         max-width: 1200px;
@@ -393,7 +1125,7 @@ html {
         text-align: center;
         padding: 20px;
       }
-
+      /* .hierarchie-row : Ligne de blocs hierarchie */
       .hierarchie-row {
         display: flex;
         gap: 30px;
@@ -401,7 +1133,7 @@ html {
         justify-content: center;
         flex-wrap: wrap;
       }
-
+      /* .hierarchie-block : Bloc individuel de signes */
       .hierarchie-block {
         background-color: var(--yellow-light);
         border-radius: 8px;
@@ -415,28 +1147,28 @@ html {
         height: auto;
         min-height: 600px;
       }
-
+      /* .hierarchie-block:hover : Effet hover sur les blocs */
       .hierarchie-block:hover {
         transform: translateY(-5px);
         box-shadow: 0 8px 25px rgba(95, 139, 188, 0.3);
       }
-
+      /* .hierarchie-header : En-tête du bloc hierarchie */
       .hierarchie-header {
         background-color: var(--blue-light);
         color: var(--white-color);
         font-weight: bold;
         padding: 15px;
-    font-size: 16px;
+        font-size: 16px;
         font-family: var(--main-font);
         height: auto;
         min-height: 80px;
         display: flex;
         align-items: center;
         justify-content: center;
-    text-align: center;
+        text-align: center;
         word-wrap: break-word;
       }
-
+      /* .hierarchie-content : Contenu du bloc hierarchie */
       .hierarchie-content {
         padding: 30px;
         font-size: 14px;
@@ -453,9 +1185,61 @@ html {
         overflow-wrap: break-word;
       }
 
+      /* MEDIA QUERIES POUR COMPOSANT HIERARCHIE */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .hierarchie-block {
+          width: 250px;
+          min-width: 200px;
+        }
+        .hierarchie-header {
+          font-size: 14px;
+          min-height: 60px;
+        }
+        .hierarchie-content {
+          padding: 20px;
+          font-size: 12px;
+          min-height: 400px;
+        }
+      }
+      @media (max-width: 767px) {
+        .hierarchie-row {
+          flex-direction: column;
+          gap: 20px;
+        }
+        .hierarchie-block {
+          width: 100%;
+          min-width: auto;
+          min-height: 400px;
+        }
+        .hierarchie-header {
+          font-size: 14px;
+          min-height: 50px;
+        }
+        .hierarchie-content {
+          padding: 15px;
+          font-size: 12px;
+          min-height: 300px;
+        }
+      }
+      @media (max-width: 375px) {
+        .hierarchie-block {
+          min-height: 300px;
+        }
+        .hierarchie-header {
+          font-size: 12px;
+          min-height: 40px;
+        }
+        .hierarchie-content {
+          padding: 10px;
+          font-size: 10px;
+          min-height: 250px;
+        }
+      }
+
       /* ===========================================
-           COMPOSANT PERIODE-ESSAI-EXAMPLE (SECTION 2C)
+           COMPOSANTS SPÉCIFIQUES DE PAGE6 - SECTION 2C (PERIODE-ESSAI-EXAMPLE)
            =========================================== */
+      /* .periode-essai-example-unique : Container pour l'exemple de période d'essai */
       .periode-essai-example-unique {
         display: flex;
         border-radius: 10px;
@@ -464,45 +1248,97 @@ html {
         box-shadow: var(--shadow-light);
         margin-bottom: 5%;
       }
-
+      /* .example-left-unique : Partie gauche de l'exemple */
       .example-left-unique {
         width: 20%;
         background-color: #c7def5;
       }
-
+      /* .example-right-unique : Partie droite de l'exemple */
       .example-right-unique {
         flex: 1;
         background-color: #f5f5f5;
         padding: 20px;
         text-align: left;
       }
+                                           /* .example-title-unique : Titre de l'exemple */
+         .example-title-unique {
+           color: #3b6ea5;
+           font-size: 22px;
+           font-weight: bold;
+           margin-bottom: 10px;
+           margin-left: 10%;
+         }
+         /* .example-text-unique : Texte de l'exemple */
+         .example-text-unique {
+           font-size: 20px;
+           margin: 5px 0;
+           color: #000;
+           line-height: 1.6;
+           width: 90%;
+           margin-left: 10%;
+         }
 
-      .example-title-unique {
-        color: #3b6ea5;
-        font-size: 16px;
-        font-weight: bold;
-        margin-bottom: 10px;
-        margin-left: 10%;
-      }
-
-      .example-text-unique {
-        font-size: 14px;
-        margin: 5px 0;
-        color: #000;
-        line-height: 1.6;
-        width: 90%;
-        margin-left: 10%;
-      }
+                                 /* MEDIA QUERIES POUR COMPOSANT PERIODE-ESSAI-EXAMPLE */
+          @media (min-width: 1440px) {
+            .example-title-unique {
+              font-size: 22px;
+            }
+            .example-text-unique {
+              font-size: 20px;
+            }
+          }
+          @media (max-width: 1439px) and (min-width: 1024px) {
+            .example-title-unique {
+              font-size: 20px;
+            }
+            .example-text-unique {
+              font-size: 18px;
+            }
+          }
+          @media (max-width: 1023px) and (min-width: 768px) {
+            .example-title-unique {
+              font-size: 18px;
+            }
+            .example-text-unique {
+              font-size: 16px;
+            }
+          }
+          @media (max-width: 767px) {
+            .periode-essai-example-unique {
+              flex-direction: column;
+            }
+            .example-left-unique {
+              width: 100%;
+              min-height: 40px;
+            }
+            .example-title-unique {
+              font-size: 16px;
+              margin-left: 5%;
+            }
+            .example-text-unique {
+              font-size: 14px;
+              margin-left: 5%;
+            }
+          }
+          @media (max-width: 375px) {
+            .example-title-unique {
+              font-size: 14px;
+            }
+            .example-text-unique {
+              font-size: 12px;
+            }
+          }
 
       /* ===========================================
-           COMPOSANT DOCUMENT (SECTION 3A)
+           COMPOSANTS SPÉCIFIQUES DE PAGE6 - SECTION 3A (DOCUMENT)
            =========================================== */
+      /* .document-section : Section document principale */
       .document-section {
         max-width: 1200px;
         margin: 30px auto;
         padding: 20px;
       }
-
+      /* .document-container : Container flex pour image + texte */
       .document-container {
         display: flex;
         align-items: flex-start;
@@ -511,28 +1347,28 @@ html {
         margin: 30px 0;
         transition: all var(--transition-fast);
       }
-
+      /* .document-container:hover : Effet hover sur le container */
       .document-container:hover {
         transform: translateY(-2px);
       }
-
+      /* .document-img : Container de l'image */
       .document-img {
         flex: 1;
         max-width: 250px;
       }
-
+      /* .document-img img : Image du document */
       .document-img img {
         width: 100%;
         height: auto;
         border-radius: 8px;
         box-shadow: var(--shadow-light);
       }
-
+      /* .document-text : Container du texte */
       .document-text {
         flex: 2;
         min-width: 300px;
       }
-
+      /* .document-highlight : Texte mis en évidence */
       .document-highlight {
         background: var(--yellow-light);
         padding: 40px;
@@ -542,22 +1378,53 @@ html {
         font-family: var(--main-font);
         transition: all var(--transition-fast);
       }
-
+      /* .document-highlight:hover : Effet hover sur le highlight */
       .document-highlight:hover {
         transform: translateY(-2px);
         box-shadow: 0 8px 25px rgba(95, 139, 188, 0.3);
       }
 
+      /* MEDIA QUERIES POUR COMPOSANT DOCUMENT */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .document-highlight {
+          padding: 25px;
+          font-size: 0.9rem;
+        }
+      }
+      @media (max-width: 767px) {
+        .document-container {
+          flex-direction: column;
+          gap: 20px;
+        }
+        .document-img {
+          max-width: 100%;
+        }
+        .document-text {
+          min-width: auto;
+        }
+        .document-highlight {
+          padding: 20px;
+          font-size: 0.8rem;
+        }
+      }
+      @media (max-width: 375px) {
+        .document-highlight {
+          padding: 15px;
+          font-size: 0.7rem;
+        }
+      }
+
       /* ===========================================
-           COMPOSANT 3 COLONNES ASE (SECTION 3C)
+           COMPOSANTS SPÉCIFIQUES DE PAGE6 - SECTION 3C (ASE SERVICES)
            =========================================== */
+      /* .ase-services-container : Container pour les services ASE */
       .ase-services-container {
         display: flex;
         gap: 30px;
         margin: 30px 0;
         flex-wrap: wrap;
       }
-
+      /* .ase-service-card : Carte de service ASE */
       .ase-service-card {
         flex: 1;
         min-width: 250px;
@@ -573,13 +1440,13 @@ html {
         align-items: center;
         justify-content: center;
       }
-
+      /* .ase-service-card:hover : Effet hover sur les cartes */
       .ase-service-card:hover {
         transform: translateY(-3px);
         box-shadow: 0 8px 25px rgba(95, 139, 188, 0.2);
         background: #f0f8ff;
       }
-
+      /* .ase-service-text : Texte dans les cartes ASE */
       .ase-service-text {
         font-family: var(--main-font);
         font-size: 16px;
@@ -588,137 +1455,220 @@ html {
         margin: 0;
       }
 
+      /* MEDIA QUERIES POUR COMPOSANT ASE SERVICES */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .ase-service-card {
+          min-width: 200px;
+          height: 150px;
+          padding: 20px;
+        }
+        .ase-service-text {
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 767px) {
+        .ase-services-container {
+          flex-direction: column;
+          gap: 20px;
+        }
+        .ase-service-card {
+          min-width: auto;
+          height: 120px;
+          padding: 15px;
+        }
+        .ase-service-text {
+          font-size: 12px;
+        }
+      }
+      @media (max-width: 375px) {
+        .ase-service-card {
+          height: 100px;
+          padding: 10px;
+        }
+        .ase-service-text {
+          font-size: 10px;
+        }
+      }
+
+                    /* ===========================================
+            COMPOSANTS SPÉCIFIQUES DE PAGE6 - SECTION 3C (BOX LIGNE ENTIÈRE)
+            =========================================== */
+                 /* .box-ligne-entiere-container : Container pour les boîtes en ligne entière */
+         .box-ligne-entiere-container {
+           width: 100%;
+           margin: 0 auto;
+           max-width: none;
+           padding: 25px;
+           margin-bottom: 10px;
+         }
+        /* .box : Boîte individuelle */
+        .box {
+          border-radius: 20px;
+          background: white;
+          box-shadow: 0px 4px 8px rgba(117, 117, 117, 0.15);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          margin-bottom: 20px;
+          padding: 25px;
+        }
+        /* .box:hover : Effet hover sur les boîtes */
+        .box:hover {
+          transform: translateY(-10px);
+          box-shadow: 0px 12px 24px rgba(117, 117, 117, 0.2);
+        }
+        /* Couleurs spécifiques pour chaque box */
+        .box-ligne-entiere-container .box:nth-child(1) {
+          background-color: #E4DDEC;
+        }
+        .box-ligne-entiere-container .box:nth-child(2) {
+          background-color: #E5EFF9;
+        }
+        .box-ligne-entiere-container .box:nth-child(3) {
+          background-color: #FDF7E2;
+        }
+        .box-ligne-entiere-container .box:nth-child(4) {
+          background-color: #EBEBEB;
+        }
+                 /* .box h3 : Titres dans les boîtes */
+         .box h3 {
+           font-weight: bold;
+           font-size: 22px;
+           color: #333;
+           margin-bottom: 15px;
+           font-family: var(--main-font);
+         }
+        /* .box p : Paragraphes dans les boîtes */
+        .box p {
+          font-size: 20px;
+          line-height: 1.6;
+          color: #333;
+          font-family: var(--main-font);
+          font-weight: 400;
+        }
+
+       /* MEDIA QUERIES POUR COMPOSANT BOX LIGNE ENTIÈRE */
+       @media (min-width: 1440px) {
+         .box h3 {
+           font-size: 22px;
+         }
+         .box p {
+           font-size: 20px;
+         }
+       }
+       @media (max-width: 1439px) and (min-width: 1024px) {
+         .box h3 {
+           font-size: 20px;
+         }
+         .box p {
+           font-size: 18px;
+         }
+       }
+       @media (max-width: 1023px) and (min-width: 768px) {
+         .box {
+           padding: 20px;
+         }
+         .box h3 {
+           font-size: 18px;
+         }
+         .box p {
+           font-size: 16px;
+         }
+       }
+       @media (max-width: 767px) {
+         .box {
+           padding: 15px;
+         }
+         .box h3 {
+           font-size: 16px;
+         }
+         .box p {
+           font-size: 14px;
+         }
+       }
+       @media (max-width: 375px) {
+         .box {
+           padding: 10px;
+         }
+         .box h3 {
+           font-size: 14px;
+         }
+         .box p {
+           font-size: 12px;
+         }
+       }
+
+             /* ===========================================
+            COMPOSANTS SPÉCIFIQUES DE PAGE6 - SECTION 2 (DEFINITION)
+            =========================================== */
+       /* .definition-index2-container : Container pour la définition */
+       .definition-index2-container {
+         padding: 10px 20px;
+         border-radius: 20px;
+         background-color: var(--white-color);
+         box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
+       }
+                       /* .title-h4-definition : Titre de la définition */
+         .title-h4-definition {
+           font-family: var(--main-font);
+           font-size: 22px;
+           font-weight: 700;
+           text-transform: capitalize;
+           color: #0074C0;
+         }
+         /* .paragraphe : Texte du paragraphe dans la définition */
+         .definition-index2-container .paragraphe {
+           font-size: 20px !important;
+           line-height: 1.6;
+           color: #000000;
+           font-family: var(--main-font);
+           font-weight: 400;
+         }
+
+         /* MEDIA QUERIES POUR COMPOSANT DEFINITION */
+         @media (min-width: 1440px) {
+           .title-h4-definition {
+             font-size: 22px !important;
+           }
+           .definition-index2-container .paragraphe {
+             font-size: 20px !important;
+           }
+         }
+         @media (max-width: 1439px) and (min-width: 1024px) {
+           .title-h4-definition {
+             font-size: 20px !important;
+           }
+           .definition-index2-container .paragraphe {
+             font-size: 18px !important;
+           }
+         }
+         @media (max-width: 1023px) and (min-width: 768px) {
+           .title-h4-definition {
+             font-size: 18px !important;
+           }
+           .definition-index2-container .paragraphe {
+             font-size: 16px !important;
+           }
+         }
+         @media (max-width: 767px) {
+           .title-h4-definition {
+             font-size: 16px !important;
+           }
+           .definition-index2-container .paragraphe {
+             font-size: 14px !important;
+           }
+         }
+         @media (max-width: 375px) {
+           .title-h4-definition {
+             font-size: 14px !important;
+           }
+           .definition-index2-container .paragraphe {
+             font-size: 12px !important;
+           }
+         }
+
       /* ===========================================
-           COMPOSANT BOX LIGNE ENTIÈRE (SECTION 3C)
+           COMPOSANTS SPÉCIFIQUES DE PAGE6 - COULEURS ET CLASSES UTILITAIRES
            =========================================== */
-      .box-ligne-entiere-container {
-        width: 100%;
-        margin: 0 auto;
-        max-width: none;
-        padding: 25px;
-      }
-
-      .box {
-        border-radius: 20px;
-        background: white;
-        box-shadow: 0px 4px 8px rgba(117, 117, 117, 0.15);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        margin-bottom: 20px;
-        padding: 25px;
-      }
-
-      .box:hover {
-        transform: translateY(-10px);
-        box-shadow: 0px 12px 24px rgba(117, 117, 117, 0.2);
-      }
-
-      /* ===========================================
-           COMPOSANT DEFINITION (SECTION 2)
-           =========================================== */
-      .definition-index2-container {
-        padding: 10px 20px;
-        border-radius: 20px;
-        background-color: var(--white-color);
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
-      }
-
-      .title-h4-definition {
-        font-family: var(--main-font);
-        font-size: var(--font-size24);
-    font-weight: 700;
-        text-transform: capitalize;
-      }
-
-      /* ===========================================
-           COMPOSANT CONCLUSION
-           =========================================== */
-      .container-a-retenir {
-        padding: 35px;
-        margin: 45px 0;
-      }
-
-      .wrap-title-retenir-conclusion {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .retenir-img {
-        width: 35%;
-      }
-
-      .title-retenir-conclusion {
-        color: var(--gray-color1);
-        text-align: center;
-        font-family: var(--main-font);
-        font-size: 24px;
-        font-weight: 600;
-    line-height: normal;
-        text-transform: uppercase;
-      }
-
-      .steps {
-        padding: 20px;
-      }
-
-      .step {
-        flex-direction: column;
-    position: relative;
-        align-items: center;
-      }
-
-      .number {
-        font-size: 18px;
-        font-family: var(--main-font);
-        font-weight: bold;
-        color: var(--white-color);
-        border-radius: 50%;
-        padding: 8px;
-        background-color: var(--primary-color);
-        width: 50px;
-        height: 50px;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .text {
-        font-family: var(--main-font);
-        color: var(--primary-color);
-        text-align: justify;
-        font-size: var(--font-size24);
-        font-weight: 600;
-        margin: 0;
-        padding-left: 15px;
-      }
-
-      .sub-text {
-        font-family: var(--main-font);
-        color: var(--gray-color1);
-        font-size: 18px;
-        margin: 0;
-        text-align: justify;
-        padding-left: 15px;
-      }
-
-      .line {
-        display: none;
-      }
-
-      .steps .step-content:last-child .line {
-        display: block;
-      }
-
-      .step-content {
-        margin-bottom: 30px;
-    position: relative;
-      }
-
-      .step-text {
-        padding-left: 20px;
-      }
-
-      /* ===========================================
-           COULEURS DES BOXES
-           =========================================== */
+      /* Couleurs des boxes */
       .primary-color { color: var(--primary-color) !important; }
       .secondary-color { color: var(--secondary-color) !important; }
       .gray-color1 { color: var(--gray-color1) !important; }
@@ -727,14 +1677,9 @@ html {
       .bg-gray-color6 { background-color: var(--yellow-very-light) !important; }
       .bg-gray-light { background-color: var(--gray-light) !important; }
 
-      /* ===========================================
-           CLASSES UTILITAIRES
-           =========================================== */
-      .is-flex { display: flex; }
+      /* Classes utilitaires spécifiques */
       .is-flex-gap { gap: 24px; }
-      .is-flex-wrap-wrap-mobile { flex-wrap: wrap; }
       .is-align-items-center { align-items: center; }
-      .col-1 { width: 8.333333%; }
       .col-2 { width: 16.666667%; }
       .col-3 { width: 25%; }
       .col-4 { width: 33.333333%; }
@@ -744,606 +1689,481 @@ html {
       .col-8 { width: 66.666667%; }
       .col-9 { width: 75%; }
       .col-10 { width: 83.333333%; }
-      .col-11 { width: 91.666667%; }
       .col-12 { width: 100%; }
-      .block:not(:last-child) { margin-bottom: 24px; }
       .img-fluid { max-width: 100%; height: auto; }
       .paragraphe {
         text-align: justify;
-    color: #000000;
+        color: #000000;
         font-family: var(--main-font);
-        font-size: var(--font-size18);
-    font-weight: 400;
+        font-size: 20px;
+        font-weight: 400;
       }
 
-      /* Marges entre les paragraphes */
-      p {
-        margin-bottom: 15px;
+      /* MEDIA QUERIES POUR CLASSE PARAGRAPHE */
+      @media (min-width: 1440px) {
+        .paragraphe {
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .paragraphe {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .paragraphe {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 767px) {
+        .paragraphe {
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 375px) {
+        .paragraphe {
+          font-size: 12px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT 2 COLONNES 1A
+           =========================================== */
+      /* .legal-blocks-container : Container principal des blocs*/
+      .legal-blocks-container {
+        width: 95%;
+        max-width: 1200px;
+        margin: 30px auto;
+        text-align: center;
+      }
+      /* .legal-blocks-row : Ligne de blocs légaux */
+      .legal-blocks-row {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 40px;
+        justify-content: center;
+        align-items: stretch;
+      }
+      /* .legal-block : Bloc individuel légal */
+      .legal-block {
+        background-color: #f0ecc8;
+        border-radius: 8px;
+        width: 280px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        transition: all var(--transition-fast);
+        height: auto;
+        border-radius: 20px;
+      }
+      /* Effet hover sur les blocs légaux */
+      .legal-block:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(95, 139, 188, 0.3);
+      }
+             /* .legal-block-header : En-tête du bloc légal */
+       .legal-block-header {
+         background-color: #a9c4e3;
+         color: #fff;
+         font-weight: 700;
+         padding: 10px;
+         font-size: var(--font-size18);
+         font-family: var(--main-font);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         word-wrap: break-word;
+         overflow-wrap: break-word;
+         hyphens: auto;
+         text-align: center;
+         box-sizing: border-box;
+         height: 80px;
+         min-height: 80px;
+         border-top-left-radius: 20px;
+         border-top-right-radius: 20px;
+       }
+      /* .legal-block-content : Contenu du bloc légal */
+      .legal-block-content {
+        padding: 15px;
+        font-size: var(--font-size18);
+        line-height: 1.5;
+        font-family: var(--main-font);
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        text-align: center;
+        min-height: 100px;
+      }
+
+             /* MEDIA QUERIES POUR COMPOSANT BLOCS LÉGAUX */
+       @media (min-width: 1440px) {
+         .legal-blocks-container {
+           margin: 50px auto;
+         }
+         .legal-blocks-row {
+           gap: 40px;
+           margin-bottom: 50px;
+         }
+         .legal-block {
+           width: 320px;
+         }
+         .legal-block-header {
+           font-size: 22px !important;
+           padding: 15px;
+           height: 80px;
+           min-height: 80px;
+         }
+         .legal-block-content {
+           font-size: 20px !important;
+           line-height: 1.6;
+           padding: 20px;
+         }
+       }
+       @media (max-width: 1439px) and (min-width: 1024px) {
+         .legal-blocks-container {
+           margin: 40px auto;
+         }
+         .legal-blocks-row {
+           gap: 35px;
+           margin-bottom: 45px;
+         }
+         .legal-block {
+           width: 300px;
+         }
+         .legal-block-header {
+           font-size: 20px !important;
+           padding: 12px;
+           height: 80px;
+           min-height: 80px;
+         }
+         .legal-block-content {
+           font-size: 18px !important;
+           line-height: 1.5;
+           padding: 18px;
+         }
+       }
+       @media (max-width: 1023px) and (min-width: 768px) {
+         .legal-blocks-container {
+           margin: 35px auto;
+         }
+         .legal-blocks-row {
+           gap: 30px;
+           margin-bottom: 40px;
+         }
+         .legal-block {
+           width: 280px;
+         }
+         .legal-block-header {
+           font-size: 18px !important;
+           padding: 10px;
+           height: 80px;
+           min-height: 80px;
+         }
+         .legal-block-content {
+           font-size: 16px !important;
+           line-height: 1.5;
+           padding: 15px;
+         }
+       }
+       @media (max-width: 767px) {
+         .legal-blocks-container {
+           margin: 25px auto;
+         }
+         .legal-blocks-row {
+           flex-direction: column;
+           gap: 20px;
+           margin-bottom: 30px;
+           align-items: center;
+         }
+         .legal-block {
+           width: 100%;
+           max-width: 400px;
+         }
+         .legal-block-header {
+           font-size: 16px !important;
+           padding: 8px;
+           height: 80px;
+           min-height: 80px;
+         }
+         .legal-block-content {
+           font-size: 14px !important;
+           line-height: 1.4;
+           padding: 12px;
+         }
+       }
+       @media (max-width: 480px) {
+         .legal-blocks-container {
+           margin: 20px auto;
+         }
+         .legal-blocks-row {
+           gap: 15px;
+           margin-bottom: 25px;
+         }
+         .legal-block {
+           /* Pas de contrainte de hauteur */
+         }
+         .legal-block-header {
+           font-size: 14px !important;
+           padding: 6px;
+           height: 80px;
+           min-height: 80px;
+         }
+         .legal-block-content {
+           font-size: 12px !important;
+           line-height: 1.3;
+           padding: 10px;
+         }
+       }
+       @media (max-width: 375px) {
+         .legal-blocks-container {
+           margin: 15px auto;
+         }
+         .legal-blocks-row {
+           gap: 12px;
+           margin-bottom: 20px;
+         }
+         .legal-block {
+           /* Pas de contrainte de hauteur */
+         }
+         .legal-block-header {
+           font-size: 14px !important;
+           padding: 5px;
+           height: 80px;
+           min-height: 80px;
+         }
+         .legal-block-content {
+           font-size: 12px !important;
+           line-height: 1.2;
+           padding: 8px;
+         }
+       }
+        /* ===========================================
+           COMPOSANT  - TEXTE ET IMAGE (SECTION 3A)
+           =========================================== */
+      /* .regime-section : Section principale du régime parlementaire */
+      .regime-section {
+        max-width: 1200px;
+        margin: 40px auto;
+      }
+      /* .regime-title : Titre de la section régime parlementaire */
+      .regime-title {
+        font-size: var(--font-size28);
+        color: var(--primary-color);
+        margin-bottom: var(--spacing-md);
+        font-family: var(--main-font);
+        font-weight: 700;
+      }
+      /* .regime-intro : Introduction du régime parlementaire */
+      .regime-intro {
+        font-size: var(--font-size18);
+        margin-bottom: var(--spacing-lg);
+        font-family: var(--main-font);
         text-align: left;
       }
-
-      /* ===========================================
-           RESPONSIVE DESIGN - TABLETTE (768px)
-           =========================================== */
-      /* Tablet */
-      @media (max-width: 1023px) and (min-width: 768px) {
-        /* Layout principal adapté */
-        .main-content {
-          margin-left: 0;
-        }
-
-        .main-container {
-          width: 80%;
-          margin: 20px auto;
-          padding: 25px;
-        }
-
-        /* Menu burger adapté pour tablette */
-        .menu {
-          width: 60%;
-          max-width: 280px;
-          padding: 70px 20px 25px;
-        }
-
-        .menu-toggle {
-          width: 35px;
-          height: 35px;
-          padding: 6px;
-        }
-
-        .menu-toggle img {
-          width: 100%;
-          height: 100%;
-        }
-
-
+      /* .regime-container : Container flex pour image et texte côte à côte */
+      .regime-container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: var(--spacing-lg);
+        flex-wrap: wrap;
+        margin-bottom: var(--spacing-lg);
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+        max-width: 1000px;
+      }
+      /* .regime-img : Container de l'image du président */
+      .regime-img {
+        flex: 1;
+        max-width: 250px;
+      }
+      /* .regime-img img : Image du président sans ombre ni bordure */
+      .regime-img img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: none;
+        border: none;
+      }
+      /* .regime-text : Container du texte explicatif */
+      .regime-text {
+        flex: 2;
+        min-width: 300px;
+      }
+      /* .regime-highlight : Zone de texte mise en évidence avec fond jaune */
+      .regime-highlight {
+        background: #f0ecc8;
+        padding: 30px;
+        border-radius: 8px;
+        font-size: var(--font-size18);
+        line-height: 1.8;
+        font-family: var(--main-font);
+        text-align: left;
+        margin-bottom: 30px;
+      }
+      /* .regime-details : Détails complémentaires sur le régime */
+      .regime-details {
+        font-size: var(--font-size18);
+        margin-top: var(--spacing-md);
+        margin-bottom: var(--spacing-lg);
+        text-align: left;
+        font-family: var(--main-font);
       }
 
+      /* Styles pour le composant président */
+      .president-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin: 20px auto;
+      }
+      .president-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
+      .president-image img {
+        width: 120px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        object-fit: contain;
+      }
+      .president-box {
+        background: #f0ecc8;
+        border-radius: 12px;
+        padding: 25px;
+        margin: 20px auto;
+        text-align: center;
+        max-width: 600px;
+        width: 90%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .president-box p {
+        font-size: var(--font-size18);
+        line-height: 1.6;
+        margin: 0;
+        color: #333;
+      }
+      .president-box strong {
+        color: #2c5aa0;
+        font-weight: 600;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT RÉGIME PARLEMENTAIRE */
+      @media (max-width: 1024px) and (min-width: 768px) {
+        .president-box {
+          padding: 20px;
+          max-width: 500px;
+        }
+        .president-box p {
+          font-size: 16px;
+        }
+      }
       @media (max-width: 767px) {
-        /* Layout principal */
-        .main-container {
-          width: 95%;
-          margin: 15px auto;
-          padding: 20px;
-        }
-
-        .main-content {
-          padding: 15px;
-        }
-
-        /* Titres */
-        .intro-title {
-          font-size: 24px;
-          margin: 20px 0 30px 0;
-        }
-
-        .section-number {
-          font-size: 28px;
-        }
-
-        .section-title {
-          font-size: 20px;
-        }
-
-        .subsection-heading {
-          font-size: 18px;
-        }
-
-        /* Titres des composants */
-        .title-retenir-conclusion {
-    font-size: 16px;
-        }
-
-        .text {
-          font-size: 14px;
-        }
-
-        .sub-text {
-          font-size: 14px;
-        }
-
-        .lignes3-title {
-          font-size: 16px;
-        }
-
-        .hierarchie-header {
-          font-size: 16px;
-        }
-
-        /* Image principale et texte superposé */
-        .intro-image-container {
-          max-width: 100%;
-          margin: 20px auto;
-        }
-
-        .intro-lorem-overlay {
-          padding: 15px;
-          max-width: 85%;
-          left: 40%;
-        }
-
-        .intro-lorem-text {
-          font-size: 11px;
-          line-height: 1.3;
-        }
-
-        /* Menu burger */
-        .menu {
-          width: 85%;
-          max-width: 280px;
-          padding: 80px 20px 30px 20px;
-        }
-
-        .section-title {
-          font-size: 20px;
-          padding: 15px 20px;
-          min-height: 60px;
-        }
-
-        .subsection-heading {
-          font-size: 18px;
-          margin: 25px 0 20px 0;
-          padding: 12px 15px;
-        }
-
-        /* Composant lignes3 */
-        .lignes3-container {
-          width: 100%;
-          max-width: 100%;
-          gap: 15px;
-          padding: 15px;
-        }
-
-        .lignes3-rectangle {
-          width: 100px;
-          min-width: 80px;
-        }
-
-        .lignes3-title {
-          font-size: 16px;
-          padding: 8px;
-        }
-
-        .lignes3-yellow-rectangle {
-          min-height: 100px;
-        }
-
-        .lignes3-scroll-content {
-          padding: 12px;
-        }
-
-        .lignes3-yellow-text {
-          font-size: 12px;
-          line-height: 1.4;
-          padding-left: 15px;
-        }
-
-        /* Composant hierarchie */
-        .hierarchie-row {
+        .regime-container {
           flex-direction: column;
-          gap: 20px;
-        }
-
-        .hierarchie-block {
-          width: 100%;
-          max-width: 100%;
-          min-width: auto;
-          min-height: 500px;
-        }
-
-        .hierarchie-header {
-          font-size: 14px;
-          padding: 12px;
-          min-height: 60px;
-        }
-
-        .hierarchie-content {
-          font-size: 13px;
-          padding: 20px;
-          min-height: 400px;
-        }
-
-        /* Composant periode-essai-example */
-        .periode-essai-example-unique {
-          flex-direction: column;
-        }
-
-        .example-left-unique {
-          width: 100%;
-          height: 10px;
-        }
-
-        .example-right-unique {
-          padding: 15px;
-        }
-
-        .example-title-unique {
-          margin-left: 0;
+          align-items: center;
           text-align: center;
+          padding: 15px;
         }
-
-        .example-text-unique {
-          margin-left: 0;
-          width: 100%;
-        }
-
-        /* Composant document */
-        .document-container {
-          flex-direction: column;
-          gap: 20px;
-        }
-
-        .document-img {
+        .regime-img {
           max-width: 200px;
+          margin-bottom: 20px;
         }
-
-        .document-highlight {
+        .regime-highlight {
           padding: 20px;
-        }
-
-        /* Composant ASE */
-        .ase-services-container {
-          flex-direction: column;
-          gap: 20px;
-        }
-
-        .ase-service-card {
-          min-width: auto;
-          height: auto;
-          min-height: 150px;
-        }
-
-        /* Composant box */
-        .box-ligne-entiere-container {
-          width: 100%;
-          margin: 0 auto;
-          padding: 15px;
-        }
-
-        .col-1, .col-2, .col-3, .col-4, .col-5, .col-6,
-        .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
-          width: 100%;
-        }
-
-        /* Centrage et débordement pour tous les éléments */
-        .lignes3-container,
-        .hierarchie-row,
-        .document-container,
-        .ase-services-container,
-        .box-ligne-entiere-container {
-          flex-direction: column;
-          align-items: center;
           text-align: center;
-          padding: 15px;
-          justify-content: center;
-          width: 100%;
-          max-width: 100%;
         }
-
-        /* Réduction de la taille des textes pour éviter le débordement */
-        .lignes3-yellow-text,
-        .hierarchie-content,
-        .document-highlight,
-        .ase-service-card p,
-        .box-ligne-entiere-container p {
-    font-size: 16px;
-          line-height: 1.5;
-          padding: 20px;
-          word-wrap: break-word;
-          overflow-wrap: break-word;
-        }
-
-        /* Images centrées et redimensionnées */
-        .document-img {
-          max-width: 200px;
-          margin: 0 auto;
-        }
-      }
-
-      /* ===========================================
-           TABLETTE (768px - 1023px) - ADAPTATION MOYENNE
-           =========================================== */
-      @media (max-width: 1023px) and (min-width: 768px) {
-        /* Titres adaptés pour tablette */
-        .intro-title {
-          font-size: 32px;
-        }
-
-        .section-number {
-          font-size: 32px;
-        }
-
-        .section-title {
-          font-size: 22px;
-        }
-
-        .subsection-heading {
-          font-size: 20px;
-        }
-
-        /* Titres des composants pour tablette */
-        .title-retenir-conclusion {
-          font-size: 18px;
-        }
-
-        .text {
-          font-size: 16px;
-        }
-
-        .sub-text {
-          font-size: 16px;
-        }
-
-        .lignes3-title {
-          font-size: 18px;
-        }
-
-        .hierarchie-header {
-          font-size: 18px;
-        }
-
-        /* Centrage pour tablette */
-        .container-a-retenir,
-        .steps,
-        .step-content,
-        .text,
-        .sub-text {
-          text-align: center;
-          justify-content: center;
-          align-items: center;
-        }
-
-        .steps {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .step-content {
-          width: 100%;
-          max-width: 600px;
-          margin: 0 auto;
-        }
-      }
-
-      /* ===========================================
-           RESPONSIVE DESIGN - MOBILE (480px)
-           =========================================== */
-      @media (max-width: 480px) {
-        /* Layout principal */
-        .main-container {
-          width: 100%;
-          margin: 10px;
-          padding: 15px;
-        }
-
-        .main-content {
-          padding: 10px;
-        }
-
-        /* Titres */
-        .intro-title {
-          font-size: 24px;
-          margin: 15px 0 25px 0;
-        }
-
-        /* Image principale et texte superposé */
-        .intro-image-container {
-          max-width: 100%;
+        .president-box {
+          padding: 18px;
           margin: 15px auto;
-        }
-
-        .intro-lorem-overlay {
-          padding: 10px;
           max-width: 90%;
-          left: 45%;
+          width: 95%;
         }
-
-        .intro-lorem-text {
-          font-size: 10px;
-          line-height: 1.2;
+        .president-box p {
+          font-size: 14px;
+          line-height: 1.5;
         }
-
-        /* Menu burger */
-        .menu {
-          width: 90%;
-          max-width: 260px;
-          padding: 70px 15px 25px 15px;
-        }
-
-        .section-title {
-          font-size: 20px;
-          padding: 12px 15px;
-          min-height: 50px;
-        }
-
-        .subsection-heading {
-          font-size: 18px;
-          margin: 20px 0 15px 0;
-          padding: 10px 12px;
-        }
-
-        /* Composant lignes3 */
-        .lignes3-container {
-          width: 100%;
-          max-width: 100%;
-          gap: 10px;
+      }
+      @media (max-width: 375px) {
+        .regime-container {
           padding: 10px;
         }
-
-        .lignes3-rectangle {
-          width: 80px;
-          min-width: 60px;
-        }
-
-        .lignes3-title {
-          font-size: 11px;
-          padding: 6px;
-        }
-
-        .lignes3-yellow-rectangle {
-          min-height: 80px;
-        }
-
-        .lignes3-scroll-content {
-          padding: 8px;
-        }
-
-        .lignes3-yellow-text {
-          font-size: 11px;
-          line-height: 1.3;
-          padding-left: 10px;
-        }
-
-        /* Composant hierarchie */
-        .hierarchie-block {
-          width: 100%;
-          max-width: 100%;
-          min-width: auto;
-          min-height: 400px;
-        }
-
-        .hierarchie-header {
-          font-size: 13px;
-          padding: 10px;
-          min-height: 50px;
-        }
-
-        .hierarchie-content {
-          font-size: 12px;
-          padding: 15px;
-          min-height: 300px;
-        }
-
-        /* Composant periode-essai-example */
-        .periode-essai-example-unique {
-          flex-direction: column;
-        }
-
-        .example-left-unique {
-          width: 100%;
-          height: 8px;
-        }
-
-        .example-right-unique {
-          padding: 12px;
-        }
-
-        .example-title-unique {
-          font-size: 13px;
-          margin-left: 0;
-          text-align: center;
-        }
-
-        .example-text-unique {
-          font-size: 11px;
-          margin-left: 0;
-          width: 100%;
-        }
-
-        /* Composant document */
-        .document-container {
-          flex-direction: column;
-          gap: 15px;
-        }
-
-        .document-img {
+        .regime-img {
           max-width: 150px;
         }
-
-        .document-highlight {
+        .regime-highlight {
           padding: 15px;
-          font-size: 13px;
         }
-
-        /* Composant ASE */
-        .ase-services-container {
+        .president-box p {
+          font-size: 12px;
+        }
+        /* SECTION 1B - RÉGIME PARLEMENTAIRE */
+        #section1-b {
+          width: 100%;
+          max-width: 100%;
+          margin: 0 auto;
+          padding: 5px;
+          display: flex;
           flex-direction: column;
-          gap: 15px;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          box-sizing: border-box;
         }
-
-        .ase-service-card {
-          min-width: auto;
+        .regime-section {
+          width: 100%;
+          max-width: 100%;
+          margin: 0 auto;
+          padding: 5px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          box-sizing: border-box;
+        }
+        .regime-container {
+          width: 100%;
+          max-width: 100%;
+          margin: 0 auto;
+          padding: 5px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          gap: 10px;
+          box-sizing: border-box;
+        }
+        /* IMAGE PRÉSIDENT */
+        .regime-img {
+          width: 40vw;
+          max-width: 120px;
+          min-width: 80px;
           height: auto;
-          min-height: 120px;
-          padding: 15px;
+          margin: 10px auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 0;
+          box-sizing: border-box;
         }
-
-        .ase-service-text {
-          font-size: 13px;
-        }
-
-        /* Composant box */
-        .box-ligne-entiere-container {
-          padding: 10px;
-        }
-
-        .box {
-          padding: 15px;
-          margin-bottom: 15px;
-        }
-
-        /* Composant conclusion */
-        .container-a-retenir {
-          padding: 15px;
-          margin: 20px 0;
-        }
-
-        .title-retenir-conclusion {
-          font-size: 20px;
-        }
-
-        .steps {
-          padding: 10px;
-        }
-
-        .number {
-          width: 35px;
-          height: 35px;
-          font-size: 14px;
-        }
-
-        .text, .sub-text {
-          font-size: 14px;
-        }
-      }
-
-      /* ===========================================
-           LAPTOP (1024px - 1439px) - ADAPTATION LARGE
-           =========================================== */
-      @media (min-width: 1024px) and (max-width: 1439px) {
-        /* Tous les textes normaux */
-        .lignes3-yellow-text,
-        .hierarchie-content,
-        .document-highlight,
-        .ase-service-card p,
-        .box-ligne-entiere-container p,
-        .sub-text {
-          font-size: 18px;
-        }
-
-        /* Tous les titres légèrement plus grands */
-        .text {
-          font-size: 20px;
-        }
-      }
-
-      /* ===========================================
-           DESKTOP (1440px et plus) - ADAPTATION TRÈS LARGE
-           =========================================== */
-      @media (min-width: 1440px) {
-        /* Tous les textes normaux */
-        .lignes3-yellow-text,
-        .hierarchie-content,
-        .document-highlight,
-        .ase-service-card p,
-        .box-ligne-entiere-container p,
-        .sub-text {
-          font-size: 20px;
-        }
-
-        /* Tous les titres légèrement plus grands */
-        .text {
-          font-size: 22px;
+        .regime-img img {
+          width: 100%;
+          height: auto;
+          margin: 0 auto;
+          display: block;
+          object-fit: contain;
+          box-sizing: border-box;
         }
       }
  </style>
@@ -1424,12 +2244,11 @@ html {
             </div>
                 <div class="lignes3-yellow-rectangle">
                   <div class="lignes3-scroll-content">
-                    <ul class="lignes3-yellow-text">
-                      Des enfants qui connaissent des conditions d'existence
+                      <p>Des enfants qui connaissent des conditions d'existence
                       risquant de mettre en danger leur santé, leur sécurité,
                       leur intégrité morale, leur éducation ou leur entretien,
                       mais qui n'ont pas pour autant été maltraités.
-                    </ul>
+                    </p>
           </div>
         </div>
             </div>
@@ -1439,15 +2258,16 @@ html {
           </div>
                 <div class="lignes3-yellow-rectangle">
                   <div class="lignes3-scroll-content">
-                    <ul class="lignes3-yellow-text">
+                      <p>
                       Des enfants victimes de violences physiques, d'abus
                       sexuels, d'actes de cruauté mentale, de négligences
                       lourdes ayant des conséquences graves sur leur
                       développement physique ou psychologique.
-                    </ul>
+                      </p>
         </div>
             </div>
           </div>
+                
         </div>
 
             <p>
@@ -1455,11 +2275,13 @@ html {
               signes qui doivent alerter et faire suspecter une maltraitance.
             </p>
 
+             <!-- Container hiérarchie -->
+             <div class="legal-blocks-container">
             <!-- Première ligne : 2 blocs -->
-            <div class="hierarchie-row">
-              <div class="hierarchie-block">
-                <div class="hierarchie-header">SIGNES PHYSIQUES</div>
-                <div class="hierarchie-content">
+                <div class="legal-blocks-row">
+                  <div class="legal-block">
+                    <div class="legal-block-header">SIGNES PHYSIQUES</div>
+                    <div class="legal-block-content">
                   Morsures, griffures<br />
                   Plaques d'alopécie (cheveux arrachés)<br />
                   Brûlure avec des localisations inexpliquées<br />
@@ -1472,11 +2294,9 @@ html {
                   Visites fréquentes à l'infirmerie scolaire
         </div>
             </div>
-              <div class="hierarchie-block">
-                <div class="hierarchie-header">
-                  SIGNES PSYCHIQUES ET COMPORTEMENTAUX
-          </div>
-                <div class="hierarchie-content">
+                  <div class="legal-block">
+                    <div class="legal-block-header"> SIGNES PSYCHIQUES ET COMPORTEMENTAUX</div>
+                    <div class="legal-block-content">
                   Troubles du comportement : agressivité, agitation, repli sur
                   soi, isolement…<br />
                   Syndrome dépressif : isolement, tristesse, diminution des
@@ -1493,6 +2313,7 @@ html {
                   propre)<br />
                   Troubles du comportement alimentaire (boulimie, anorexie,
                   obésité…)
+                    </div>
         </div>
             </div>
           </div>
@@ -1528,7 +2349,7 @@ html {
                   
                 </div>
                 <div class="txt-container col-11">
-                  <h4 class="title-h4-definition secondary-color">Definition</h4>
+                                     <h4 class="title-h4-definition">Definition</h4>
                   <p class="paragraphe">
                     Le signalement est une procédure qui permet de signaler
                     une situation de danger ou de risque de danger pour un
@@ -1640,19 +2461,16 @@ html {
                 A. La protection judiciaire
               </h3>
 
-              <div class="document-section">
-                <div class="document-container">
-                  <div class="document-img">
+              <div class="president-container">
+                <div class="president-image">
                     <img
                       src="../../images/CAP AEPE/page6/undraw_judge_hyqv.png"
-                      alt="Illustration de document"
+                    alt="Illustration du Président"
                     />
                   </div>
-                  <div class="document-text">
-                    <div class="document-highlight">
+                <div class="president-box">
                       <p>
-                        <strong
-                          >La protection judiciaire de la jeunesse s’appuie sur
+                    La protection judiciaire de la jeunesse s’appuie sur
                           des principes essentiels. Educabilité de tous, le
                           respect des droits et des libertés de chacun. Tout
                           enfant résidant sur le territoire Français relève du
@@ -1664,34 +2482,27 @@ html {
                           psychologiques ou éducatives. ​ Il peut les placer
                           provisoirement dans un établissement spécialisé ou
                           dans une famille d’accueil. Il est habilité à juger
-                          les mineurs délinquants.</strong
-              >
+                    les mineurs délinquants.
             </p>
-          </div>
-        </div>
                 </div>
               </div>
             </div>
 
             <div class="section-convention-B">
               <h3 class="subsection-heading">B. La protection administrative</h3>
-              <p class="paragraphe">
+              <p>
                 Les services de l'ASE (Aide Sociale à l'Enfance) interviennent
                 pour protéger les mineurs en danger.
               </p>
 
-              <p class="paragraphe">
-                <strong>Services ASE</strong>
-              </p>
-
-              <p class="paragraphe">
-                <strong>Accompagnement familial renforcé par les aides</strong><br>
-                (Des aides financières, intervention de travailleurs sociaux…)
-              </p>
-
-              <p class="paragraphe">
-                <strong>AEMO :</strong> (aide éducative en milieu ouvert)
-              </p>
+              <p>
+                Services ASE:
+              </p> 
+              <ul>
+                <li>Accompagnement familial renforcé par les aides
+                    (Des aides financières, intervention de travailleurs sociaux…)</li>
+                <li>AEMO : (aide éducative en milieu ouvert)</li>
+              </ul>
             </div>
 
             <div class="section-convention-C">
@@ -1720,12 +2531,13 @@ html {
             </div>
 
 
+
                <!-- Composant Box Ligne Entière - Assistantes Maternelles -->
             <div class="block">
                 <div class="box-ligne-entiere-container">
                   <!-- Box 1 : Statut et rôle -->
                   <div
-                    class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-primary-color4"
+                     class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile"
                   >
                     <div class="col-1 center">
                       <img
@@ -1735,9 +2547,9 @@ html {
                       />
                     </div>
                     <div class="col-11">
-                      <p class="paragraphe primary-color">
+                      <h3>
                         <strong>Objectifs de ce service  </strong>
-                      </p>
+                      </h3>
                       <p class="paragraphe">
                         Apporter un soutien éducatif, psychologique, aux mineurs, à leurs familles, aux mineurs émancipés et aux jeunes majeurs de – 21 ans<br>
                         Organiser des actions pour prévenir la marginalisation et faciliter l'insertion des jeunes et des familles<br>
@@ -1748,7 +2560,7 @@ html {
   
                   <!-- Box 2 : Obtention de l'agrément -->
                   <div
-                    class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-blue-color10"
+                     class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile"
                   >
                     <div class="col-1 center">
                       <img
@@ -1758,9 +2570,9 @@ html {
                       />
                     </div>
                     <div class="col-11">
-                      <p class="paragraphe secondary-color">
+                      <h3>
                         <strong>Les actions des services de l’ASE sont</strong>
-                      </p>
+                      </h3>
                       <p class="paragraphe">
                         Les aides à domicile (éducative ou financière)<br>
                         L'AEMO (intervention à domicile d'un travailleur social pour une durée variable)<br>
@@ -1774,7 +2586,7 @@ html {
   
                   <!-- Box 3 : Formation et renouvellement -->
                   <div
-                    class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-gray-color6"
+                     class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile"
                   >
                     <div class="col-1 center">
                       <img
@@ -1784,10 +2596,10 @@ html {
                       />
                     </div>
                     <div class="col-11">
-                      <p class="paragraphe gray-color1">
+                      <h3>
                         <strong>Les moyens que dispose l’ASE</strong>
-                      </p>
-                      <p class="paragraphe">
+                      </h3>
+                      <p>
                         Un personnel administratif<br>
                         Un personnel spécialisé (éducateur spécialisé, assistant du service social, travailleuse familiale)<br>
                         Famille d'accueil<br>
@@ -1798,7 +2610,7 @@ html {
 
                   <!-- Box 4 : Formation et renouvellement -->
                   <div
-                    class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile bg-gray-light"
+                     class="block box p-5 is-flex is-flex-gap is-flex-wrap-wrap-mobile"
                   >
                     <div class="col-1 center">
                       <img
@@ -1808,10 +2620,10 @@ html {
                       />
                     </div>
                     <div class="col-11">
-                      <p class="paragraphe gray-color1">
+                      <h3>
                         <strong>Les enfants protégés par l’ASE</strong>
-                      </p>
-                      <p class="paragraphe">
+                      </h3>
+                      <p>
                         Enfants laissés dans un milieu familial qui bénéficie d'une aide financière ou d'une aide éducative<br>
                         Enfants placés au service de l'ASE (Mineurs recueillis temporairement, Mineurs placés sur décision juridique, Pupilles de l'état)
                       </p>

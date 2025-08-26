@@ -3,44 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Page Squelette</title>
+    <title>Page 12</title>
     <style>
-      /* ===========================================
-           VARIABLES CSS GLOBALES
-           =========================================== */
-      :root {
-        /* Couleurs */
-        --primary-color: #5f8bbc;
-        --primary-color3: #e1d4ff;
-        --primary-color4: #f0ecc8;
-        --secondary-color: #9747ff;
-        --blue-color10: #e6f0fb;
-        --gray-color1: #757575;
-        --gray-color6: #ededed;
-        --gray-color7: #f7f7f7;
-        --white-color: #ffffff;
-        /* Typographie */
-        --main-font: "Montserrat", sans-serif;
-        --font-size18: 18px;
-        --font-size24: 24px;
-        --font-size28: 28px;
-        --font-size32: 32px;
-        --font-size48: 48px;
-        /* Espacement */
-        --spacing-xs: 8px;
-        --spacing-sm: 12px;
-        --spacing-md: 20px;
-        --spacing-lg: 30px;
-        --spacing-xl: 40px;
-        /* Ombres */
-        --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
-        --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15);
-        --shadow-heavy: 0 9px 15px rgba(0, 0, 0, 0.2);
-        /* Transitions */
-        --transition-fast: 0.3s ease;
-        --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
       /* ===========================================
            COMPOSANT RESET ET STYLES DE BASE
            =========================================== */
@@ -56,8 +20,8 @@
       }
       /* body : Style de base pour le corps de la page */
       body {
-        font-family: var(--main-font);
-        font-size: var(--font-size18);
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
         font-weight: 400;
         line-height: 1.6;
         color: #333;
@@ -69,8 +33,8 @@
       li,
       span,
       div {
-        font-family: var(--main-font);
-        font-size: var(--font-size18);
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
         font-weight: 400;
         color: #333;
       }
@@ -144,9 +108,9 @@
         width: 60%;
         max-width: 1200px;
         margin: 40px auto;
-        background: var(--white-color);
+        background: #ffffff;
         border-radius: 12px;
-        box-shadow: var(--shadow-heavy);
+        box-shadow: 0 9px 15px rgba(0, 0, 0, 0.2);
         padding: 40px;
         position: relative;
         overflow: hidden;
@@ -204,7 +168,7 @@
       .main-content {
         flex: 1;
         padding: 20px;
-        transition: margin-left var(--transition-fast);
+        transition: margin-left 0.3s ease;
         min-width: 0;
         overflow: hidden;
         width: 100%;
@@ -272,18 +236,18 @@
       .menu-toggle {
         display: block;
         position: fixed;
-        top: var(--spacing-lg);
-        left: var(--spacing-lg);
+        top: 30px;
+        left: 30px;
         width: 40px;
         height: 40px;
         cursor: pointer;
         z-index: 2001;
         opacity: 0.8;
-        transition: opacity var(--transition-fast);
-        background: var(--white-color);
+        transition: opacity 0.3s ease;
+        background: #ffffff;
         border-radius: 8px;
         padding: 8px;
-        box-shadow: var(--shadow-light);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -335,7 +299,7 @@
         color: #333;
         text-decoration: none;
         font-weight: 600;
-        font-size: var(--font-size18);
+        font-size: 18px;
         transition: all 0.3s ease;
         display: block;
         padding: 18px 20px;
@@ -346,7 +310,7 @@
       }
       /* .menu ul li a:hover : Effet hover sur les liens du menu burger */
       .menu ul li a:hover {
-        color: var(--primary-color);
+        color: #5f8bbc;
         background: #e6f0fb;
         transform: translateX(10px);
         box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
@@ -362,7 +326,7 @@
       }
       /* .menu::-webkit-scrollbar-thumb : Curseur de la barre de défilement */
       .menu::-webkit-scrollbar-thumb {
-        background: var(--primary-color);
+        background: #5f8bbc;
         border-radius: 3px;
         opacity: 0.7;
       }
@@ -374,7 +338,7 @@
       /* .menu : Support pour Firefox */
       .menu {
         scrollbar-width: thin;
-        scrollbar-color: var(--primary-color) transparent;
+        scrollbar-color: #5f8bbc transparent;
       }
 
       /* MEDIA QUERIES POUR COMPOSANT MENU BURGER */
@@ -476,7 +440,7 @@
         height: auto;
         margin: 30px auto;
         border-radius: 12px;
-        box-shadow: var(--shadow-medium);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       }
 
       /* MEDIA QUERIES POUR COMPOSANT IMAGE PRINCIPALE */
@@ -509,8 +473,8 @@
       /* .section-number : Numéro de section (01, 02, etc.) - partie bleue à gauche */
       .section-number {
         background: #3b6ea5;
-        color: var(--white-color);
-        font-family: var(--main-font);
+        color: #ffffff;
+        font-family: "Montserrat", sans-serif;
         font-weight: 700;
         font-size: 36px;
         padding: 25px 30px;
@@ -527,7 +491,7 @@
       /* .section-title : Titre de section (texte principal) - partie droite */
       .section-title {
         color: #3b6ea5;
-        font-family: var(--main-font);
+        font-family: "Montserrat", sans-serif;
         font-weight: 700;
         font-size: 24px;
         text-align: center;
@@ -623,7 +587,7 @@
            =========================================== */
       /* .subsection-heading : Titres de niveau 3 pour sous-sections (A., B.) */
       .subsection-heading {
-        font-family: var(--main-font);
+        font-family: "Montserrat", sans-serif;
         font-weight: 700;
         color: #5f8bbc;
         font-size: 26px;
@@ -681,9 +645,9 @@
       }
       /* .title-retenir-conclusion : Titre principal "À RETENIR" - style typographique */
       .title-retenir-conclusion {
-        color: var(--gray-color1);
+        color: #757575;
         text-align: center;
-        font-family: var(--main-font);
+        font-family: "Montserrat", sans-serif;
         font-size: 24px;
         font-weight: 600;
         line-height: normal;
@@ -703,12 +667,12 @@
       /* .number : Numéro de l'étape - cercle coloré avec le numéro */
       .number {
         font-size: 18px;
-        font-family: var(--main-font);
+        font-family: "Montserrat", sans-serif;
         font-weight: bold;
-        color: var(--white-color);
+        color: #ffffff;
         border-radius: 50%;
         padding: 8px;
-        background-color: var(--primary-color);
+        background-color: #5f8bbc;
         width: 50px;
         height: 50px;
         display: flex;
@@ -717,18 +681,18 @@
       }
       /* .text : Texte principal de l'étape - titre en gras */
       .text {
-        font-family: var(--main-font);
-        color: var(--primary-color);
+        font-family: "Montserrat", sans-serif;
+        color: #5f8bbc;
         text-align: justify;
-        font-size: var(--font-size24);
+        font-size: 24px;
         font-weight: 600;
         margin: 0;
         padding-left: 15px;
       }
       /* .sub-text : Texte secondaire de l'étape - description détaillée */
       .sub-text {
-        font-family: var(--main-font);
-        color: var(--gray-color1);
+        font-family: "Montserrat", sans-serif;
+        color: #757575;
         font-size: 18px;
         margin: 0;
         text-align: justify;
@@ -909,70 +873,6 @@
         }
         .steps .step-content:last-child .line {
           display: block;
-        }
-      }
-
-      /* ===========================================
-           COMPOSANT RESPONSIVE DESIGN GLOBAL
-           =========================================== */
-      /* .main-content : Ajustement de la marge pour responsivité */
-      .main-content {
-        margin-left: 0;
-      }
-
-      /* MEDIA QUERIES POUR COMPOSANT RESPONSIVE DESIGN GLOBAL */
-      @media (min-width: 1440px) {
-        .main-content {
-          margin-left: 0;
-        }
-      }
-      @media (max-width: 1439px) and (min-width: 1024px) {
-        .main-content {
-          margin-left: 0;
-        }
-      }
-      @media (max-width: 1023px) and (min-width: 768px) {
-        .main-content {
-          margin-left: 0;
-        }
-        .main-container {
-          width: 80%;
-          margin: 20px auto;
-          padding: 25px;
-        }
-      }
-      @media (max-width: 767px) {
-        .main-content {
-          margin-left: 0;
-        }
-        .main-container {
-          width: 95%;
-          margin: 15px auto;
-          padding: 20px;
-        }
-        .page-container {
-          flex-direction: column;
-        }
-        .main-content {
-          padding: 15px;
-          overflow: visible;
-        }
-      }
-      @media (max-width: 375px) {
-        .main-container {
-          width: 98%;
-          margin: 10px auto;
-          padding: 15px;
-        }
-        .main-content {
-          padding: 10px;
-        }
-      }
-      @media (max-width: 480px) {
-        .main-container {
-          width: 100%;
-          margin: 10px;
-          padding: 15px;
         }
       }
 

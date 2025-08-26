@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>La législation en faveur des personnes handicapées</title>
     <style>
-      /* ===========================================
+       /* ===========================================
            VARIABLES CSS GLOBALES
            =========================================== */
-      :root {
+           :root {
         /* Couleurs */
         --primary-color: #5f8bbc;
         --primary-color3: #e1d4ff;
@@ -42,16 +42,19 @@
       }
 
       /* ===========================================
-           RESET ET STYLES DE BASE
+           COMPOSANT RESET ET STYLES DE BASE
            =========================================== */
+      /* * : Réinitialisation des marges et paddings pour tous les éléments */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
+      /* html : Active le défilement fluide pour les ancres */
       html {
         scroll-behavior: smooth;
       }
+      /* body : Style de base pour le corps de la page */
       body {
         font-family: var(--main-font);
         font-size: var(--font-size18);
@@ -61,6 +64,7 @@
         background-color: #f5f5f5;
         min-height: 100vh;
       }
+      /* p, li, span, div : Style par défaut pour les éléments de texte */
       p,
       li,
       span,
@@ -70,11 +74,12 @@
         font-weight: 400;
         color: #333;
       }
+      /* strong : Surcharge pour éviter les gras indésirables */
       strong {
         font-weight: 400 !important;
       }
 
-      /* MEDIA QUERIES POUR STYLES DE BASE (TAILLES DE TEXTE GLOBALE) */
+      /* MEDIA QUERIES POUR COMPOSANT RESET ET STYLES DE BASE */
       @media (min-width: 1440px) {
         body {
           font-size: 20px;
@@ -132,8 +137,9 @@
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT CONTAINER PRINCIPAL
+           COMPOSANT CONTAINER PRINCIPAL
            =========================================== */
+      /* .main-container : Container principal pour centrer et styliser la page */
       .main-container {
         width: 60%;
         max-width: 1200px;
@@ -184,11 +190,85 @@
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT MENU BURGER
+           COMPOSANT LAYOUT ET STRUCTURE
            =========================================== */
+      /* .page-container : Container pour disposition flex de la page */
+      .page-container {
+        display: flex;
+        gap: 25px;
+        position: relative;
+        align-items: flex-start;
+        width: 100%;
+      }
+      /* .main-content : Contenu principal avec gestion du débordement */
+      .main-content {
+        flex: 1;
+        padding: 20px;
+        transition: margin-left var(--transition-fast);
+        min-width: 0;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT LAYOUT ET STRUCTURE */
+      @media (max-width: 767px) {
+        .page-container {
+          flex-direction: column;
+        }
+        .main-content {
+          padding: 15px;
+          overflow: visible;
+        }
+      }
+      @media (max-width: 375px) {
+        .main-content {
+          padding: 10px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT ESPACEMENT GLOBAL
+           =========================================== */
+      /* section : Marges pour les sections */
+      section {
+        margin-bottom: 30px;
+      }
+      /* .subsection : Marges pour les sous-sections */
+      .subsection {
+        margin-bottom: 25px;
+      }
+      /* p : Marges pour les paragraphes */
+      p {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+      /* h1, h2, h3, h4, h5, h6 : Marges pour les titres */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-bottom: 20px;
+      }
+      /* ul, ol : Marges pour les listes */
+      ul,
+      ol {
+        margin-bottom: 20px;
+      }
+      /* li : Marges pour les éléments de liste */
+      li {
+        margin-bottom: 8px;
+      }
+
+      /* ===========================================
+           COMPOSANT MENU BURGER
+           =========================================== */
+      /* .menu-toggle-checkbox : Checkbox caché pour contrôler l'état du menu */
       .menu-toggle-checkbox {
         display: none;
       }
+      /* .menu-toggle : Bouton menu burger - visible sur tous les formats */
       .menu-toggle {
         display: block;
         position: fixed;
@@ -209,15 +289,18 @@
         justify-content: center;
         align-items: center;
       }
+      /* .menu-toggle:hover : Effet hover sur le bouton menu burger */
       .menu-toggle:hover {
         opacity: 1;
       }
+      /* .menu-toggle img : Image du menu burger - reste constante */
       .menu-toggle img {
         width: 100%;
         height: 100%;
         object-fit: contain;
         transition: none;
       }
+      /* .menu : Menu latéral qui glisse depuis la gauche */
       .menu {
         position: fixed;
         top: 0;
@@ -235,15 +318,19 @@
         overflow-y: auto;
         overflow-x: hidden;
       }
+      /* .menu-toggle-checkbox:checked + .menu-toggle + .menu : Affiche le menu quand le checkbox est coché */
       .menu-toggle-checkbox:checked + .menu-toggle + .menu {
         transform: translateX(0);
       }
+      /* .menu ul : Supprime les puces de la liste du menu */
       .menu ul {
         list-style: none;
       }
+      /* .menu ul li : Espacement entre les éléments du menu */
       .menu ul li {
         margin-bottom: 25px;
       }
+      /* .menu ul li a : Liens de navigation dans le menu burger */
       .menu ul li a {
         color: #333;
         text-decoration: none;
@@ -257,6 +344,7 @@
         border: 1px solid #e0e0e0;
         margin-bottom: 10px;
       }
+      /* .menu ul li a:hover : Effet hover sur les liens du menu burger */
       .menu ul li a:hover {
         color: var(--primary-color);
         background: #e6f0fb;
@@ -264,21 +352,26 @@
         box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
         transition: all 0.3s ease;
       }
+      /* .menu::-webkit-scrollbar : Personnalisation de la barre de défilement */
       .menu::-webkit-scrollbar {
         width: 6px;
       }
+      /* .menu::-webkit-scrollbar-track : Piste de la barre de défilement */
       .menu::-webkit-scrollbar-track {
         background: transparent;
       }
+      /* .menu::-webkit-scrollbar-thumb : Curseur de la barre de défilement */
       .menu::-webkit-scrollbar-thumb {
         background: var(--primary-color);
         border-radius: 3px;
         opacity: 0.7;
       }
+      /* .menu::-webkit-scrollbar-thumb:hover : Effet hover sur le curseur */
       .menu::-webkit-scrollbar-thumb:hover {
         background: #4a7aa3;
         opacity: 1;
       }
+      /* .menu : Support pour Firefox */
       .menu {
         scrollbar-width: thin;
         scrollbar-color: var(--primary-color) transparent;
@@ -331,8 +424,9 @@
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT TITRE PRINCIPAL
-            =========================================== */
+           COMPOSANT TITRE PRINCIPAL
+           =========================================== */
+      /* .intro-title : Titre principal de la page */
       .intro-title {
         font-family: var(--main-font);
         font-weight: 700;
@@ -346,7 +440,7 @@
       /* MEDIA QUERIES POUR COMPOSANT TITRE PRINCIPAL */
       @media (min-width: 1440px) {
         .intro-title {
-          font-size: 42px;
+          font-size: 36px;
         }
       }
       @media (max-width: 1439px) and (min-width: 1024px) {
@@ -367,14 +461,15 @@
       }
       @media (max-width: 375px) {
         .intro-title {
-          font-size: 18px;
+          font-size: 20px;
           margin: 15px 0 20px 0;
         }
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT IMAGE PRINCIPALE
+           COMPOSANT IMAGE PRINCIPALE
            =========================================== */
+      /* .intro-image : Image principale en haut de la page */
       .intro-image {
         display: block;
         max-width: 100%;
@@ -397,8 +492,9 @@
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT TITRES DE SECTION
+           COMPOSANT TITRES DE SECTION
            =========================================== */
+      /* .section-header : Container des en-têtes de section (numéro + titre) */
       .section-header {
         display: flex;
         align-items: center;
@@ -410,6 +506,7 @@
         box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
         overflow: hidden;
       }
+      /* .section-number : Numéro de section (01, 02, etc.) - partie bleue à gauche */
       .section-number {
         background: #3b6ea5;
         color: var(--white-color);
@@ -427,6 +524,7 @@
         flex-shrink: 0;
         align-self: stretch;
       }
+      /* .section-title : Titre de section (texte principal) - partie droite */
       .section-title {
         color: #3b6ea5;
         font-family: var(--main-font);
@@ -444,65 +542,88 @@
       /* MEDIA QUERIES POUR COMPOSANT TITRES DE SECTION */
       @media (min-width: 1440px) {
         .section-number {
-          font-size: 36px;
+          font-size: 24px;
+          padding: 8px 12px;
         }
         .section-title {
-          font-size: 24px;
+          font-size: 18px;
+          padding: 8px 12px;
         }
       }
       @media (max-width: 1439px) and (min-width: 1024px) {
         .section-number {
-          font-size: 36px;
+          font-size: 22px;
+          padding: 6px 10px;
         }
         .section-title {
-          font-size: 24px;
+          font-size: 16px;
+          padding: 6px 10px;
         }
       }
       @media (max-width: 1023px) and (min-width: 768px) {
+        .section-header {
+          margin: 20px 0 15px;
+          padding: 0;
+        }
         .section-number {
-          font-size: 36px;
+          font-size: 20px;
+          padding: 5px 8px;
+          min-width: 80px;
+          width: 80px;
         }
         .section-title {
-          font-size: 24px;
+          font-size: 14px;
+          padding: 5px 8px;
+          min-height: 60px;
         }
       }
       @media (max-width: 767px) {
         .section-header {
           flex-direction: column;
           text-align: center;
-          margin: 30px 0 20px;
+          margin: 15px 0 10px;
+          padding: 0;
         }
         .section-number {
           border-radius: 12px 12px 0 0;
           width: 100%;
           text-align: center;
-          font-size: 28px;
+          font-size: 18px;
+          padding: 4px 6px;
+          min-width: auto;
+          min-height: 40px;
         }
         .section-title {
           border-radius: 0 0 12px 12px;
           width: 100%;
-          font-size: 20px;
+          font-size: 12px;
+          padding: 4px 6px;
+          min-height: 40px;
         }
       }
       @media (max-width: 375px) {
         .section-header {
-          margin: 20px 0 15px;
+          margin: 10px 0 5px;
+          padding: 0;
         }
         .section-number {
-          font-size: 24px;
-          padding: 15px 20px;
+          font-size: 16px;
+          padding: 3px 5px;
+          min-height: 30px;
         }
         .section-title {
-          font-size: 16px;
-          padding: 15px 20px;
+          font-size: 10px;
+          padding: 3px 5px;
+          min-height: 30px;
         }
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT TITRES DE SOUS-SECTION
+           COMPOSANT TITRES DE SOUS-SECTION
            =========================================== */
+      /* .subsection-heading : Titres de niveau 3 pour sous-sections (A., B.) */
       .subsection-heading {
-        font-family: "Montserrat", sans-serif;
+        font-family: var(--main-font);
         font-weight: 700;
         color: #5f8bbc;
         font-size: 26px;
@@ -514,88 +635,51 @@
         text-align: left;
       }
 
-      /* ===========================================
-           STYLES POUR PARAGRAPHES DES SOUS-SECTIONS
-           =========================================== */
-      .subsection-paragraph {
-        font-family: var(--main-font);
-        font-size: var(--font-size18);
-        font-weight: 400;
-        line-height: 1.6;
-        color: #333;
-        margin-bottom: 20px;
-        text-align: justify;
-        padding: 0 20px;
-      }
-
       /* MEDIA QUERIES POUR COMPOSANT TITRES DE SOUS-SECTION */
       @media (min-width: 1440px) {
         .subsection-heading {
-          font-size: 26px;
+          font-size: 28px;
         }
       }
       @media (max-width: 1439px) and (min-width: 1024px) {
         .subsection-heading {
-          font-size: 26px;
+          font-size: 24px;
         }
       }
       @media (max-width: 1023px) and (min-width: 768px) {
         .subsection-heading {
-          font-size: 26px;
+          font-size: 22px;
         }
       }
       @media (max-width: 767px) {
         .subsection-heading {
-          font-size: 16px;
-        }
-      }
-      @media (max-width: 375px) {
-        .subsection-heading {
-          font-size: 16px;
-        }
-      }
-
-      /* MEDIA QUERIES POUR PARAGRAPHES DES SOUS-SECTIONS */
-      @media (min-width: 1440px) {
-        .subsection-paragraph {
-          font-size: 20px;
-        }
-      }
-      @media (max-width: 1439px) and (min-width: 1024px) {
-        .subsection-paragraph {
           font-size: 18px;
         }
       }
-      @media (max-width: 1023px) and (min-width: 768px) {
-        .subsection-paragraph {
-          font-size: 16px;
-        }
-      }
-      @media (max-width: 767px) {
-        .subsection-paragraph {
-          font-size: 14px;
-        }
-      }
       @media (max-width: 375px) {
-        .subsection-paragraph {
-          font-size: 12px;
+        .subsection-heading {
+          font-size: 14px;
         }
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT CONCLUSION - À RETENIR
+           COMPOSANT CONCLUSION - À RETENIR
            =========================================== */
+      /* .container-a-retenir : Container principal du composant conclusion avec espacement */
       .container-a-retenir {
         padding: 35px;
         margin: 45px 0;
       }
+      /* .wrap-title-retenir-conclusion : Wrapper pour le titre et l'image - disposition verticale centrée */
       .wrap-title-retenir-conclusion {
         flex-direction: column;
         align-items: center;
       }
+      /* .retenir-img : Image au-dessus du titre "À retenir" - taille adaptative */
       .retenir-img {
         width: 35%;
       }
+      /* .title-retenir-conclusion : Titre principal "À RETENIR" - style typographique */
       .title-retenir-conclusion {
         color: var(--gray-color1);
         text-align: center;
@@ -606,14 +690,17 @@
         text-transform: uppercase;
         margin-top: 20px;
       }
+      /* .steps : Container des étapes numérotées */
       .steps {
         padding: 20px;
       }
+      /* .step : Structure de chaque étape - disposition verticale centrée */
       .step {
         flex-direction: column;
         position: relative;
         align-items: center;
       }
+      /* .number : Numéro de l'étape - cercle coloré avec le numéro */
       .number {
         font-size: 18px;
         font-family: var(--main-font);
@@ -628,6 +715,7 @@
         align-items: center;
         justify-content: center;
       }
+      /* .text : Texte principal de l'étape - titre en gras */
       .text {
         font-family: var(--main-font);
         color: var(--primary-color);
@@ -637,6 +725,7 @@
         margin: 0;
         padding-left: 15px;
       }
+      /* .sub-text : Texte secondaire de l'étape - description détaillée */
       .sub-text {
         font-family: var(--main-font);
         color: var(--gray-color1);
@@ -645,22 +734,29 @@
         text-align: justify;
         padding-left: 15px;
       }
+      /* .line : Ligne verticale pointillée entre les étapes */
       .line {
         display: none;
       }
+      /* .steps .step-content:last-child .line : Désactive la ligne pour la dernière étape */
       .steps .step-content:last-child .line {
         display: none;
       }
 
-      /* MEDIA QUERIES POUR COMPOSANT CONCLUSION */
+      /* MEDIA QUERIES POUR COMPOSANT CONCLUSION - À RETENIR */
       @media (min-width: 1440px) {
         .title-retenir-conclusion {
-          font-size: 24px;
+          font-size: 22px;
         }
         .text {
-          font-size: 24px;
+          font-size: 22px;
         }
         .sub-text {
+          font-size: 20px;
+        }
+        .number {
+          width: 50px;
+          height: 50px;
           font-size: 18px;
         }
       }
@@ -674,6 +770,11 @@
         .sub-text {
           font-size: 18px;
         }
+        .number {
+          width: 45px;
+          height: 45px;
+          font-size: 16px;
+        }
       }
       @media (max-width: 1023px) and (min-width: 768px) {
         .title-retenir-conclusion {
@@ -684,6 +785,24 @@
         }
         .sub-text {
           font-size: 16px;
+        }
+        .number {
+          width: 40px;
+          height: 40px;
+          font-size: 14px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 15px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
         }
       }
       @media (max-width: 767px) {
@@ -696,16 +815,52 @@
         .sub-text {
           font-size: 14px;
         }
+        .number {
+          width: 35px;
+          height: 35px;
+          font-size: 12px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 15px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
       }
       @media (max-width: 375px) {
         .title-retenir-conclusion {
-          font-size: 16px;
+          font-size: 14px;
         }
         .text {
-          font-size: 16px;
+          font-size: 14px;
         }
         .sub-text {
-          font-size: 14px;
+          font-size: 12px;
+        }
+        .number {
+          width: 30px;
+          height: 30px;
+          font-size: 10px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 10px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
         }
       }
       @media (max-width: 768px) {
@@ -757,356 +912,456 @@
         }
       }
 
-      /* ===========================================
-           RESPONSIVE DESIGN GLOBAL
-           =========================================== */
-      @media (min-width: 1440px) {
-        .main-content {
-          margin-left: 0;
-        }
-      }
-      @media (max-width: 1439px) and (min-width: 1024px) {
-        .main-content {
-          margin-left: 0;
-        }
-      }
-      @media (max-width: 1023px) and (min-width: 768px) {
-        .main-content {
-          margin-left: 0;
-        }
-        .main-container {
-          width: 80%;
-          margin: 20px auto;
-          padding: 25px;
-        }
-      }
-      @media (max-width: 767px) {
-        .main-content {
-          margin-left: 0;
-        }
-        .main-container {
-          width: 95%;
-          margin: 15px auto;
-          padding: 20px;
-        }
-        .page-container {
-          flex-direction: column;
-        }
-        .main-content {
-          padding: 15px;
-          overflow: visible;
-        }
-      }
-      @media (max-width: 375px) {
-        .main-container {
-          width: 98%;
-          margin: 10px auto;
-          padding: 15px;
-        }
-        .main-content {
-          padding: 10px;
-        }
-      }
-      @media (max-width: 480px) {
-        .main-container {
-          width: 100%;
-          margin: 10px;
-          padding: 15px;
-        }
-      }
 
       /* ===========================================
-           CLASSES UTILITAIRES
+           COMPOSANT CLASSES UTILITAIRES
            =========================================== */
+      /* .is-flex : Active la disposition flexbox */
       .is-flex {
         display: flex;
       }
+      /* .is-flex-wrap-wrap-mobile : Permet le retour à la ligne pour petits écrans */
       .is-flex-wrap-wrap-mobile {
         flex-wrap: wrap;
       }
+      /* .col-1 : Colonne occupant 1/12 de la largeur */
       .col-1 {
         width: 8.333333%;
       }
+      /* .col-11 : Colonne occupant 11/12 de la largeur */
       .col-11 {
         width: 91.666667%;
       }
 
       /* ===========================================
-           COMPOSANTS SPÉCIFIQUES PAGE3 - MODERNISÉS
+           COMPOSANTS SPÉCIFIQUES PAGE3BIS - SECTION 1
            =========================================== */
 
       /* ===========================================
-           COMPOSANTS SPÉCIFIQUES PAGE3 - SECTION 1 RECODÉE
+           COMPOSANT CARTES LÉGISLATION - SECTION 1 (NOUVELLES CLASSES)
            =========================================== */
-
-      /* ===========================================
-           COMPOSANT IMAGE + TEXTE - SECTION 1
-           =========================================== */
-      .imageGaucheTexteDroit-container,
-      .imageDroiteTextGauche-container {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        justify-content: center;
-        background-color: #f5f2e9;
-        border-radius: 20px;
-        padding: 50px;
-        margin: 25px auto;
+      /* .legislation-container : Container principal des cartes de législation */
+      .legislation-container {
         width: 100%;
-        max-width: 100%;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        gap: 35px;
-        height: auto;
+        max-width: 1200px;
+        margin-top: 30px;
+        margin-right: auto;
+        margin-bottom: 30px;
+        margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+      /* .legislation-card : Carte individuelle avec image et texte */
+      .legislation-card {
+        display: flex;
+        align-items: center;
+        background-color: #f7f5e9;
+        border-radius: 12px;
+        padding-top: 25px;
+        padding-right: 25px;
+        padding-bottom: 25px;
+        padding-left: 25px;
+        flex-direction: row;
+        gap: 30px;
         transition: all var(--transition-fast);
       }
-
-      .imageDroiteTextGauche-container {
+      /* Carte avec image à droite */
+      .legislation-card.reverse {
         flex-direction: row-reverse;
       }
-
-      .imageGaucheTexteDroit-container:hover,
-      .imageDroiteTextGauche-container:hover {
+      /* Effet hover sur les cartes */
+      .legislation-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 8px 25px rgba(95, 139, 188, 0.3);
-        background-color: #f0ede4;
       }
-
-      .imageGaucheTexteDroit-header-image,
-      .imageDroiteTextGauche-header-image {
-        flex: 0 0 200px;
-        max-width: 200px;
-        border-radius: 15px;
+      /* Images dans les cartes */
+      .legislation-card img {
+        width: 120px;
+        height: 120px;
         object-fit: cover;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform var(--transition-fast);
+        flex-shrink: 0;
+        border-radius: 8px;
       }
-
-      .imageGaucheTexteDroit-container:hover
-        .imageGaucheTexteDroit-header-image,
-      .imageDroiteTextGauche-container:hover
-        .imageDroiteTextGauche-header-image {
-        transform: scale(1.05);
-      }
-
-      .scroll-box {
+      /* Texte dans les cartes */
+      .legislation-card .text {
         flex: 1;
-        background-color: transparent;
-        padding: 0;
-        border-radius: 0;
-        box-shadow: none;
-        min-height: auto;
-        overflow: visible;
+        overflow: hidden;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
       }
-
-      .colored-title {
-        font-size: 1.2rem;
+      .legislation-card .text .title {
+        margin-top: 0;
+        margin-right: 0;
         margin-bottom: 15px;
+        margin-left: 0;
         font-weight: 700;
+        font-size: 20px;
         font-family: var(--main-font);
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        border-bottom: 2px solid currentColor;
-        padding-bottom: 8px;
+        border-bottom: 2px solid #5f8bbc;
+        padding-bottom: 5px;
         display: inline-block;
+        color: #333;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
       }
-
-      .scrollable-text p {
-        font-size: var(--font-size18);
+      .legislation-card .text p {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
         line-height: 1.6;
-        margin-bottom: 8px;
-        font-family: var(--main-font);
-        font-weight: 400;
         color: #333;
-      }
-
-      /* ===========================================
-           COULEURS THÉMATIQUES SECTION 1
-           =========================================== */
-      /* Tous les titres utilisent maintenant la couleur par défaut */
-      .colored-title {
-        color: #333 !important;
-        border-bottom-color: #5f8bbc !important;
-      }
-
-      /* Composant flex container modernisé */
-      .flex-container {
-        display: flex;
-        align-items: flex-start;
-        gap: 15px;
-        flex-wrap: wrap;
-        margin: 15px 0;
-        padding: 15px;
-        background: #fafbfc;
-        border-radius: 12px;
-        border: 1px solid #e0e0e0;
-        transition: all var(--transition-fast);
-      }
-
-      .flex-container:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(95, 139, 188, 0.2);
-      }
-
-      .text-content {
-        flex: 1;
-        min-width: 350px;
-      }
-
-      .section-text {
+        font-size: 18px;
         font-family: var(--main-font);
-        font-weight: 400;
-        color: #000000;
-        font-size: var(--font-size18);
-        margin-bottom: 20px;
-        line-height: 1.7;
+        text-align: justify;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
       }
 
-      .section-list {
-        margin-left: 25px;
-        margin-bottom: 25px;
-        font-size: var(--font-size18);
-        line-height: 1.8;
-        font-family: var(--main-font);
-        font-weight: 400;
-        color: #333;
-      }
-
-      .section-list li {
-        margin-bottom: 8px;
-        font-family: var(--main-font);
-        font-size: var(--font-size18);
-        font-weight: 400;
-        color: #333;
-      }
-
-      /* ===========================================
-           MEDIA QUERIES POUR COMPOSANTS SECTION 1
-           =========================================== */
-
-      /* DESKTOP (1440px+) */
+      /* MEDIA QUERIES POUR COMPOSANT CARTES LÉGISLATION */
       @media (min-width: 1440px) {
-        .imageGaucheTexteDroit-container,
-        .imageDroiteTextGauche-container {
-          padding: 60px;
-          gap: 40px;
+        .legislation-container {
+          gap: 30px;
         }
-
-        .imageGaucheTexteDroit-header-image,
-        .imageDroiteTextGauche-header-image {
-          flex: 0 0 250px;
-          max-width: 250px;
+        .legislation-card {
+          padding-top: 30px;
+          padding-right: 30px;
+          padding-bottom: 30px;
+          padding-left: 30px;
+          gap: 35px;
         }
-
-        .colored-title {
-          font-size: 1.4rem;
+        .legislation-card img {
+          width: 140px;
+          height: 140px;
         }
-
-        .scrollable-text p {
+        .legislation-card .text .title {
+          font-size: 22px;
+          margin-bottom: 18px;
+        }
+        .legislation-card .text p {
           font-size: 20px;
         }
       }
-
-      /* LAPTOP (1024px - 1439px) */
       @media (max-width: 1439px) and (min-width: 1024px) {
-        .imageGaucheTexteDroit-container,
-        .imageDroiteTextGauche-container {
-          padding: 50px;
-          gap: 35px;
+        .legislation-container {
+          gap: 28px;
         }
-
-        .imageGaucheTexteDroit-header-image,
-        .imageDroiteTextGauche-header-image {
-          flex: 0 0 200px;
-          max-width: 200px;
+        .legislation-card {
+          padding-top: 28px;
+          padding-right: 28px;
+          padding-bottom: 28px;
+          padding-left: 28px;
+          gap: 32px;
         }
-
-        .colored-title {
-          font-size: 1.2rem;
+        .legislation-card img {
+          width: 130px;
+          height: 130px;
         }
-
-        .scrollable-text p {
+        .legislation-card .text .title {
+          font-size: 20px;
+          margin-bottom: 16px;
+        }
+        .legislation-card .text p {
           font-size: 18px;
         }
       }
-
-      /* TABLETTE (768px - 1023px) */
       @media (max-width: 1023px) and (min-width: 768px) {
-        .imageGaucheTexteDroit-container,
-        .imageDroiteTextGauche-container {
-          padding: 40px;
+        .legislation-container {
+          gap: 25px;
+        }
+        .legislation-card {
+          padding-top: 25px;
+          padding-right: 25px;
+          padding-bottom: 25px;
+          padding-left: 25px;
           gap: 30px;
         }
-
-        .imageGaucheTexteDroit-header-image,
-        .imageDroiteTextGauche-header-image {
-          flex: 0 0 180px;
-          max-width: 180px;
+        .legislation-card img {
+          width: 120px;
+          height: 120px;
         }
-
-        .colored-title {
-          font-size: 1.1rem;
+        .legislation-card .text .title {
+          font-size: 18px;
+          margin-bottom: 15px;
         }
-
-        .scrollable-text p {
+        .legislation-card .text p {
           font-size: 16px;
         }
       }
-
-      /* MOBILE (767px et moins) */
       @media (max-width: 767px) {
-        .imageGaucheTexteDroit-container,
-        .imageDroiteTextGauche-container {
+        .legislation-container {
+          gap: 20px;
+        }
+        .legislation-card {
           flex-direction: column;
-          align-items: center;
           text-align: center;
-          padding: 25px;
           gap: 20px;
+          padding-top: 20px;
+          padding-right: 20px;
+          padding-bottom: 20px;
+          padding-left: 20px;
         }
-
-        .imageGaucheTexteDroit-header-image,
-        .imageDroiteTextGauche-header-image {
-          max-width: 150px;
-          margin: 0 auto;
-        }
-
-        .colored-title {
-          font-size: 1rem;
-        }
-
-        .scrollable-text p {
-          font-size: 14px;
-        }
-
-        .flex-container {
+        .legislation-card.reverse {
           flex-direction: column;
-          padding: 20px;
-          gap: 20px;
         }
-
-        .text-content {
-          min-width: auto;
+        .legislation-card img {
+          width: 100px;
+          height: 100px;
+        }
+        .legislation-card .text .title {
+          font-size: 16px;
+          margin-bottom: 12px;
+          text-align: center;
+        }
+        .legislation-card .text p {
+          font-size: 14px;
+          text-align: center;
+        }
+      }
+      @media (max-width: 480px) {
+        .legislation-container {
+          gap: 15px;
+        }
+        .legislation-card {
+          padding-top: 15px;
+          padding-right: 15px;
+          padding-bottom: 15px;
+          padding-left: 15px;
+          gap: 15px;
+        }
+        .legislation-card img {
+          width: 80px;
+          height: 80px;
+        }
+        .legislation-card .text .title {
+          font-size: 14px;
+          margin-bottom: 10px;
+        }
+        .legislation-card .text p {
+          font-size: 12px;
+        }
+      }
+      @media (max-width: 375px) {
+        .legislation-container {
+          gap: 12px;
+        }
+        .legislation-card {
+          padding-top: 12px;
+          padding-right: 12px;
+          padding-bottom: 12px;
+          padding-left: 12px;
+          gap: 12px;
+        }
+        .legislation-card img {
+          width: 70px;
+          height: 70px;
+        }
+        .legislation-card .text .title {
+          font-size: 14px;
+          margin-bottom: 8px;
+        }
+        .legislation-card .text p {
+          font-size: 12px;
         }
       }
 
-      /* MOBILE TRÈS PETIT (375px et moins) */
-      @media (max-width: 375px) {
-        .imageGaucheTexteDroit-container,
-        .imageDroiteTextGauche-container {
+      /* ===========================================
+           COMPOSANT DÉCENTRALISATION - BANDE VERTICALE JAUNE (SECTION 2B)
+           =========================================== */
+      /* .decentralisation-subtitle : Titre de la section décentralisation */
+      .decentralisation-subtitle {
+        color: var(--primary-color);
+        font-weight: bold;
+        font-size: 20px;
+        margin: var(--spacing-md) var(--spacing-lg) var(--spacing-xs);
+        margin-bottom: var(--spacing-lg);
+        margin-top: var(--spacing-lg);
+        font-family: var(--main-font);
+      }
+      /* .decentralisation-intro-text : Texte d'introduction à la décentralisation */
+      .decentralisation-intro-text {
+        max-width: 800px;
+        margin: 0 var(--spacing-lg) var(--spacing-lg);
+        text-align: left;
+        font-size: 18px;
+        margin-bottom: var(--spacing-lg);
+        width: 80%;
+        margin-left: 10%;
+        font-family: var(--main-font);
+        color: var(--text-dark);
+      }
+      /* .decentralisation-highlight-section : Section avec bande verticale jaune en arrière-plan */
+      .decentralisation-highlight-section {
+        position: relative;
+        padding: 50px 30px;
+        z-index: 1;
+        margin: 30px 0;
+      }
+      /* .decentralisation-highlight-section::before : Bande verticale jaune créée avec pseudo-élément */
+      .decentralisation-highlight-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40%;
+        height: 100%;
+        background-color: #f5e7c4;
+        z-index: -1;
+      }
+      /* .decentralisation-content : Container du contenu centré */
+      .decentralisation-content {
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 20px;
+      }
+      /* .decentralisation-content-1 : Contenu pour la Commune */
+      .decentralisation-content-1 {
+        color: var(--text-dark);
+      }
+      /* .decentralisation-content-2 : Contenu pour le Département */
+      .decentralisation-content-2 {
+        color: var(--text-dark);
+      }
+      /* .decentralisation-content-3 : Contenu pour la Région */
+      .decentralisation-content-3 {
+        color: var(--text-dark);
+      }
+      /* .decentralisation-content h3 : Titres des niveaux administratifs */
+      .decentralisation-content h3 {
+        margin-top: 30px;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: var(--main-font);
+        color: var(--text-dark);
+      }
+      /* .decentralisation-content p : Paragraphes descriptifs centrés */
+      .decentralisation-content p {
+        font-size: 18px;
+        margin-bottom: 30px;
+        font-family: var(--main-font);
+        color: var(--text-dark);
+        text-align: center;
+      }
+      /* .decentralisation-content h4 : Style pour h4 */
+      .decentralisation-content h4 {
+        text-align: center;
+        font-size: 20px;
+        font-family: var(--main-font);
+        color: var(--text-dark);
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT DÉCENTRALISATION */
+      @media (min-width: 1440px) {
+        .decentralisation-subtitle {
+          font-size: 22px;
+        }
+        .decentralisation-intro-text {
+          font-size: 20px;
+        }
+        .decentralisation-content h3 {
+          font-size: 22px;
+        }
+        .decentralisation-content p {
+          font-size: 20px;
+        }
+        .decentralisation-content h4 {
+          font-size: 22px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .decentralisation-subtitle {
+          font-size: 20px;
+        }
+        .decentralisation-intro-text {
+          font-size: 18px;
+        }
+        .decentralisation-content h3 {
+          font-size: 20px;
+        }
+        .decentralisation-content p {
+          font-size: 18px;
+        }
+        .decentralisation-content h4 {
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .decentralisation-subtitle {
+          font-size: 18px;
+        }
+        .decentralisation-intro-text {
+          font-size: 16px;
+        }
+        .decentralisation-content h3 {
+          font-size: 18px;
+        }
+        .decentralisation-content p {
+          font-size: 16px;
+        }
+        .decentralisation-content h4 {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 767px) {
+        .decentralisation-highlight-section {
+          padding: 30px 15px;
+          margin: 20px 0;
+        }
+        .decentralisation-highlight-section::before {
+          width: 50%;
+        }
+        .decentralisation-content {
           padding: 15px;
-          gap: 15px;
         }
-
-        .imageGaucheTexteDroit-header-image,
-        .imageDroiteTextGauche-header-image {
-          max-width: 120px;
+        .decentralisation-subtitle {
+          font-size: 16px;
         }
-
-        .colored-title {
-          font-size: 0.9rem;
+        .decentralisation-intro-text {
+          font-size: 14px;
         }
-
-        .scrollable-text p {
+        .decentralisation-content h3 {
+          font-size: 16px;
+          margin-top: 20px;
+        }
+        .decentralisation-content p {
+          font-size: 14px;
+          margin-bottom: 20px;
+        }
+        .decentralisation-content h4 {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 375px) {
+        .decentralisation-highlight-section {
+          padding: 20px 10px;
+          margin: 15px 0;
+        }
+        .decentralisation-content {
+          padding: 10px;
+        }
+        .decentralisation-subtitle {
+          font-size: 14px;
+        }
+        .decentralisation-intro-text {
           font-size: 12px;
+        }
+        .decentralisation-content h3 {
+          font-size: 14px;
+          margin-top: 15px;
+        }
+        .decentralisation-content p {
+          font-size: 12px;
+          margin-bottom: 15px;
+        }
+        .decentralisation-content h4 {
+          font-size: 14px;
         }
       }
     </style>
@@ -1127,9 +1382,7 @@
       <nav class="menu">
         <ul>
           <li>
-            <a href="#section1"
-              >1 - La Prise en charge des enfants handicapés</a
-            >
+            <a href="#section1">1 - Législation et réglementation</a>
           </li>
           <li><a href="#section2">2 - La Notion d'inclusion</a></li>
           <li>
@@ -1165,21 +1418,18 @@
           <section id="section1">
             <div class="section-header">
               <span class="section-number">01</span>
-              <span class="section-title"
-                >La Prise en charge des enfants handicapés</span
-              >
+              <span class="section-title">Législation et réglementation</span>
             </div>
             <!-- Bloc 1 - Législation (bleu) -->
-            <div class="imageGaucheTexteDroit-container blue-title">
-              <img
-                src="../../images/CAP AEPE/page3/imageDiplome.png"
-                alt="Diplôme"
-                class="imageGaucheTexteDroit-header-image"
-              />
-              <div class="scroll-box">
-                <h3 class="colored-title">La législation</h3>
-                <div class="scrollable-text">
-                  <p class="subsection-paragraph">
+            <div class="legislation-container">
+              <div class="legislation-card">
+                <img
+                  src="../../images/CAP AEPE/page3/imageDiplome.png"
+                  alt="Diplôme"
+                />
+                <div class="text">
+                  <h3 class="title">La législation</h3>
+                  <p>
                     Les droits des personnes en situation de handicap sont
                     précisés dans la loi de février 2005. Cette loi a défini
                     l'objectif d'accès au droit commun avec le droit à la
@@ -1193,19 +1443,16 @@
                   </p>
                 </div>
               </div>
-            </div>
 
-            <!-- Bloc 2 - CDAPH (violet foncé) -->
-            <div class="imageDroiteTextGauche-container purple-title">
-              <img
-                src="../../images/CAP AEPE/page3/imageBalance.png"
-                alt="Balance"
-                class="imageDroiteTextGauche-header-image"
-              />
-              <div class="scroll-box">
-                <h3 class="colored-title">Commission des Droits</h3>
-                <div class="scrollable-text">
-                  <p class="subsection-paragraph">
+              <!-- Bloc 2 - CDAPH (violet foncé) -->
+              <div class="legislation-card reverse">
+                <img
+                  src="../../images/CAP AEPE/page3/imageBalance.png"
+                  alt="Balance"
+                />
+                <div class="text">
+                  <h3 class="title">Commission des Droits</h3>
+                  <p>
                     Dans le cadre de la MDPH, la Commission des Droits et de
                     l'Autonomie des Personnes Handicapées (CDAPH) décide des
                     droits de la personne handicapée. Elle dépend de
@@ -1217,19 +1464,16 @@
                   </p>
                 </div>
               </div>
-            </div>
 
-            <!-- Bloc 3 - École maternelle (orange) -->
-            <div class="imageGaucheTexteDroit-container orange-title">
-              <img
-                src="../../images/CAP AEPE/page3/imageToys.png"
-                alt="Toys"
-                class="imageGaucheTexteDroit-header-image"
-              />
-              <div class="scroll-box">
-                <h3 class="colored-title">École maternelle</h3>
-                <div class="scrollable-text">
-                  <p class="subsection-paragraph">
+              <!-- Bloc 3 - École maternelle (orange) -->
+              <div class="legislation-card">
+                <img
+                  src="../../images/CAP AEPE/page3/imageToys.png"
+                  alt="Toys"
+                />
+                <div class="text">
+                  <h3 class="title">École maternelle</h3>
+                  <p>
                     La scolarisation d'un enfant en situation de handicap est un
                     droit. La CDAPH élabore le projet personnalisé de
                     scolarisation dans un plan personnalisé de compensation.
@@ -1239,19 +1483,16 @@
                   </p>
                 </div>
               </div>
-            </div>
 
-            <!-- Bloc 4 - Crèches (vert) -->
-            <div class="imageDroiteTextGauche-container green-title">
-              <img
-                src="../../images/CAP AEPE/page3/imageMaison.png"
-                alt="Maison"
-                class="imageDroiteTextGauche-header-image"
-              />
-              <div class="scroll-box">
-                <h3 class="colored-title">Accueil en crèche</h3>
-                <div class="scrollable-text">
-                  <p class="subsection-paragraph">
+              <!-- Bloc 4 - Crèches (vert) -->
+              <div class="legislation-card reverse">
+                <img
+                  src="../../images/CAP AEPE/page3/imageMaison.png"
+                  alt="Maison"
+                />
+                <div class="text">
+                  <h3 class="title">Accueil en crèche</h3>
+                  <p>
                     Pour améliorer l'accueil des jeunes enfants en situation de
                     handicap dans les crèches, le gouvernement propose un «
                     bonus inclusion handicap » depuis janvier 2019. C'est une
@@ -1275,21 +1516,13 @@
               <span class="section-title">La Notion d'inclusion</span>
             </div>
 
-            <div class="flex-container">
-              <div class="text-content">
-                <p class="section-text">
-                  <strong>La loi du 11 février 2005</strong> et la loi pour la
-                  refonte de l'École de la République du 8 juillet 2013 ont pour
-                  objectif de développer un projet d'école plus inclusive.
-                  C'est-à-dire que l'école doit s'adapter aux besoins
-                  spécifiques des enfants.
-                  <strong
-                    >L'école doit prévoir des ajustements pour accueillir
-                    l'enfant.</strong
-                  >
-                </p>
-              </div>
-            </div>
+            <p>
+              La loi du 11 février 2005 et la loi pour la refonte de l'École de
+              la République du 8 juillet 2013 ont pour objectif de développer un
+              projet d'école plus inclusive. C'est-à-dire que l'école doit
+              s'adapter aux besoins spécifiques des enfants. L'école doit
+              prévoir des ajustements pour accueillir l'enfant.
+            </p>
           </section>
 
           <!-- ===========================================
@@ -1309,58 +1542,49 @@
                 A. Les quatre actions de prévention du handicap
               </h3>
 
-              <div class="flex-container">
-                <div class="text-content">
-                  <p class="subsection-paragraph">
-                    <strong
-                      >Il existe quatre actions de prévention du
-                      handicap</strong
-                    >
-                    qui sont essentielles pour réduire les risques et améliorer
-                    la qualité de vie des enfants :
-                  </p>
+              <p>
+                Il existe quatre actions de prévention du handicap qui sont
+                essentielles pour réduire les risques et améliorer la qualité de
+                vie des enfants :
+              </p>
 
-                  <ul class="section-list">
-                    <li>
-                      <strong>La Vaccination :</strong>
-                      <span class="subsection-paragraph"
-                        >Antipoliomyélitique et autres vaccins essentiels pour
-                        prévenir les maladies qui peuvent causer des
-                        handicaps.</span
-                      >
-                    </li>
-                    <li>
-                      <strong>Le dépistage prénatal :</strong>
-                      <span class="subsection-paragraph"
-                        >Diagnostic prénatal si la grossesse est à risque, on
-                        instaure alors une surveillance médicale
-                        renforcée.</span
-                      >
-                    </li>
-                    <li>
-                      <strong
-                        >La surveillance de l'état de santé du nouveau-né
-                        :</strong
-                      >
-                      <span class="subsection-paragraph"
-                        >Dépistage de la phénylcétonurie, de la drépanocytose et
-                        autres maladies génétiques.</span
-                      >
-                    </li>
-                    <li>
-                      <strong
-                        >Une surveillance médicale du nourrisson et du jeune
-                        enfant :</strong
-                      >
-                      <span class="subsection-paragraph"
-                        >Suivi médical régulier pour détecter précocement les
-                        troubles du développement et intervenir
-                        rapidement.</span
-                      >
-                    </li>
-                  </ul>
+              <section class="decentralisation-highlight-section">
+                <div class="decentralisation-content">
+                  <div class="decentralisation-content-1">
+                    <h4 style="text-align: center">La Vaccination :</h4>
+                    <p style="text-align: center">
+                      Antipoliomyélitique et autres vaccins essentiels pour
+                      prévenir les maladies qui peuvent causer des handicaps.
+                    </p>
+                  </div>
+                  <div class="decentralisation-content-2">
+                    <h4 style="text-align: center">Le dépistage prénatal :</h4>
+                    <p style="text-align: center">
+                      Diagnostic prénatal si la grossesse est à risque, on
+                      instaure alors une surveillance médicale renforcée.
+                    </p>
+                  </div>
+                  <div class="decentralisation-content-3">
+                    <h4 style="text-align: center">
+                      La surveillance de l'état de santé du nouveau-né :
+                    </h4>
+                    <p style="text-align: center">
+                      Dépistage de la phénylcétonurie, de la drépanocytose et
+                      autres maladies génétiques.
+                    </p>
+                  </div>
+                  <div class="decentralisation-content-4">
+                    <h4 style="text-align: center">
+                      Une surveillance médicale du nourrisson et du jeune
+                      enfant.
+                    </h4>
+                    <p style="text-align: center">
+                      Suivi médical régulier pour détecter précocement les
+                      troubles du développement et intervenir rapidement.
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </section>
             </div>
           </section>
 

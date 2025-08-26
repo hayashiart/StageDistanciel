@@ -10,10 +10,10 @@
 
     <style>
       /* ===========================================
-           VARIABLES CSS GLOBALES - SYSTÈME DE DESIGN COHÉRENT
+           VARIABLES CSS GLOBALES
            =========================================== */
-
       :root {
+        /* Couleurs */
         --primary-color: #5f8bbc;
         --primary-color3: #e1d4ff;
         --primary-color4: #f0ecc8;
@@ -23,35 +23,42 @@
         --gray-color6: #ededed;
         --gray-color7: #f7f7f7;
         --white-color: #ffffff;
+        /* Typographie */
         --main-font: "Montserrat", sans-serif;
         --font-size18: 18px;
         --font-size24: 24px;
         --font-size28: 28px;
         --font-size32: 32px;
         --font-size48: 48px;
+        /* Espacement */
         --spacing-xs: 8px;
         --spacing-sm: 12px;
         --spacing-md: 20px;
         --spacing-lg: 30px;
         --spacing-xl: 40px;
+        /* Ombres */
         --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
         --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15);
         --shadow-heavy: 0 9px 15px rgba(0, 0, 0, 0.2);
+        /* Transitions */
         --transition-fast: 0.3s ease;
         --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       /* ===========================================
-           RESET ET STYLES DE BASE
+           COMPOSANT RESET ET STYLES DE BASE
            =========================================== */
+      /* * : Réinitialisation des marges et paddings pour tous les éléments */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
+      /* html : Active le défilement fluide pour les ancres */
       html {
         scroll-behavior: smooth;
       }
+      /* body : Style de base pour le corps de la page */
       body {
         font-family: var(--main-font);
         font-size: var(--font-size18);
@@ -61,6 +68,7 @@
         background-color: #f5f5f5;
         min-height: 100vh;
       }
+      /* p, li, span, div : Style par défaut pour les éléments de texte */
       p,
       li,
       span,
@@ -70,11 +78,12 @@
         font-weight: 400;
         color: #333;
       }
+      /* strong : Surcharge pour éviter les gras indésirables */
       strong {
         font-weight: 400 !important;
       }
 
-      /* MEDIA QUERIES POUR STYLES DE BASE (TAILLES DE TEXTE GLOBALE) */
+      /* MEDIA QUERIES POUR COMPOSANT RESET ET STYLES DE BASE */
       @media (min-width: 1440px) {
         body {
           font-size: 20px;
@@ -132,7 +141,7 @@
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT CONTAINER PRINCIPAL
+           COMPOSANT CONTAINER PRINCIPAL
            =========================================== */
       /* .main-container : Container principal pour centrer et styliser la page */
       .main-container {
@@ -184,6 +193,10 @@
         }
       }
 
+      /* ===========================================
+           COMPOSANT LAYOUT ET STRUCTURE
+           =========================================== */
+      /* .page-container : Container pour disposition flex de la page */
       .page-container {
         display: flex;
         gap: 25px;
@@ -191,7 +204,7 @@
         align-items: flex-start;
         width: 100%;
       }
-
+      /* .main-content : Contenu principal avec gestion du débordement */
       .main-content {
         flex: 1;
         padding: 20px;
@@ -201,23 +214,39 @@
         width: 100%;
       }
 
+      /* MEDIA QUERIES POUR COMPOSANT LAYOUT ET STRUCTURE */
+      @media (max-width: 767px) {
+        .page-container {
+          flex-direction: column;
+        }
+        .main-content {
+          padding: 15px;
+          overflow: visible;
+        }
+      }
+      @media (max-width: 375px) {
+        .main-content {
+          padding: 10px;
+        }
+      }
+
       /* ===========================================
-           MARGES ET ESPACEMENTS
+           COMPOSANT ESPACEMENT GLOBAL
            =========================================== */
+      /* section : Marges pour les sections */
       section {
         margin-bottom: 30px;
       }
-
+      /* .subsection : Marges pour les sous-sections */
       .subsection {
         margin-bottom: 25px;
       }
-
-      /* Marges entre les paragraphes */
+      /* p : Marges pour les paragraphes */
       p {
         margin-bottom: 15px;
         text-align: left;
       }
-
+      /* h1, h2, h3, h4, h5, h6 : Marges pour les titres */
       h1,
       h2,
       h3,
@@ -226,24 +255,18 @@
       h6 {
         margin-bottom: 20px;
       }
-
-      .section-convention-A,
-      .section-convention-B,
-      .section-assurance {
-        margin-bottom: 30px;
-      }
-
+      /* ul, ol : Marges pour les listes */
       ul,
       ol {
         margin-bottom: 20px;
       }
-
+      /* li : Marges pour les éléments de liste */
       li {
         margin-bottom: 8px;
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT MENU BURGER
+           COMPOSANT MENU BURGER
            =========================================== */
       /* .menu-toggle-checkbox : Checkbox caché pour contrôler l'état du menu */
       .menu-toggle-checkbox {
@@ -299,7 +322,7 @@
         overflow-y: auto;
         overflow-x: hidden;
       }
-      /* .menu-toggle-checkbox:checked + .menu-toggle + .menu : Affiche le menu quand le checkbox est coché (glissement vers la droite) */
+      /* .menu-toggle-checkbox:checked + .menu-toggle + .menu : Affiche le menu quand le checkbox est coché */
       .menu-toggle-checkbox:checked + .menu-toggle + .menu {
         transform: translateX(0);
       }
@@ -333,7 +356,7 @@
         box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
         transition: all 0.3s ease;
       }
-      /* .menu::-webkit-scrollbar : Personnalisation de la barre de défilement - Masque la barre de défilement par défaut */
+      /* .menu::-webkit-scrollbar : Personnalisation de la barre de défilement */
       .menu::-webkit-scrollbar {
         width: 6px;
       }
@@ -405,7 +428,7 @@
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT TITRE PRINCIPAL
+           COMPOSANT TITRE PRINCIPAL
            =========================================== */
       /* .intro-title : Titre principal de la page */
       .intro-title {
@@ -418,10 +441,10 @@
         margin: 30px 0 40px 0;
       }
 
-      /* MEDIA QUERIES POUR COMPOSANT TITRE PRINCIPAL - IDENTIQUES À PAGE1.HTML */
+      /* MEDIA QUERIES POUR COMPOSANT TITRE PRINCIPAL */
       @media (min-width: 1440px) {
         .intro-title {
-          font-size: 42px;
+          font-size: 36px;
         }
       }
       @media (max-width: 1439px) and (min-width: 1024px) {
@@ -442,13 +465,13 @@
       }
       @media (max-width: 375px) {
         .intro-title {
-          font-size: 18px;
+          font-size: 20px;
           margin: 15px 0 20px 0;
         }
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT IMAGE PRINCIPALE
+           COMPOSANT IMAGE PRINCIPALE
            =========================================== */
       /* .intro-image : Image principale en haut de la page */
       .intro-image {
@@ -473,7 +496,7 @@
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT TITRES DE SECTION (NUMÉRO + TITRE)
+           COMPOSANT TITRES DE SECTION
            =========================================== */
       /* .section-header : Container des en-têtes de section (numéro + titre) */
       .section-header {
@@ -520,69 +543,91 @@
         min-height: 100px;
       }
 
-      /* MEDIA QUERIES POUR COMPOSANT TITRES DE SECTION - IDENTIQUES À PAGE1.HTML */
+      /* MEDIA QUERIES POUR COMPOSANT TITRES DE SECTION */
       @media (min-width: 1440px) {
         .section-number {
-          font-size: 36px;
+          font-size: 24px;
+          padding: 8px 12px;
         }
         .section-title {
-          font-size: 24px;
+          font-size: 18px;
+          padding: 8px 12px;
         }
       }
       @media (max-width: 1439px) and (min-width: 1024px) {
         .section-number {
-          font-size: 36px;
+          font-size: 22px;
+          padding: 6px 10px;
         }
         .section-title {
-          font-size: 24px;
+          font-size: 16px;
+          padding: 6px 10px;
         }
       }
       @media (max-width: 1023px) and (min-width: 768px) {
+        .section-header {
+          margin: 20px 0 15px;
+          padding: 0;
+        }
         .section-number {
-          font-size: 36px;
+          font-size: 20px;
+          padding: 5px 8px;
+          min-width: 80px;
+          width: 80px;
         }
         .section-title {
-          font-size: 24px;
+          font-size: 14px;
+          padding: 5px 8px;
+          min-height: 60px;
         }
       }
       @media (max-width: 767px) {
         .section-header {
           flex-direction: column;
           text-align: center;
-          margin: 30px 0 20px;
+          margin: 15px 0 10px;
+          padding: 0;
         }
         .section-number {
           border-radius: 12px 12px 0 0;
           width: 100%;
           text-align: center;
-          font-size: 28px;
+          font-size: 18px;
+          padding: 4px 6px;
+          min-width: auto;
+          min-height: 40px;
         }
         .section-title {
           border-radius: 0 0 12px 12px;
           width: 100%;
-          font-size: 20px;
+          font-size: 12px;
+          padding: 4px 6px;
+          min-height: 40px;
         }
       }
       @media (max-width: 375px) {
         .section-header {
-          margin: 20px 0 15px;
+          margin: 10px 0 5px;
+          padding: 0;
         }
         .section-number {
-          font-size: 24px;
-          padding: 15px 20px;
+          font-size: 16px;
+          padding: 3px 5px;
+          min-height: 30px;
         }
         .section-title {
-          font-size: 16px;
-          padding: 15px 20px;
+          font-size: 10px;
+          padding: 3px 5px;
+          min-height: 30px;
         }
       }
 
       /* ===========================================
-           STYLES POUR COMPOSANT TITRES DE SOUS-SECTION (A., B.)
+           COMPOSANT TITRES DE SOUS-SECTION
            =========================================== */
       /* .subsection-heading : Titres de niveau 3 pour sous-sections (A., B.) */
       .subsection-heading {
-        font-family: "Montserrat", sans-serif;
+        font-family: var(--main-font);
         font-weight: 700;
         color: #5f8bbc;
         font-size: 26px;
@@ -594,280 +639,35 @@
         text-align: left;
       }
 
-      /* ===========================================
-           STYLES POUR PARAGRAPHES DES SOUS-SECTIONS
-           =========================================== */
-      /* .subsection-paragraph : Paragraphes dans les sous-sections */
-      .subsection-paragraph {
-        font-family: var(--main-font);
-        font-size: var(--font-size18);
-        font-weight: 400;
-        line-height: 1.6;
-        color: #333;
-        margin-bottom: 20px;
-        text-align: justify;
-        padding: 0 20px;
-      }
-
-      /* MEDIA QUERIES POUR COMPOSANT TITRES DE SOUS-SECTION - IDENTIQUES À PAGE1.HTML */
+      /* MEDIA QUERIES POUR COMPOSANT TITRES DE SOUS-SECTION */
       @media (min-width: 1440px) {
         .subsection-heading {
-          font-size: 26px;
+          font-size: 28px;
         }
       }
       @media (max-width: 1439px) and (min-width: 1024px) {
         .subsection-heading {
-          font-size: 26px;
+          font-size: 24px;
         }
       }
       @media (max-width: 1023px) and (min-width: 768px) {
         .subsection-heading {
-          font-size: 26px;
+          font-size: 22px;
         }
       }
       @media (max-width: 767px) {
         .subsection-heading {
-          font-size: 16px;
+          font-size: 18px;
         }
       }
       @media (max-width: 375px) {
         .subsection-heading {
-          font-size: 16px;
+          font-size: 14px;
         }
       }
 
       /* ===========================================
-           MEDIA QUERIES POUR PARAGRAPHES DES SOUS-SECTIONS - IDENTIQUES À PAGE1.HTML
-           =========================================== */
-      /* DESKTOP (1440px+) */
-      @media (min-width: 1440px) {
-        .subsection-paragraph {
-          font-size: 20px;
-        }
-      }
-      /* LAPTOP (1024px - 1439px) */
-      @media (max-width: 1439px) and (min-width: 1024px) {
-        .subsection-paragraph {
-          font-size: 18px;
-        }
-      }
-      /* TABLETTE (768px - 1023px) */
-      @media (max-width: 1023px) and (min-width: 768px) {
-        .subsection-paragraph {
-          font-size: 16px;
-        }
-      }
-      /* MOBILE (≤767px) */
-      @media (max-width: 767px) {
-        .subsection-paragraph {
-          font-size: 14px;
-        }
-      }
-      /* TRÈS PETIT MOBILE (≤375px) */
-      @media (max-width: 375px) {
-        .subsection-paragraph {
-          font-size: 12px;
-        }
-      }
-
-      /* ===========================================
-           COMPOSANTS SPÉCIFIQUES DE PAGE5
-           =========================================== */
-      .flex-container {
-        display: flex;
-        align-items: center;
-        gap: 30px;
-        margin: 30px 0;
-        padding: 25px;
-        background: var(--blue-color10);
-        border-radius: 12px;
-        border: none;
-        transition: all var(--transition-fast);
-      }
-
-      .flex-container:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-medium);
-      }
-
-      .text-content {
-        flex: 1;
-      }
-
-      .office-image {
-        width: 200px;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: var(--shadow-light);
-        flex-shrink: 0;
-      }
-
-      .section-text {
-        font-family: var(--main-font);
-        font-size: var(--font-size18);
-        line-height: 1.6;
-        color: #333;
-        text-align: left;
-      }
-
-      /* Liste à puces dans le contenu des sections */
-      .section-list {
-        margin-left: 25px;
-        margin-bottom: 25px;
-        font-size: 18px;
-        line-height: 1.8;
-      }
-
-      .section-list li {
-        margin-bottom: 8px;
-        font-family: var(--main-font);
-        line-height: 1.6;
-      }
-
-      /* Insurance boxes */
-      .insurance-box {
-        border-radius: 20px;
-        box-shadow: var(--shadow-medium);
-        padding: 25px;
-        margin: 25px 0;
-        transition: all var(--transition-fast);
-      }
-
-      .insurance-box:hover {
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-heavy);
-      }
-
-      .insurance-purple {
-        background-color: #e4dceb;
-      }
-
-      .insurance-blue {
-        background-color: #e5eef9;
-      }
-
-      .insurance-gray {
-        background-color: #ebebeb;
-      }
-
-      .insurance-box ul {
-        list-style-type: disc;
-        margin: 15px 0 0 40px;
-      }
-
-      .insurance-box li {
-        margin-bottom: 8px;
-        font-family: var(--main-font);
-        line-height: 1.6;
-      }
-
-      /* MEDIA QUERIES POUR COMPOSANTS SPÉCIFIQUES DE PAGE5 */
-      @media (min-width: 1440px) {
-        .flex-container {
-          gap: 40px;
-          padding: 35px;
-        }
-        .office-image {
-          width: 250px;
-        }
-        .section-text {
-          font-size: 20px;
-          line-height: 1.7;
-        }
-        .insurance-box {
-          padding: 35px;
-        }
-        .insurance-box li {
-          font-size: 20px;
-          line-height: 1.7;
-        }
-      }
-      @media (max-width: 1439px) and (min-width: 1024px) {
-        .flex-container {
-          gap: 35px;
-          padding: 30px;
-        }
-        .office-image {
-          width: 220px;
-        }
-        .section-text {
-          font-size: 18px;
-          line-height: 1.6;
-        }
-        .insurance-box {
-          padding: 30px;
-        }
-        .insurance-box li {
-          font-size: 18px;
-          line-height: 1.6;
-        }
-      }
-      @media (max-width: 1023px) and (min-width: 768px) {
-        .flex-container {
-          gap: 30px;
-          padding: 25px;
-        }
-        .office-image {
-          width: 200px;
-        }
-        .section-text {
-          font-size: 16px;
-          line-height: 1.6;
-        }
-        .insurance-box {
-          padding: 25px;
-        }
-        .insurance-box li {
-          font-size: 16px;
-          line-height: 1.6;
-        }
-      }
-      @media (max-width: 767px) {
-        .flex-container {
-          flex-direction: column;
-          text-align: center;
-          gap: 20px;
-          padding: 20px;
-        }
-        .office-image {
-          width: 180px;
-          margin: 0 auto;
-        }
-        .section-text {
-          font-size: 14px;
-          line-height: 1.5;
-        }
-        .insurance-box {
-          padding: 20px;
-        }
-        .insurance-box li {
-          font-size: 14px;
-          line-height: 1.5;
-        }
-      }
-      @media (max-width: 375px) {
-        .flex-container {
-          padding: 15px;
-          gap: 15px;
-        }
-        .office-image {
-          width: 150px;
-        }
-        .section-text {
-          font-size: 12px;
-          line-height: 1.4;
-        }
-        .insurance-box {
-          padding: 15px;
-        }
-        .insurance-box li {
-          font-size: 12px;
-          line-height: 1.4;
-        }
-      }
-
-      /* ===========================================
-           STYLES POUR COMPOSANT CONCLUSION - À RETENIR
+           COMPOSANT CONCLUSION - À RETENIR
            =========================================== */
       /* .container-a-retenir : Container principal du composant conclusion avec espacement */
       .container-a-retenir {
@@ -942,20 +742,25 @@
       .line {
         display: none;
       }
-      /* .steps .step-content:last-child .line : Affichage de la ligne pour la dernière étape */
+      /* .steps .step-content:last-child .line : Désactive la ligne pour la dernière étape */
       .steps .step-content:last-child .line {
         display: none;
       }
 
-      /* MEDIA QUERIES POUR COMPOSANT CONCLUSION - IDENTIQUES À PAGE0.HTML */
+      /* MEDIA QUERIES POUR COMPOSANT CONCLUSION - À RETENIR */
       @media (min-width: 1440px) {
         .title-retenir-conclusion {
-          font-size: 24px;
+          font-size: 22px;
         }
         .text {
-          font-size: 24px;
+          font-size: 22px;
         }
         .sub-text {
+          font-size: 20px;
+        }
+        .number {
+          width: 50px;
+          height: 50px;
           font-size: 18px;
         }
       }
@@ -969,6 +774,11 @@
         .sub-text {
           font-size: 18px;
         }
+        .number {
+          width: 45px;
+          height: 45px;
+          font-size: 16px;
+        }
       }
       @media (max-width: 1023px) and (min-width: 768px) {
         .title-retenir-conclusion {
@@ -979,6 +789,24 @@
         }
         .sub-text {
           font-size: 16px;
+        }
+        .number {
+          width: 40px;
+          height: 40px;
+          font-size: 14px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 15px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
         }
       }
       @media (max-width: 767px) {
@@ -991,24 +819,52 @@
         .sub-text {
           font-size: 14px;
         }
+        .number {
+          width: 35px;
+          height: 35px;
+          font-size: 12px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 15px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
       }
       @media (max-width: 375px) {
         .title-retenir-conclusion {
-          font-size: 16px;
-        }
-        .text {
-          font-size: 16px;
-        }
-        .sub-text {
           font-size: 14px;
         }
-        /* TEXTES NORMAUX - 12px uniforme comme dans page0.html */
-        .main-content p,
-        .main-content li,
-        .main-content span,
-        .main-content div,
-        .subsection-paragraph {
+        .text {
+          font-size: 14px;
+        }
+        .sub-text {
           font-size: 12px;
+        }
+        .number {
+          width: 30px;
+          height: 30px;
+          font-size: 10px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 10px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
         }
       }
       @media (max-width: 768px) {
@@ -1061,37 +917,29 @@
       }
 
       /* ===========================================
-           CLASSES UTILITAIRES - SYSTÈME DE LAYOUT
+           COMPOSANT CLASSES UTILITAIRES
            =========================================== */
+      /* .is-flex : Active la disposition flexbox */
       .is-flex {
         display: flex;
       }
+      /* .is-flex-wrap-wrap-mobile : Permet le retour à la ligne pour petits écrans */
       .is-flex-wrap-wrap-mobile {
         flex-wrap: wrap;
       }
+      /* .col-1 : Colonne occupant 1/12 de la largeur */
       .col-1 {
         width: 8.333333%;
       }
+      /* .col-11 : Colonne occupant 11/12 de la largeur */
       .col-11 {
         width: 91.666667%;
       }
 
-      .block:not(:last-child) {
-        margin-bottom: 24px;
-      }
-
-      .step-content {
-        margin-bottom: 30px;
-        position: relative;
-      }
-
-      .step-text {
-        padding-left: 20px;
-      }
-
       /* ===========================================
-           COMPOSANT LIGNES3 - STYLES IDENTIQUES À PAGE10.HTML
+           COMPOSANTS SPÉCIFIQUES DE PAGE5 - SECTION 1C (LIGNES3)
            =========================================== */
+      /* .lignes3-container : Container principal pour les rectangles bleus/jaunes */
       .lignes3-container {
         width: 582px;
         margin: 0 auto;
@@ -1101,7 +949,7 @@
         box-sizing: border-box;
         padding: 10px;
       }
-
+      /* .lignes3-rectangle-container : Container pour chaque paire rectangle bleu/jaune */
       .lignes3-rectangle-container {
         position: relative;
         display: flex;
@@ -1109,7 +957,7 @@
         margin: 0;
         padding: 0;
       }
-
+      /* .lignes3-rectangle : Rectangle bleu à gauche avec titre */
       .lignes3-rectangle {
         width: 120px;
         background: #b3cae3;
@@ -1121,7 +969,7 @@
         justify-content: center;
         flex-shrink: 0;
       }
-
+      /* .lignes3-yellow-rectangle : Rectangle jaune à droite avec contenu */
       .lignes3-yellow-rectangle {
         flex: 1;
         background: #f0ecc8;
@@ -1130,14 +978,14 @@
         border-bottom-left-radius: 0;
         overflow: visible;
       }
-
+      /* .lignes3-scroll-content : Contenu scrollable du rectangle jaune */
       .lignes3-scroll-content {
         width: 100%;
         height: auto;
         overflow: visible;
         padding: 15px;
       }
-
+      /* .lignes3-yellow-text : Liste dans le rectangle jaune */
       .lignes3-yellow-text {
         font-family: Arial, sans-serif;
         font-size: 14px;
@@ -1148,12 +996,12 @@
         list-style: disc;
         padding-left: 20px;
       }
-
+      /* .lignes3-yellow-text li : Éléments de la liste */
       .lignes3-yellow-text li {
         margin-bottom: 8px;
         padding-left: 0;
       }
-
+      /* .lignes3-scroll-indicator : Indicateur de scroll (masqué) */
       .lignes3-scroll-indicator {
         position: absolute;
         bottom: 5px;
@@ -1166,7 +1014,7 @@
         padding: 0;
         z-index: 10;
       }
-
+      /* .lignes3-scroll-link : Lien de scroll (masqué) */
       .lignes3-scroll-link {
         display: block;
         width: 100%;
@@ -1177,11 +1025,11 @@
         opacity: 1;
         text-decoration: none;
       }
-
+      /* .lignes3-content-end : Espace de fin (masqué) */
       .lignes3-content-end {
         height: 0;
       }
-
+      /* .lignes3-title : Titre dans le rectangle bleu */
       .lignes3-title {
         font-family: Arial, sans-serif;
         font-size: 14px;
@@ -1190,14 +1038,12 @@
         text-align: center;
         margin: 0;
       }
-
       /* Hover sur l'ensemble du composant lignes3 (bleu + jaune) */
       .lignes3-rectangle-container:hover {
         transform: translateY(-3px);
         box-shadow: 0 6px 20px rgba(95, 139, 188, 0.25);
         transition: all 0.3s ease;
       }
-
       .lignes3-rectangle-container:hover .lignes3-yellow-rectangle {
         background: #e8e0b0;
         transition: all 0.3s ease;
@@ -1219,7 +1065,6 @@
           font-size: 12px;
         }
       }
-
       @media (max-width: 767px) {
         .lignes3-container {
           width: 400px;
@@ -1235,7 +1080,6 @@
           font-size: 11px;
         }
       }
-
       @media (max-width: 480px) {
         .lignes3-container {
           width: 350px;
@@ -1251,7 +1095,6 @@
           font-size: 10px;
         }
       }
-
       @media (max-width: 375px) {
         .lignes3-container {
           width: 300px;
@@ -1268,8 +1111,218 @@
         }
       }
 
+      /* ===========================================
+           COMPOSANTS SPÉCIFIQUES DE PAGE5 - SECTION 1C (FLEX-CONTAINER)
+           =========================================== */
+      /* .flex-container : Container flex pour image + texte */
+      .flex-container {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin: 30px 0;
+        padding: 25px;
+        background: var(--blue-color10);
+        border-radius: 12px;
+        border: none;
+        transition: all var(--transition-fast);
+      }
+      /* .flex-container:hover : Effet hover sur le container flex */
+      .flex-container:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-medium);
+      }
+      /* .text-content : Contenu texte dans le container flex */
+      .text-content {
+        flex: 1;
+      }
+      /* .office-image : Image dans le container flex */
+      .office-image {
+        width: 200px;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: var(--shadow-light);
+        flex-shrink: 0;
+      }
+      /* .section-text : Texte dans les sections */
+      .section-text {
+        font-family: var(--main-font);
+        font-size: var(--font-size18);
+        line-height: 1.6;
+        color: #333;
+        text-align: left;
+      }
+      /* .section-list : Liste à puces dans le contenu des sections */
+      .section-list {
+        margin-left: 25px;
+        margin-bottom: 25px;
+        font-size: 18px;
+        line-height: 1.8;
+      }
+      /* .section-list li : Éléments de la liste des sections */
+      .section-list li {
+        margin-bottom: 8px;
+        font-family: var(--main-font);
+        line-height: 1.6;
+      }
 
+      /* MEDIA QUERIES POUR COMPOSANT FLEX-CONTAINER */
+      @media (min-width: 1440px) {
+        .flex-container {
+          gap: 40px;
+          padding: 35px;
+        }
+        .office-image {
+          width: 250px;
+        }
+        .section-text {
+          font-size: 20px;
+          line-height: 1.7;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .flex-container {
+          gap: 35px;
+          padding: 30px;
+        }
+        .office-image {
+          width: 220px;
+        }
+        .section-text {
+          font-size: 18px;
+          line-height: 1.6;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .flex-container {
+          gap: 30px;
+          padding: 25px;
+        }
+        .office-image {
+          width: 200px;
+        }
+        .section-text {
+          font-size: 16px;
+          line-height: 1.6;
+        }
+      }
+      @media (max-width: 767px) {
+        .flex-container {
+          flex-direction: column;
+          text-align: center;
+          gap: 20px;
+          padding: 20px;
+        }
+        .office-image {
+          width: 180px;
+          margin: 0 auto;
+        }
+        .section-text {
+          font-size: 14px;
+          line-height: 1.5;
+        }
+      }
+      @media (max-width: 375px) {
+        .flex-container {
+          padding: 15px;
+          gap: 15px;
+        }
+        .office-image {
+          width: 150px;
+        }
+        .section-text {
+          font-size: 12px;
+          line-height: 1.4;
+        }
+      }
 
+      /* ===========================================
+           COMPOSANTS SPÉCIFIQUES DE PAGE5 - SECTION 2 (INSURANCE-BOX)
+           =========================================== */
+      /* .section-assurance : Container pour les boîtes d'assurance */
+      .section-assurance {
+        margin-bottom: 30px;
+      }
+      /* .insurance-box : Boîte d'assurance de base */
+      .insurance-box {
+        border-radius: 20px;
+        box-shadow: var(--shadow-medium);
+        padding: 25px;
+        margin: 25px 0;
+        transition: all var(--transition-fast);
+      }
+      /* .insurance-box:hover : Effet hover sur les boîtes d'assurance */
+      .insurance-box:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-heavy);
+      }
+      /* .insurance-purple : Boîte d'assurance violette */
+      .insurance-purple {
+        background-color: #e4dceb;
+      }
+      /* .insurance-blue : Boîte d'assurance bleue */
+      .insurance-blue {
+        background-color: #e5eef9;
+      }
+      /* .insurance-gray : Boîte d'assurance grise */
+      .insurance-gray {
+        background-color: #ebebeb;
+      }
+      /* .insurance-box ul : Liste dans les boîtes d'assurance */
+      .insurance-box ul {
+        list-style-type: disc;
+        margin: 15px 0 0 40px;
+      }
+      /* .insurance-box li : Éléments de liste dans les boîtes d'assurance */
+      .insurance-box li {
+        margin-bottom: 8px;
+        font-family: var(--main-font);
+        line-height: 1.6;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT INSURANCE-BOX */
+      @media (min-width: 1440px) {
+        .insurance-box {
+          padding: 35px;
+        }
+        .insurance-box li {
+          font-size: 20px;
+          line-height: 1.7;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .insurance-box {
+          padding: 30px;
+        }
+        .insurance-box li {
+          font-size: 18px;
+          line-height: 1.6;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .insurance-box {
+          padding: 25px;
+        }
+        .insurance-box li {
+          font-size: 16px;
+          line-height: 1.6;
+        }
+      }
+      @media (max-width: 767px) {
+        .insurance-box {
+          padding: 20px;
+        }
+        .insurance-box li {
+          font-size: 14px;
+          line-height: 1.5;
+        }
+      }
+      @media (max-width: 375px) {
+        .insurance-box {
+          padding: 15px;
+        }
+        .insurance-box li {
+          font-size: 12px;
+          line-height: 1.4;
         }
       }
     </style>

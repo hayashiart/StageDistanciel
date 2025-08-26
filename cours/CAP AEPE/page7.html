@@ -7,117 +7,158 @@
 
     <style>
       /* ===========================================
-           VARIABLES CSS GLOBALES
+           COMPOSANT RESET ET STYLES DE BASE
            =========================================== */
-      :root {
-        /* Couleurs principales */
-        --primary-color: #5f8bbc;
-        --primary-color3: #e1d4ff;
-        --primary-color4: #f0ecc8;
-        --secondary-color: #9747ff;
-        --blue-color10: #e6f0fb;
-
-        /* Couleurs neutres */
-        --gray-color1: #757575;
-        --gray-color6: #ededed;
-        --gray-color7: #f7f7f7;
-        --white-color: #ffffff;
-
-        /* Typographie */
-        --main-font: "Montserrat", sans-serif;
-        --font-size18: 18px;
-        --font-size24: 24px;
-        --font-size28: 28px;
-        --font-size32: 32px;
-        --font-size48: 48px;
-
-        /* Espacement */
-        --spacing-xs: 8px;
-        --spacing-sm: 12px;
-        --spacing-md: 20px;
-        --spacing-lg: 30px;
-        --spacing-xl: 40px;
-
-        /* Ombres */
-        --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
-        --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15);
-        --shadow-heavy: 0 9px 15px rgba(0, 0, 0, 0.2);
-
-        /* Transitions */
-        --transition-fast: 0.3s ease;
-        --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      /* ===========================================
-           RESET ET STYLES DE BASE
-           =========================================== */
+      /* * : Réinitialisation des marges et paddings pour tous les éléments */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
-
+      /* html : Active le défilement fluide pour les ancres */
+      html {
+        scroll-behavior: smooth;
+      }
+      /* body : Style de base pour le corps de la page */
       body {
-        font-family: var(--main-font);
-        font-size: var(--font-size18);
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
         font-weight: 400;
         line-height: 1.6;
         color: #333;
         background-color: #f5f5f5;
         min-height: 100vh;
       }
-
-      /* Styles globaux pour les textes */
+      /* p, li, span, div : Style par défaut pour les éléments de texte */
       p,
       li,
       span,
       div {
-        font-family: var(--main-font);
-        font-size: var(--font-size18);
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
         font-weight: 400;
         color: #333;
       }
-
-      /* Suppression du gras sur tous les éléments strong */
+      /* strong : Surcharge pour éviter les gras indésirables */
       strong {
-        font-weight: 400 !important;
+        font-weight: 700 !important;
+        color: #000000 !important;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT RESET ET STYLES DE BASE */
+      @media (min-width: 1440px) {
+        body {
+          font-size: 20px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        body {
+          font-size: 18px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        body {
+          font-size: 16px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 767px) {
+        body {
+          font-size: 14px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 375px) {
+        body {
+          font-size: 12px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 12px;
+        }
       }
 
       /* ===========================================
-           DÉFILEMENT FLUIDE - NAVIGATION SMOOTH SCROLL
+           COMPOSANT CONTAINER PRINCIPAL
            =========================================== */
-      html {
-        scroll-behavior: smooth; /* Animation douce lors du scroll vers les ancres */
-      }
-
-      /* ===========================================
-           CONTAINER PRINCIPAL - STRUCTURE MAÎTRESSE DE LA PAGE
-           =========================================== */
-
-      /* ===========================================
-           CONTAINER PRINCIPAL - CENTRAGE ET OMBRE PORTÉE
-           =========================================== */
+      /* .main-container : Container principal pour centrer et styliser la page */
       .main-container {
-        width: 60%; /* Largeur relative pour s'adapter aux écrans */
-        max-width: 1200px; /* Largeur maximale pour éviter l'étirement excessif */
-        margin: 40px auto; /* Centrage horizontal avec marge verticale augmentée */
-        background: var(
-          --white-color
-        ); /* Fond blanc pour contraste avec l'arrière-plan */
-        border-radius: 12px; /* Coins arrondis pour un design moderne */
-        box-shadow: var(
-          --shadow-heavy
-        ); /* Ombre portée pour effet de profondeur */
-        padding: 40px; /* Espacement interne augmenté pour le contenu */
-        position: relative; /* Position relative pour les éléments enfants */
-        overflow: hidden; /* Masque le débordement pour les animations */
+        width: 60%;
+        max-width: 1200px;
+        margin: 40px auto;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 9px 15px rgba(0, 0, 0, 0.2);
+        padding: 40px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT CONTAINER PRINCIPAL */
+      @media (min-width: 1440px) {
+        .main-container {
+          width: 60%;
+          margin: 40px auto;
+          padding: 40px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .main-container {
+          width: 70%;
+          margin: 40px auto;
+          padding: 35px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .main-container {
+          width: 80%;
+          margin: 20px auto;
+          padding: 25px;
+        }
+      }
+      @media (max-width: 767px) {
+        .main-container {
+          width: 95%;
+          margin: 15px auto;
+          padding: 20px;
+        }
+      }
+      @media (max-width: 375px) {
+        .main-container {
+          width: 98%;
+          margin: 10px auto;
+          padding: 15px;
+        }
       }
 
       /* ===========================================
-           LAYOUT ET STRUCTURE
+           COMPOSANT LAYOUT ET STRUCTURE
            =========================================== */
-
-      /* Container de la page avec flexbox */
+      /* .page-container : Container pour disposition flex de la page */
       .page-container {
         display: flex;
         gap: 25px;
@@ -125,38 +166,49 @@
         align-items: flex-start;
         width: 100%;
       }
-
-      /* Contenu principal avec gestion du débordement */
+      /* .main-content : Contenu principal avec gestion du débordement */
       .main-content {
         flex: 1;
         padding: 20px;
-        transition: margin-left var(--transition-fast);
+        transition: margin-left 0.3s ease;
         min-width: 0;
         overflow: hidden;
         width: 100%;
       }
 
-      /* ===========================================
-           MARGES ENTRE LES ÉLÉMENTS - ESPACEMENT GLOBAL
-           =========================================== */
+      /* MEDIA QUERIES POUR COMPOSANT LAYOUT ET STRUCTURE */
+      @media (max-width: 767px) {
+        .page-container {
+          flex-direction: column;
+        }
+        .main-content {
+          padding: 15px;
+          overflow: visible;
+        }
+      }
+      @media (max-width: 375px) {
+        .main-content {
+          padding: 10px;
+        }
+      }
 
-      /* Marges entre les sections */
+      /* ===========================================
+           COMPOSANT ESPACEMENT GLOBAL
+           =========================================== */
+      /* section : Marges pour les sections */
       section {
         margin-bottom: 30px;
       }
-
-      /* Marges entre les sous-sections */
+      /* .subsection : Marges pour les sous-sections */
       .subsection {
         margin-bottom: 25px;
       }
-
-      /* Marges entre les paragraphes */
+      /* p : Marges pour les paragraphes */
       p {
         margin-bottom: 15px;
         text-align: left;
       }
-
-      /* Marges entre les titres et le contenu */
+      /* h1, h2, h3, h4, h5, h6 : Marges pour les titres */
       h1,
       h2,
       h3,
@@ -165,75 +217,56 @@
       h6 {
         margin-bottom: 20px;
       }
-
-      /* Marges entre les composants */
-      .section1-a-flex-container,
-      .powers-section,
-      .regime-section,
-      .admin-intro,
-      .admin-container,
-      .decentralisation-highlight-section,
-      .video-container,
-      .flex-container,
-      .content-section {
-        margin-bottom: 30px;
-      }
-
-      /* Marges entre les éléments de liste */
+      /* ul, ol : Marges pour les listes */
       ul,
       ol {
         margin-bottom: 20px;
       }
-
+      /* li : Marges pour les éléments de liste */
       li {
         margin-bottom: 8px;
       }
 
       /* ===========================================
-           MENU BURGER - SYSTÈME DE NAVIGATION
+           COMPOSANT MENU BURGER
            =========================================== */
-
-      /* Checkbox caché pour contrôler l'état du menu */
+      /* .menu-toggle-checkbox : Checkbox caché pour contrôler l'état du menu */
       .menu-toggle-checkbox {
         display: none;
       }
-
-      /* Bouton menu burger - visible sur tous les formats */
+      /* .menu-toggle : Bouton menu burger - visible sur tous les formats */
       .menu-toggle {
         display: block;
         position: fixed;
-        top: var(--spacing-lg);
-        left: var(--spacing-lg);
+        top: 30px;
+        left: 30px;
         width: 40px;
         height: 40px;
         cursor: pointer;
         z-index: 2001;
         opacity: 0.8;
-        transition: opacity var(--transition-fast);
-        background: var(--white-color);
+        transition: opacity 0.3s ease;
+        background: #ffffff;
         border-radius: 8px;
         padding: 8px;
-        box-shadow: var(--shadow-light);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
       }
-
-      /* Effet hover sur le bouton menu burger */
+      /* .menu-toggle:hover : Effet hover sur le bouton menu burger */
       .menu-toggle:hover {
         opacity: 1;
       }
-
-      /* Image du menu burger - reste constante */
+      /* .menu-toggle img : Image du menu burger - reste constante */
       .menu-toggle img {
         width: 100%;
         height: 100%;
         object-fit: contain;
         transition: none;
       }
-
-      /* Menu latéral qui glisse depuis la gauche */
+      /* .menu : Menu latéral qui glisse depuis la gauche */
       .menu {
         position: fixed;
         top: 0;
@@ -241,93 +274,125 @@
         width: 70%;
         max-width: 300px;
         height: 100%;
-        background: var(--white-color);
+        background: #ffffff;
         box-shadow: 4px 0 16px rgba(0, 0, 0, 0.15);
         transform: translateX(-100%);
-        transition: transform var(--transition-fast);
-        padding: 100px 30px 40px 30px; /* Augmenté le padding pour éviter le chevauchement */
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 100px 30px 40px 30px;
         z-index: 1500;
         border-right: 1px solid #e0e0e0;
-        overflow-y: auto; /* Permet le défilement vertical */
-        overflow-x: hidden; /* Cache le défilement horizontal */
+        overflow-y: auto;
+        overflow-x: hidden;
       }
-
-      /* Affiche le menu quand le checkbox est coché (glissement vers la droite) */
+      /* .menu-toggle-checkbox:checked + .menu-toggle + .menu : Affiche le menu quand le checkbox est coché */
       .menu-toggle-checkbox:checked + .menu-toggle + .menu {
         transform: translateX(0);
       }
-
-      /* Supprime les puces de la liste du menu */
+      /* .menu ul : Supprime les puces de la liste du menu */
       .menu ul {
         list-style: none;
       }
-
-      /* Espacement entre les éléments du menu */
+      /* .menu ul li : Espacement entre les éléments du menu */
       .menu ul li {
-        margin-bottom: 25px; /* Augmenté l'espacement entre les liens */
+        margin-bottom: 25px;
       }
-
-      /* Liens de navigation dans le menu burger */
+      /* .menu ul li a : Liens de navigation dans le menu burger */
       .menu ul li a {
         color: #333;
         text-decoration: none;
         font-weight: 600;
-        font-size: var(--font-size18);
-        transition: all var(--transition-fast);
+        font-size: 18px;
+        transition: all 0.3s ease;
         display: block;
-        padding: 18px 20px; /* Augmenté le padding pour plus d'espace */
+        padding: 18px 20px;
         border-radius: 10px;
-        background: var(--white-color);
+        background: #ffffff;
         border: 1px solid #e0e0e0;
-        margin-bottom: 10px; /* Espacement supplémentaire entre les liens */
+        margin-bottom: 10px;
       }
-
-      /* Effet hover sur les liens du menu burger */
+      /* .menu ul li a:hover : Effet hover sur les liens du menu burger */
       .menu ul li a:hover {
-        color: var(--primary-color);
-        background: var(--blue-color10);
+        color: #5f8bbc;
+        background: #e6f0fb;
         transform: translateX(10px);
         box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
+        transition: all 0.3s ease;
       }
-
-      /* ===========================================
-           PERSONNALISATION DE LA BARRE DE DÉFILEMENT
-           =========================================== */
-
-      /* Masque la barre de défilement par défaut */
+      /* .menu::-webkit-scrollbar : Personnalisation de la barre de défilement */
       .menu::-webkit-scrollbar {
         width: 6px;
       }
-
-      /* Piste de la barre de défilement */
+      /* .menu::-webkit-scrollbar-track : Piste de la barre de défilement */
       .menu::-webkit-scrollbar-track {
         background: transparent;
       }
-
-      /* Curseur de la barre de défilement */
+      /* .menu::-webkit-scrollbar-thumb : Curseur de la barre de défilement */
       .menu::-webkit-scrollbar-thumb {
-        background: var(--primary-color);
+        background: #5f8bbc;
         border-radius: 3px;
         opacity: 0.7;
       }
-
-      /* Effet hover sur le curseur */
+      /* .menu::-webkit-scrollbar-thumb:hover : Effet hover sur le curseur */
       .menu::-webkit-scrollbar-thumb:hover {
         background: #4a7aa3;
         opacity: 1;
       }
-
-      /* Support pour Firefox */
+      /* .menu : Support pour Firefox */
       .menu {
         scrollbar-width: thin;
-        scrollbar-color: var(--primary-color) transparent;
+        scrollbar-color: #5f8bbc transparent;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT MENU BURGER */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .menu {
+          width: 60%;
+          max-width: 280px;
+          padding: 70px 20px 25px;
+        }
+        .menu-toggle {
+          width: 35px;
+          height: 35px;
+          padding: 6px;
+        }
+      }
+      @media (max-width: 767px) {
+        .menu {
+          width: 75%;
+          max-width: 250px;
+          padding: 60px 15px 20px;
+        }
+        .menu-toggle {
+          width: 32px;
+          height: 32px;
+          padding: 5px;
+          top: 20px;
+          left: 20px;
+        }
+        .menu-toggle img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      @media (max-width: 375px) {
+        .menu {
+          width: 85%;
+          max-width: 280px;
+          padding: 50px 10px 15px;
+        }
+        .menu-toggle {
+          width: 28px;
+          height: 28px;
+          padding: 4px;
+          top: 15px;
+          left: 15px;
+        }
       }
 
       /* ===========================================
-            TITRES ET EN-TÊTES
-            =========================================== */
-
-      /* Titre principal de la page */
+           COMPOSANT TITRE PRINCIPAL
+           =========================================== */
+      /* .intro-title : Titre principal de la page */
       .intro-title {
         font-family: var(--main-font);
         font-weight: 700;
@@ -338,17 +403,64 @@
         margin: 30px 0 40px 0;
       }
 
-      /* Image principale en haut de la page */
+      /* MEDIA QUERIES POUR COMPOSANT TITRE PRINCIPAL */
+      @media (min-width: 1440px) {
+        .intro-title {
+          font-size: 36px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .intro-title {
+          font-size: 32px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .intro-title {
+          font-size: 32px;
+        }
+      }
+      @media (max-width: 767px) {
+        .intro-title {
+          font-size: 24px;
+          margin: 20px 0 30px 0;
+        }
+      }
+      @media (max-width: 375px) {
+        .intro-title {
+          font-size: 20px;
+          margin: 15px 0 20px 0;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT IMAGE PRINCIPALE
+           =========================================== */
+      /* .intro-image : Image principale en haut de la page */
       .intro-image {
         display: block;
         max-width: 100%;
         height: auto;
         margin: 30px auto;
         border-radius: 12px;
-        box-shadow: var(--shadow-medium);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       }
 
-      /* Container des en-têtes de section (numéro + titre) */
+      /* MEDIA QUERIES POUR COMPOSANT IMAGE PRINCIPALE */
+      @media (max-width: 767px) {
+        .intro-image {
+          margin: 20px auto;
+        }
+      }
+      @media (max-width: 375px) {
+        .intro-image {
+          margin: 15px auto;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT TITRES DE SECTION
+           =========================================== */
+      /* .section-header : Container des en-têtes de section (numéro + titre) */
       .section-header {
         display: flex;
         align-items: center;
@@ -360,8 +472,7 @@
         box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
         overflow: hidden;
       }
-
-      /* Numéro de section (01, 02, etc.) - partie bleue à gauche */
+      /* .section-number : Numéro de section (01, 02, etc.) - partie bleue à gauche */
       .section-number {
         background: #3b6ea5;
         color: var(--white-color);
@@ -379,8 +490,7 @@
         flex-shrink: 0;
         align-self: stretch;
       }
-
-      /* Titre de section (texte principal) - partie droite */
+      /* .section-title : Titre de section (texte principal) - partie droite */
       .section-title {
         color: #3b6ea5;
         font-family: var(--main-font);
@@ -395,15 +505,91 @@
         min-height: 100px;
       }
 
-      /* ===========================================
-           COMPOSANTS ET SECTIONS
-           =========================================== */
+      /* MEDIA QUERIES POUR COMPOSANT TITRES DE SECTION */
+      @media (min-width: 1440px) {
+        .section-number {
+          font-size: 24px;
+          padding: 8px 12px;
+        }
+        .section-title {
+          font-size: 18px;
+          padding: 8px 12px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .section-number {
+          font-size: 22px;
+          padding: 6px 10px;
+        }
+        .section-title {
+          font-size: 16px;
+          padding: 6px 10px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .section-header {
+          margin: 20px 0 15px;
+          padding: 0;
+        }
+        .section-number {
+          font-size: 20px;
+          padding: 5px 8px;
+          min-width: 80px;
+          width: 80px;
+        }
+        .section-title {
+          font-size: 14px;
+          padding: 5px 8px;
+          min-height: 60px;
+        }
+      }
+      @media (max-width: 767px) {
+        .section-header {
+          flex-direction: column;
+          text-align: center;
+          margin: 15px 0 10px;
+          padding: 0;
+        }
+        .section-number {
+          border-radius: 12px 12px 0 0;
+          width: 100%;
+          text-align: center;
+          font-size: 18px;
+          padding: 4px 6px;
+          min-width: auto;
+          min-height: 40px;
+        }
+        .section-title {
+          border-radius: 0 0 12px 12px;
+          width: 100%;
+          font-size: 12px;
+          padding: 4px 6px;
+          min-height: 40px;
+        }
+      }
+      @media (max-width: 375px) {
+        .section-header {
+          margin: 10px 0 5px;
+          padding: 0;
+        }
+        .section-number {
+          font-size: 16px;
+          padding: 3px 5px;
+          min-height: 30px;
+        }
+        .section-title {
+          font-size: 10px;
+          padding: 3px 5px;
+          min-height: 30px;
+        }
+      }
 
       /* ===========================================
-           SOUS-SECTIONS - TITRES DE NIVEAU 3
+           COMPOSANT TITRES DE SOUS-SECTION
            =========================================== */
+      /* .subsection-heading : Titres de niveau 3 pour sous-sections (A., B.) */
       .subsection-heading {
-        font-family: "Montserrat", sans-serif;
+        font-family: var(--main-font);
         font-weight: 700;
         color: #5f8bbc;
         font-size: 26px;
@@ -412,386 +598,54 @@
         background: #f8fbff;
         border-left: 5px solid #5f8bbc;
         border-radius: 0 8px 8px 0;
-        text-align: left; /* Alignement à gauche explicite */
-      }
-
-      /* ===========================================
-           COMPOSANT FLEXIBLE - TEXTE ET IMAGE CÔTE À CÔTE
-           =========================================== */
-      .content-section {
-        display: flex;
-        align-items: flex-start;
-        gap: 30px;
-        margin: 30px 0;
-        padding: 25px;
-        background: var(--blue-color10);
-        border-radius: 12px;
-        border: none;
-        transition: all var(--transition-smooth);
-      }
-
-      /* Effet hover sur le composant flexible */
-      .content-section:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(59, 110, 165, 0.3);
-      }
-
-      /* Contenu texte du composant flexible */
-      .content-text {
-        flex: 2;
-        font-family: var(--main-font);
-        font-size: var(--font-size18);
-        line-height: 1.7;
-        color: #333;
         text-align: left;
       }
 
-      /* Image du composant flexible */
-      .content-image {
-        flex: 1;
-        text-align: center;
-        max-width: 300px;
+      /* MEDIA QUERIES POUR COMPOSANT TITRES DE SOUS-SECTION */
+      @media (min-width: 1440px) {
+        .subsection-heading {
+          font-size: 28px;
+        }
       }
-
-      .content-image img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: none;
-        border: none;
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .subsection-heading {
+          font-size: 24px;
+        }
       }
-
-      /* ===========================================
-           COMPOSANTS SPÉCIFIQUES PAGE7
-           =========================================== */
-
-      /* Composant avec fond jaune et titre bleu */
-      .yellow-box {
-        background-color: var(--primary-color4);
-        border-radius: 12px;
-        padding: 30px;
-        margin: 30px 0;
-        box-shadow: var(--shadow-light);
-        transition: all var(--transition-smooth);
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .subsection-heading {
+          font-size: 22px;
+        }
       }
-
-      .yellow-box:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-medium);
+      @media (max-width: 767px) {
+        .subsection-heading {
+          font-size: 18px;
+        }
       }
-
-      .yellow-box-title {
-        background-color: #b3cae3;
-        color: var(--white-color);
-        font-family: var(--main-font);
-        font-weight: 700;
-        font-size: 32px;
-        padding: 20px;
-        border-radius: 8px;
-        margin-bottom: 20px;
-        text-align: center;
-      }
-
-      .yellow-box-content {
-        font-family: var(--main-font);
-        font-weight: 400;
-        color: #000000;
-        font-size: 24px;
-        line-height: 1.6;
+      @media (max-width: 375px) {
+        .subsection-heading {
+          font-size: 14px;
+        }
       }
 
       /* ===========================================
-           COMPOSANTS SPÉCIFIQUES PAGE7 - OPTIMISÉS
+           COMPOSANT CONCLUSION - À RETENIR
            =========================================== */
-
-      /* ===========================================
-           COMPOSANT RÉGIME - IMAGE À GAUCHE ET BLOC JAUNE À DROITE
-           (Sans bloc jaune englobant pour plus de lisibilité)
-           =========================================== */
-      /* Container principal avec image et texte côte à côte */
-      .regime-container {
-        display: flex;
-        align-items: center;
-        gap: 30px;
-        margin: 30px 0;
-        transition: all var(--transition-smooth);
-      }
-
-      /* Container de l'image à gauche */
-      .regime-img {
-        flex-shrink: 0;
-        width: 200px;
-        height: 200px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      /* Image avec taille adaptative */
-      .regime-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 8px;
-        box-shadow: var(--shadow-light);
-      }
-
-      /* Container du texte à droite */
-      .regime-text {
-        flex: 1;
-        min-width: 0;
-      }
-
-      /* Bloc de texte avec fond jaune */
-      .regime-highlight {
-        background: #f0ecc8;
-        padding: 25px;
-        border-radius: 8px;
-        box-shadow: var(--shadow-light);
-      }
-
-      /* Paragraphes dans le bloc jaune */
-      .regime-highlight p {
-        font-family: var(--main-font);
-        font-size: var(--font-size18);
-        line-height: 1.7;
-        color: #333;
-        margin: 0;
-        text-align: left;
-      }
-
-      /* ===========================================
-           COMPOSANTS DE PAGE1 (RÉUTILISÉS)
-           =========================================== */
-
-      /* ===========================================
-           COMPOSANT BOX3LIGNES - 3 COLONNES AVEC IMAGES ET TEXTE
-           =========================================== */
-      /* Container principal avec 3 colonnes flexibles */
-      .box3lignes-container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: stretch;
-        gap: var(--spacing-md);
-        padding: var(--spacing-lg);
-        background: var(--primary-color4);
-        border-radius: 12px;
-        box-shadow: var(--shadow-light);
-        margin: var(--spacing-lg) auto;
-        max-width: 100%;
-      }
-
-      /* Colonne individuelle avec image et texte */
-      .box3lignes-row {
-        flex: 1 1 calc(33.33% - var(--spacing-md) * 2 / 3);
-        min-width: 280px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background: #f0ecc8;
-        border-radius: 8px;
-        padding: 25px;
-        box-shadow: var(--shadow-light);
-        text-align: center;
-        transition: all var(--transition-smooth);
-      }
-
-      /* Effet hover sur les colonnes - élévation */
-      .box3lignes-row:hover {
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-medium);
-      }
-
-      /* Image de la colonne avec taille adaptative */
-      .box3lignes-image {
-        width: 100%;
-        max-width: 150px;
-        height: auto;
-        object-fit: contain;
-        margin-bottom: var(--spacing-sm);
-        border-radius: 4px;
-      }
-
-      /* Container du contenu texte */
-      .box3lignes-text-content {
-        flex: 1;
-        display: block;
-        text-align: left;
-      }
-
-      /* Texte descriptif de la colonne */
-      .box3lignes-text {
-        font-family: var(--main-font);
-        font-size: var(--font-size18);
-        color: #333;
-        line-height: 1.6;
-        margin: 0;
-        padding: 0;
-      }
-
-      /* ===========================================
-           COMPOSANT DÉCENTRALISATION - BANDE VERTICALE JAUNE
-           =========================================== */
-      /* Titre de la section décentralisation */
-      .decentralisation-subtitle {
-        color: var(--primary-color);
-        font-weight: bold;
-        font-size: var(--font-size24);
-        margin: var(--spacing-md) var(--spacing-lg) var(--spacing-xs);
-        margin-bottom: var(--spacing-lg);
-        margin-top: var(--spacing-lg);
-        font-family: var(--main-font);
-      }
-
-      /* Texte d'introduction à la décentralisation */
-      .decentralisation-intro-text {
-        max-width: 800px;
-        margin: 0 var(--spacing-lg) var(--spacing-lg);
-        text-align: left;
-        font-size: 16px;
-        margin-bottom: var(--spacing-lg);
-        width: 80%;
-        margin-left: 10%;
-        font-family: var(--main-font);
-        color: #333;
-      }
-
-      /* Section avec bande verticale jaune en arrière-plan */
-      .decentralisation-highlight-section {
-        position: relative;
-        padding: 50px 30px;
-        z-index: 1;
-        margin: 30px 0;
-      }
-
-      /* Bande verticale jaune créée avec pseudo-élément */
-      .decentralisation-highlight-section::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 40%;
-        height: 100%;
-        background-color: #f5e7c4;
-        z-index: -1;
-      }
-
-      /* Container du contenu centré */
-      .decentralisation-content {
-        max-width: 700px;
-        margin: 0 auto;
-        text-align: center;
-        padding: 20px;
-      }
-
-      /* Contenu pour la Commune */
-      .decentralisation-content-1 {
-        color: #333;
-      }
-
-      /* Contenu pour le Département */
-      .decentralisation-content-2 {
-        color: #333;
-      }
-
-      /* Contenu pour la Région */
-      .decentralisation-content-3 {
-        color: #333;
-      }
-
-      /* Titres des niveaux administratifs */
-      .decentralisation-content h3 {
-        margin-top: 30px;
-        font-size: var(--font-size32);
-        font-weight: bold;
-        font-family: var(--main-font);
-        color: #333;
-      }
-
-      /* Paragraphes descriptifs centrés */
-      .decentralisation-content p {
-        font-size: var(--font-size18);
-        margin-bottom: 30px;
-        font-family: var(--main-font);
-        color: #333;
-      }
-
-      /* ===========================================
-           STYLES POUR LES PARAGRAPHES ET LISTES - AMÉLIORATION
-           =========================================== */
-      /* Styles pour les paragraphes dans les sections de contenu */
-      .content-text p {
-        font-family: var(--main-font);
-        font-size: var(--font-size18);
-        line-height: 1.7;
-        margin-bottom: 15px;
-        color: #333;
-        text-align: left;
-      }
-
-      /* Styles pour les paragraphes avec strong */
-      .content-text p strong {
-        font-weight: 600;
-        color: var(--primary-color);
-      }
-
-      /* Styles pour les listes à puces */
-      .content-text ul {
-        margin: 20px 0;
-        padding-left: 25px;
-      }
-
-      .content-text li {
-        font-family: var(--main-font);
-        font-size: var(--font-size18);
-        line-height: 1.7;
-        margin-bottom: 10px;
-        color: #333;
-      }
-
-      /* Styles pour les paragraphes dans les boîtes jaunes */
-      .yellow-box-content p {
-        font-family: var(--main-font);
-        font-size: var(--font-size18);
-        line-height: 1.7;
-        margin-bottom: 15px;
-        color: #333;
-        text-align: left;
-      }
-
-      /* Styles pour les paragraphes dans les sections de régime */
-      .regime-text p {
-        font-family: var(--main-font);
-        font-size: var(--font-size18);
-        line-height: 1.7;
-        margin-bottom: 15px;
-        color: #333;
-        text-align: left;
-      }
-
-      /* ===========================================
-           COMPOSANT CONCLUSION - STYLES IDENTIQUES À PAGE8.HTML
-           =========================================== */
+      /* .container-a-retenir : Container principal du composant conclusion avec espacement */
       .container-a-retenir {
         padding: 35px;
         margin: 45px 0;
       }
-
-      /* ===========================================
-           TITRE ET IMAGE - COMPOSANT CONCLUSION
-           =========================================== */
+      /* .wrap-title-retenir-conclusion : Wrapper pour le titre et l'image - disposition verticale centrée */
       .wrap-title-retenir-conclusion {
         flex-direction: column;
         align-items: center;
       }
-
+      /* .retenir-img : Image au-dessus du titre "À retenir" - taille adaptative */
       .retenir-img {
         width: 35%;
       }
-
+      /* .title-retenir-conclusion : Titre principal "À RETENIR" - style typographique */
       .title-retenir-conclusion {
         color: var(--gray-color1);
         text-align: center;
@@ -802,20 +656,17 @@
         text-transform: uppercase;
         margin-top: 20px;
       }
-
-      /* ===========================================
-           STEPS - COMPOSANT CONCLUSION
-           =========================================== */
+      /* .steps : Container des étapes numérotées */
       .steps {
         padding: 20px;
       }
-
+      /* .step : Structure de chaque étape - disposition verticale centrée */
       .step {
         flex-direction: column;
         position: relative;
         align-items: center;
       }
-
+      /* .number : Numéro de l'étape - cercle coloré avec le numéro */
       .number {
         font-size: 18px;
         font-family: var(--main-font);
@@ -826,10 +677,11 @@
         background-color: var(--primary-color);
         width: 50px;
         height: 50px;
+        display: flex;
         align-items: center;
         justify-content: center;
       }
-
+      /* .text : Texte principal de l'étape - titre en gras */
       .text {
         font-family: var(--main-font);
         color: var(--primary-color);
@@ -839,7 +691,7 @@
         margin: 0;
         padding-left: 15px;
       }
-
+      /* .sub-text : Texte secondaire de l'étape - description détaillée */
       .sub-text {
         font-family: var(--main-font);
         color: var(--gray-color1);
@@ -848,821 +700,646 @@
         text-align: justify;
         padding-left: 15px;
       }
-
+      /* .line : Ligne verticale pointillée entre les étapes */
       .line {
         display: none;
       }
-
+      /* .steps .step-content:last-child .line : Désactive la ligne pour la dernière étape */
       .steps .step-content:last-child .line {
         display: none;
       }
 
+      /* MEDIA QUERIES POUR COMPOSANT CONCLUSION - À RETENIR */
+      @media (min-width: 1440px) {
+        .title-retenir-conclusion {
+          font-size: 22px;
+        }
+        .text {
+          font-size: 22px;
+        }
+        .sub-text {
+          font-size: 20px;
+        }
+        .number {
+          width: 50px;
+          height: 50px;
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .title-retenir-conclusion {
+          font-size: 20px;
+        }
+        .text {
+          font-size: 20px;
+        }
+        .sub-text {
+          font-size: 18px;
+        }
+        .number {
+          width: 45px;
+          height: 45px;
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .title-retenir-conclusion {
+          font-size: 18px;
+        }
+        .text {
+          font-size: 18px;
+        }
+        .sub-text {
+          font-size: 16px;
+        }
+        .number {
+          width: 40px;
+          height: 40px;
+          font-size: 14px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 15px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+      @media (max-width: 767px) {
+        .title-retenir-conclusion {
+          font-size: 16px;
+        }
+        .text {
+          font-size: 16px;
+        }
+        .sub-text {
+          font-size: 14px;
+        }
+        .number {
+          width: 35px;
+          height: 35px;
+          font-size: 12px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 15px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+      @media (max-width: 375px) {
+        .title-retenir-conclusion {
+          font-size: 14px;
+        }
+        .text {
+          font-size: 14px;
+        }
+        .sub-text {
+          font-size: 12px;
+        }
+        .number {
+          width: 30px;
+          height: 30px;
+          font-size: 10px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 10px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+      @media (max-width: 768px) {
+        .container-a-retenir {
+          text-align: center;
+        }
+        .steps {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+        .step-content {
+          width: 100%;
+          max-width: 600px;
+          margin-bottom: 24px;
+        }
+        .text,
+        .sub-text {
+          text-align: center;
+        }
+        .steps .step-content:last-child .line {
+          display: block;
+        }
+      }
+      @media (max-width: 992px) and (min-width: 768px) {
+        .container-a-retenir {
+          text-align: center;
+        }
+        .steps {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+        .step-content {
+          width: 100%;
+          max-width: 600px;
+          margin-bottom: 24px;
+        }
+        .text,
+        .sub-text {
+          text-align: center;
+        }
+        .steps .step-content:last-child .line {
+          display: block;
+        }
+      }
+
       /* ===========================================
-           CLASSES UTILITAIRES
+           COMPOSANT CLASSES UTILITAIRES
            =========================================== */
+      /* .is-flex : Active la disposition flexbox */
       .is-flex {
         display: flex;
       }
+      /* .is-flex-wrap-wrap-mobile : Permet le retour à la ligne pour petits écrans */
       .is-flex-wrap-wrap-mobile {
         flex-wrap: wrap;
       }
+      /* .col-1 : Colonne occupant 1/12 de la largeur */
       .col-1 {
         width: 8.333333%;
       }
+      /* .col-11 : Colonne occupant 11/12 de la largeur */
       .col-11 {
         width: 91.666667%;
       }
 
       /* ===========================================
-           RESPONSIVE DESIGN - COMPOSANT CONCLUSION
+           COMPOSANT CONTENT SECTION NEW (Box bleue + Image à droite)
            =========================================== */
-      /* Mobile */
-      @media (max-width: 768px) {
-        .text,
-        .sub-text {
-          text-align: center;
-        }
-
-        .step-content {
-          margin-bottom: 24px;
-        }
-
-        .steps .step-content:last-child .line {
-          display: none;
-        }
+      /* .content-section-new : Container principal avec box bleue et image à droite */
+      .content-section-new {
+        display: flex;
+        align-items: flex-start;
+        gap: 30px;
+        margin: 30px 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
-
-      /* Tablet */
-      @media (max-width: 992px) and (min-width: 768px) {
-        .text,
-        .sub-text {
-          text-align: center;
-        }
-
-        .step-content {
-          margin-bottom: 24px;
-        }
-
-        .steps .step-content:last-child .line {
-          display: none;
-        }
+      /* .content-text-new : Box bleue contenant le texte */
+      .content-text-new {
+        flex: 1;
+        background: #d5e9ff;
+        border-radius: 12px;
+        padding: 25px;
+        border: none;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      /* .content-text-new:hover : Effet hover sur la box bleue */
+      .content-text-new:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(59, 110, 165, 0.3);
+      }
+      /* .content-text-new p : Styles pour les paragraphes dans la box bleue */
+      .content-text-new p {
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        line-height: 1.7;
+        margin-bottom: 15px;
+        color: #333;
+        text-align: left;
+      }
+      /* .content-text-new p strong : Styles pour les paragraphes avec strong */
+      .content-text-new p strong {
+        font-weight: 700;
+        color: #000000;
+      }
+      /* .content-image-new : Image à droite de la box bleue */
+      .content-image-new {
+        flex-shrink: 0;
+        text-align: center;
+        max-width: 300px;
+        width: 300px;
+      }
+      /* .content-image-new img : Styles pour l'image */
+      .content-image-new img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      /* .content-image-new img:hover : Effet hover sur l'image */
+      .content-image-new img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 9px 15px rgba(0, 0, 0, 0.2);
       }
 
       /* ===========================================
-           RESPONSIVE DESIGN - OPTIMISÉ POUR LISIBILITÉ
+           COMPOSANT IMAGE SECTION 1
            =========================================== */
-
-      /* ===========================================
-           DESKTOP (992px et plus)
-           =========================================== */
-      @media (min-width: 992px) {
-        .main-content {
-          margin-left: 0;
-        }
+      /* Image de la section 1 */
+      #section1 img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        margin: 25px auto;
+        display: block;
+        width: 80%;
+        max-width: 600px;
+      }
+      /* .content-text p : Styles pour les paragraphes dans les sections de contenu */
+      .content-text p {
+        font-family: var(--main-font);
+        font-size: var(--font-size18);
+        line-height: 1.7;
+        margin-bottom: 15px;
+        color: #333;
+        text-align: left;
+      }
+      /* .content-text p strong : Styles pour les paragraphes avec strong */
+      .content-text p strong {
+        font-weight: 700;
+        color: #000000;
+      }
+      /* .content-text ul : Styles pour les listes à puces */
+      .content-text ul {
+        margin: 20px 0;
+        padding-left: 25px;
+      }
+      /* .content-text li : Styles pour les éléments de liste */
+      .content-text li {
+        font-family: var(--main-font);
+        font-size: var(--font-size18);
+        line-height: 1.7;
+        margin-bottom: 10px;
+        color: #333;
       }
 
-      /* ===========================================
-           TABLETTE (768px à 991px)
-           =========================================== */
-      @media (max-width: 991px) and (min-width: 768px) {
-        .main-content {
-          margin-left: 0;
-        }
-
-        .main-container {
-          width: 80%;
+      /* MEDIA QUERIES POUR COMPOSANT CONTENT SECTION NEW */
+      @media (max-width: 767px) {
+        /* Image section 1 - Mobile */
+        #section1 img {
+          width: 95%;
+          max-width: 400px;
           margin: 20px auto;
-          padding: 25px;
+          border-radius: 10px;
         }
 
-        .page-container {
+        /* COMPOSANT CONTENT SECTION NEW - Mobile */
+        .content-section-new {
           flex-direction: column;
+          gap: 20px;
         }
-
-        .main-content {
+        .content-text-new {
           padding: 20px;
         }
-
-        /* Menu plus petit sur tablette */
-        .menu {
-          width: 65%;
-          max-width: 280px;
-          padding: 70px 20px 25px;
+        .content-text-new p {
+          font-size: 14px;
+        }
+        .content-image-new {
+          max-width: 100%;
+          width: 100%;
+        }
+        .content-image-new img {
+          max-width: 250px;
+          border-radius: 10px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        /* Image section 1 - Tablette */
+        #section1 img {
+          width: 85%;
+          max-width: 500px;
+          margin: 22px auto;
+          border-radius: 11px;
         }
 
-        /* Bouton burger plus petit sur tablette */
-        .menu-toggle {
-          width: 36px;
-          height: 36px;
-          padding: 6px;
-          top: 25px;
-          left: 25px;
-        }
-
-        .menu-toggle span {
-          width: 8px;
-          height: 1.5px;
-          margin: 1px 0;
-        }
-
-        /* Animation du menu burger sur tablette - flèche gauche */
-        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(1) {
-          transform: rotate(-45deg) translate(0.5px, 0px);
-        }
-
-        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(2) {
-          opacity: 0;
-        }
-
-        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(3) {
-          transform: rotate(45deg) translate(0.5px, 0px);
-        }
-
-        /* Titres adaptés */
-        .intro-title {
-          font-size: 36px;
-          margin: 25px 0 40px 0;
-        }
-
-        .section-header {
-          margin: 40px 0 25px;
-        }
-
-        .section-number {
-          font-size: 32px;
-          padding: 20px 25px;
-          min-width: 100px;
-          width: 100px;
-        }
-
-        .section-title {
-          font-size: 22px;
-          padding: 20px 25px;
-          min-height: 80px;
-        }
-
-        .subsection-heading {
-          font-size: 24px;
-          margin: 35px 0 18px;
-        }
-
-        /* Layout flexible en colonne */
-        .content-section {
-          flex-direction: column;
-          padding: 20px;
+        /* COMPOSANT CONTENT SECTION NEW - Tablette */
+        .content-section-new {
           gap: 25px;
         }
-
-        .content-text {
-          min-width: auto;
+        .content-text-new {
+          padding: 22px;
         }
-
-        .content-image {
-          max-width: 100%;
+        .content-text-new p {
+          font-size: 16px;
         }
-
-        /* Composants spécifiques */
-        .yellow-box {
-          padding: 25px;
+        .content-image-new {
+          max-width: 250px;
+          width: 250px;
         }
-
-        .yellow-box-title {
-          font-size: 28px;
-          padding: 15px;
-        }
-
-        .yellow-box-content {
-          font-size: 20px;
+        .content-image-new img {
+          border-radius: 11px;
         }
       }
-
-      /* ===========================================
-           MOBILE (767px et moins)
-           =========================================== */
-      @media (max-width: 767px) {
-        .main-content {
-          margin-left: 0;
+      @media (min-width: 1024px) and (max-width: 1439px) {
+        /* Image section 1 - Laptop */
+        #section1 img {
+          width: 80%;
+          max-width: 550px;
+          margin: 25px auto;
+          border-radius: 12px;
         }
 
-        .main-container {
-          width: 95%;
-          margin: 15px auto;
-          padding: 20px;
-          overflow: visible;
+        /* COMPOSANT CONTENT SECTION NEW - Laptop */
+        .content-text-new p {
+          font-size: 18px;
         }
-
-        .page-container {
-          flex-direction: column;
+        .content-image-new {
+          max-width: 280px;
+          width: 280px;
         }
-
-        .main-content {
-          padding: 15px;
-          overflow: visible;
-        }
-
-        /* Menu plus petit sur mobile */
-        .menu {
+      }
+      @media (min-width: 1440px) {
+        /* Image section 1 - Desktop */
+        #section1 img {
           width: 75%;
-          max-width: 250px;
-          padding: 60px 15px 20px;
+          max-width: 600px;
+          margin: 30px auto;
+          border-radius: 15px;
         }
 
-        /* Bouton burger plus petit sur mobile */
-        .menu-toggle {
-          width: 32px;
-          height: 32px;
-          padding: 5px;
-          top: 20px;
-          left: 20px;
-        }
-
-        .menu-toggle span {
-          width: 7px;
-          height: 1.5px;
-          margin: 0.5px 0;
-        }
-
-        /* Animation du menu burger sur mobile - flèche gauche */
-        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(1) {
-          transform: rotate(-45deg) translate(0.3px, 0px);
-        }
-
-        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(2) {
-          opacity: 0;
-        }
-
-        .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(3) {
-          transform: rotate(45deg) translate(0.3px, 0px);
-        }
-
-        /* Titres adaptés */
-        .intro-title {
-          font-size: 24px;
-          margin: 20px 0 30px 0;
-        }
-
-        .section-number {
-          font-size: 28px;
-        }
-
-        .section-title {
+        /* COMPOSANT CONTENT SECTION NEW - Desktop */
+        .content-text-new p {
           font-size: 20px;
         }
-
-        .subsection-heading {
-          font-size: 18px;
+        .content-image-new {
+          max-width: 300px;
+          width: 300px;
         }
-
-        /* Titres des composants */
-        .title-retenir-conclusion {
-          font-size: 16px;
-        }
-
-        .text {
-          font-size: 14px;
-        }
-
-        .sub-text {
-          font-size: 14px;
-        }
-
-        .card .text .title {
-          font-size: 18px;
-        }
-
-        .flex-container h3 {
-          font-size: 18px;
-        }
-
-        .lignes3-title {
-          font-size: 16px;
-        }
-
-        .hierarchie-header {
-          font-size: 16px;
-        }
-
-        .accord-card h3 {
-          font-size: 18px;
-        }
-
-        .imageHautTexteBas-text-box h3 {
-          font-size: 18px;
-        }
-
-        .example-text-unique h3 {
-          font-size: 18px;
-        }
-
-        .section-header {
-          flex-direction: column;
-          text-align: center;
-          margin: 30px 0 20px;
-        }
-
-        .section-number {
-          border-radius: 12px 12px 0 0;
+      }
+      @media (max-width: 375px) {
+        /* Image section 1 - Très petit */
+        #section1 img {
           width: 100%;
-          text-align: center;
+          max-width: 300px;
+          margin: 15px auto;
+          border-radius: 8px;
         }
 
-        .section-text {
-          border-radius: 0 0 12px 12px;
-          width: 100%;
-        }
-
-        .subsection-heading {
-          font-size: 18px;
-          margin: 25px 0 15px;
-        }
-
-        /* Layout flexible en colonne */
-        .content-section {
-          flex-direction: column;
-          padding: 20px;
-          gap: 20px;
-        }
-
-        .content-text {
-          min-width: auto;
-        }
-
-        /* Composant décentralisation sur mobile */
-        .decentralisation-highlight-section {
-          padding: 25px 15px;
-        }
-
-        .decentralisation-highlight-section::before {
-          width: 55%;
-        }
-
-        .decentralisation-content {
-          max-width: 100%;
-          padding: 15px;
-        }
-
-        .decentralisation-content h3 {
-          font-size: 26px;
-          margin-top: 20px;
-        }
-
-        .decentralisation-content p {
-          font-size: 16px;
-          margin-bottom: 20px;
-        }
-
-        .decentralisation-intro-text {
-          font-size: 15px;
-          width: 92%;
-          margin-left: 4%;
-        }
-
-        /* Composant régime sur mobile - Image centrée en haut */
-        .regime-container {
-          flex-direction: column;
+        /* COMPOSANT CONTENT SECTION NEW - Très petit */
+        .content-section-new {
           gap: 15px;
         }
-
-        .regime-img {
-          width: 100%;
-          max-width: 180px;
-          height: auto;
-          align-self: center;
-        }
-
-        .regime-highlight {
+        .content-text-new {
           padding: 15px;
         }
-
-        .regime-highlight p {
-          font-size: 15px;
+        .content-text-new p {
+          font-size: 12px;
         }
-
-        /* Composant box3lignes sur mobile */
-        .box3lignes-container {
-          flex-direction: column;
-          gap: var(--spacing-sm);
-          padding: var(--spacing-sm);
+        .content-image-new img {
+          max-width: 200px;
+          border-radius: 8px;
         }
+      }
 
-        .box3lignes-row {
-          flex: 1 1 100%;
-          min-width: auto;
-          margin-bottom: var(--spacing-sm);
-          padding: 15px;
-        }
+      /* ===========================================
+           COMPOSANT BOX JAUNE ET IMAGE SECTION 2
+           =========================================== */
+      /* .regime-section : Section principale du régime parlementaire */
+      .regime-section {
+        max-width: 1200px;
+        margin: 40px auto;
+      }
+      /* .regime-title : Titre de la section régime parlementaire */
+      .regime-title {
+        font-size: var(--font-size28);
+        color: var(--primary-color);
+        margin-bottom: var(--spacing-md);
+        font-family: var(--main-font);
+        font-weight: 700;
+      }
+      /* .regime-intro : Introduction du régime parlementaire */
+      .regime-intro {
+        font-size: var(--font-size18);
+        margin-bottom: var(--spacing-lg);
+        font-family: var(--main-font);
+        text-align: left;
+      }
+      /* .regime-container : Container flex pour image et texte côte à côte */
+      .regime-container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: var(--spacing-lg);
+        flex-wrap: wrap;
+        margin-bottom: var(--spacing-lg);
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+        max-width: 1000px;
+      }
+      /* .regime-img : Container de l'image du président */
+      .regime-img {
+        flex: 1;
+        max-width: 250px;
+      }
+      /* .regime-img img : Image du président sans ombre ni bordure */
+      .regime-img img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: none;
+        border: none;
+      }
+      /* .regime-text : Container du texte explicatif */
+      .regime-text {
+        flex: 2;
+        min-width: 300px;
+      }
+      /* .regime-highlight : Zone de texte mise en évidence avec fond jaune */
+      .regime-highlight {
+        background: #f0ecc8;
+        padding: 30px;
+        border-radius: 8px;
+        font-size: var(--font-size18);
+        line-height: 1.8;
+        font-family: var(--main-font);
+        text-align: left;
+        margin-bottom: 30px;
+      }
+      /* .regime-details : Détails complémentaires sur le régime */
+      .regime-details {
+        font-size: var(--font-size18);
+        margin-top: var(--spacing-md);
+        margin-bottom: var(--spacing-lg);
+        text-align: left;
+        font-family: var(--main-font);
+      }
 
-        .box3lignes-image {
-          max-width: 100px;
-        }
+      /* Styles pour le composant président */
+      .president-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin: 20px auto;
+      }
+      .president-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
+      .president-image img {
+        width: 350px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        object-fit: contain;
+        border-radius: 12px;
+      }
+      .president-box {
+        background: #f0ecc8;
+        border-radius: 12px;
+        padding: 25px;
+        margin: 20px auto;
+        text-align: center;
+        max-width: 600px;
+        width: 90%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .president-box p {
+        font-size: var(--font-size18);
+        line-height: 1.6;
+        margin: 0;
+        color: #333;
+      }
+      .president-box strong {
+        color: #000000;
+        font-weight: 700;
+      }
 
-        .box3lignes-text {
-          font-size: 14px;
-        }
-
-        .content-image {
-          max-width: 100%;
-        }
-
-        /* Composants spécifiques */
-        .yellow-box {
+      /* MEDIA QUERIES POUR COMPOSANT RÉGIME PARLEMENTAIRE */
+      @media (max-width: 1024px) and (min-width: 768px) {
+        .president-box {
           padding: 20px;
+          max-width: 500px;
         }
-
-        .yellow-box-title {
-          font-size: 24px;
-          padding: 15px;
-        }
-
-        .yellow-box-content {
-          font-size: 18px;
-        }
-
-        /* Composant décentralisation sur tablette */
-        .decentralisation-highlight-section {
-          padding: 30px 20px;
-        }
-
-        .decentralisation-highlight-section::before {
-          width: 50%;
-        }
-
-        .decentralisation-content {
-          max-width: 600px;
-          padding: 15px;
-        }
-
-        .decentralisation-content h3 {
-          font-size: 28px;
-          margin-top: 20px;
-        }
-
-        .decentralisation-content p {
+        .president-box p {
           font-size: 16px;
+        }
+        .president-image img {
+          width: 300px;
+          border-radius: 10px;
+        }
+      }
+      @media (max-width: 767px) {
+        .regime-container {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 15px;
+        }
+        .regime-img {
+          max-width: 200px;
           margin-bottom: 20px;
         }
-
-        .decentralisation-intro-text {
-          font-size: 15px;
-          width: 90%;
-          margin-left: 5%;
-        }
-
-        /* Composant régime sur tablette - Image centrée en haut */
-        .regime-container {
-          flex-direction: column;
-          gap: 20px;
-        }
-
-        .regime-img {
-          width: 100%;
-          max-width: 220px;
-          height: auto;
-          align-self: center;
-        }
-
         .regime-highlight {
           padding: 20px;
-        }
-
-        .regime-highlight p {
-          font-size: 16px;
-        }
-
-        /* Composant box3lignes sur tablette */
-        .box3lignes-container {
-          flex-direction: column;
-          gap: var(--spacing-sm);
-          padding: var(--spacing-md);
-        }
-
-        .box3lignes-row {
-          flex: 1 1 100%;
-          min-width: auto;
-          margin-bottom: var(--spacing-sm);
-        }
-
-        .box3lignes-image {
-          max-width: 120px;
-        }
-
-        .box3lignes-text {
-          font-size: 16px;
-        }
-
-        /* Centrage et débordement pour tous les éléments */
-        .flex-container,
-        .lignes3-container,
-        .hierarchie-row,
-        .document-container,
-        .ase-services-container,
-        .box-ligne-entiere-container,
-        .imageHautTexteBas-container,
-        .accord-cards-container,
-        .periode-essai-example-unique,
-        .content-section,
-        .decentralisation-highlight-section,
-        .regime-container,
-        .box3lignes-container {
-          flex-direction: column;
-          align-items: center;
           text-align: center;
-          padding: 15px;
-          justify-content: center;
-          width: 100%;
-          max-width: 100%;
         }
-
-        /* Réduction de la taille des textes pour éviter le débordement */
-        .section-text,
-        .text,
-        .sub-text,
-        .lignes3-yellow-text,
-        .hierarchie-content,
-        .document-highlight,
-        .ase-service-card p,
-        .box-ligne-entiere-container p,
-        .imageHautTexteBas-text-box p,
-        .accord-card p,
-        .example-text-unique,
-        .content-text p,
-        .decentralisation-content p,
-        .regime-highlight p,
-        .box3lignes-text {
-          font-size: 16px;
-          line-height: 1.5;
-          padding: 20px;
-          word-wrap: break-word;
-          overflow-wrap: break-word;
-        }
-
-        /* Images centrées et redimensionnées */
-        .office-image,
-        .document-img,
-        .imageHautTexteBas-header-image,
-        .regime-img,
-        .box3lignes-image,
-        .content-image {
-          max-width: 200px;
-          margin: 0 auto;
-        }
-      }
-
-      /* ===========================================
-           TABLETTE (768px - 1023px) - ADAPTATION MOYENNE
-           =========================================== */
-      @media (max-width: 1023px) and (min-width: 768px) {
-        /* Titres adaptés pour tablette */
-        .intro-title {
-          font-size: 32px;
-        }
-
-        .section-number {
-          font-size: 32px;
-        }
-
-        .section-title {
-          font-size: 22px;
-        }
-
-        .subsection-heading {
-          font-size: 20px;
-        }
-
-        /* Titres des composants pour tablette */
-        .title-retenir-conclusion {
-          font-size: 18px;
-        }
-
-        .text {
-          font-size: 16px;
-        }
-
-        .sub-text {
-          font-size: 16px;
-        }
-
-        .card .text .title {
-          font-size: 20px;
-        }
-
-        .flex-container h3 {
-          font-size: 20px;
-        }
-
-        .lignes3-title {
-          font-size: 18px;
-        }
-
-        .hierarchie-header {
-          font-size: 18px;
-        }
-
-        .accord-card h3 {
-          font-size: 20px;
-        }
-
-        .imageHautTexteBas-text-box h3 {
-          font-size: 20px;
-        }
-
-        .example-text-unique h3 {
-          font-size: 20px;
-        }
-
-        /* Centrage pour tablette */
-        .container-a-retenir,
-        .steps,
-        .step-content,
-        .text,
-        .sub-text {
-          text-align: center;
-          justify-content: center;
-          align-items: center;
-        }
-
-        .steps {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .step-content {
-          width: 100%;
-          max-width: 600px;
-          margin: 0 auto;
-        }
-      }
-
-      /* ===========================================
-           PETIT MOBILE (480px et moins)
-           =========================================== */
-      @media (max-width: 480px) {
-        .main-container {
-          width: 100%;
-          margin: 10px;
-          padding: 15px;
-        }
-
-        .intro-title {
-          font-size: 24px;
-        }
-
-        .section-text {
-          font-size: 16px;
-        }
-
-        .subsection-heading {
-          font-size: 20px;
-        }
-
-        .section-number {
-          font-size: 28px;
-          padding: 15px 20px;
-        }
-
-        .section-title {
-          font-size: 28px;
-          padding: 15px 20px;
-          min-height: 70px;
-        }
-
-        /* Composants spécifiques */
-        .yellow-box {
-          padding: 15px;
-        }
-
-        .yellow-box-title {
-          font-size: 20px;
-          padding: 10px;
-        }
-
-        .yellow-box-content {
-          font-size: 16px;
-        }
-
-        /* Composant régime sur petit mobile - Image centrée en haut */
-        .regime-container {
-          flex-direction: column;
-          gap: 10px;
-        }
-
-        .regime-img {
-          width: 100%;
-          max-width: 200px;
-          height: auto;
-          align-self: center;
-        }
-
-        .regime-highlight {
-          padding: 10px;
-        }
-
-        .regime-highlight p {
-          font-size: 14px;
-        }
-
-        /* Composant box3lignes sur petit mobile */
-        .box3lignes-container {
-          padding: var(--spacing-sm);
-          gap: var(--spacing-xs);
-        }
-
-        .box3lignes-row {
-          padding: var(--spacing-sm);
-        }
-
-        .box3lignes-image {
-          max-width: 80px;
-        }
-
-        .box3lignes-text {
-          font-size: 13px;
-        }
-
-        /* Composant décentralisation sur petit mobile */
-        .decentralisation-highlight-section {
-          padding: 20px 15px;
-        }
-
-        .decentralisation-highlight-section::before {
-          width: 60%;
-        }
-
-        .decentralisation-content {
-          max-width: 100%;
-          padding: 10px;
-        }
-
-        .decentralisation-content h3 {
-          font-size: 24px;
-          margin-top: 15px;
-        }
-
-        .decentralisation-content p {
-          font-size: 14px;
-          margin-bottom: 15px;
-        }
-
-        .decentralisation-intro-text {
-          font-size: 14px;
+        .president-box {
+          padding: 18px;
+          margin: 15px auto;
+          max-width: 90%;
           width: 95%;
-          margin-left: 2.5%;
+        }
+        .president-box p {
+          font-size: 14px;
+          line-height: 1.5;
+        }
+        .president-image img {
+          width: 250px;
+          border-radius: 8px;
         }
       }
-
-      /* ===========================================
-           LAPTOP (1024px - 1439px) - ADAPTATION LARGE
-           =========================================== */
-      @media (min-width: 1024px) and (max-width: 1439px) {
-        /* Tous les textes normaux */
-        .section-text,
-        .lignes3-yellow-text,
-        .hierarchie-content,
-        .document-highlight,
-        .ase-service-card p,
-        .box-ligne-entiere-container p,
-        .imageHautTexteBas-text-box p,
-        .accord-card p,
-        .example-text-unique,
-        .content-text p,
-        .decentralisation-content p,
-        .regime-highlight p,
-        .box3lignes-text,
-        .sub-text {
-          font-size: 18px;
+      @media (max-width: 375px) {
+        .regime-container {
+          padding: 10px;
+        }
+        .regime-img {
+          max-width: 150px;
+        }
+        .regime-highlight {
+          padding: 15px;
+        }
+        .president-box p {
+          font-size: 12px;
+        }
+        .president-image img {
+          width: 200px;
+          border-radius: 6px;
         }
 
-        /* Tous les titres légèrement plus grands */
-        .text {
-          font-size: 20px;
+        .regime-section {
+          width: 100%;
+          max-width: 100%;
+          margin: 0 auto;
+          padding: 5px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          box-sizing: border-box;
         }
-      }
-
-      /* ===========================================
-           DESKTOP (1440px et plus) - ADAPTATION TRÈS LARGE
-           =========================================== */
-      @media (min-width: 1440px) {
-        /* Tous les textes normaux */
-        .section-text,
-        .lignes3-yellow-text,
-        .hierarchie-content,
-        .document-highlight,
-        .ase-service-card p,
-        .box-ligne-entiere-container p,
-        .imageHautTexteBas-text-box p,
-        .accord-card p,
-        .example-text-unique,
-        .content-text p,
-        .decentralisation-content p,
-        .regime-highlight p,
-        .box3lignes-text,
-        .sub-text {
-          font-size: 20px;
+        .regime-container {
+          width: 100%;
+          max-width: 100%;
+          margin: 0 auto;
+          padding: 5px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          gap: 10px;
+          box-sizing: border-box;
         }
-
-        /* Tous les titres légèrement plus grands */
-        .text {
-          font-size: 22px;
+        /* IMAGE PRÉSIDENT */
+        .regime-img {
+          width: 40vw;
+          max-width: 120px;
+          min-width: 80px;
+          height: auto;
+          margin: 10px auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        .regime-img img {
+          width: 100%;
+          height: auto;
+          margin: 0 auto;
+          display: block;
+          object-fit: contain;
+          box-sizing: border-box;
         }
       }
     </style>
@@ -1721,40 +1398,32 @@
               >
             </div>
 
-            <div class="content-section">
-              <div class="content-text">
-                <p>
-                  Les droits et les devoirs de la personne évoluent tout au long
-                  de son existence, depuis sa naissance jusqu’à son décès. ​
-                  L’enfant est une personne qui le droit à une protection
-                  particulière, exercée en premier lieu par ses parents. On lui
-                  reconnaît également une certaine autonomie et dont l’intérêt
-                  doit être pris en compte.
-                </p>
-
-                <p>
-                  La capacité juridique désigne toute compétence d’une personne
-                  en matière de droit. L’enfant, lui, n’a pas de capacité
-                  juridique. Ses parents et la société défendent ses droits.  
-                  L’enfant doit rester sous l’autorité parentale jusqu’à sa
-                  majorité ou émancipation ; L’enfant a le droit d’entretenir
-                  des relations personnelles avec ses ascendants (grands-
-                  parents, oncles tantes) et même des tiers (parents ou amis) ;
-                  L’enfant doit être associé aux décisions qui le concernent,
-                  selon son âge et son degré de maturité. ​ En France, le
-                  défenseur des enfants est une autorité administrative
-                  indépendante qui a été mise en place en 2000. Cette autorité
-                  est destinée à défendre les droits de l’enfant qui sont
-                  contenus dans le droit français mais aussi dans le CIDE.
-                </p>
-              </div>
-              <div class="content-image">
-                <img
-                  src="../../images/CAP AEPE/page7/kidsImage.png"
-                  alt="Famille"
-                />
-              </div>
-            </div>
+            <p>
+              Les droits et les devoirs de la personne évoluent tout au long de
+              son existence, depuis sa naissance jusqu’à son décès. ​ L’enfant
+              est une personne qui le droit à une protection particulière,
+              exercée en premier lieu par ses parents. On lui reconnaît
+              également une certaine autonomie et dont l’intérêt doit être pris
+              en compte.
+            </p>
+            <img
+              src="../../images/CAP AEPE/page7/kidsImage.png"
+              alt="Famille"
+            />
+            <p>
+              La capacité juridique désigne toute compétence d’une personne en
+              matière de droit. L’enfant, lui, n’a pas de capacité juridique.
+              Ses parents et la société défendent ses droits.   L’enfant doit
+              rester sous l’autorité parentale jusqu’à sa majorité ou
+              émancipation ; L’enfant a le droit d’entretenir des relations
+              personnelles avec ses ascendants (grands- parents, oncles tantes)
+              et même des tiers (parents ou amis) ; L’enfant doit être associé
+              aux décisions qui le concernent, selon son âge et son degré de
+              maturité. ​ En France, le défenseur des enfants est une autorité
+              administrative indépendante qui a été mise en place en 2000. Cette
+              autorité est destinée à défendre les droits de l’enfant qui sont
+              contenus dans le droit français mais aussi dans le CIDE.
+            </p>
           </section>
 
           <!-- ===========================================
@@ -1768,31 +1437,28 @@
               >
             </div>
 
-            <div class="regime-container">
-              <div class="regime-img">
+            <div class="president-container">
+              <div class="president-image">
                 <img
                   src="../../images/CAP AEPE/page7/worldImage.png"
-                  alt="Illustration du Président"
+                  alt="Illustration"
                 />
               </div>
-
-              <div class="regime-text">
-                <div class="regime-highlight">
-                  <p>
-                    La convention internationale des droits de l’enfant (CIDE),
-                    a été mise en place et par l’Organisation des Nations Unies
-                    en 1989, elle est composée de 54 articles. 191 Etats l’ont
-                    ratifiée (signée et acceptée). A ce jour, seuls deux pays ne
-                    l’ont encore ni signée, ni ratifiée (la Somalie et les
-                    Etats-Unis). Il faudra attendre Mars 2005 pour que les
-                    Etats-Unis abolissent la peine de mort contre les mineurs. ​
-                    Le préambule de la convention insiste sur la nécessité
-                    d'accorder une protection spéciale à l'enfant.   Une journée
-                    mondiale a été décrétée le 20 novembre.   Parmi les 54
-                    articles de la convention, nous pouvons relever comme
-                    principales dispositions :
-                  </p>
-                </div>
+              <div class="president-box">
+                <p>
+                  La convention internationale des droits de l’enfant (CIDE), a
+                  été mise en place et par l’Organisation des Nations Unies en
+                  1989, elle est composée de 54 articles. 191 Etats l’ont
+                  ratifiée (signée et acceptée). A ce jour, seuls deux pays ne
+                  l’ont encore ni signée, ni ratifiée (la Somalie et les
+                  Etats-Unis). Il faudra attendre Mars 2005 pour que les
+                  Etats-Unis abolissent la peine de mort contre les mineurs. ​
+                  Le préambule de la convention insiste sur la nécessité
+                  d'accorder une protection spéciale à l'enfant.   Une journée
+                  mondiale a été décrétée le 20 novembre.   Parmi les 54
+                  articles de la convention, nous pouvons relever comme
+                  principales dispositions :
+                </p>
               </div>
             </div>
 
@@ -1801,32 +1467,61 @@
               principales dispositions :
             </p>
 
-            <div class="content-section">
-              <div class="content-text">
+            <div class="content-section-new">
+              <div class="content-text-new">
                 <p>
-                  Le droit à la vie. Tout enfant a un droit inhérent à la vie,
-                  et les États assurent au maximum la survie et le développement
-                  de l'enfant. ​ Le droit à la non-discrimination (Les droits
-                  énoncés dans ladite déclaration s’applique à tous les enfants
-                  sans distinction de race, de sexe, de religion, etc.) ​ Le
-                  droit à une identité, à une nationalité et à une
-                  famille (L’enfant a droit dès sa naissance à un nom, à une
-                  nationalité et, dans la mesure du possible, il a le droit de
-                  connaître ses parents et d’être élevé par eux) ​ L'enfant a le
-                  droit de jouir du meilleur état de santé possible. Les États
-                  assurent l'accès aux soins médicaux à tous les enfants, en
-                  mettant l'accent sur la prévention, l’éducation sanitaire et
-                  la réduction de la mortalité infantile ​ Le droit à
-                  l’éducation ​ Les enfants handicapés ont droit à un
-                  traitement, une éducation et des soins spéciaux. ​ Le droit à
-                  la protection contre la maltraitance et l’exploitation
-                  sexuelle
+                  <strong>Le droit à la vie.</strong> Tout enfant a un droit
+                  inhérent à la vie, et les États assurent au maximum la survie
+                  et le développement de l'enfant.
+                </p>
+
+                <p>
+                  <strong>Le droit à la non-discrimination</strong> (Les droits
+                  énoncés dans ladite déclaration s'applique à tous les enfants
+                  sans distinction de race, de sexe, de religion, etc.)
+                </p>
+
+                <p>
+                  <strong
+                    >Le droit à une identité, à une nationalité et à une
+                    famille</strong
+                  >
+                  (L'enfant a droit dès sa naissance à un nom, à une nationalité
+                  et, dans la mesure du possible, il a le droit de connaître ses
+                  parents et d'être élevé par eux)
+                </p>
+
+                <p>
+                  <strong
+                    >L'enfant a le droit de jouir du meilleur état de santé
+                    possible.</strong
+                  >
+                  Les États assurent l'accès aux soins médicaux à tous les
+                  enfants, en mettant l'accent sur la prévention, l'éducation
+                  sanitaire et la réduction de la mortalité infantile
+                </p>
+
+                <p>
+                  <strong>Le droit à l'éducation</strong>
+                </p>
+
+                <p>
+                  <strong
+                    >Les enfants handicapés ont droit à un traitement, une
+                    éducation et des soins spéciaux.</strong
+                  >
+                </p>
+
+                <p>
+                  <strong
+                    >Le droit à la protection contre la maltraitance et
+                    l'exploitation sexuelle</strong
+                  >
                 </p>
               </div>
-              <div class="content-image">
+              <div class="content-image-new">
                 <img
-                  src="../../images/CAP AEPE/page7/familyImage.png
-                  "
+                  src="../../images/CAP AEPE/page7/familyImage.png"
                   alt="Famille"
                 />
               </div>
@@ -1842,60 +1537,56 @@
               <span class="section-title">Les 12 articles clés de la CIDE</span>
             </div>
 
-            <div class="content-section">
-              <div class="content-text">
-                <p>
-                  <strong>Égalité des droits :</strong> Tous les enfants sont
-                  égaux, quelles que soient leurs origines ou celles de leurs
-                  parents.
-                </p>
-                <p>
-                  <strong>Vie familiale :</strong> Chaque enfant doit pouvoir
-                  vivre en famille.
-                </p>
-                <p>
-                  <strong>Identité :</strong> Droit à un nom, un prénom et une
-                  nationalité.
-                </p>
-                <p>
-                  <strong>Nourriture et soins :</strong> Accès à une
-                  alimentation et des soins adéquats.
-                </p>
-                <p>
-                  <strong>Éducation et loisirs :</strong> Droit à l'école
-                  gratuite et à des activités récréatives.
-                </p>
-                <p>
-                  <strong>Handicap :</strong> Soutien pour une vie autonome et
-                  intégrée.
-                </p>
-                <p>
-                  <strong>Vie privée :</strong> Protection de la vie personnelle
-                  de l'enfant.
-                </p>
-                <p>
-                  <strong>Expression :</strong> Droit de s'exprimer et d'être
-                  entendu sur les sujets qui le concernent.
-                </p>
-                <p>
-                  <strong>Protection contre la violence :</strong> Interdiction
-                  de toute forme de maltraitance.
-                </p>
-                <p>
-                  <strong>Non-exploitation :</strong> Protection contre
-                  l'exploitation sous toutes ses formes.
-                </p>
-                <p>
-                  <strong>Justice adaptée :</strong> Une justice spécifique pour
-                  les mineurs en cas d'infraction.
-                </p>
-                <p>
-                  <strong>Protection en temps de guerre :</strong> Les enfants
-                  ne peuvent être soldats et doivent être protégés en période de
-                  conflit.
-                </p>
-              </div>
-            </div>
+            <p>
+              <strong>1. Égalité des droits :</strong> Tous les enfants sont
+              égaux, quelles que soient leurs origines ou celles de leurs
+              parents.
+            </p>
+            <p>
+              <strong>2. Vie familiale :</strong> Chaque enfant doit pouvoir
+              vivre en famille.
+            </p>
+            <p>
+              <strong>3. Identité :</strong> Droit à un nom, un prénom et une
+              nationalité.
+            </p>
+            <p>
+              <strong>4. Nourriture et soins :</strong> Accès à une alimentation
+              et des soins adéquats.
+            </p>
+            <p>
+              <strong>5. Éducation et loisirs :</strong> Droit à l'école
+              gratuite et à des activités récréatives.
+            </p>
+            <p>
+              <strong>6. Handicap :</strong> Soutien pour une vie autonome et
+              intégrée.
+            </p>
+            <p>
+              <strong>7. Vie privée :</strong> Protection de la vie personnelle
+              de l'enfant.
+            </p>
+            <p>
+              <strong>8. Expression :</strong> Droit de s'exprimer et d'être
+              entendu sur les sujets qui le concernent.
+            </p>
+            <p>
+              <strong>9. Protection contre la violence :</strong> Interdiction
+              de toute forme de maltraitance.
+            </p>
+            <p>
+              <strong>10. Non-exploitation :</strong> Protection contre
+              l'exploitation sous toutes ses formes.
+            </p>
+            <p>
+              <strong>11. Justice adaptée :</strong> Une justice spécifique pour
+              les mineurs en cas d'infraction.
+            </p>
+            <p>
+              <strong>12. Protection en temps de guerre :</strong> Les enfants
+              ne peuvent être soldats et doivent être protégés en période de
+              conflit.
+            </p>
           </section>
 
           <!-- ===========================================
