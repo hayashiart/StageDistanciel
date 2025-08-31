@@ -1,113 +1,277 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Signes de fatigue – Consignes</title>
-<style>
-  :root{
-    --bg:#f4f6f8;
-    --paper:#fff;
-    --text:#1f2937;
-    --muted:#4b5563;
-    --primary:#4a79c9;   /* bleu doux pour les puces */
-    --border:#e7ebf2;
-    --shadow:0 14px 34px rgba(0,0,0,.08);
-    --radius:18px;
-    --maxw:1100px;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    margin:0;
-    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Helvetica Neue","Noto Sans",sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.7;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>À retenir — Petite enfance</title>
+  <style>
+    /* ======================================================================
+       TOKENS (faciles à ajuster) — OK GrapesJS
+       ====================================================================== */
+    :root{
+      --wrap-max: 980px;
+      --gutter: 20px;
 
-  /* Feuille blanche élégante */
-  .sheet{
-    max-width:var(--maxw);
-    margin:clamp(16px,3.8vw,48px) auto;
-    padding:clamp(16px,3vw,40px);
-    background:var(--paper);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    box-shadow:var(--shadow);
-  }
 
-  .intro{
-    margin:0 0 14px 0;
-    font-size:clamp(1.02rem,.98rem + .35vw,1.14rem);
-  }
+      --panel-bg: #eaf0fb;        /* bleu très clair (fond de la carte) */
+      --panel-radius: 22px;       /* coins arrondis doux */
+      --panel-shadow: 0 14px 28px rgba(2, 6, 23, .10);
 
-  /* Liste à puces diamant */
-  .care-list{
-    list-style:none;
-    padding:0;
-    margin:0;
-    display:grid;
-    gap: clamp(10px, 1.4vw, 14px);
-    max-width: 95ch; /* confort de lecture */
-  }
-  .care-list li{
-    position:relative;
-    padding-left:30px;            /* espace pour la puce */
-    font-size:clamp(1rem,.96rem + .3vw,1.08rem);
-    text-align:justify;
-    hyphens:auto;
-  }
-  .care-list li::before{
-    content:"❖";
-    position:absolute;
-    left:0;
-    top:.2em;
-    line-height:1;
-    color:var(--primary);         /* mets #222 si tu veux noir comme l’image */
-    font-size:1.05em;
-    font-weight:900;
-    aria-hidden:true;
-  }
 
-  /* mots clés un peu renforcés (optionnel) */
-  .care-list strong{ font-weight:800; }
+      --title: #5a79b8;           /* bleu du titre */
+      --text:  #1f2a3a;           /* texte principal */
+      --muted: #43526a;           /* texte secondaire */
 
-  @media (prefers-reduced-motion: reduce){
-    *{transition:none !important; animation:none !important}
-  }
-</style>
+
+      --chip-blue: #2b5d92;       /* disque numéroté */
+      --chip-line: #cbd6e2;       /* trait vertical sous le disque */
+
+
+      --list-blue: #5a79b8;       /* sous-titres de listes */
+      --bullet:   #7a92b8;        /* puces losange */
+    }
+
+
+    /* ======================================================================
+       PAGE (ne gêne pas GrapesJS)
+       ====================================================================== */
+    *{ box-sizing: border-box; }
+    html, body { margin: 0; }
+    body{
+      font: 16px/1.65 system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color: var(--text);
+      background: #f6f8fc;
+      padding: var(--gutter);
+    }
+
+
+    .container{
+      max-width: var(--wrap-max);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+
+
+    /* ======================================================================
+       COMPOSANT WRAPPER : Carte "À retenir"
+       - Un seul conteneur avec fond bleu clair + bords arrondis + ombre
+       ====================================================================== */
+    .ARetenir{
+      background: var(--panel-bg);
+      border-radius: var(--panel-radius);
+      box-shadow: var(--panel-shadow);
+      padding: clamp(18px, 3vw, 36px);
+      position: relative;
+      overflow: hidden;
+    }
+
+
+    /* ======================================================================
+       COMPOSANT 1 — Header (image décor + titre)
+       ====================================================================== */
+    .ARetenirHeader{
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start;
+      gap: 16px;
+      margin-bottom: clamp(12px, 2.4vw, 20px);
+    }
+
+
+    .ARetenirHeader__title{
+      margin: 0;
+      color: var(--title);
+      font-size: clamp(1.4rem, 1.1rem + 1.6vw, 2rem);
+      line-height: 1.15;
+      font-weight: 700; /* titre seulement */
+      text-align: center;
+      grid-column: 1 / -1;
+    }
+
+
+    /* Image décorative (épinglette / livre — remplaçable) */
+    .ARetenirHeader__img{
+      width: clamp(72px, 10vw, 120px);
+      height: auto;
+      object-fit: contain;
+      position: absolute;
+      top: 0;
+      right: clamp(8px, 2.2vw, 24px);
+      transform: translateY(-20%);
+      pointer-events: none;  /* pure déco */
+      user-select: none;
+    }
+
+
+    /* ======================================================================
+       COMPOSANT 2 — Contenu (intro + liste numérotée)
+       ====================================================================== */
+    .ARetenirContent{
+      max-width: 78ch;
+      margin: 0 auto;
+      color: var(--muted);
+    }
+
+
+    .ARetenirContent p{
+      margin: 10px 0 14px;
+    }
+
+
+    /* Liste numérotée verticale (01 / 02 / 03) */
+    .ARList{
+      display: grid;
+      gap: 20px;
+      margin-top: clamp(8px, 1.6vw, 12px);
+    }
+
+
+    .ARItem{
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px 14px;
+      align-items: start;
+    }
+
+
+    /* Disque numéro + ligne verticale */
+    .ARItem__num{
+      background: var(--chip-blue);
+      color: #fff;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      font-weight: 700;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .ARItem:not(:last-child) .ARItem__num::after{
+      content:"";
+      position: absolute;
+      left: 50%; top: 40px;
+      transform: translateX(-50%);
+      width: 2px; height: 26px;
+      background: var(--chip-line);
+    }
+
+
+    /* Sous-titre de l’item + paragraphe */
+    .ARItem__title{
+      margin: 2px 0 6px;
+      color: var(--list-blue);
+      font-size: clamp(1.02rem, .95rem + .3vw, 1.1rem);
+      font-weight: 700;   /* titre seulement */
+      line-height: 1.25;
+      grid-column: 2 / -1;
+    }
+    .ARItem__text{
+      margin: 0;
+      grid-column: 2 / -1;
+    }
+
+
+    /* Puces (losanges bleus) pour les sous-listes éventuelles */
+    .ARBullets{
+      margin: 6px 0 0;
+      padding-left: 1.1rem;
+      list-style: none;
+    }
+    .ARBullets li{
+      position: relative;
+      margin: 4px 0;
+      padding-left: .8rem;
+    }
+    .ARBullets li::before{
+      content:"◆";
+      position:absolute; left:0; top:0;
+      color: var(--bullet);
+      font-size: .7rem;
+      line-height: 1.6;
+    }
+
+
+    /* ======================================================================
+       Responsive simple
+       ====================================================================== */
+    @media (max-width: 560px){
+      .ARetenirHeader__img{ width: 80px; right: 8px; top: 2px; transform: translateY(-35%); }
+      .ARItem__num{ width: 36px; height: 36px; font-size: 13px; }
+      .ARItem:not(:last-child) .ARItem__num::after{ height: 22px; }
+    }
+
+
+    /* Impression propre (optionnel) */
+    @media print{
+      body{ background:#fff; padding:0 }
+      .ARetenir{ box-shadow:none }
+      .ARetenirHeader__img{ display:none }
+    }
+  </style>
 </head>
 <body>
+  <main class="container">
+    <!-- ==================================================================
+         COMPOSANT : Carte "À retenir"
+         ================================================================== -->
+    <section class="ARetenir" aria-labelledby="a-retenir-title">
 
-  <section class="sheet" aria-labelledby="t-consignes">
-    <h2 id="t-consignes" style="position:absolute; left:-9999px;">Consignes face aux signes de fatigue</h2>
 
-    <p class="intro">
-      Le personnel doit être attentif aux moindres signes de fatigue de l’enfant pour répondre à ses besoins :
-    </p>
+      <!-- ========== COMPOSANT 1 : Header (image décor + titre) ========== -->
+      <!-- Remplace le src par ton image (épinglette, livre, etc.) -->
+      <img class="ARetenirHeader__img" src="https://via.placeholder.com/140x140.png"
+           alt="" aria-hidden="true" />
+      <h2 id="a-retenir-title" class="ARetenirHeader__title">À retenir</h2>
 
-    <ul class="care-list" role="list">
-      <li>
-        <strong>Il doit respecter les signes d’endormissement</strong> (l’enfant baille, se frotte les yeux, cherche une position confortable) ;
-      </li>
-      <li>
-        <strong>Créer un climat sécurisant</strong> grâce à un temps calme (une histoire, écoute d’une chanson calme) ;
-      </li>
-      <li>
-        <strong>Respecter le rituel d’endormissement</strong> (avec une lumière tamisée, l’objet transitionnel&nbsp;(doudou), la tétine, une régularité dans les horaires de couchage pour les plus grands) ;
-      </li>
-      <li>
-        <strong>Surveiller la sieste</strong> pour apaiser les petits maux ;
-      </li>
-      <li>
-        <strong>Ne jamais réveiller un enfant qui dort</strong>, pour une bonne qualité de sommeil ;
-      </li>
-      <li>
-        <strong>Créer un endroit douillet</strong> pour un bon endormissement et pour les repères (toujours à la même place), température de la pièce ne dépassant pas les 18&nbsp;°C).
-      </li>
-    </ul>
-  </section>
 
+      <!-- ========== COMPOSANT 2 : Contenu (intro + liste numérotée) ========== -->
+      <div class="ARetenirContent">
+        <!-- Intro : 2 phrases (pas de gras) -->
+        <p>Les métiers de la petite enfance sont sensiblement exposés aux accidents de travail et aux maladies professionnelles.</p>
+        <p>En 2020, la manutention manuelle représente environ 60&nbsp;% des accidents de travail et les chutes représentent près de 40&nbsp;%.</p>
+
+
+        <!-- Liste numérotée 01 / 02 / 03 -->
+        <div class="ARList">
+
+
+          <!-- Item 01 -->
+          <div class="ARItem">
+            <div class="ARItem__num">01</div>
+            <h3 class="ARItem__title">Les types de risques</h3>
+            <p class="ARItem__text">
+              Risques physiques (manutention, portages, efforts physiques…), risques psycho‑sociaux (stress, hypersensibilité, charge mentale…),
+              risques infectieux (rubéole, gastro‑entérites, varicelle…), lésions (traumatismes internes, troubles musculosquelettiques, entorses…).
+            </p>
+          </div>
+
+
+          <!-- Item 02 -->
+          <div class="ARItem">
+            <div class="ARItem__num">02</div>
+            <h3 class="ARItem__title">Ces risques sont amplifiés par</h3>
+            <p class="ARItem__text">
+              L’environnement de travail (bruit, chaleur, éclairage insuffisant, espaces encombrés…) et la qualité des relations professionnelles
+              (avec les parents, les enfants, les collègues, la hiérarchie).
+            </p>
+          </div>
+
+
+          <!-- Item 03 -->
+          <div class="ARItem">
+            <div class="ARItem__num">03</div>
+            <h3 class="ARItem__title">Les accidents domestiques</h3>
+            <p class="ARItem__text">
+              Brûlures, électrocutions, noyades, infections, chutes, asphyxie, empoisonnement…
+            </p>
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
+
