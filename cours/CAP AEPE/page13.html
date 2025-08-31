@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Page Squelette</title>
+    <title>Les différents projets</title>
     <style>
       /* ===========================================
            COMPOSANT RESET ET STYLES DE BASE
@@ -436,8 +436,7 @@
       /* .intro-image : Image principale en haut de la page */
       .intro-image {
         display: block;
-        max-width: 90%;
-        width: 90%;
+        max-width: 100%;
         height: auto;
         margin: 30px auto;
         border-radius: 12px;
@@ -445,35 +444,13 @@
       }
 
       /* MEDIA QUERIES POUR COMPOSANT IMAGE PRINCIPALE */
-      @media (min-width: 1440px) {
-        .intro-image {
-          max-width: 90%;
-          width: 90%;
-        }
-      }
-      @media (max-width: 1439px) and (min-width: 1024px) {
-        .intro-image {
-          max-width: 90%;
-          width: 90%;
-        }
-      }
-      @media (max-width: 1023px) and (min-width: 768px) {
-        .intro-image {
-          max-width: 90%;
-          width: 90%;
-        }
-      }
       @media (max-width: 767px) {
         .intro-image {
-          max-width: 90%;
-          width: 90%;
           margin: 20px auto;
         }
       }
       @media (max-width: 375px) {
         .intro-image {
-          max-width: 90%;
-          width: 90%;
           margin: 15px auto;
         }
       }
@@ -918,6 +895,348 @@
       .col-11 {
         width: 91.666667%;
       }
+
+      /* ===========================================
+           COMPOSANT AVEC BANDEAU ROSE
+           =========================================== */
+      /* .composant-bandeau-rose : Container principal du composant avec bandeau rose */
+      .composant-bandeau-rose {
+        margin: 25px 0;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      /* .composant-bandeau-rose:hover : Effet hover sur le composant */
+      .composant-bandeau-rose:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+      /* .bandeau-rose-header : Bandeau rose en haut avec titre blanc */
+      .bandeau-rose-header {
+        background-color: #dcccde;
+        padding: 15px 20px;
+        text-align: center;
+      }
+      /* .bandeau-rose-title : Titre en blanc dans le bandeau rose */
+      .bandeau-rose-title {
+        color: #ffffff;
+        font-family: "Montserrat", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        margin: 0;
+      }
+      /* .bandeau-rose-body : Corps du composant en rose clair */
+      .bandeau-rose-body {
+        background-color: #f8f8f8;
+        padding: 20px;
+      }
+      /* .bandeau-rose-text : Texte dans le corps du composant */
+      .bandeau-rose-text {
+        color: #333333;
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.6;
+        margin: 0;
+        text-align: left;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT AVEC BANDEAU ROSE */
+      @media (min-width: 1440px) {
+        .bandeau-rose-title {
+          font-size: 22px;
+        }
+        .bandeau-rose-text {
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .bandeau-rose-title {
+          font-size: 20px;
+        }
+        .bandeau-rose-text {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .bandeau-rose-title {
+          font-size: 18px;
+        }
+        .bandeau-rose-text {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 767px) {
+        .bandeau-rose-title {
+          font-size: 16px;
+        }
+        .bandeau-rose-text {
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 375px) {
+        .bandeau-rose-title {
+          font-size: 14px;
+        }
+        .bandeau-rose-text {
+          font-size: 12px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT DEFINITION
+           =========================================== */
+      /* .definition-index2-container : Container pour la définition */
+      .definition-index2-container {
+        padding: 10px 20px;
+        border-radius: 20px;
+        background-color: #ffffff;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
+        margin: 25px 0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      /* .definition-index2-container:hover : Effet hover sur le composant définition */
+      .definition-index2-container:hover {
+        transform: translateY(-3px);
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 6px 8px 0px;
+      }
+      /* .title-h4-definition : Titre de la définition */
+      .title-h4-definition {
+        font-family: "Montserrat", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        text-transform: capitalize;
+        color: #0074c0;
+        margin-bottom: 15px;
+      }
+      /* .paragraphe : Texte du paragraphe dans la définition */
+      .definition-index2-container .paragraphe {
+        font-size: 20px;
+        line-height: 1.6;
+        color: #000000;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+        text-align: left;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT DEFINITION */
+      @media (min-width: 1440px) {
+        .title-h4-definition {
+          font-size: 22px;
+        }
+        .definition-index2-container .paragraphe {
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .title-h4-definition {
+          font-size: 20px;
+        }
+        .definition-index2-container .paragraphe {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .title-h4-definition {
+          font-size: 18px;
+        }
+        .definition-index2-container .paragraphe {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 767px) {
+        .title-h4-definition {
+          font-size: 16px;
+        }
+        .definition-index2-container .paragraphe {
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 375px) {
+        .title-h4-definition {
+          font-size: 14px;
+        }
+        .definition-index2-container .paragraphe {
+          font-size: 12px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT OBJECTIFS EN GRID
+           =========================================== */
+      /* .objectifs-grid : Container pour la grille des objectifs */
+      .objectifs-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin: 25px 0;
+      }
+      /* .objectif-item : Chaque élément d'objectif */
+      .objectif-item {
+        background-color: #f0ecc8;
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      /* .objectif-item:hover : Effet hover sur les éléments d'objectif */
+      .objectif-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      }
+      /* .objectif-text : Texte dans chaque objectif */
+      .objectif-text {
+        color: #333333;
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0;
+        line-height: 1.4;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT OBJECTIFS EN GRID */
+      @media (min-width: 1440px) {
+        .objectif-text {
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .objectif-text {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .objectif-text {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 767px) {
+        .objectifs-grid {
+          grid-template-columns: 1fr;
+          gap: 15px;
+        }
+        .objectif-text {
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 375px) {
+        .objectif-text {
+          font-size: 12px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT BÉNÉFICES
+           =========================================== */
+      /* .benefices-container : Container pour les bénéfices */
+      .benefices-container {
+        background-color: #ffffff;
+        border: 2px solid #5f8bbc;
+        border-radius: 12px;
+        padding: 25px;
+        margin: 25px 0;
+        box-shadow: 0 4px 12px rgba(95, 139, 188, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      /* .benefices-container:hover : Effet hover sur le composant bénéfices */
+      .benefices-container:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(95, 139, 188, 0.3);
+      }
+      /* .benefices-text : Texte des bénéfices */
+      .benefices-text {
+        color: #333333;
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.6;
+        margin: 0;
+        text-align: justify;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT BÉNÉFICES */
+      @media (min-width: 1440px) {
+        .benefices-text {
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .benefices-text {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .benefices-text {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 767px) {
+        .benefices-text {
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 375px) {
+        .benefices-text {
+          font-size: 12px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT LISTE À PUCES
+           =========================================== */
+      /* .liste-puces : Container pour les listes à puces */
+      .liste-puces {
+        margin: 25px 0;
+      }
+      /* .liste-puces ul : Style de la liste */
+      .liste-puces ul {
+        list-style-type: disc;
+        padding-left: 30px;
+        margin: 0;
+      }
+      /* .liste-puces li : Style des éléments de liste */
+      .liste-puces li {
+        color: #333333;
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.6;
+        margin-bottom: 10px;
+        text-align: justify;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT LISTE À PUCES */
+      @media (min-width: 1440px) {
+        .liste-puces li {
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .liste-puces li {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .liste-puces li {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 767px) {
+        .liste-puces li {
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 375px) {
+        .liste-puces li {
+          font-size: 12px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -935,9 +1254,11 @@
       <!-- Menu latéral de navigation -->
       <nav class="menu">
         <ul>
-          <li><a href="#section1">1 - Titre Section 1</a></li>
-          <li><a href="#section2">2 - Titre Section 2</a></li>
-          <li><a href="#conc">3 - À retenir</a></li>
+          <li><a href="#section1">1 - Introduction et Objectifs</a></li>
+          <li><a href="#section2">2 - Modalités par Structure</a></li>
+          <li><a href="#section3">3 - Définition</a></li>
+          <li><a href="#section4">4 - Le Dispositif d'Accompagnement</a></li>
+          <li><a href="#conc">5 - À retenir</a></li>
         </ul>
       </nav>
       <!-- ===========================================
@@ -948,13 +1269,16 @@
           <!-- ===========================================
                TITRE PRINCIPAL
                =========================================== -->
-          <h1 class="intro-title">Titre Principal de la Page</h1>
+          <h1 class="intro-title">
+            Cadre Réglementaire et Dispositif d'Accompagnement
+          </h1>
+
           <!-- ===========================================
                IMAGE PRINCIPALE
                =========================================== -->
           <img
             class="intro-image"
-            src="../../images/CAP AEPE/page2/imageSerrerMain.png"
+            src="../../images/CAP AEPE/page13/imageProjet.png"
             alt="Image principale"
           />
           <!-- ===========================================
@@ -963,31 +1287,132 @@
           <section id="section1">
             <div class="section-header">
               <span class="section-number">01</span>
-              <span class="section-title">Titre Section 1</span>
+              <span class="section-title"
+                >Le projet d’établissement - le projet de service (pe-ps)</span
+              >
             </div>
             <!-- Sous-section A -->
             <div id="subsection-a" class="subsection">
-              <h3 class="subsection-heading">A. Titre Sous-section A</h3>
+              <h3 class="subsection-heading">
+                A. Définition du Cadre Réglementaire
+              </h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                Le Projet d’Établissement ou de Service (PE-PS), introduit par
+                la loi du 2 janvier 2002, est un document essentiel pour les
+                structures accueillant des mineurs, telles que les écoles,
+                crèches, centres de loisirs ou de vacances sans hébergement
+                (décret 2002-885 du 3 mai 2002). Il :
               </p>
+              <div class="liste-puces">
+                <ul>
+                  <li>
+                    <strong>Réglemente l'accueil :</strong> Établit les
+                    conditions d'organisation et de fonctionnement
+                  </li>
+                  <li>
+                    <strong>Conditionne l'agrément :</strong> Requis pour
+                    l'autorisation des autorités de contrôle
+                  </li>
+                  <li>
+                    <strong>Facilite le budget :</strong> Sert de base pour
+                    négocier les financements avec les autorités de tarification
+                  </li>
+                </ul>
+                <p>
+                  En mobilisant équipes, familles et partenaires, le PE-PS
+                  garantit un accueil structuré, sécurisé et de qualité.
+                </p>
+              </div>
             </div>
             <!-- Sous-section B -->
             <div id="subsection-b" class="subsection">
-              <h3 class="subsection-heading">B. Titre Sous-section B</h3>
+              <h3 class="subsection-heading">B. Objectifs</h3>
+
+              <p>Le PE-PS vise à :</p>
+
+              <div class="objectifs-grid">
+                <div class="objectif-item">
+                  <p class="objectif-text">
+                    1. Clarifier le positionnement institutionnel de la
+                    structure
+                  </p>
+                </div>
+                <div class="objectif-item">
+                  <p class="objectif-text">
+                    2. Indiquer les évolutions en termes de public et de
+                    missions
+                  </p>
+                </div>
+                <div class="objectif-item">
+                  <p class="objectif-text">
+                    3.Donner des repères aux professionnels
+                  </p>
+                </div>
+                <div class="objectif-item">
+                  <p class="objectif-text">
+                    4. Conduire l’évolution des pratiques et de la structure
+                    dans son ensemble
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Sous-section C -->
+            <div id="subsection-c" class="subsection">
+              <h3 class="subsection-heading">C. Outils de Gestion</h3>
+
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                Le PE-PS s’appuie sur des outils pour soutenir les usagers et
+                piloter la structure :
               </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
+
+              <div class="composant-bandeau-rose">
+                <div class="bandeau-rose-header">
+                  <h4 class="bandeau-rose-title"></h4>
+                </div>
+                <div class="bandeau-rose-body">
+                  <div class="liste-puces">
+                    <ul>
+                      <li><strong>Livret d'accueil :</strong> Présente les services et l'organisation</li>
+                      <li><strong>Règlement de fonctionnement :</strong> Détaille les droits et obligations</li>
+                      <li><strong>Contrat de séjour/Document individuel :</strong> Définit les conditions d'accompagnement</li>
+                      <li><strong>Projets personnalisés :</strong> Adaptés aux besoins spécifiques des enfants</li>
+                      <li><strong>Organigramme :</strong> Représente la hiérarchie et les fonctions</li>
+                      <li><strong>Budget :</strong> Visualise les ressources financières</li>
+                      <li><strong>Référentiels qualité :</strong> Normes pour une démarche qualité</li>
+                      <li><strong>Procédures formalisées :</strong> Ex. : admissions, détection de maltraitance</li>
+                      <li><strong>Outils de management :</strong> Ex. : fiches de poste, référentiels métier</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p>
+              L’ANESM (Agence Nationale de l’Évaluation et de la Qualité des
+              Établissements et Services Sociaux et Médico-sociaux) propose des
+              recommandations pour intégrer une démarche éthique.
+            </p>
+
+            <!-- Sous-section D -->
+            <div id="subsection-d" class="subsection">
+              <h3 class="subsection-heading">D. Gestion des locaux</h3>
+
+              <p>Le PE-PS organise les espaces pour :</p>
+              <div class="liste-puces">
+                <ul>
+                  <li>
+                    <strong>Assurer hygiène et confort :</strong> Repas,
+                    sommeil, soins corporels
+                  </li>
+                  <li>
+                    <strong>Favoriser activités :</strong> Jeux et éveil adaptés
+                  </li>
+                  <li>
+                    <strong>Garantir sécurité :</strong> Surveillance constante
+                    des enfants
+                  </li>
+                </ul>
+              </div>
             </div>
           </section>
           <!-- ===========================================
@@ -996,27 +1421,184 @@
           <section id="section2">
             <div class="section-header">
               <span class="section-number">02</span>
-              <span class="section-title">Titre Section 2</span>
+              <span class="section-title">Projet Educatif</span>
             </div>
             <!-- Sous-section A -->
             <div id="subsection-a" class="subsection">
-              <h3 class="subsection-heading">A. Titre Sous-section A</h3>
+              <h3 class="subsection-heading">A. Principes et Objectifs</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                Le projet éducatif informe les familles des valeurs et objectifs
+                éducatifs de l’établissement (crèches, écoles, centres de
+                loisirs). Pluriannuel, il repose sur une réflexion approfondie
+                des moyens humains et matériels pour assurer une continuité
+                éducative, alignant les attentes des familles avec les pratiques
+                de la structure.
               </p>
             </div>
             <!-- Sous-section B -->
             <div id="subsection-b" class="subsection">
-              <h3 class="subsection-heading">B. Titre Sous-section B</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </p>
+              <h3 class="subsection-heading">B. Modalités par Structure</h3>
+              <div class="composant-bandeau-rose">
+                <div class="bandeau-rose-header">
+                  <h4 class="bandeau-rose-title">Crèches</h4>
+                </div>
+                <div class="bandeau-rose-body">
+                  <p class="bandeau-rose-text">
+                    Précise l’accueil des enfants et familles, les soins
+                    (hygiène, repas, repos), le développement cognitif, le
+                    bien-être, et le cadre de travail de l’équipe.
+                  </p>
+                </div>
+              </div>
+              <div class="composant-bandeau-rose">
+                <div class="bandeau-rose-header">
+                  <h4 class="bandeau-rose-title">
+                    Centres de loisirs et vacances sans hébergement :
+                  </h4>
+                </div>
+                <div class="bandeau-rose-body">
+                  <div class="liste-puces">
+                    <p>Tient compte des besoins psychologiques et physiologiques (ex. : handicaps, troubles de santé) pour définir des objectifs éducatifs évaluables. Contenu :</p>
+                    <ul>
+                     
+                      <li><strong>Organisation des activités :</strong> Principales et accessoires</li>
+                      <li><strong>Modalités d'évaluation et de suivi :</strong> Processus de contrôle continu</li>
+                      <li><strong>Mesures d'information :</strong> Conditions du séjour pour l'organisateur</li>
+                      <li><strong>Validation :</strong> Signature de l'organisateur requise</li>
+                      <li><strong>Utilisation des locaux et espaces :</strong> Aménagement adapté</li>
+                      <li><strong>Budget et horaires d'ouverture :</strong> Gestion administrative</li>
+                      <li><strong>Recrutement et formation de l'équipe :</strong> Compétences requises</li>
+                      <li><strong>Modalités tarifaires :</strong> Conditions financières</li>
+                      <li><strong>Conventions de partenariat :</strong> Relations externes</li>
+                      <li><strong>Outils d'information :</strong> Règlement intérieur, relations avec les familles</li>
+                      <li><strong>Temps de concertation :</strong> Pour l'équipe</li>
+                      <li><strong>Activités physiques et sportives :</strong> Conditions spécifiques</li>
+                      <li><strong>Accueil des enfants en situation de handicap :</strong> Modalités adaptées</li>
+                      <li><strong>Âge des mineurs accueillis :</strong> Critères d'éligibilité</li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
+          </section>
+          <!-- ===========================================
+               SECTION 3
+               =========================================== -->
+          <section id="section3">
+            <div class="section-header">
+              <span class="section-number">03</span>
+              <span class="section-title">Projet Pedagogique </span>
+            </div>
+            <!-- Sous-section A -->
+            <div id="subsection-a" class="subsection">
+              <h3 class="subsection-heading">A. Définition</h3>
+              <div class="definition-index2-container">
+                <h4 class="title-h4-definition">Définition</h4>
+                <p class="paragraphe">
+                    Le projet pédagogique, élaboré collectivement sous la direction de l’accueil, concrétise le projet éducatif. Spécifique à chaque structure, il traduit l’engagement de l’équipe dans un cadre défini et sert de contrat entre l’équipe, les intervenants, les parents et les mineurs, guidant les activités et le fonctionnement.
+                </p>
+              </div>
+
+              <p>Objectifs:</p>
+              <div class="liste-puces">
+                <ul>
+                  <li>
+                    <strong>Donner du sens :</strong> Aligner activités et vie
+                    quotidienne sur les valeurs éducatives
+                  </li>
+                  <li>
+                    <strong>Construire des démarches pédagogiques :</strong>
+                    Approches cohérentes et adaptées
+                  </li>
+                </ul>
+              </div>
+
+              <p>Nature des informations relatives au projet pédagogique :</p>
+              <div class="liste-puces">
+                <ul>
+                  <li>
+                    <strong>Diagnostic initial :</strong> Public, environnement,
+                    ressources
+                  </li>
+                  <li>
+                    <strong>Objectifs éducatifs :</strong> Définis par
+                    l'organisateur
+                  </li>
+                  <li>
+                    <strong>Objectifs pédagogiques :</strong> Moyens concrets
+                    pour les atteindre
+                  </li>
+                  <li>
+                    <strong>Sécurité :</strong> Mesures pour protéger les
+                    mineurs
+                  </li>
+                  <li>
+                    <strong>Activités :</strong> Adaptées, incluant conditions
+                    pour activités physiques
+                  </li>
+                  <li>
+                    <strong>Locaux :</strong> Caractéristiques des espaces
+                    utilisés
+                  </li>
+                  <li>
+                    <strong>Temps d'activité/repos :</strong> Répartition
+                    équilibrée
+                  </li>
+                  <li>
+                    <strong>Participation des mineurs :</strong> Modalités
+                    d'implication
+                  </li>
+                  <li>
+                    <strong>Inclusion :</strong> Mesures pour enfants avec
+                    troubles de santé ou handicaps
+                  </li>
+                  <li><strong>Équipe :</strong> Rôles et fonctionnement</li>
+                  <li><strong>Évaluation :</strong> Modalités de suivi</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <!-- ===========================================
+               SECTION 4
+               =========================================== -->
+          <section id="section4">
+            <div class="section-header">
+              <span class="section-number">04</span>
+              <span class="section-title">Le Dispositif d'Accompagnement</span>
+            </div>
+            <!-- Sous-section A -->
+            <div id="subsection-a" class="subsection">
+              <h3 class="subsection-heading">A. Définition et Principes</h3>
+              <div class="definition-index2-container">
+                <h4 class="title-h4-definition">Définition</h4>
+                <p class="paragraphe">
+                  Introduit en 2013 avec la réforme des temps scolaires, le
+                  Projet Éducatif Territorial (PEDT) est une démarche
+                  partenariale initiée par les collectivités territoriales. Il vise à:
+                </p>
+                <div class="liste-puces">
+                  <ul>
+                    <li><strong>Créer une offre éducative cohérente :</strong> Activités périscolaires et extrascolaires avant, pendant et après l'école</li>
+                    <li><strong>Harmoniser l'existant :</strong> Dans l'intérêt des enfants</li>
+                  </ul>
+                  <p><strong>Partenaires :</strong> Services de l'État, Collectivités territoriales, Acteurs éducatifs locaux</p>
+                </div>
+              </div>
+            </div>
+            <!-- Sous-section B -->
+            <div id="subsection-b" class="subsection">
+              <h3 class="subsection-heading">B. Objectifs et Réglementation</h3>
+              <p>Conformément à l’article D. 521-12 du Code de l’éducation :</p>
+              <div class="liste-puces">
+                <ul>
+                  <li>
+                    Continuité éducative : Alignement des projets scolaires et
+                    extrascolaires.
+                  </li>
+                  <li>
+                    Partenariats : Collaboration entre collectivités et État.
+                  </li>
+                </ul>
+              </div>
             </div>
           </section>
           <!-- ===========================================
@@ -1041,15 +1623,12 @@
                       <span class="number is-flex">01.</span>
                     </div>
                     <div class="step-text col-11">
-                      <p class="text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      </p>
+                      <p class="text">PE-PS</p>
                       <p class="sub-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat.
+                        (loi 2002-2) réglemente l’accueil des mineurs,
+                        conditionne l’agrément et le budget, et utilise des
+                        outils comme le livret d’accueil, l’organigramme et les
+                        procédures qualité.
                       </p>
                     </div>
                   </div>
@@ -1058,15 +1637,11 @@
                       <span class="number is-flex">02.</span>
                     </div>
                     <div class="step-text col-11">
-                      <p class="text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      </p>
+                      <p class="text">Projet Educatif</p>
                       <p class="sub-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat.
+                        définit les valeurs et modalités d’accueil (crèches,
+                        centres de loisirs), incluant soins, inclusion et
+                        organisation adaptée aux besoins des enfants.
                       </p>
                     </div>
                   </div>
@@ -1075,13 +1650,11 @@
                       <span class="number is-flex">03.</span>
                     </div>
                     <div class="step-text col-11">
-                      <p class="text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      </p>
+                      <p class="text">Projet Pédagogique</p>
                       <p class="sub-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
+                        traduit les engagements de l’équipe pour des activités
+                        sécurisées et évaluées, servant de contrat entre
+                        acteurs.
                       </p>
                     </div>
                   </div>
@@ -1090,15 +1663,11 @@
                       <span class="number is-flex">04.</span>
                     </div>
                     <div class="step-text col-11">
-                      <p class="text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      </p>
+                      <p class="text">PEDT</p>
                       <p class="sub-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat.
+                        (2013) coordonne une offre éducative cohérente via des
+                        partenariats, assurant une continuité entre école et
+                        activités périscolaires/extrascolaires.
                       </p>
                     </div>
                   </div>

@@ -3,8 +3,62 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Page Squelette</title>
+    <title>La procédure d’agrément</title>
     <style>
+      /* ===========================================
+           VARIABLES CSS
+           =========================================== */
+      :root {
+        /* Couleurs */
+        --primary-color: #5f8bbc;
+        --primary-color3: #e1d4ff;
+        --primary-color4: #f0ecc8;
+        --secondary-color: #9747ff;
+        --blue-color10: #e6f0fb;
+        --gray-color1: #757575;
+        --gray-color6: #ededed;
+        --gray-color7: #f7f7f7;
+        --white-color: #ffffff;
+        /* Typographie */
+        --main-font: "Montserrat", sans-serif;
+        --font-size18: 18px;
+        --font-size24: 24px;
+        --font-size28: 28px;
+        --font-size32: 32px;
+        --font-size48: 48px;
+        /* Espacement */
+        --spacing-xs: 8px;
+        --spacing-sm: 12px;
+        --spacing-md: 20px;
+        --spacing-lg: 30px;
+        --spacing-xl: 40px;
+        /* Ombres */
+        --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
+        --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15);
+        --shadow-heavy: 0 9px 15px rgba(0, 0, 0, 0.2);
+        /* Transitions */
+        --transition-fast: 0.3s ease;
+        --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Cartes */
+        --card-border-radius: 15px;
+        --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        --card-transition: transform 0.6s;
+        --card-bg-yellow: #f0ecc8;
+        --card-bg-blue: #5f8bbc;
+        /* Bordures */
+        --border-radius-sm: 8px;
+        --border-radius-md: 12px;
+        --border-radius-lg: 15px;
+        /* Z-index */
+        --z-menu: 2001;
+        --z-menu-panel: 1500;
+        /* Couleurs spécifiques */
+        --section-blue: #3b6ea5;
+        --section-blue-alpha: #3b6ea5e3;
+        --text-dark: #333;
+        --text-light: #666;
+      }
+
       /* ===========================================
            COMPOSANT RESET ET STYLES DE BASE
            =========================================== */
@@ -479,6 +533,47 @@
       }
 
       /* ===========================================
+           COMPOSANT IMAGES SECTION 2
+           =========================================== */
+      /* .section2-images : Container pour les images de la section 2 */
+      .section2-images {
+        display: flex;
+        gap: 20px;
+        margin: 25px 0;
+        justify-content: center;
+        align-items: center;
+      }
+      /* .section2-image : Style pour chaque image de la section 2 */
+      .section2-image {
+        max-width: 300px;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      /* .section2-image:hover : Effet hover sur les images */
+      .section2-image:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT IMAGES SECTION 2 */
+      @media (max-width: 767px) {
+        .section2-images {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .section2-image {
+          max-width: 250px;
+        }
+      }
+      @media (max-width: 375px) {
+        .section2-image {
+          max-width: 200px;
+        }
+      }
+
+      /* ===========================================
            COMPOSANT TITRES DE SECTION
            =========================================== */
       /* .section-header : Container des en-têtes de section (numéro + titre) */
@@ -900,6 +995,57 @@
       }
 
       /* ===========================================
+           COMPOSANT LISTE À PUCES
+           =========================================== */
+      /* .liste-puces : Container pour les listes à puces */
+      .liste-puces {
+        margin: 25px 0;
+      }
+      /* .liste-puces ul : Style de la liste */
+      .liste-puces ul {
+        list-style-type: disc;
+        padding-left: 50px;
+        margin: 0;
+      }
+      /* .liste-puces li : Style des éléments de liste */
+      .liste-puces li {
+        color: #333333;
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.6;
+        margin-bottom: 10px;
+        text-align: justify;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT LISTE À PUCES */
+      @media (min-width: 1440px) {
+        .liste-puces li {
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .liste-puces li {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .liste-puces li {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 767px) {
+        .liste-puces li {
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 375px) {
+        .liste-puces li {
+          font-size: 12px;
+        }
+      }
+
+      /* ===========================================
            COMPOSANT CLASSES UTILITAIRES
            =========================================== */
       /* .is-flex : Active la disposition flexbox */
@@ -918,6 +1064,356 @@
       .col-11 {
         width: 91.666667%;
       }
+
+       /* ===========================================
+           COMPOSANT BOX JAUNE
+           =========================================== */
+      /* .regime-section : Section principale du régime parlementaire */
+      .regime-section {
+        max-width: 1200px;
+        margin: 40px auto;
+      }
+      /* .regime-title : Titre de la section régime parlementaire */
+      .regime-title {
+        font-size: var(--font-size28);
+        color: var(--primary-color);
+        margin-bottom: var(--spacing-md);
+        font-family: var(--main-font);
+        font-weight: 700;
+      }
+      /* .regime-intro : Introduction du régime parlementaire */
+      .regime-intro {
+        font-size: var(--font-size18);
+        margin-bottom: var(--spacing-lg);
+        font-family: var(--main-font);
+        text-align: left;
+      }
+      /* .regime-container : Container flex pour image et texte côte à côte */
+      .regime-container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: var(--spacing-lg);
+        flex-wrap: wrap;
+        margin-bottom: var(--spacing-lg);
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+        max-width: 1000px;
+      }
+      /* .regime-img : Container de l'image du président */
+      .regime-img {
+        flex: 1;
+        max-width: 250px;
+      }
+      /* .regime-img img : Image du président sans ombre ni bordure */
+      .regime-img img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: none;
+        border: none;
+      }
+      /* .regime-text : Container du texte explicatif */
+      .regime-text {
+        flex: 2;
+        min-width: 300px;
+      }
+      /* .regime-highlight : Zone de texte mise en évidence avec fond jaune */
+      .regime-highlight {
+        background: #f0ecc8;
+        padding: 30px;
+        border-radius: 8px;
+        font-size: var(--font-size18);
+        line-height: 1.8;
+        font-family: var(--main-font);
+        text-align: left;
+        margin-bottom: 30px;
+      }
+      /* .regime-details : Détails complémentaires sur le régime */
+      .regime-details {
+        font-size: var(--font-size18);
+        margin-top: var(--spacing-md);
+        margin-bottom: var(--spacing-lg);
+        text-align: left;
+        font-family: var(--main-font);
+      }
+
+      /* Styles pour le composant président */
+      .president-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin: 20px auto;
+      }
+      .president-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
+      .president-image img {
+        width: 300px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        object-fit: contain;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT IMAGE SECTION 1 */
+      @media (min-width: 1440px) {
+        .president-image img {
+          width: 350px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .president-image img {
+          width: 320px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .president-image img {
+          width: 280px;
+        }
+      }
+      @media (max-width: 767px) {
+        .president-image img {
+          width: 250px;
+        }
+      }
+      @media (max-width: 375px) {
+        .president-image img {
+          width: 200px;
+        }
+      }
+      .president-box {
+        background: #f0ecc8;
+        border-radius: 12px;
+        padding: 25px;
+        margin: 20px auto;
+        text-align: left;
+        max-width: 600px;
+        width: 90%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .president-box p {
+        font-size: var(--font-size18);
+        line-height: 1.6;
+        margin: 0;
+        color: #333;
+      }
+      .president-box strong {
+        color: #333333;
+        font-weight: 600;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT RÉGIME PARLEMENTAIRE */
+      @media (max-width: 1024px) and (min-width: 768px) {
+        .president-box {
+          padding: 20px;
+          max-width: 500px;
+        }
+        .president-box p {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 767px) {
+        .regime-container {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 15px;
+        }
+        .regime-img {
+          max-width: 200px;
+          margin-bottom: 20px;
+        }
+        .regime-highlight {
+          padding: 20px;
+          text-align: center;
+        }
+        .president-box {
+          padding: 18px;
+          margin: 15px auto;
+          max-width: 90%;
+          width: 95%;
+        }
+        .president-box p {
+          font-size: 14px;
+          line-height: 1.5;
+        }
+      }
+      @media (max-width: 375px) {
+        .regime-container {
+          padding: 10px;
+        }
+        .regime-img {
+          max-width: 150px;
+        }
+        .regime-highlight {
+          padding: 15px;
+        }
+        .president-box p {
+          font-size: 12px;
+        }
+        /* SECTION 1B - RÉGIME PARLEMENTAIRE */
+        #section1-b {
+          width: 100%;
+          max-width: 100%;
+          margin: 0 auto;
+          padding: 5px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          box-sizing: border-box;
+        }
+        .regime-section {
+          width: 100%;
+          max-width: 100%;
+          margin: 0 auto;
+          padding: 5px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          box-sizing: border-box;
+        }
+        .regime-container {
+          width: 100%;
+          max-width: 100%;
+          margin: 0 auto;
+          padding: 5px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          gap: 10px;
+          box-sizing: border-box;
+        }
+        /* IMAGE PRÉSIDENT */
+        .regime-img {
+          width: 40vw;
+          max-width: 120px;
+          min-width: 80px;
+          height: auto;
+          margin: 10px auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        .regime-img img {
+          width: 100%;
+          height: auto;
+          margin: 0 auto;
+          display: block;
+          object-fit: contain;
+          box-sizing: border-box;
+        }
+      }
+
+       /* ===========================================
+           COMPOSANT AVEC BANDEAU ROSE
+           =========================================== */
+      /* .composant-bandeau-rose : Container principal du composant avec bandeau rose */
+      .composant-bandeau-rose {
+        margin: 25px 0;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      /* .composant-bandeau-rose:hover : Effet hover sur le composant */
+      .composant-bandeau-rose:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+      /* .bandeau-rose-header : Bandeau rose en haut avec titre blanc */
+      .bandeau-rose-header {
+        background-color: #dcccde;
+        padding: 15px 20px;
+        text-align: center;
+      }
+      /* .bandeau-rose-title : Titre en blanc dans le bandeau rose */
+      .bandeau-rose-title {
+        color: #ffffff;
+        font-family: "Montserrat", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        margin: 0;
+      }
+      /* .bandeau-rose-body : Corps du composant en rose clair */
+      .bandeau-rose-body {
+        background-color: #f8f8f8;
+        padding: 35px;
+      }
+      /* .bandeau-rose-text : Texte dans le corps du composant */
+      .bandeau-rose-text {
+        color: #333333;
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.6;
+        margin: 0;
+        text-align: left;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT AVEC BANDEAU ROSE */
+      @media (min-width: 1440px) {
+        .bandeau-rose-title {
+          font-size: 22px;
+        }
+        .bandeau-rose-text {
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .bandeau-rose-title {
+          font-size: 20px;
+        }
+        .bandeau-rose-text {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .bandeau-rose-title {
+          font-size: 18px;
+        }
+        .bandeau-rose-text {
+          font-size: 16px;
+        }
+        .bandeau-rose-body {
+          padding: 30px;
+        }
+      }
+      @media (max-width: 767px) {
+        .bandeau-rose-title {
+          font-size: 16px;
+        }
+        .bandeau-rose-text {
+          font-size: 14px;
+        }
+        .bandeau-rose-body {
+          padding: 25px;
+        }
+      }
+      @media (max-width: 375px) {
+        .bandeau-rose-title {
+          font-size: 14px;
+        }
+        .bandeau-rose-text {
+          font-size: 12px;
+        }
+        .bandeau-rose-body {
+          padding: 20px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -935,9 +1431,13 @@
       <!-- Menu latéral de navigation -->
       <nav class="menu">
         <ul>
-          <li><a href="#section1">1 - Titre Section 1</a></li>
-          <li><a href="#section2">2 - Titre Section 2</a></li>
-          <li><a href="#conc">3 - À retenir</a></li>
+          <li><a href="#section1">1 - Les particularités d'une assistante maternelle</a></li>
+          <li><a href="#section2">2 - La demande d'agrément</a></li>
+          <li><a href="#section3">3 - Le dossier de demande d'agrément</a></li>
+          <li><a href="#section4">4 - Réponse du conseil départemental</a></li>
+          <li><a href="#section5">5 - Renouvellement</a></li>
+          <li><a href="#section6">6 - Cas Particulier</a></li>
+          <li><a href="#conc">7 - À retenir</a></li>
         </ul>
       </nav>
       <!-- ===========================================
@@ -948,13 +1448,13 @@
           <!-- ===========================================
                TITRE PRINCIPAL
                =========================================== -->
-          <h1 class="intro-title">Titre Principal de la Page</h1>
+          <h1 class="intro-title">La procédure d’agrément</h1>
           <!-- ===========================================
                IMAGE PRINCIPALE
                =========================================== -->
           <img
             class="intro-image"
-            src="../../images/CAP AEPE/page2/imageSerrerMain.png"
+            src="../../images/CAP AEPE/page14/imageJeu.png"
             alt="Image principale"
           />
           <!-- ===========================================
@@ -963,32 +1463,51 @@
           <section id="section1">
             <div class="section-header">
               <span class="section-number">01</span>
-              <span class="section-title">Titre Section 1</span>
+              <span class="section-title">Les particularités d’une assistante maternelle</span>
             </div>
-            <!-- Sous-section A -->
-            <div id="subsection-a" class="subsection">
-              <h3 class="subsection-heading">A. Titre Sous-section A</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </p>
-            </div>
-            <!-- Sous-section B -->
-            <div id="subsection-b" class="subsection">
-              <h3 class="subsection-heading">B. Titre Sous-section B</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-            </div>
+           
+            <div class="president-container">
+                <div class="president-image">
+                  <img
+                    src="../../images/CAP AEPE/page14/imageFemmebebe2.png"
+                    alt="Illustration"
+                  />
+                </div>
+                <div class="president-box">
+                  <p>
+                    L’assistante maternelle est une professionnelle agréée par l’État pour accueillir des enfants de moins de 6 ans à son domicile ou dans une Maison d’Assistants Maternels (MAM). Cet accueil est :
+                  </p>
+                  <div class="liste-puces">
+                    <ul>
+                      <li><strong>Habituel :</strong> régulier, selon un planning</li>
+                      <li><strong>Non permanent :</strong> les enfants retournent chez leurs parents après l'accueil</li>
+                      <li><strong>Rémunéré :</strong> en échange d'une compensation financière</li>
+                    </ul>
+                  </div>
+                  <p>
+Non permanent : les enfants retournent chez leurs parents après l’accueil.
+Rémunéré : en échange d’une compensation financière.
+
+L’agrément, délivré par le Président du conseil départemental après avis des services de Protection Maternelle et Infantile (PMI), est obligatoire. Il :
+                  </p>
+                  <p>
+                    L'agrément, délivré par le Président du conseil départemental après avis des services de Protection Maternelle et Infantile (PMI), est obligatoire. Il :
+                  </p>
+                  <div class="liste-puces">
+                    <ul>
+                      <li><strong>Confirme le statut professionnel</strong></li>
+                      <li><strong>Garantit un cadre sécurisé et adapté</strong></li>
+                      <li><strong>Est valable 5 ans, renouvelable</strong></li>
+                    </ul>
+                  </div>
+                  <p>
+
+
+Exemple : Une assistante maternelle accueille un bébé de 18 mois et un enfant de 3 ans pour des activités éducatives et des soins quotidiens.
+                  </p>
+                </div>
+              </div>
+            
           </section>
           <!-- ===========================================
                SECTION 2
@@ -996,29 +1515,197 @@
           <section id="section2">
             <div class="section-header">
               <span class="section-number">02</span>
-              <span class="section-title">Titre Section 2</span>
+              <span class="section-title">La demande d’agrément</span>
             </div>
-            <!-- Sous-section A -->
-            <div id="subsection-a" class="subsection">
-              <h3 class="subsection-heading">A. Titre Sous-section A</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </p>
+           
+            <p>
+                Pour obtenir l’agrément, une formation de 120 heures est requise :
+80 heures avant d’accueillir un enfant (formation initiale).
+            </p>
+            <div class="liste-puces">
+              <ul>
+                <li><strong>80 heures avant d'accueillir un enfant</strong> (formation initiale)</li>
+                <li><strong>40 heures dans les 3 ans suivant le premier accueil</strong></li>
+              </ul>
             </div>
-            <!-- Sous-section B -->
-            <div id="subsection-b" class="subsection">
-              <h3 class="subsection-heading">B. Titre Sous-section B</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </p>
+            <p>
+
+Évaluation des acquis :
+            </p>
+            <div class="liste-puces">
+              <ul>
+                <li><strong>Modalités :</strong> contrôle continu, évaluation finale, ou les deux</li>
+                <li><strong>Formats :</strong> écrite, orale, mise en situation professionnelle, ou combinaison</li>
+                <li><strong>Durée :</strong> minimum 3 heures</li>
+              </ul>
             </div>
+            <p>
+
+L’agrément est délivré si l’évaluation est réussie. En cas d’échec, la candidate doit reprendre la formation et repasser l’évaluation.
+
+Dispense de formation : Les titulaires du CAP AEPE, du diplôme d’auxiliaire de puériculture, ou d’un diplôme de niveau 3 (RNCP) dans la petite enfance en sont exemptés.
+            </p>
+            
+            <div class="section2-images">
+              <img
+                class="section2-image"
+                src="../../images/CAP AEPE/page14/imageFemmebebe.png"
+                alt="Femme avec bébé"
+              />
+              <img
+                class="section2-image"
+                src="../../images/CAP AEPE/page14/imageFemmebebe3.png"
+                alt="Femme avec bébé 3"
+              />
+            </div>
+
           </section>
+
+           <!-- ===========================================
+               SECTION 3
+               =========================================== -->
+               <section id="section3">
+                <div class="section-header">
+                  <span class="section-number">03</span>
+                  <span class="section-title">Le dossier de demande d’agrément</span>
+                </div>
+               
+                <div class="composant-bandeau-rose">
+                    <div class="bandeau-rose-header">
+                      
+                    </div>
+                    <div class="bandeau-rose-body">
+                      <div class="liste-puces">
+                        <p>
+                            La candidate doit soumettre :
+Un formulaire de demande d’agrément.
+                        </p>
+                        <ul>
+                          <li><strong>Un formulaire de demande d'agrément</strong></li>
+                          <li><strong>Un certificat médical</strong></li>
+                        </ul>
+                        <p>
+
+Le service PMI examine le dossier en 3 mois via :
+                        </p>
+                        <ul>
+                          <li><strong>Analyse des documents</strong></li>
+                          <li><strong>Entretien(s) avec la candidate</strong></li>
+                          <li><strong>Visite(s) au domicile</strong></li>
+                        </ul>
+                        <p>
+
+Critères d’évaluation (grille nationale) :
+                        </p>
+                        <ul>
+                          <li><strong>Logement :</strong> sécurisé, propre, adapté</li>
+                          <li><strong>Foyer :</strong> composition et interactions</li>
+                          <li><strong>Connaissance du métier :</strong> maîtrise des responsabilités</li>
+                          <li><strong>Relation avec les enfants :</strong> aptitude à la bienveillance</li>
+                          <li><strong>Condition physique :</strong> capacité à répondre aux besoins</li>
+                          <li><strong>Motivation :</strong> engagement professionnel</li>
+                        </ul>
+                        <p>
+
+Préparation de la visite PMI : Assurez-vous que les espaces dédiés (chambre, aire de jeu) sont impeccables et sécurisés (ex. : prises protégées, meubles stables).
+                        </p>
+                        
+                        
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+    
+              </section>
+               <!-- ===========================================
+               SECTION 4
+               =========================================== -->
+               <section id="section4">
+                <div class="section-header">
+                  <span class="section-number">04</span>
+                  <span class="section-title">Réponse du conseil departemental</span>
+                </div>
+               
+                <div class="composant-bandeau-rose">
+                    <div class="bandeau-rose-header">
+                      
+                    </div>
+                    <div class="bandeau-rose-body">
+                      <div class="liste-puces">
+                        <p>
+                            Le Président du conseil départemental notifie sa décision sous 3 mois après réception du dossier complet. Sans réponse, l’agrément est acquis.
+L’agrément, valable 5 ans sur tout le territoire français, s’accompagne d’une attestation. En cas de refus, la notification détaille :
+                        </p>
+                        <ul>
+                          <li><strong>Les motifs</strong></li>
+                          <li><strong>Les options et délais de recours</strong></li>
+                        </ul>
+                        <p>
+                        </p>
+                        
+                        
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+    
+              </section>
+
+              <!-- ===========================================
+               SECTION 5
+               =========================================== -->
+               <section id="section5">
+                <div class="section-header">
+                  <span class="section-number">05</span>
+                  <span class="section-title">Renouvellement</span>
+                </div>
+
+                <div class="composant-bandeau-rose">
+                    <div class="bandeau-rose-header">
+                      
+                    </div>
+                    <div class="bandeau-rose-body">
+                      <div class="liste-puces">
+                        <p>
+                            Le renouvellement doit être demandé 3 mois minimum avant l’expiration de l’agrément. Les services départementaux envoient un courrier avec le formulaire de renouvellement dans l’année précédant la fin de l’agrément.
+Le processus est similaire à la demande initiale (dossier, entretien, visite). Si les conditions ne sont plus remplies, l’agrément peut être : 
+                        </p>
+                        <ul>
+                          <li><strong>Modifié</strong></li>
+                          <li><strong>Retiré</strong></li>
+                          <li><strong>Suspendu en urgence</strong> (aucun enfant ne peut être accueilli)</li>
+                        </ul>
+                        <p>
+                        </p>
+                        
+                        
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+
+               </section>
+               <!-- ===========================================
+               SECTION 6
+               =========================================== -->
+               <section id="section6">
+                <div class="section-header">
+                  <span class="section-number">06</span>
+                  <span class="section-title">Cas Particulier</span>
+                </div>
+
+                <p>
+                    Pour exercer en Maison d’Assistants Maternels (MAM), chaque assistante maternelle doit obtenir un agrément individuel. Une ou plusieurs visites de la MAM vérifient :
+                </p>
+                <div class="liste-puces">
+                  <ul>
+                    <li><strong>Les règles de sécurité des Établissements Recevant du Public (ERP)</strong></li>
+                    <li><strong>Les conditions d'accueil adaptées</strong></li>
+                  </ul>
+                </div>
+                </p>
+               </section>
+
           <!-- ===========================================
                COMPOSANT FINAL - À RETENIR
                =========================================== -->
@@ -1042,14 +1729,10 @@
                     </div>
                     <div class="step-text col-11">
                       <p class="text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Rôle et agrément :
                       </p>
                       <p class="sub-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat.
+                        L’assistante maternelle, agréée par l’État, accueille des enfants de moins de 6 ans de manière habituelle, non permanente et rémunérée. L’agrément, délivré par le conseil départemental après avis PMI, est valable 5 ans.
                       </p>
                     </div>
                   </div>
@@ -1059,14 +1742,10 @@
                     </div>
                     <div class="step-text col-11">
                       <p class="text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Formation et évaluation :
                       </p>
                       <p class="sub-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat.
+                        Une formation de 120 heures (80 avant accueil, 40 après) est requise, suivie d’une évaluation de 3 heures minimum. Les diplômés (CAP AEPE, auxiliaire de puériculture, niveau 3 RNCP) sont dispensés.
                       </p>
                     </div>
                   </div>
@@ -1076,29 +1755,10 @@
                     </div>
                     <div class="step-text col-11">
                       <p class="text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Dossier et critères :
                       </p>
                       <p class="sub-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="step-content is-flex is-flex-wrap-wrap-mobile">
-                    <div class="step col-1 is-flex">
-                      <span class="number is-flex">04.</span>
-                    </div>
-                    <div class="step-text col-11">
-                      <p class="text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      </p>
-                      <p class="sub-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat.
+                        La demande inclut un formulaire, un certificat médical, et une évaluation PMI (logement, foyer, compétences). La décision est notifiée sous 3 mois ; sans réponse, l’agrément est acquis.
                       </p>
                     </div>
                   </div>
