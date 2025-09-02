@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Composant - Container Président</title>
+    <style>
+      /* ===========================================
+             COMPOSANT CONTAINER PRÉSIDENT
+             =========================================== */
+      /* .president-container : Container principal avec disposition flex */
+      .president-container {
+        display: flex;
+        gap: 25px;
+        align-items: flex-start;
+        margin: 30px 0;
+      }
+      /* .president-image : Image à gauche */
+      .president-image {
+        flex: 0 0 200px;
+      }
+      /* .president-image img : Style de l'image */
+      .president-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+      /* .president-box : Container du texte à droite */
+      .president-box {
+        flex: 1;
+        background: #f8fbff;
+        border: 2px solid #5f8bbc;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(95, 139, 188, 0.2);
+      }
+      /* .president-box h3 : Titre dans la box */
+      .president-box h3 {
+        color: #5f8bbc;
+        font-size: 20px;
+        margin-bottom: 15px;
+        font-weight: 600;
+      }
+      /* .president-box p : Paragraphes dans la box */
+      .president-box p {
+        color: #333;
+        margin-bottom: 12px;
+        line-height: 1.6;
+      }
+      /* .president-box ul : Listes dans la box */
+      .president-box ul {
+        margin: 15px 0;
+        padding-left: 20px;
+      }
+      /* .president-box li : Éléments de liste */
+      .president-box li {
+        margin-bottom: 8px;
+        color: #333;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT CONTAINER PRÉSIDENT */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .president-container {
+          gap: 20px;
+        }
+        .president-image {
+          flex: 0 0 180px;
+        }
+        .president-box {
+          padding: 20px;
+        }
+        .president-box h3 {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 767px) {
+        .president-container {
+          flex-direction: column;
+          gap: 20px;
+        }
+        .president-image {
+          flex: none;
+          width: 100%;
+          max-width: 300px;
+          margin: 0 auto;
+        }
+        .president-box {
+          padding: 20px;
+        }
+        .president-box h3 {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 375px) {
+        .president-box {
+          padding: 15px;
+        }
+        .president-box h3 {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Composant - Container Président</h1>
+      <p>
+        Ce composant définit un layout avec image à gauche et texte dans une box
+        à droite, utilisé dans plusieurs pages.
+      </p>
+      <p>Il inclut :</p>
+      <ul>
+        <li>Disposition flex avec image à gauche</li>
+        <li>Box stylisée avec bordure bleue et ombre</li>
+        <li>Arrière-plan bleu très clair</li>
+        <li>Image avec coins arrondis et ombre</li>
+        <li>Adaptation responsive complète</li>
+      </ul>
+
+      <!-- Exemple du container président -->
+      <div class="president-container">
+        <div class="president-image">
+          <img
+            src="../../images/CAP AEPE/page1/imagePresident.png"
+            alt="Président"
+          />
+        </div>
+        <div class="president-box">
+          <h3>Titre de la section</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <ul>
+            <li>Point important 1</li>
+            <li>Point important 2</li>
+            <li>Point important 3</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

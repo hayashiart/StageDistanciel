@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Composant - Cartes de Période d'Essai</title>
+    <style>
+      /* ===========================================
+           COMPOSANT CARTES DE PÉRIODE D'ESSAI
+           =========================================== */
+      /* .periode-essai-unique : Container principal des cartes de période d'essai */
+      .periode-essai-unique {
+        margin: 30px 0;
+      }
+      /* .periode-grid-unique : Grille des cartes de période d'essai */
+      .periode-grid-unique {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        margin-bottom: 30px;
+      }
+      /* .periode-card-unique : Carte de période d'essai individuelle */
+      .periode-card-unique {
+        background: #ffffff;
+        border: 2px solid #5f8bbc;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(95, 139, 188, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      /* .periode-card-unique:hover : Effet hover sur la carte */
+      .periode-card-unique:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(95, 139, 188, 0.25);
+      }
+      /* .card-violet-unique : Carte avec bordure violette */
+      .card-violet-unique {
+        border-color: #8b5cf6;
+        background: linear-gradient(135deg, #f8f7ff 0%, #ffffff 100%);
+      }
+      /* .card-jaune-unique : Carte avec bordure jaune */
+      .card-jaune-unique {
+        border-color: #f59e0b;
+        background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
+      }
+      /* .card-bleue-unique : Carte avec bordure bleue */
+      .card-bleue-unique {
+        border-color: #3b82f6;
+        background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+      }
+      /* .card-grise-unique : Carte avec bordure grise */
+      .card-grise-unique {
+        border-color: #6b7280;
+        background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
+      }
+      /* .periode-image-container-unique : Container de l'image */
+      .periode-image-container-unique {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      /* .periode-image-unique : Image de la carte */
+      .periode-image-unique {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 3px solid #5f8bbc;
+        box-shadow: 0 4px 8px rgba(95, 139, 188, 0.2);
+      }
+      /* .periode-card-unique h4 : Titre de la carte */
+      .periode-card-unique h4 {
+        color: #5f8bbc;
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0 0 15px 0;
+        text-align: center;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #e6f0fb;
+      }
+      /* .periode-card-unique p : Paragraphes de la carte */
+      .periode-card-unique p {
+        color: #333;
+        line-height: 1.6;
+        margin-bottom: 12px;
+        text-align: justify;
+      }
+      /* .periode-card-unique ul : Listes de la carte */
+      .periode-card-unique ul {
+        margin: 15px 0;
+        padding-left: 20px;
+      }
+      /* .periode-card-unique li : Éléments de liste */
+      .periode-card-unique li {
+        color: #333;
+        margin-bottom: 8px;
+        line-height: 1.5;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT CARTES DE PÉRIODE D'ESSAI */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .periode-grid-unique {
+          gap: 20px;
+        }
+        .periode-card-unique {
+          padding: 20px;
+        }
+        .periode-card-unique h4 {
+          font-size: 18px;
+        }
+        .periode-image-unique {
+          width: 70px;
+          height: 70px;
+        }
+      }
+      @media (max-width: 767px) {
+        .periode-grid-unique {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        .periode-card-unique {
+          padding: 20px;
+        }
+        .periode-card-unique h4 {
+          font-size: 18px;
+        }
+        .periode-image-unique {
+          width: 60px;
+          height: 60px;
+        }
+      }
+      @media (max-width: 375px) {
+        .periode-card-unique {
+          padding: 15px;
+        }
+        .periode-card-unique h4 {
+          font-size: 16px;
+        }
+        .periode-card-unique p,
+        .periode-card-unique li {
+          font-size: 14px;
+        }
+        .periode-image-unique {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Composant - Cartes de Période d'Essai</h1>
+      <p>
+        Ce composant définit les cartes de période d'essai utilisées dans page4
+        pour présenter les différents types de contrats.
+      </p>
+      <p>Il inclut :</p>
+      <ul>
+        <li>Grille responsive de cartes colorées</li>
+        <li>Images circulaires avec bordures</li>
+        <li>Bordures colorées selon le type de contrat</li>
+        <li>Arrière-plans dégradés subtils</li>
+        <li>Effet hover avec élévation</li>
+        <li>Disposition adaptative selon la taille d'écran</li>
+      </ul>
+
+      <!-- Exemple des cartes de période d'essai -->
+      <div class="periode-essai-unique">
+        <div class="periode-grid-unique">
+          <div class="periode-card-unique card-violet-unique">
+            <div class="periode-image-container-unique">
+              <img
+                src="../../images/CAP AEPE/page4/imageCDI.png"
+                alt="CDI"
+                class="periode-image-unique"
+              />
+            </div>
+            <h4>CDI - Contrat à Durée Indéterminée</h4>
+            <p>
+              Le contrat de travail à durée indéterminée est la forme normale et
+              générale de la relation de travail.
+            </p>
+            <ul>
+              <li>Pas de date de fin</li>
+              <li>Stabilité de l'emploi</li>
+              <li>Protection sociale complète</li>
+            </ul>
+          </div>
+          <div class="periode-card-unique card-jaune-unique">
+            <div class="periode-image-container-unique">
+              <img
+                src="../../images/CAP AEPE/page4/imageCDD.png"
+                alt="CDD"
+                class="periode-image-unique"
+              />
+            </div>
+            <h4>CDD - Contrat à Durée Déterminée</h4>
+            <p>
+              Le contrat à durée déterminée ne peut être conclu que pour
+              l'exécution d'une tâche précise et temporaire.
+            </p>
+            <ul>
+              <li>Date de fin définie</li>
+              <li>Motif précis requis</li>
+              <li>Renouvellement limité</li>
+            </ul>
+          </div>
+          <div class="periode-card-unique card-bleue-unique">
+            <div class="periode-image-container-unique">
+              <img
+                src="../../images/CAP AEPE/page4/imageInterim.png"
+                alt="Intérim"
+                class="periode-image-unique"
+              />
+            </div>
+            <h4>Contrat d'Intérim</h4>
+            <p>
+              Le contrat de travail temporaire permet de faire face à un
+              accroissement temporaire d'activité.
+            </p>
+            <ul>
+              <li>Mission temporaire</li>
+              <li>Tripartite (entreprise, intérimaire, agence)</li>
+              <li>Rémunération garantie</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

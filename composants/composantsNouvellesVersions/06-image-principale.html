@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Composant - Image Principale</title>
+    <style>
+      /* ===========================================
+             COMPOSANT IMAGE PRINCIPALE
+             =========================================== */
+      /* .intro-image : Image principale en haut de la page */
+      .intro-image {
+        display: block;
+        max-width: 90%;
+        width: 90%;
+        height: auto;
+        margin: 30px auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT IMAGE PRINCIPALE */
+      @media (min-width: 1440px) {
+        .intro-image {
+          max-width: 90%;
+          width: 90%;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .intro-image {
+          max-width: 90%;
+          width: 90%;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .intro-image {
+          max-width: 90%;
+          width: 90%;
+        }
+      }
+      @media (max-width: 767px) {
+        .intro-image {
+          max-width: 90%;
+          width: 90%;
+          margin: 20px auto;
+        }
+      }
+      @media (max-width: 375px) {
+        .intro-image {
+          max-width: 90%;
+          width: 90%;
+          margin: 15px auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Composant - Image Principale</h1>
+      <p>
+        Ce composant définit l'image principale d'introduction de toutes les
+        pages du module1.
+      </p>
+      <p>Il inclut :</p>
+      <ul>
+        <li>Image centrée avec largeur de 90%</li>
+        <li>Coins arrondis et ombre portée</li>
+        <li>Hauteur automatique pour conserver les proportions</li>
+        <li>Marges adaptatives selon les breakpoints</li>
+      </ul>
+
+      <!-- Exemple de l'image principale -->
+      <img
+        class="intro-image"
+        src="../../images/CAP AEPE/page2/imageSerrerMain.png"
+        alt="Image principale"
+      />
+    </div>
+  </body>
+</html>

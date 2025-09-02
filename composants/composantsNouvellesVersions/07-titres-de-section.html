@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Composant - Titres de Section</title>
+    <style>
+      /* ===========================================
+             COMPOSANT TITRES DE SECTION
+             =========================================== */
+      /* .section-header : Container des en-têtes de section (numéro + titre) */
+      .section-header {
+        display: flex;
+        align-items: center;
+        background: #e6f0fb;
+        border: 2px solid #3b6ea5e3;
+        border-radius: 15px;
+        padding: 0;
+        margin: 40px 0 30px 0;
+        box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
+        overflow: hidden;
+      }
+      /* .section-number : Numéro de section (01, 02, etc.) - partie bleue à gauche */
+      .section-number {
+        background: #3b6ea5;
+        color: #ffffff;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 36px;
+        padding: 25px 30px;
+        min-width: 120px;
+        width: 120px;
+        text-align: center;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        align-self: stretch;
+      }
+      /* .section-title : Titre de section (texte principal) - partie droite */
+      .section-title {
+        color: #3b6ea5;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 24px;
+        text-align: center;
+        flex: 1;
+        padding: 25px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100px;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT TITRES DE SECTION */
+      @media (min-width: 1440px) {
+        .section-number {
+          font-size: 24px;
+          padding: 8px 12px;
+        }
+        .section-title {
+          font-size: 18px;
+          padding: 8px 12px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .section-number {
+          font-size: 22px;
+          padding: 6px 10px;
+        }
+        .section-title {
+          font-size: 16px;
+          padding: 6px 10px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .section-header {
+          margin: 20px 0 15px;
+          padding: 0;
+        }
+        .section-number {
+          font-size: 20px;
+          padding: 5px 8px;
+          min-width: 80px;
+          width: 80px;
+        }
+        .section-title {
+          font-size: 14px;
+          padding: 5px 8px;
+          min-height: 60px;
+        }
+      }
+      @media (max-width: 767px) {
+        .section-header {
+          flex-direction: column;
+          text-align: center;
+          margin: 15px 0 10px;
+          padding: 0;
+        }
+        .section-number {
+          border-radius: 12px 12px 0 0;
+          width: 100%;
+          text-align: center;
+          font-size: 18px;
+          padding: 4px 6px;
+          min-width: auto;
+          min-height: 40px;
+        }
+        .section-title {
+          border-radius: 0 0 12px 12px;
+          width: 100%;
+          font-size: 12px;
+          padding: 4px 6px;
+          min-height: 40px;
+        }
+      }
+      @media (max-width: 375px) {
+        .section-header {
+          margin: 10px 0 5px;
+          padding: 0;
+        }
+        .section-number {
+          font-size: 16px;
+          padding: 3px 5px;
+          min-height: 30px;
+        }
+        .section-title {
+          font-size: 10px;
+          padding: 3px 5px;
+          min-height: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Composant - Titres de Section</h1>
+      <p>
+        Ce composant définit les en-têtes de section numérotés utilisés dans
+        toutes les pages du module1.
+      </p>
+      <p>Il inclut :</p>
+      <ul>
+        <li>Container flex avec arrière-plan bleu clair</li>
+        <li>Numéro de section dans un carré bleu à gauche</li>
+        <li>Titre de section centré à droite</li>
+        <li>Bordure et ombre portée stylisées</li>
+        <li>Adaptation responsive complète</li>
+      </ul>
+
+      <!-- Exemple des titres de section -->
+      <div class="section-header">
+        <span class="section-number">01</span>
+        <span class="section-title">Titre Section 1</span>
+      </div>
+
+      <div class="section-header">
+        <span class="section-number">02</span>
+        <span class="section-title">Titre Section 2</span>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Composant - Conclusion "À Retenir"</title>
+    <style>
+      /* ===========================================
+             COMPOSANT CONCLUSION - À RETENIR
+             =========================================== */
+      /* .container-a-retenir : Container principal du composant conclusion avec espacement */
+      .container-a-retenir {
+        padding: 35px;
+        margin: 45px 0;
+      }
+      /* .wrap-title-retenir-conclusion : Wrapper pour le titre et l'image - disposition verticale centrée */
+      .wrap-title-retenir-conclusion {
+        flex-direction: column;
+        align-items: center;
+      }
+      /* .retenir-img : Image au-dessus du titre "À retenir" - taille adaptative */
+      .retenir-img {
+        width: 35%;
+      }
+      /* .title-retenir-conclusion : Titre principal "À RETENIR" - style typographique */
+      .title-retenir-conclusion {
+        color: #757575;
+        text-align: center;
+        font-family: "Montserrat", sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: uppercase;
+        margin-top: 20px;
+      }
+      /* .steps : Container des étapes numérotées */
+      .steps {
+        padding: 20px;
+      }
+      /* .step : Structure de chaque étape - disposition verticale centrée */
+      .step {
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+      }
+      /* .number : Numéro de l'étape - cercle coloré avec le numéro */
+      .number {
+        font-size: 18px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: bold;
+        color: #ffffff;
+        border-radius: 50%;
+        padding: 8px;
+        background-color: #5f8bbc;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      /* .text : Texte principal de l'étape - titre en gras */
+      .text {
+        font-family: "Montserrat", sans-serif;
+        color: #5f8bbc;
+        text-align: justify;
+        font-size: 24px;
+        font-weight: 600;
+        margin: 0;
+        padding-left: 15px;
+      }
+      /* .sub-text : Texte secondaire de l'étape - description détaillée */
+      .sub-text {
+        font-family: "Montserrat", sans-serif;
+        color: #757575;
+        font-size: 18px;
+        margin: 0;
+        text-align: justify;
+        padding-left: 15px;
+      }
+      /* .line : Ligne verticale pointillée entre les étapes */
+      .line {
+        display: none;
+      }
+      /* .steps .step-content:last-child .line : Désactive la ligne pour la dernière étape */
+      .steps .step-content:last-child .line {
+        display: none;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT CONCLUSION - À RETENIR */
+      @media (min-width: 1440px) {
+        .title-retenir-conclusion {
+          font-size: 22px;
+        }
+        .text {
+          font-size: 22px;
+        }
+        .sub-text {
+          font-size: 20px;
+        }
+        .number {
+          width: 50px;
+          height: 50px;
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .title-retenir-conclusion {
+          font-size: 20px;
+        }
+        .text {
+          font-size: 20px;
+        }
+        .sub-text {
+          font-size: 18px;
+        }
+        .number {
+          width: 45px;
+          height: 45px;
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .title-retenir-conclusion {
+          font-size: 18px;
+        }
+        .text {
+          font-size: 18px;
+        }
+        .sub-text {
+          font-size: 16px;
+        }
+        .number {
+          width: 40px;
+          height: 40px;
+          font-size: 14px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 15px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+      @media (max-width: 767px) {
+        .title-retenir-conclusion {
+          font-size: 16px;
+        }
+        .text {
+          font-size: 16px;
+        }
+        .sub-text {
+          font-size: 14px;
+        }
+        .number {
+          width: 35px;
+          height: 35px;
+          font-size: 12px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 15px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+      @media (max-width: 375px) {
+        .title-retenir-conclusion {
+          font-size: 14px;
+        }
+        .text {
+          font-size: 14px;
+        }
+        .sub-text {
+          font-size: 12px;
+        }
+        .number {
+          width: 30px;
+          height: 30px;
+          font-size: 10px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 10px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+      @media (max-width: 768px) {
+        .container-a-retenir {
+          text-align: center;
+        }
+        .steps {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+        .step-content {
+          width: 100%;
+          max-width: 600px;
+          margin-bottom: 24px;
+        }
+        .text,
+        .sub-text {
+          text-align: center;
+        }
+        .steps .step-content:last-child .line {
+          display: block;
+        }
+      }
+      @media (max-width: 992px) and (min-width: 768px) {
+        .container-a-retenir {
+          text-align: center;
+        }
+        .steps {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+        .step-content {
+          width: 100%;
+          max-width: 600px;
+          margin-bottom: 24px;
+        }
+        .text,
+        .sub-text {
+          text-align: center;
+        }
+        .steps .step-content:last-child .line {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Composant - Conclusion "À Retenir"</h1>
+      <p>
+        Ce composant définit la section finale de conclusion utilisée dans
+        toutes les pages du module1.
+      </p>
+      <p>Il inclut :</p>
+      <ul>
+        <li>Image et titre "À RETENIR" en haut</li>
+        <li>Étapes numérotées avec cercles bleus</li>
+        <li>Titres et descriptions pour chaque étape</li>
+        <li>Disposition responsive adaptative</li>
+        <li>Styles typographiques cohérents</li>
+      </ul>
+
+      <!-- Exemple du composant conclusion -->
+      <div class="container-a-retenir">
+        <div class="wrap-title-retenir-conclusion">
+          <img
+            alt=""
+            src="../../images/png/imageRetenir.svg"
+            class="retenir-img"
+          />
+          <h2 class="title-retenir-conclusion">à retenir</h2>
+        </div>
+        <div class="steps">
+          <div class="step-content">
+            <div class="step">
+              <span class="number">01.</span>
+            </div>
+            <div class="step-text">
+              <p class="text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <p class="sub-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+          </div>
+          <div class="step-content">
+            <div class="step">
+              <span class="number">02.</span>
+            </div>
+            <div class="step-text">
+              <p class="text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <p class="sub-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

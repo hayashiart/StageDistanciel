@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Composant - Classes Utilitaires</title>
+    <style>
+      /* ===========================================
+             COMPOSANT CLASSES UTILITAIRES
+             =========================================== */
+      /* .is-flex : Active la disposition flexbox */
+      .is-flex {
+        display: flex;
+      }
+      /* .is-flex-wrap-wrap-mobile : Permet le retour à la ligne pour petits écrans */
+      .is-flex-wrap-wrap-mobile {
+        flex-wrap: wrap;
+      }
+      /* .col-1 : Colonne occupant 1/12 de la largeur */
+      .col-1 {
+        width: 8.333333%;
+      }
+      /* .col-11 : Colonne occupant 11/12 de la largeur */
+      .col-11 {
+        width: 91.666667%;
+      }
+      /* .is-flex-gap : Ajoute un espacement entre les éléments flex */
+      .is-flex-gap {
+        gap: 20px;
+      }
+      /* .is-align-items-center : Centre les éléments verticalement */
+      .is-align-items-center {
+        align-items: center;
+      }
+      /* .center : Centre le contenu */
+      .center {
+        text-align: center;
+      }
+      /* .p-5 : Padding de 5 unités */
+      .p-5 {
+        padding: 20px;
+      }
+      /* .mt-4 : Margin top de 4 unités */
+      .mt-4 {
+        margin-top: 16px;
+      }
+      /* .img-fluid : Image responsive */
+      .img-fluid {
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Composant - Classes Utilitaires</h1>
+      <p>
+        Ce composant définit les classes utilitaires utilisées dans toutes les
+        pages du module1.
+      </p>
+      <p>Il inclut :</p>
+      <ul>
+        <li>Classes flexbox pour la disposition</li>
+        <li>Classes de colonnes pour le système de grille</li>
+        <li>Classes d'alignement et d'espacement</li>
+        <li>Classes de padding et margin</li>
+        <li>Classes pour les images responsives</li>
+      </ul>
+
+      <!-- Exemple des classes utilitaires -->
+      <div class="is-flex is-flex-wrap-wrap-mobile">
+        <div class="col-1 is-flex">
+          <span>Col 1</span>
+        </div>
+        <div class="col-11">
+          <p>Col 11 - Contenu principal</p>
+        </div>
+      </div>
+
+      <div class="is-flex is-flex-gap is-align-items-center">
+        <div class="center">
+          <img
+            class="img-fluid mt-4"
+            src="../../images/png/imageRetenir.svg"
+            alt="Exemple"
+          />
+        </div>
+        <div>
+          <p>Contenu aligné</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

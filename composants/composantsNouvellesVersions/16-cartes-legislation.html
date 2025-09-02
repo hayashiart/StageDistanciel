@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Composant - Cartes de Législation</title>
+    <style>
+      /* ===========================================
+           COMPOSANT CARTES DE LÉGISLATION
+           =========================================== */
+      /* .legislation-container : Container principal des cartes de législation */
+      .legislation-container {
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 30px 0;
+      }
+      /* .legislation-card : Carte de législation individuelle */
+      .legislation-card {
+        background: #ffffff;
+        border: 2px solid #5f8bbc;
+        border-radius: 15px;
+        padding: 25px;
+        width: 300px;
+        box-shadow: 0 4px 12px rgba(95, 139, 188, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      /* .legislation-card:hover : Effet hover sur la carte */
+      .legislation-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(95, 139, 188, 0.25);
+      }
+      /* .legislation-card h4 : Titre de la carte */
+      .legislation-card h4 {
+        color: #5f8bbc;
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0 0 15px 0;
+        text-align: center;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #e6f0fb;
+      }
+      /* .legislation-card p : Paragraphes de la carte */
+      .legislation-card p {
+        color: #333;
+        line-height: 1.6;
+        margin-bottom: 12px;
+        text-align: justify;
+      }
+      /* .legislation-card ul : Listes de la carte */
+      .legislation-card ul {
+        margin: 15px 0;
+        padding-left: 20px;
+      }
+      /* .legislation-card li : Éléments de liste */
+      .legislation-card li {
+        color: #333;
+        margin-bottom: 8px;
+        line-height: 1.5;
+      }
+      /* .reverse : Classe pour inverser l'ordre des cartes */
+      .reverse {
+        order: -1;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT CARTES DE LÉGISLATION */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .legislation-container {
+          gap: 20px;
+        }
+        .legislation-card {
+          width: 280px;
+          padding: 20px;
+        }
+        .legislation-card h4 {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 767px) {
+        .legislation-container {
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+        }
+        .legislation-card {
+          width: 100%;
+          max-width: 400px;
+          padding: 20px;
+        }
+        .legislation-card h4 {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 375px) {
+        .legislation-card {
+          padding: 15px;
+        }
+        .legislation-card h4 {
+          font-size: 16px;
+        }
+        .legislation-card p,
+        .legislation-card li {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Composant - Cartes de Législation</h1>
+      <p>
+        Ce composant définit les cartes de législation utilisées dans page3 pour
+        présenter les textes de loi.
+      </p>
+      <p>Il inclut :</p>
+      <ul>
+        <li>Cartes avec bordures bleues et ombres portées</li>
+        <li>Titres centrés avec séparateurs</li>
+        <li>Contenu structuré avec paragraphes et listes</li>
+        <li>Effet hover avec élévation</li>
+        <li>Classe reverse pour inverser l'ordre</li>
+        <li>Disposition responsive avec flexbox</li>
+      </ul>
+
+      <!-- Exemple des cartes de législation -->
+      <div class="legislation-container">
+        <div class="legislation-card">
+          <h4>Article L. 1221-1</h4>
+          <p>
+            Le contrat de travail est soumis aux règles du droit commun. Il peut
+            être établi selon les formes que les parties contractantes décident
+            d'adopter.
+          </p>
+          <ul>
+            <li>Forme libre du contrat</li>
+            <li>Accord des parties</li>
+            <li>Respect du droit commun</li>
+          </ul>
+        </div>
+        <div class="legislation-card reverse">
+          <h4>Article L. 1221-2</h4>
+          <p>
+            Le contrat de travail à durée indéterminée est la forme normale et
+            générale de la relation de travail.
+          </p>
+          <ul>
+            <li>CDI comme forme normale</li>
+            <li>Relation de travail durable</li>
+            <li>Stabilité de l'emploi</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

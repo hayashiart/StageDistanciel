@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Composant - Container Principal</title>
+    <style>
+      /* ===========================================
+             COMPOSANT CONTAINER PRINCIPAL
+             =========================================== */
+      /* .main-container : Container principal pour centrer et styliser la page */
+      .main-container {
+        width: 60%;
+        max-width: 1200px;
+        margin: 40px auto;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 9px 15px rgba(0, 0, 0, 0.2);
+        padding: 40px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT CONTAINER PRINCIPAL */
+      @media (min-width: 1440px) {
+        .main-container {
+          width: 60%;
+          margin: 40px auto;
+          padding: 40px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .main-container {
+          width: 70%;
+          margin: 40px auto;
+          padding: 35px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .main-container {
+          width: 80%;
+          margin: 20px auto;
+          padding: 25px;
+        }
+      }
+      @media (max-width: 767px) {
+        .main-container {
+          width: 95%;
+          margin: 15px auto;
+          padding: 20px;
+        }
+      }
+      @media (max-width: 375px) {
+        .main-container {
+          width: 98%;
+          margin: 10px auto;
+          padding: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Composant - Container Principal</h1>
+      <p>
+        Ce composant définit le container principal de toutes les pages du
+        module1.
+      </p>
+      <p>Il inclut :</p>
+      <ul>
+        <li>Largeur adaptative selon les breakpoints</li>
+        <li>Centrage automatique avec margin auto</li>
+        <li>Arrière-plan blanc avec ombre portée</li>
+        <li>Coins arrondis et padding adaptatif</li>
+        <li>Gestion du débordement</li>
+      </ul>
+    </div>
+  </body>
+</html>

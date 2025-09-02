@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Composant - Reset et Styles de Base</title>
+    <style>
+      /* ===========================================
+             COMPOSANT RESET ET STYLES DE BASE
+             =========================================== */
+      /* * : Réinitialisation des marges et paddings pour tous les éléments */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      /* html : Active le défilement fluide pour les ancres */
+      html {
+        scroll-behavior: smooth;
+      }
+      /* body : Style de base pour le corps de la page */
+      body {
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f5f5f5;
+        min-height: 100vh;
+      }
+      /* p, li, span, div : Style par défaut pour les éléments de texte */
+      p,
+      li,
+      span,
+      div {
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        color: #333;
+      }
+      /* strong : Surcharge pour éviter les gras indésirables */
+      strong {
+        font-weight: 400 !important;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT RESET ET STYLES DE BASE */
+      @media (min-width: 1440px) {
+        body {
+          font-size: 20px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        body {
+          font-size: 18px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        body {
+          font-size: 16px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 767px) {
+        body {
+          font-size: 14px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 375px) {
+        body {
+          font-size: 12px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Composant - Reset et Styles de Base</h1>
+      <p>
+        Ce composant contient tous les styles de base et reset utilisés dans
+        toutes les pages du module1.
+      </p>
+      <p>Il inclut :</p>
+      <ul>
+        <li>Réinitialisation des marges et paddings</li>
+        <li>Styles de base pour le body</li>
+        <li>Typographie Montserrat</li>
+        <li>Media queries pour la responsivité</li>
+        <li>Gestion des tailles de police selon les breakpoints</li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Composant - Container Convention</title>
+    <style>
+      /* ===========================================
+           COMPOSANT CONTAINER CONVENTION
+           =========================================== */
+      /* .section-convention-A : Section convention de type A */
+      .section-convention-A {
+        background: #ffffff;
+        border: 2px solid #5f8bbc;
+        border-radius: 15px;
+        padding: 25px;
+        margin: 30px 0;
+        box-shadow: 0 4px 12px rgba(95, 139, 188, 0.15);
+      }
+      /* .section-convention-B : Section convention de type B */
+      .section-convention-B {
+        background: #ffffff;
+        border: 2px solid #5f8bbc;
+        border-radius: 15px;
+        padding: 25px;
+        margin: 30px 0;
+        box-shadow: 0 4px 12px rgba(95, 139, 188, 0.15);
+      }
+      /* .section-convention-C : Section convention de type C */
+      .section-convention-C {
+        background: #ffffff;
+        border: 2px solid #5f8bbc;
+        border-radius: 15px;
+        padding: 25px;
+        margin: 30px 0;
+        box-shadow: 0 4px 12px rgba(95, 139, 188, 0.15);
+      }
+      /* .flex-container : Container flex pour la disposition */
+      .flex-container {
+        display: flex;
+        gap: 25px;
+        align-items: flex-start;
+      }
+      /* .text-content : Contenu textuel */
+      .text-content {
+        flex: 1;
+      }
+      /* .section-text : Texte de la section */
+      .section-text {
+        color: #333;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        text-align: justify;
+      }
+      /* .office-image : Image de bureau */
+      .office-image {
+        flex: 0 0 200px;
+      }
+      /* .office-image img : Style de l'image */
+      .office-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+      /* .section-convention-A h3 : Titre de la section A */
+      .section-convention-A h3 {
+        color: #5f8bbc;
+        font-size: 22px;
+        font-weight: 600;
+        margin: 0 0 20px 0;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #e6f0fb;
+      }
+      /* .section-convention-B h3 : Titre de la section B */
+      .section-convention-B h3 {
+        color: #5f8bbc;
+        font-size: 22px;
+        font-weight: 600;
+        margin: 0 0 20px 0;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #e6f0fb;
+      }
+      /* .section-convention-C h3 : Titre de la section C */
+      .section-convention-C h3 {
+        color: #5f8bbc;
+        font-size: 22px;
+        font-weight: 600;
+        margin: 0 0 20px 0;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #e6f0fb;
+      }
+      /* .section-list : Liste de la section */
+      .section-list {
+        margin: 15px 0;
+        padding-left: 20px;
+      }
+      /* .section-list li : Éléments de la liste */
+      .section-list li {
+        color: #333;
+        margin-bottom: 8px;
+        line-height: 1.5;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT CONTAINER CONVENTION */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .section-convention-A,
+        .section-convention-B,
+        .section-convention-C {
+          padding: 20px;
+        }
+        .flex-container {
+          gap: 20px;
+        }
+        .office-image {
+          flex: 0 0 180px;
+        }
+        .section-convention-A h3,
+        .section-convention-B h3,
+        .section-convention-C h3 {
+          font-size: 20px;
+          margin-bottom: 15px;
+        }
+      }
+      @media (max-width: 767px) {
+        .section-convention-A,
+        .section-convention-B,
+        .section-convention-C {
+          padding: 20px;
+          margin: 20px 0;
+        }
+        .flex-container {
+          flex-direction: column;
+          gap: 20px;
+        }
+        .office-image {
+          flex: none;
+          width: 100%;
+          max-width: 300px;
+          margin: 0 auto;
+        }
+        .section-convention-A h3,
+        .section-convention-B h3,
+        .section-convention-C h3 {
+          font-size: 18px;
+          margin-bottom: 15px;
+        }
+      }
+      @media (max-width: 375px) {
+        .section-convention-A,
+        .section-convention-B,
+        .section-convention-C {
+          padding: 15px;
+          margin: 15px 0;
+        }
+        .section-convention-A h3,
+        .section-convention-B h3,
+        .section-convention-C h3 {
+          font-size: 16px;
+          margin-bottom: 12px;
+        }
+        .section-text,
+        .section-list li {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Composant - Container Convention</h1>
+      <p>
+        Ce composant définit les containers de convention utilisés dans page5
+        pour présenter les différents types de conventions collectives.
+      </p>
+      <p>Il inclut :</p>
+      <ul>
+        <li>Trois types de sections (A, B, C) avec styles distincts</li>
+        <li>Disposition flex avec image et texte</li>
+        <li>Bordures bleues et ombres portées</li>
+        <li>Titres stylisés avec séparateurs</li>
+        <li>Images avec coins arrondis et ombres</li>
+        <li>Design responsive adaptatif</li>
+      </ul>
+
+      <!-- Exemple des containers convention -->
+      <div class="section-convention-A">
+        <h3>Convention Collective Nationale</h3>
+        <div class="flex-container">
+          <div class="text-content">
+            <p class="section-text">
+              La convention collective nationale définit les conditions de
+              travail et les garanties sociales applicables à l'ensemble des
+              salariés d'une branche professionnelle.
+            </p>
+            <ul class="section-list">
+              <li>Salaires minima garantis</li>
+              <li>Conditions de travail</li>
+              <li>Avantages sociaux</li>
+              <li>Formation professionnelle</li>
+            </ul>
+          </div>
+          <div class="office-image">
+            <img
+              src="../../images/CAP AEPE/page5/imageBureau.png"
+              alt="Bureau"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="section-convention-B">
+        <h3>Accord d'Entreprise</h3>
+        <div class="flex-container">
+          <div class="text-content">
+            <p class="section-text">
+              L'accord d'entreprise complète la convention collective en
+              adaptant les dispositions aux spécificités de l'entreprise.
+            </p>
+            <ul class="section-list">
+              <li>Adaptation aux besoins locaux</li>
+              <li>Négociation avec les représentants</li>
+              <li>Amélioration des conditions</li>
+              <li>Flexibilité organisationnelle</li>
+            </ul>
+          </div>
+          <div class="office-image">
+            <img
+              src="../../images/CAP AEPE/page5/imageBureau.png"
+              alt="Bureau"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="section-convention-C">
+        <h3>Règlement Intérieur</h3>
+        <div class="flex-container">
+          <div class="text-content">
+            <p class="section-text">
+              Le règlement intérieur fixe les règles de vie collective dans
+              l'entreprise et les mesures d'application du droit du travail.
+            </p>
+            <ul class="section-list">
+              <li>Horaires et organisation</li>
+              <li>Hygiène et sécurité</li>
+              <li>Discipline et sanctions</li>
+              <li>Libertés individuelles</li>
+            </ul>
+          </div>
+          <div class="office-image">
+            <img
+              src="../../images/CAP AEPE/page5/imageBureau.png"
+              alt="Bureau"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

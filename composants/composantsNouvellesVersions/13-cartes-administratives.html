@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Composant - Cartes Administratives</title>
+    <style>
+      /* ===========================================
+             COMPOSANT CARTES ADMINISTRATIVES
+             =========================================== */
+      /* .admin-levels-container : Container principal des cartes */
+      .admin-levels-container {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 30px 0;
+      }
+      /* .admin-level-card : Carte individuelle */
+      .admin-level-card {
+        background: #ffffff;
+        border: 2px solid #5f8bbc;
+        border-radius: 15px;
+        padding: 20px;
+        width: 250px;
+        box-shadow: 0 4px 12px rgba(95, 139, 188, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      /* .admin-level-card:hover : Effet hover */
+      .admin-level-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(95, 139, 188, 0.3);
+      }
+      /* .admin-level-image : Container de l'image */
+      .admin-level-image {
+        text-align: center;
+        margin-bottom: 15px;
+      }
+      /* .admin-level-image img : Style de l'image */
+      .admin-level-image img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 3px solid #5f8bbc;
+      }
+      /* .admin-level-content : Contenu de la carte */
+      .admin-level-content {
+        text-align: center;
+      }
+      /* .admin-level-title : Titre de la carte */
+      .admin-level-title {
+        color: #5f8bbc;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+      /* .admin-level-text : Texte de la carte */
+      .admin-level-text {
+        color: #333;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT CARTES ADMINISTRATIVES */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .admin-level-card {
+          width: 220px;
+          padding: 18px;
+        }
+        .admin-level-image img {
+          width: 70px;
+          height: 70px;
+        }
+        .admin-level-title {
+          font-size: 16px;
+        }
+        .admin-level-text {
+          font-size: 13px;
+        }
+      }
+      @media (max-width: 767px) {
+        .admin-levels-container {
+          flex-direction: column;
+          align-items: center;
+        }
+        .admin-level-card {
+          width: 100%;
+          max-width: 300px;
+          padding: 20px;
+        }
+        .admin-level-image img {
+          width: 60px;
+          height: 60px;
+        }
+        .admin-level-title {
+          font-size: 16px;
+        }
+        .admin-level-text {
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 375px) {
+        .admin-level-card {
+          padding: 15px;
+        }
+        .admin-level-image img {
+          width: 50px;
+          height: 50px;
+        }
+        .admin-level-title {
+          font-size: 14px;
+        }
+        .admin-level-text {
+          font-size: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Composant - Cartes Administratives</h1>
+      <p>
+        Ce composant définit les cartes pour les niveaux administratifs, utilisé
+        dans page1.
+      </p>
+      <p>Il inclut :</p>
+      <ul>
+        <li>Cartes avec images circulaires</li>
+        <li>Bordures bleues et ombres portées</li>
+        <li>Effet hover avec élévation</li>
+        <li>Disposition responsive avec flexbox</li>
+        <li>Images avec bordures colorées</li>
+      </ul>
+
+      <!-- Exemple des cartes administratives -->
+      <div class="admin-levels-container">
+        <div class="admin-level-card">
+          <div class="admin-level-image">
+            <img
+              src="../../images/CAP AEPE/page1/imageRegion.png"
+              alt="Région"
+            />
+          </div>
+          <div class="admin-level-content">
+            <h4 class="admin-level-title">Région (18)</h4>
+            <p class="admin-level-text">
+              Les régions sont des collectivités territoriales qui exercent des
+              compétences dans de nombreux domaines.
+            </p>
+          </div>
+        </div>
+        <div class="admin-level-card">
+          <div class="admin-level-image">
+            <img
+              src="../../images/CAP AEPE/page1/imageDepartement.png"
+              alt="Département"
+            />
+          </div>
+          <div class="admin-level-content">
+            <h4 class="admin-level-title">Département (101)</h4>
+            <p class="admin-level-text">
+              Les départements gèrent les services sociaux, les routes
+              départementales et l'action sociale.
+            </p>
+          </div>
+        </div>
+        <div class="admin-level-card">
+          <div class="admin-level-image">
+            <img
+              src="../../images/CAP AEPE/page1/imageMairie.png"
+              alt="Mairie"
+            />
+          </div>
+          <div class="admin-level-content">
+            <h4 class="admin-level-title">Mairies (36 000)</h4>
+            <p class="admin-level-text">
+              Les communes sont les plus petites subdivisions administratives
+              françaises.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

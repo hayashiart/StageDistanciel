@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Composant - Layout et Structure</title>
+    <style>
+      /* ===========================================
+             COMPOSANT LAYOUT ET STRUCTURE
+             =========================================== */
+      /* .page-container : Container pour disposition flex de la page */
+      .page-container {
+        display: flex;
+        gap: 25px;
+        position: relative;
+        align-items: flex-start;
+        width: 100%;
+      }
+      /* .main-content : Contenu principal avec gestion du débordement */
+      .main-content {
+        flex: 1;
+        padding: 20px;
+        transition: margin-left 0.3s ease;
+        min-width: 0;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT LAYOUT ET STRUCTURE */
+      @media (max-width: 767px) {
+        .page-container {
+          flex-direction: column;
+        }
+        .main-content {
+          padding: 15px;
+          overflow: visible;
+        }
+      }
+      @media (max-width: 375px) {
+        .main-content {
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Composant - Layout et Structure</h1>
+      <p>
+        Ce composant définit la structure de layout de toutes les pages du
+        module1.
+      </p>
+      <p>Il inclut :</p>
+      <ul>
+        <li>Container flex pour la disposition de la page</li>
+        <li>Contenu principal avec gestion du débordement</li>
+        <li>Transition pour l'animation du menu</li>
+        <li>Adaptation mobile en colonne</li>
+        <li>Gestion des paddings selon les breakpoints</li>
+      </ul>
+
+      <div class="page-container">
+        <main class="main-content">
+          <h2>Exemple de contenu principal</h2>
+          <p>Ceci est un exemple de contenu dans le main-content.</p>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

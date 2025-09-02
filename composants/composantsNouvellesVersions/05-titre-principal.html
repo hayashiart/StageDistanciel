@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Composant - Titre Principal</title>
+    <style>
+      /* ===========================================
+             COMPOSANT TITRE PRINCIPAL
+             =========================================== */
+      /* .intro-title : Titre principal de la page */
+      .intro-title {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        color: #5f8bbc;
+        font-size: 42px;
+        text-align: center;
+        text-decoration: underline;
+        margin: 30px 0 40px 0;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT TITRE PRINCIPAL */
+      @media (min-width: 1440px) {
+        .intro-title {
+          font-size: 36px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .intro-title {
+          font-size: 32px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .intro-title {
+          font-size: 32px;
+        }
+      }
+      @media (max-width: 767px) {
+        .intro-title {
+          font-size: 24px;
+          margin: 20px 0 30px 0;
+        }
+      }
+      @media (max-width: 375px) {
+        .intro-title {
+          font-size: 20px;
+          margin: 15px 0 20px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Composant - Titre Principal</h1>
+      <p>
+        Ce composant définit le titre principal (H1) de toutes les pages du
+        module1.
+      </p>
+      <p>Il inclut :</p>
+      <ul>
+        <li>Titre centré avec police Montserrat en gras</li>
+        <li>Couleur bleue (#5f8bbc) avec soulignement</li>
+        <li>Tailles de police adaptatives selon les breakpoints</li>
+        <li>Marges adaptatives pour la responsivité</li>
+      </ul>
+
+      <!-- Exemple du titre principal -->
+      <h1 class="intro-title">Titre Principal de la Page</h1>
+    </div>
+  </body>
+</html>

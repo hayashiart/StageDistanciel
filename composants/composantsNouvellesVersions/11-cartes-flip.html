@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Composant - Cartes Flip</title>
+    <style>
+      /* ===========================================
+             COMPOSANT CARTES FLIP
+             =========================================== */
+      /* .powers-section : Container principal des cartes de pouvoirs */
+      .powers-section {
+        margin: 30px 0;
+      }
+      /* .powers-container : Container flex pour les cartes */
+      .powers-container {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      /* .flip-card : Container de la carte flip */
+      .flip-card {
+        width: 200px;
+        height: 120px;
+        perspective: 1000px;
+        cursor: pointer;
+      }
+      /* .flip-card-inner : Container interne pour l'animation 3D */
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+      }
+      /* .flip-card:hover .flip-card-inner : Animation au hover */
+      .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+      /* .flip-card-front : Face avant de la carte */
+      .flip-card-front {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        background: #5f8bbc;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        font-weight: bold;
+        font-size: 16px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      /* .flip-card-back : Face arrière de la carte */
+      .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        background: #e6f0fb;
+        color: #333;
+        transform: rotateY(180deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        font-size: 14px;
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT CARTES FLIP */
+      @media (max-width: 767px) {
+        .powers-container {
+          flex-direction: column;
+          align-items: center;
+        }
+        .flip-card {
+          width: 180px;
+          height: 100px;
+        }
+        .flip-card-front {
+          font-size: 14px;
+        }
+        .flip-card-back {
+          font-size: 12px;
+          padding: 10px;
+        }
+      }
+      @media (max-width: 375px) {
+        .flip-card {
+          width: 160px;
+          height: 90px;
+        }
+        .flip-card-front {
+          font-size: 12px;
+        }
+        .flip-card-back {
+          font-size: 10px;
+          padding: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Composant - Cartes Flip</h1>
+      <p>
+        Ce composant définit les cartes qui se retournent au hover, utilisées
+        dans page1 pour les pouvoirs.
+      </p>
+      <p>Il inclut :</p>
+      <ul>
+        <li>Cartes avec effet 3D de retournement</li>
+        <li>Face avant avec titre en bleu</li>
+        <li>Face arrière avec description en bleu clair</li>
+        <li>Animation au hover avec transition fluide</li>
+        <li>Disposition responsive avec flexbox</li>
+      </ul>
+
+      <!-- Exemple des cartes flip -->
+      <div class="powers-section">
+        <div class="powers-container">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">Pouvoir exécutif</div>
+              <div class="flip-card-back">
+                Le président de la République et le gouvernement
+              </div>
+            </div>
+          </div>
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">Pouvoir législatif</div>
+              <div class="flip-card-back">
+                L'Assemblée nationale et le Sénat
+              </div>
+            </div>
+          </div>
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">Pouvoir judiciaire</div>
+              <div class="flip-card-back">
+                Les tribunaux et cours de justice
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

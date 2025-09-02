@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Composant - Titres de Sous-section</title>
+    <style>
+      /* ===========================================
+             COMPOSANT TITRES DE SOUS-SECTION
+             =========================================== */
+      /* .subsection-heading : Titres de niveau 3 pour sous-sections (A., B.) */
+      .subsection-heading {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        color: #5f8bbc;
+        font-size: 26px;
+        margin: 35px 0 25px 0;
+        padding: 15px 20px;
+        background: #f8fbff;
+        border-left: 5px solid #5f8bbc;
+        border-radius: 0 8px 8px 0;
+        text-align: left;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT TITRES DE SOUS-SECTION */
+      @media (min-width: 1440px) {
+        .subsection-heading {
+          font-size: 28px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .subsection-heading {
+          font-size: 24px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .subsection-heading {
+          font-size: 22px;
+        }
+      }
+      @media (max-width: 767px) {
+        .subsection-heading {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 375px) {
+        .subsection-heading {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Composant - Titres de Sous-section</h1>
+      <p>
+        Ce composant définit les titres de sous-section (H3) utilisés dans
+        toutes les pages du module1.
+      </p>
+      <p>Il inclut :</p>
+      <ul>
+        <li>Titre H3 avec police Montserrat en gras</li>
+        <li>Couleur bleue (#5f8bbc) avec bordure gauche</li>
+        <li>Arrière-plan bleu très clair (#f8fbff)</li>
+        <li>Coins arrondis à droite</li>
+        <li>Tailles de police adaptatives selon les breakpoints</li>
+      </ul>
+
+      <!-- Exemple des titres de sous-section -->
+      <h3 class="subsection-heading">A. Titre Sous-section A</h3>
+      <h3 class="subsection-heading">B. Titre Sous-section B</h3>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Composant - Box de Question</title>
+    <style>
+      /* ===========================================
+           COMPOSANT BOX DE QUESTION
+           =========================================== */
+      /* .question-box : Container principal de la box de question */
+      .question-box {
+        background: #ffffff;
+        border: 2px solid #5f8bbc;
+        border-radius: 15px;
+        padding: 25px;
+        margin: 30px 0;
+        box-shadow: 0 4px 12px rgba(95, 139, 188, 0.15);
+        position: relative;
+        overflow: hidden;
+      }
+      /* .question-blue-bar : Barre bleue en haut de la box */
+      .question-blue-bar {
+        background: #5f8bbc;
+        height: 8px;
+        margin: -25px -25px 20px -25px;
+        border-radius: 15px 15px 0 0;
+      }
+      /* .question-content : Contenu de la box de question */
+      .question-content {
+        padding: 0;
+      }
+      /* .question-title : Titre de la question */
+      .question-title {
+        color: #5f8bbc;
+        font-size: 22px;
+        font-weight: 600;
+        margin: 0 0 15px 0;
+        text-align: center;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #e6f0fb;
+      }
+      /* .question-text : Texte de la question */
+      .question-text {
+        color: #333;
+        font-size: 18px;
+        line-height: 1.6;
+        margin: 0;
+        text-align: justify;
+        font-weight: 500;
+      }
+      /* .question-box::before : Élément décoratif avant la box */
+      .question-box::before {
+        content: "?";
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        color: #e6f0fb;
+        font-size: 60px;
+        font-weight: bold;
+        opacity: 0.3;
+        z-index: 1;
+      }
+      /* .question-content : Position relative pour le z-index */
+      .question-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT BOX DE QUESTION */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .question-box {
+          padding: 20px;
+        }
+        .question-blue-bar {
+          margin: -20px -20px 15px -20px;
+        }
+        .question-title {
+          font-size: 20px;
+          margin-bottom: 12px;
+          padding-bottom: 12px;
+        }
+        .question-text {
+          font-size: 16px;
+        }
+        .question-box::before {
+          font-size: 50px;
+          top: 12px;
+          right: 15px;
+        }
+      }
+      @media (max-width: 767px) {
+        .question-box {
+          padding: 20px;
+          margin: 20px 0;
+        }
+        .question-blue-bar {
+          margin: -20px -20px 15px -20px;
+        }
+        .question-title {
+          font-size: 18px;
+          margin-bottom: 12px;
+          padding-bottom: 12px;
+        }
+        .question-text {
+          font-size: 16px;
+        }
+        .question-box::before {
+          font-size: 45px;
+          top: 10px;
+          right: 12px;
+        }
+      }
+      @media (max-width: 375px) {
+        .question-box {
+          padding: 15px;
+          margin: 15px 0;
+        }
+        .question-blue-bar {
+          margin: -15px -15px 12px -15px;
+          height: 6px;
+        }
+        .question-title {
+          font-size: 16px;
+          margin-bottom: 10px;
+          padding-bottom: 10px;
+        }
+        .question-text {
+          font-size: 14px;
+        }
+        .question-box::before {
+          font-size: 35px;
+          top: 8px;
+          right: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Composant - Box de Question</h1>
+      <p>
+        Ce composant définit la box de question utilisée dans page4 pour mettre
+        en valeur les questions importantes.
+      </p>
+      <p>Il inclut :</p>
+      <ul>
+        <li>Box avec bordure bleue et ombre portée</li>
+        <li>Barre bleue décorative en haut</li>
+        <li>Titre centré avec séparateur</li>
+        <li>Symbole "?" décoratif en arrière-plan</li>
+        <li>Texte de question stylisé</li>
+        <li>Design responsive adaptatif</li>
+      </ul>
+
+      <!-- Exemple de la box de question -->
+      <div class="question-box">
+        <div class="question-blue-bar"></div>
+        <div class="question-content">
+          <h3 class="question-title">Question importante</h3>
+          <p class="question-text">
+            Quelles sont les principales différences entre un CDI et un CDD en
+            termes de protection sociale et de stabilité de l'emploi ? Cette
+            question est fondamentale pour comprendre les enjeux du droit du
+            travail français.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

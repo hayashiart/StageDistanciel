@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Composant - Section Décentralisation</title>
+    <style>
+      /* ===========================================
+             COMPOSANT SECTION DÉCENTRALISATION
+             =========================================== */
+      /* .decentralisation-highlight-section : Section principale */
+      .decentralisation-highlight-section {
+        background: linear-gradient(135deg, #e6f0fb 0%, #f8fbff 100%);
+        border: 2px solid #5f8bbc;
+        border-radius: 20px;
+        padding: 30px;
+        margin: 30px 0;
+        box-shadow: 0 6px 20px rgba(95, 139, 188, 0.15);
+      }
+      /* .decentralisation-content : Container du contenu */
+      .decentralisation-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+      }
+      /* .decentralisation-content-1 : Premier bloc de contenu */
+      .decentralisation-content-1 {
+        background: #ffffff;
+        border: 2px solid #5f8bbc;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(95, 139, 188, 0.1);
+      }
+      /* .decentralisation-content-2 : Deuxième bloc de contenu */
+      .decentralisation-content-2 {
+        background: #ffffff;
+        border: 2px solid #5f8bbc;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(95, 139, 188, 0.1);
+      }
+      /* .decentralisation-content-3 : Troisième bloc de contenu */
+      .decentralisation-content-3 {
+        background: #ffffff;
+        border: 2px solid #5f8bbc;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(95, 139, 188, 0.1);
+      }
+      /* .decentralisation-content-4 : Quatrième bloc de contenu (page3) */
+      .decentralisation-content-4 {
+        background: #ffffff;
+        border: 2px solid #5f8bbc;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(95, 139, 188, 0.1);
+      }
+      /* .decentralisation-content h4 : Titres des blocs */
+      .decentralisation-content h4 {
+        color: #5f8bbc;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+      /* .decentralisation-content p : Paragraphes des blocs */
+      .decentralisation-content p {
+        color: #333;
+        line-height: 1.6;
+        margin-bottom: 10px;
+      }
+      /* .decentralisation-content ul : Listes des blocs */
+      .decentralisation-content ul {
+        margin: 15px 0;
+        padding-left: 20px;
+      }
+      /* .decentralisation-content li : Éléments de liste */
+      .decentralisation-content li {
+        color: #333;
+        margin-bottom: 8px;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT SECTION DÉCENTRALISATION */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .decentralisation-highlight-section {
+          padding: 25px;
+        }
+        .decentralisation-content {
+          gap: 20px;
+        }
+        .decentralisation-content-1,
+        .decentralisation-content-2,
+        .decentralisation-content-3,
+        .decentralisation-content-4 {
+          padding: 20px;
+        }
+      }
+      @media (max-width: 767px) {
+        .decentralisation-highlight-section {
+          padding: 20px;
+          margin: 20px 0;
+        }
+        .decentralisation-content {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        .decentralisation-content-1,
+        .decentralisation-content-2,
+        .decentralisation-content-3,
+        .decentralisation-content-4 {
+          padding: 20px;
+        }
+        .decentralisation-content h4 {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 375px) {
+        .decentralisation-highlight-section {
+          padding: 15px;
+          margin: 15px 0;
+        }
+        .decentralisation-content-1,
+        .decentralisation-content-2,
+        .decentralisation-content-3,
+        .decentralisation-content-4 {
+          padding: 15px;
+        }
+        .decentralisation-content h4 {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Composant - Section Décentralisation</h1>
+      <p>
+        Ce composant définit une section mise en valeur avec plusieurs blocs de
+        contenu, utilisé dans page1 et page3.
+      </p>
+      <p>Il inclut :</p>
+      <ul>
+        <li>Section avec arrière-plan dégradé</li>
+        <li>Grille responsive de blocs de contenu</li>
+        <li>Blocs avec bordures bleues et ombres</li>
+        <li>Disposition adaptative selon la taille d'écran</li>
+        <li>Style cohérent avec le thème de la page</li>
+      </ul>
+
+      <!-- Exemple de la section décentralisation -->
+      <section class="decentralisation-highlight-section">
+        <div class="decentralisation-content">
+          <div class="decentralisation-content-1">
+            <h4>Compétences régionales</h4>
+            <p>Les régions gèrent :</p>
+            <ul>
+              <li>Le développement économique</li>
+              <li>La formation professionnelle</li>
+              <li>Les transports régionaux</li>
+            </ul>
+          </div>
+          <div class="decentralisation-content-2">
+            <h4>Compétences départementales</h4>
+            <p>Les départements gèrent :</p>
+            <ul>
+              <li>L'action sociale</li>
+              <li>Les routes départementales</li>
+              <li>L'éducation</li>
+            </ul>
+          </div>
+          <div class="decentralisation-content-3">
+            <h4>Compétences communales</h4>
+            <p>Les communes gèrent :</p>
+            <ul>
+              <li>L'urbanisme</li>
+              <li>Les écoles primaires</li>
+              <li>La voirie</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

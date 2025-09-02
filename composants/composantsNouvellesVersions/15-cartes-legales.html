@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Composant - Cartes Légales</title>
+    <style>
+      /* ===========================================
+           COMPOSANT CARTES LÉGALES
+           =========================================== */
+      /* .legal-blocks-container : Container principal des blocs légaux */
+      .legal-blocks-container {
+        margin: 30px 0;
+      }
+      /* .legal-blocks-row : Ligne de blocs légaux */
+      .legal-blocks-row {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+      /* .legal-block : Bloc légal individuel */
+      .legal-block {
+        flex: 1;
+        min-width: 250px;
+        background: #ffffff;
+        border: 2px solid #5f8bbc;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(95, 139, 188, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      /* .legal-block:hover : Effet hover sur le bloc */
+      .legal-block:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(95, 139, 188, 0.25);
+      }
+      /* .legal-block-header : En-tête du bloc légal */
+      .legal-block-header {
+        text-align: center;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #e6f0fb;
+      }
+      /* .legal-block-header h4 : Titre du bloc légal */
+      .legal-block-header h4 {
+        color: #5f8bbc;
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0 0 10px 0;
+      }
+      /* .legal-block-header p : Sous-titre du bloc légal */
+      .legal-block-header p {
+        color: #666;
+        font-size: 14px;
+        margin: 0;
+        font-style: italic;
+      }
+      /* .legal-block-content : Contenu du bloc légal */
+      .legal-block-content {
+        color: #333;
+        line-height: 1.6;
+      }
+      /* .legal-block-content p : Paragraphes du contenu */
+      .legal-block-content p {
+        margin-bottom: 12px;
+      }
+      /* .legal-block-content ul : Listes du contenu */
+      .legal-block-content ul {
+        margin: 15px 0;
+        padding-left: 20px;
+      }
+      /* .legal-block-content li : Éléments de liste */
+      .legal-block-content li {
+        margin-bottom: 8px;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT CARTES LÉGALES */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .legal-blocks-row {
+          gap: 15px;
+        }
+        .legal-block {
+          min-width: 200px;
+          padding: 20px;
+        }
+        .legal-block-header h4 {
+          font-size: 18px;
+        }
+        .legal-block-header p {
+          font-size: 13px;
+        }
+      }
+      @media (max-width: 767px) {
+        .legal-blocks-row {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .legal-block {
+          min-width: auto;
+          padding: 20px;
+        }
+        .legal-block-header h4 {
+          font-size: 18px;
+        }
+        .legal-block-header p {
+          font-size: 13px;
+        }
+      }
+      @media (max-width: 375px) {
+        .legal-block {
+          padding: 15px;
+        }
+        .legal-block-header h4 {
+          font-size: 16px;
+        }
+        .legal-block-header p {
+          font-size: 12px;
+        }
+        .legal-block-content {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Composant - Cartes Légales</h1>
+      <p>
+        Ce composant définit les cartes légales utilisées dans page2 pour
+        présenter les informations juridiques.
+      </p>
+      <p>Il inclut :</p>
+      <ul>
+        <li>Blocs légaux avec bordures bleues et ombres</li>
+        <li>En-têtes avec titres et sous-titres stylisés</li>
+        <li>Contenu structuré avec paragraphes et listes</li>
+        <li>Effet hover avec élévation</li>
+        <li>Disposition responsive avec flexbox</li>
+      </ul>
+
+      <!-- Exemple des cartes légales -->
+      <div class="legal-blocks-container">
+        <div class="legal-blocks-row">
+          <div class="legal-block">
+            <div class="legal-block-header">
+              <h4>Code du Travail</h4>
+              <p>Législation principale</p>
+            </div>
+            <div class="legal-block-content">
+              <p>
+                Le Code du Travail régit les relations entre employeurs et
+                salariés.
+              </p>
+              <ul>
+                <li>Contrats de travail</li>
+                <li>Durée du travail</li>
+                <li>Congés et repos</li>
+              </ul>
+            </div>
+          </div>
+          <div class="legal-block">
+            <div class="legal-block-header">
+              <h4>Convention Collective</h4>
+              <p>Accord sectoriel</p>
+            </div>
+            <div class="legal-block-content">
+              <p>
+                La convention collective complète le Code du Travail pour un
+                secteur donné.
+              </p>
+              <ul>
+                <li>Salaires minima</li>
+                <li>Conditions de travail</li>
+                <li>Avantages sociaux</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

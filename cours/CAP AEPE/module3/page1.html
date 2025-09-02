@@ -1,0 +1,2114 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>L'activité sensorielle : la vue - Module 3</title>
+    <style>
+      /* ===========================================
+           COMPOSANT RESET ET STYLES DE BASE
+           =========================================== */
+      /* * : Réinitialisation des marges et paddings pour tous les éléments */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      /* html : Active le défilement fluide pour les ancres */
+      html {
+        scroll-behavior: smooth;
+      }
+      /* body : Style de base pour le corps de la page */
+      body {
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f5f5f5;
+        min-height: 100vh;
+      }
+      /* p, li, span, div : Style par défaut pour les éléments de texte */
+      p,
+      li,
+      span,
+      div {
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        color: #333;
+      }
+      /* strong : Surcharge pour éviter les gras indésirables */
+      strong {
+        font-weight: 400 !important;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT RESET ET STYLES DE BASE */
+      @media (min-width: 1440px) {
+        body {
+          font-size: 20px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        body {
+          font-size: 18px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        body {
+          font-size: 16px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 767px) {
+        body {
+          font-size: 14px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 375px) {
+        body {
+          font-size: 12px;
+        }
+        p,
+        li,
+        span,
+        div {
+          font-size: 12px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT CONTAINER PRINCIPAL
+           =========================================== */
+      /* .main-container : Container principal pour centrer et styliser la page */
+      .main-container {
+        width: 60%;
+        max-width: 1200px;
+        margin: 40px auto;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 9px 15px rgba(0, 0, 0, 0.2);
+        padding: 40px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT CONTAINER PRINCIPAL */
+      @media (min-width: 1440px) {
+        .main-container {
+          width: 60%;
+          margin: 40px auto;
+          padding: 40px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .main-container {
+          width: 70%;
+          margin: 40px auto;
+          padding: 35px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .main-container {
+          width: 80%;
+          margin: 20px auto;
+          padding: 25px;
+        }
+      }
+      @media (max-width: 767px) {
+        .main-container {
+          width: 95%;
+          margin: 15px auto;
+          padding: 20px;
+        }
+      }
+      @media (max-width: 375px) {
+        .main-container {
+          width: 98%;
+          margin: 10px auto;
+          padding: 15px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT LAYOUT ET STRUCTURE
+           =========================================== */
+      /* .page-container : Container pour disposition flex de la page */
+      .page-container {
+        display: flex;
+        gap: 25px;
+        position: relative;
+        align-items: flex-start;
+        width: 100%;
+      }
+      /* .main-content : Contenu principal avec gestion du débordement */
+      .main-content {
+        flex: 1;
+        padding: 20px;
+        transition: margin-left 0.3s ease;
+        min-width: 0;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT LAYOUT ET STRUCTURE */
+      @media (max-width: 767px) {
+        .page-container {
+          flex-direction: column;
+        }
+        .main-content {
+          padding: 15px;
+          overflow: visible;
+        }
+      }
+      @media (max-width: 375px) {
+        .main-content {
+          padding: 10px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT ESPACEMENT GLOBAL
+           =========================================== */
+      /* section : Marges pour les sections */
+      section {
+        margin-bottom: 30px;
+      }
+      /* .subsection : Marges pour les sous-sections */
+      .subsection {
+        margin-bottom: 25px;
+      }
+      /* p : Marges pour les paragraphes */
+      p {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+      /* h1, h2, h3, h4, h5, h6 : Marges pour les titres */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-bottom: 20px;
+      }
+      /* ul, ol : Marges pour les listes */
+      ul,
+      ol {
+        margin-bottom: 20px;
+      }
+      /* li : Marges pour les éléments de liste */
+      li {
+        margin-bottom: 8px;
+      }
+
+      /* ===========================================
+           COMPOSANT MENU BURGER
+           =========================================== */
+      /* .menu-toggle-checkbox : Checkbox caché pour contrôler l'état du menu */
+      .menu-toggle-checkbox {
+        display: none;
+      }
+      /* .menu-toggle : Bouton menu burger - visible sur tous les formats */
+      .menu-toggle {
+        display: block;
+        position: fixed;
+        top: 30px;
+        left: 30px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        z-index: 2001;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+        background: #ffffff;
+        border-radius: 8px;
+        padding: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      /* .menu-toggle:hover : Effet hover sur le bouton menu burger */
+      .menu-toggle:hover {
+        opacity: 1;
+      }
+      /* .menu-toggle img : Image du menu burger - reste constante */
+      .menu-toggle img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: none;
+      }
+      /* .menu : Menu latéral qui glisse depuis la gauche */
+      .menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 70%;
+        max-width: 300px;
+        height: 100%;
+        background: #ffffff;
+        box-shadow: 4px 0 16px rgba(0, 0, 0, 0.15);
+        transform: translateX(-100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 100px 30px 40px 30px;
+        z-index: 1500;
+        border-right: 1px solid #e0e0e0;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+      /* .menu-toggle-checkbox:checked + .menu-toggle + .menu : Affiche le menu quand le checkbox est coché */
+      .menu-toggle-checkbox:checked + .menu-toggle + .menu {
+        transform: translateX(0);
+      }
+      /* .menu ul : Supprime les puces de la liste du menu */
+      .menu ul {
+        list-style: none;
+      }
+      /* .menu ul li : Espacement entre les éléments du menu */
+      .menu ul li {
+        margin-bottom: 25px;
+      }
+      /* .menu ul li a : Liens de navigation dans le menu burger */
+      .menu ul li a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 18px;
+        transition: all 0.3s ease;
+        display: block;
+        padding: 18px 20px;
+        border-radius: 10px;
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
+        margin-bottom: 10px;
+      }
+      /* .menu ul li a:hover : Effet hover sur les liens du menu burger */
+      .menu ul li a:hover {
+        color: #5f8bbc;
+        background: #e6f0fb;
+        transform: translateX(10px);
+        box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      /* .menu ul li ul : Sous-menu avec sous-sections */
+      .menu ul li ul {
+        margin-top: 10px;
+        margin-left: 20px;
+        border-left: 2px solid #e0e0e0;
+        padding-left: 15px;
+      }
+
+      /* .menu ul li ul li : Éléments du sous-menu */
+      .menu ul li ul li {
+        margin-bottom: 15px;
+      }
+
+      /* .menu ul li ul li a : Liens du sous-menu */
+      .menu ul li ul li a {
+        font-size: 16px;
+        padding: 12px 15px;
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        color: #6c757d;
+      }
+
+      /* .menu ul li ul li a:hover : Effet hover sur les liens du sous-menu */
+      .menu ul li ul li a:hover {
+        color: #5f8bbc;
+        background: #e6f0fb;
+        transform: translateX(5px);
+        box-shadow: 0 2px 8px rgba(59, 110, 165, 0.15);
+      }
+      /* .menu::-webkit-scrollbar : Personnalisation de la barre de défilement */
+      .menu::-webkit-scrollbar {
+        width: 6px;
+      }
+      /* .menu::-webkit-scrollbar-track : Piste de la barre de défilement */
+      .menu::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      /* .menu::-webkit-scrollbar-thumb : Curseur de la barre de défilement */
+      .menu::-webkit-scrollbar-thumb {
+        background: #5f8bbc;
+        border-radius: 3px;
+        opacity: 0.7;
+      }
+      /* .menu::-webkit-scrollbar-thumb:hover : Effet hover sur le curseur */
+      .menu::-webkit-scrollbar-thumb:hover {
+        background: #4a7aa3;
+        opacity: 1;
+      }
+      /* .menu : Support pour Firefox */
+      .menu {
+        scrollbar-width: thin;
+        scrollbar-color: #5f8bbc transparent;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT MENU BURGER */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .menu {
+          width: 60%;
+          max-width: 280px;
+          padding: 70px 20px 25px;
+        }
+        .menu-toggle {
+          width: 35px;
+          height: 35px;
+          padding: 6px;
+        }
+      }
+      @media (max-width: 767px) {
+        .menu {
+          width: 75%;
+          max-width: 250px;
+          padding: 60px 15px 20px;
+        }
+        .menu-toggle {
+          width: 32px;
+          height: 32px;
+          padding: 5px;
+          top: 20px;
+          left: 20px;
+        }
+        .menu-toggle img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      @media (max-width: 375px) {
+        .menu {
+          width: 85%;
+          max-width: 280px;
+          padding: 50px 10px 15px;
+        }
+        .menu-toggle {
+          width: 28px;
+          height: 28px;
+          padding: 4px;
+          top: 15px;
+          left: 15px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT TITRE PRINCIPAL
+           =========================================== */
+      /* .intro-title : Titre principal de la page */
+      .intro-title {
+        font-family: var(--main-font);
+        font-weight: 700;
+        color: #5f8bbc;
+        font-size: 42px;
+        text-align: center;
+        text-decoration: underline;
+        margin: 30px 0 40px 0;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT TITRE PRINCIPAL */
+      @media (min-width: 1440px) {
+        .intro-title {
+          font-size: 36px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .intro-title {
+          font-size: 32px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .intro-title {
+          font-size: 32px;
+        }
+      }
+      @media (max-width: 767px) {
+        .intro-title {
+          font-size: 24px;
+          margin: 20px 0 30px 0;
+        }
+      }
+      @media (max-width: 375px) {
+        .intro-title {
+          font-size: 20px;
+          margin: 15px 0 20px 0;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT IMAGE PRINCIPALE
+           =========================================== */
+      /* .intro-image : Image principale en haut de la page */
+      .intro-image {
+        display: block;
+        max-width: 90%;
+        width: 90%;
+        height: auto;
+        margin: 30px auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT IMAGE PRINCIPALE */
+      @media (min-width: 1440px) {
+        .intro-image {
+          max-width: 90%;
+          width: 90%;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .intro-image {
+          max-width: 90%;
+          width: 90%;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .intro-image {
+          max-width: 90%;
+          width: 90%;
+        }
+      }
+      @media (max-width: 767px) {
+        .intro-image {
+          max-width: 90%;
+          width: 90%;
+          margin: 20px auto;
+        }
+      }
+      @media (max-width: 375px) {
+        .intro-image {
+          max-width: 90%;
+          width: 90%;
+          margin: 15px auto;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT TITRES DE SECTION
+           =========================================== */
+      /* .section-header : Container des en-têtes de section (numéro + titre) */
+      .section-header {
+        display: flex;
+        align-items: center;
+        background: #e6f0fb;
+        border: 2px solid #3b6ea5e3;
+        border-radius: 15px;
+        padding: 0;
+        margin: 40px 0 30px 0;
+        box-shadow: 0 4px 12px rgba(59, 110, 165, 0.2);
+        overflow: hidden;
+      }
+      /* .section-number : Numéro de section (01, 02, etc.) - partie bleue à gauche */
+      .section-number {
+        background: #3b6ea5;
+        color: #ffffff;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 36px;
+        padding: 25px 30px;
+        min-width: 120px;
+        width: 120px;
+        text-align: center;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        align-self: stretch;
+      }
+      /* .section-title : Titre de section (texte principal) - partie droite */
+      .section-title {
+        color: #3b6ea5;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 24px;
+        text-align: center;
+        flex: 1;
+        padding: 25px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100px;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT TITRES DE SECTION */
+      @media (min-width: 1440px) {
+        .section-number {
+          font-size: 24px;
+          padding: 8px 12px;
+        }
+        .section-title {
+          font-size: 18px;
+          padding: 8px 12px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .section-number {
+          font-size: 22px;
+          padding: 6px 10px;
+        }
+        .section-title {
+          font-size: 16px;
+          padding: 6px 10px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .section-header {
+          margin: 20px 0 15px;
+          padding: 0;
+        }
+        .section-number {
+          font-size: 20px;
+          padding: 5px 8px;
+          min-width: 80px;
+          width: 80px;
+        }
+        .section-title {
+          font-size: 14px;
+          padding: 5px 8px;
+          min-height: 60px;
+        }
+      }
+      @media (max-width: 767px) {
+        .section-header {
+          flex-direction: column;
+          text-align: center;
+          margin: 15px 0 10px;
+          padding: 0;
+        }
+        .section-number {
+          border-radius: 12px 12px 0 0;
+          width: 100%;
+          text-align: center;
+          font-size: 18px;
+          padding: 4px 6px;
+          min-width: auto;
+          min-height: 40px;
+        }
+        .section-title {
+          border-radius: 0 0 12px 12px;
+          width: 100%;
+          font-size: 12px;
+          padding: 4px 6px;
+          min-height: 40px;
+        }
+      }
+      @media (max-width: 375px) {
+        .section-header {
+          margin: 10px 0 5px;
+          padding: 0;
+        }
+        .section-number {
+          font-size: 16px;
+          padding: 3px 5px;
+          min-height: 30px;
+        }
+        .section-title {
+          font-size: 10px;
+          padding: 3px 5px;
+          min-height: 30px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT TITRES DE SOUS-SECTION
+           =========================================== */
+      /* .subsection-heading : Titres de niveau 3 pour sous-sections (A., B.) */
+      .subsection-heading {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        color: #5f8bbc;
+        font-size: 26px;
+        margin: 35px 0 25px 0;
+        padding: 15px 20px;
+        background: #f8fbff;
+        border-left: 5px solid #5f8bbc;
+        border-radius: 0 8px 8px 0;
+        text-align: left;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT TITRES DE SOUS-SECTION */
+      @media (min-width: 1440px) {
+        .subsection-heading {
+          font-size: 28px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .subsection-heading {
+          font-size: 24px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .subsection-heading {
+          font-size: 22px;
+        }
+      }
+      @media (max-width: 767px) {
+        .subsection-heading {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 375px) {
+        .subsection-heading {
+          font-size: 14px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT CONCLUSION - À RETENIR
+           =========================================== */
+      /* .container-a-retenir : Container principal du composant conclusion avec espacement */
+      .container-a-retenir {
+        padding: 35px;
+        margin: 45px 0;
+      }
+      /* .wrap-title-retenir-conclusion : Wrapper pour le titre et l'image - disposition verticale centrée */
+      .wrap-title-retenir-conclusion {
+        flex-direction: column;
+        align-items: center;
+      }
+      /* .retenir-img : Image au-dessus du titre "À retenir" - taille adaptative */
+      .retenir-img {
+        width: 35%;
+      }
+      /* .title-retenir-conclusion : Titre principal "À RETENIR" - style typographique */
+      .title-retenir-conclusion {
+        color: #757575;
+        text-align: center;
+        font-family: "Montserrat", sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: uppercase;
+        margin-top: 20px;
+      }
+      /* .steps : Container des étapes numérotées */
+      .steps {
+        padding: 20px;
+      }
+      /* .step : Structure de chaque étape - disposition verticale centrée */
+      .step {
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+      }
+      /* .number : Numéro de l'étape - cercle coloré avec le numéro */
+      .number {
+        font-size: 18px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: bold;
+        color: #ffffff;
+        border-radius: 50%;
+        padding: 8px;
+        background-color: #5f8bbc;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      /* .text : Texte principal de l'étape - titre en gras */
+      .text {
+        font-family: "Montserrat", sans-serif;
+        color: #5f8bbc;
+        text-align: justify;
+        font-size: 24px;
+        font-weight: 600;
+        margin: 0;
+        padding-left: 15px;
+      }
+      /* .sub-text : Texte secondaire de l'étape - description détaillée */
+      .sub-text {
+        font-family: "Montserrat", sans-serif;
+        color: #757575;
+        font-size: 18px;
+        margin: 0;
+        text-align: justify;
+        padding-left: 15px;
+      }
+      /* .line : Ligne verticale pointillée entre les étapes */
+      .line {
+        display: none;
+      }
+      /* .steps .step-content:last-child .line : Désactive la ligne pour la dernière étape */
+      .steps .step-content:last-child .line {
+        display: none;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT CONCLUSION - À RETENIR */
+      @media (min-width: 1440px) {
+        .title-retenir-conclusion {
+          font-size: 22px;
+        }
+        .text {
+          font-size: 22px;
+        }
+        .sub-text {
+          font-size: 20px;
+        }
+        .number {
+          width: 50px;
+          height: 50px;
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 1439px) and (min-width: 1024px) {
+        .title-retenir-conclusion {
+          font-size: 20px;
+        }
+        .text {
+          font-size: 20px;
+        }
+        .sub-text {
+          font-size: 18px;
+        }
+        .number {
+          width: 45px;
+          height: 45px;
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .title-retenir-conclusion {
+          font-size: 18px;
+        }
+        .text {
+          font-size: 18px;
+        }
+        .sub-text {
+          font-size: 16px;
+        }
+        .number {
+          width: 40px;
+          height: 40px;
+          font-size: 14px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 15px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+      @media (max-width: 767px) {
+        .title-retenir-conclusion {
+          font-size: 16px;
+        }
+        .text {
+          font-size: 16px;
+        }
+        .sub-text {
+          font-size: 14px;
+        }
+        .number {
+          width: 35px;
+          height: 35px;
+          font-size: 12px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 15px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+      @media (max-width: 375px) {
+        .title-retenir-conclusion {
+          font-size: 14px;
+        }
+        .text {
+          font-size: 14px;
+        }
+        .sub-text {
+          font-size: 12px;
+        }
+        .number {
+          width: 30px;
+          height: 30px;
+          font-size: 10px;
+        }
+        .step-content {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .step {
+          margin-bottom: 10px;
+        }
+        .text,
+        .sub-text {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+      @media (max-width: 768px) {
+        .container-a-retenir {
+          text-align: center;
+        }
+        .steps {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+        .step-content {
+          width: 100%;
+          max-width: 600px;
+          margin-bottom: 24px;
+        }
+        .text,
+        .sub-text {
+          text-align: center;
+        }
+        .steps .step-content:last-child .line {
+          display: block;
+        }
+      }
+      @media (max-width: 992px) and (min-width: 768px) {
+        .container-a-retenir {
+          text-align: center;
+        }
+        .steps {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+        .step-content {
+          width: 100%;
+          max-width: 600px;
+          margin-bottom: 24px;
+        }
+        .text,
+        .sub-text {
+          text-align: center;
+        }
+        .steps .step-content:last-child .line {
+          display: block;
+        }
+      }
+
+      /* ===========================================
+           MEDIA QUERIES POUR COMPOSANTS MODERNISÉS
+           =========================================== */
+      /* Mobile : Adaptation des colonnes et boîtes */
+      @media (max-width: 768px) {
+        .col-1,
+        .col-2,
+        .col-3,
+        .col-4,
+        .col-5,
+        .col-6,
+        .col-7,
+        .col-8,
+        .col-9,
+        .col-10,
+        .col-11,
+        .col-12 {
+          width: 100%;
+        }
+        .box {
+          margin-bottom: 20px;
+        }
+        .title-h4-definition {
+          font-size: 20px;
+        }
+        .paragraphe {
+          font-size: 16px;
+        }
+
+        /* Composant flexible mobile */
+        .section-flex-container {
+          flex-direction: column;
+          text-align: center;
+          padding: 15px;
+          gap: 20px;
+        }
+        .section-image {
+          max-width: 150px;
+        }
+
+        /* Cartes qui flippent mobile */
+        .flip-card {
+          width: 100%;
+          max-width: 280px;
+          height: 180px;
+        }
+      }
+
+      /* Tablet : Adaptation pour écrans moyens */
+      @media (max-width: 992px) and (min-width: 768px) {
+        .col-1,
+        .col-2,
+        .col-3,
+        .col-4,
+        .col-5,
+        .col-6,
+        .col-7,
+        .col-8,
+        .col-9,
+        .col-10,
+        .col-11,
+        .col-12 {
+          width: 100%;
+        }
+        .box {
+          margin-bottom: 20px;
+        }
+        .title-h4-definition {
+          font-size: 22px;
+        }
+        .paragraphe {
+          font-size: 17px;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT CLASSES UTILITAIRES
+           =========================================== */
+      /* .is-flex : Active la disposition flexbox */
+      .is-flex {
+        display: flex;
+      }
+      /* .is-flex-wrap-wrap-mobile : Permet le retour à la ligne pour petits écrans */
+      .is-flex-wrap-wrap-mobile {
+        flex-wrap: wrap;
+      }
+      /* .is-flex-gap : Ajoute un espacement entre les éléments flex */
+      .is-flex-gap {
+        gap: 24px;
+      }
+      /* .col-1 : Colonne occupant 1/12 de la largeur */
+      .col-1 {
+        width: 8.333333%;
+      }
+      /* .col-4 : Colonne occupant 4/12 de la largeur */
+      .col-4 {
+        width: 33.333333%;
+      }
+      /* .col-5 : Colonne occupant 5/12 de la largeur */
+      .col-5 {
+        width: 41.666667%;
+      }
+      /* .col-7 : Colonne occupant 7/12 de la largeur */
+      .col-7 {
+        width: 58.333333%;
+      }
+      /* .col-11 : Colonne occupant 11/12 de la largeur */
+      .col-11 {
+        width: 91.666667%;
+      }
+
+      /* ===========================================
+           COMPOSANT BOX MODERNISÉ
+           =========================================== */
+      /* .box : Container moderne avec ombre et bordures arrondies */
+      .box {
+        border-radius: 20px;
+        background: white;
+        box-shadow: 0px 4px 8px rgba(117, 117, 117, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      /* .box:hover : Effet hover sur les boîtes */
+      .box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0px 12px 24px rgba(117, 117, 117, 0.2);
+      }
+      /* .p-5 : Padding pour les boîtes */
+      .p-5 {
+        padding: 20px !important;
+      }
+
+      /* ===========================================
+           COMPOSANT COULEURS MODERNISÉES
+           =========================================== */
+      /* .bg-primary-color4 : Fond violet clair */
+      .bg-primary-color4 {
+        background-color: #efe8ff !important;
+      }
+      /* .bg-blue-color10 : Fond bleu clair */
+      .bg-blue-color10 {
+        background-color: #e6f0ff !important;
+      }
+      /* .bg-gray-color6 : Fond gris clair */
+      .bg-gray-color6 {
+        background-color: #ededed !important;
+      }
+      /* .secondary-color : Couleur bleue pour les titres */
+      .secondary-color {
+        color: #0074c0 !important;
+      }
+
+      /* ===========================================
+           COMPOSANT TITRES H4 MODERNISÉS
+           =========================================== */
+      /* .title-h4-definition : Titres de niveau 4 pour les définitions */
+      .title-h4-definition {
+        font-family: "Montserrat", sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        text-transform: capitalize;
+        margin-bottom: 15px;
+      }
+
+      /* ===========================================
+           COMPOSANT PARAGRAPHE MODERNISÉ
+           =========================================== */
+      /* .paragraphe : Style moderne pour les paragraphes */
+      .paragraphe {
+        text-align: justify;
+        color: #757575;
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.6;
+      }
+
+      /* .paragraphe ul : Style pour les listes dans les paragraphes */
+      .paragraphe ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      /* .paragraphe li : Style pour les éléments de liste */
+      .paragraphe li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 8px;
+      }
+
+      /* .paragraphe li:before : Puces personnalisées pour les listes */
+      .paragraphe li:before {
+        content: "❖";
+        position: absolute;
+        left: 0;
+        color: #0074c0;
+        font-weight: bold;
+      }
+
+      /* ===========================================
+           COMPOSANT BLOCK MODERNISÉ
+           =========================================== */
+      /* .block : Container pour les composants modernisés */
+      .block {
+        margin-bottom: 30px;
+      }
+
+      /* ===========================================
+           COMPOSANT DÉFINITION MODERNISÉ
+           =========================================== */
+      /* .definition-index2-container : Container pour les définitions */
+      .definition-index2-container {
+        padding: 20px;
+        border-radius: 20px;
+        background-color: #ffffff;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px 0px;
+      }
+      /* .img-fluid : Image responsive */
+      .img-fluid {
+        max-width: 100%;
+        height: auto;
+      }
+      /* .is-justify-content-center : Centrage horizontal */
+      .is-justify-content-center {
+        justify-content: center;
+      }
+
+      /* ===========================================
+           COMPOSANT VIDÉO - LECTEUR MULTIMÉDIA
+           =========================================== */
+      /* .video-container : Container centré pour la vidéo principale */
+      .video-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 40px auto;
+        max-width: 800px;
+        width: 100%;
+      }
+      /* .video-container video : Vidéo avec taille adaptative et ombre portée */
+      .video-container video {
+        width: 100%;
+        max-width: 800px;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT VIDÉO */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .video-container {
+          max-width: 600px;
+        }
+        .video-container video {
+          max-width: 600px;
+        }
+      }
+      @media (max-width: 767px) {
+        .video-container {
+          max-width: 100%;
+          margin: 20px auto;
+        }
+        .video-container video {
+          max-width: 100%;
+        }
+      }
+
+      /* ===========================================
+           COMPOSANT FLEXIBLE - TEXTE ET IMAGE CÔTE À CÔTE
+           =========================================== */
+      /* .section-flex-container : Container flexible pour texte et image */
+      .section-flex-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        margin: 30px auto;
+        padding: 25px;
+        background: #e6f0fb;
+        border-radius: 12px;
+        border: none;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        max-width: 1000px;
+      }
+      /* .section-flex-container:hover : Effet hover sur le composant flexible */
+      .section-flex-container:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(59, 110, 165, 0.3);
+      }
+      /* .section-text : Contenu texte du composant flexible */
+      .section-text {
+        flex: 2;
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        line-height: 1.7;
+        color: #333;
+        text-align: left;
+      }
+      /* .section-image : Image du composant flexible */
+      .section-image {
+        flex: 1;
+        text-align: center;
+        max-width: 200px;
+      }
+      /* .section-image img : Image avec style */
+      .section-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: none;
+        border: none;
+      }
+
+      /* ===========================================
+           COMPOSANT CARTES QUI FLIPPENT
+           =========================================== */
+      /* .flip-card : Carte individuelle avec effet de retournement */
+      .flip-card {
+        width: 280px;
+        height: 200px;
+        perspective: 1000px;
+        margin: 10px;
+        min-width: 200px;
+        min-height: 100px;
+        border-radius: 15px;
+        overflow: hidden;
+      }
+      /* .flip-card-inner : Contenu interne avec effet 3D */
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-style: preserve-3d;
+        cursor: pointer;
+        border-radius: 15px;
+      }
+      /* .flip-card:hover .flip-card-inner : Effet de rotation au hover */
+      .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+      /* .flip-card-front, .flip-card-back : Faces avant et arrière */
+      .flip-card-front,
+      .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        box-sizing: border-box;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+      }
+      /* .flip-card-front : Face avant avec fond bleu */
+      .flip-card-front {
+        background: #5f8bbc;
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        font-family: "Montserrat", sans-serif;
+      }
+      /* .flip-card-back : Face arrière avec fond jaune */
+      .flip-card-back {
+        background: #f0ecc8;
+        color: #333;
+        transform: rotateY(180deg);
+        font-size: 18px;
+        line-height: 1.5;
+        text-align: center;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      /* ===========================================
+           COMPOSANT POWERS CONTAINER
+           =========================================== */
+      /* .powers-container : Container des cartes de pouvoirs */
+      .powers-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin: 30px 0;
+        padding: 0 20px;
+      }
+
+      /* ===========================================
+           COMPOSANT IMAGE TEXTE CÔTE À CÔTE
+           =========================================== */
+      /* .left-bloc, .right-bloc : Blocs de texte avec ombre */
+      .left-bloc,
+      .right-bloc {
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0px 4px 8px rgba(117, 117, 117, 0.15);
+      }
+      /* .bg-white-color : Fond blanc */
+      .bg-white-color {
+        background-color: #ffffff !important;
+      }
+      /* .b-radius-3 : Bordures arrondies */
+      .b-radius-3 {
+        border-radius: 12px !important;
+      }
+      /* .box-shadow : Ombre portée */
+      .box-shadow {
+        box-shadow: 0px 4px 8px rgba(117, 117, 117, 0.15);
+      }
+      /* .is-align-items-center : Alignement vertical centré */
+      .is-align-items-center {
+        align-items: center;
+      }
+
+      /* ===========================================
+           COMPOSANT EXEMPLE MODERNISÉ
+           =========================================== */
+      /* .txt-block-exemple : Bloc d'exemple avec ombre */
+      .txt-block-exemple {
+        border-radius: 20px;
+        background-color: #ffffff;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 4px 0px;
+        flex-direction: column;
+        padding: 20px;
+        width: 100%;
+      }
+      /* .title-h4-exemple : Titre pour les exemples */
+      .title-h4-exemple {
+        font-family: "Montserrat", sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        text-transform: capitalize;
+        margin-bottom: 15px;
+      }
+
+      /* ===========================================
+           COMPOSANT COLONNES SUPPLÉMENTAIRES
+           =========================================== */
+      /* .col-6 : Colonne occupant 6/12 de la largeur */
+      .col-6 {
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===========================================
+         CONTAINER PRINCIPAL - STRUCTURE MAÎTRESSE
+         =========================================== -->
+    <div class="main-container">
+      <!-- ===========================================
+           MENU BURGER - SYSTÈME DE NAVIGATION
+           =========================================== -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" />
+      <label for="menu-toggle" class="menu-toggle">
+        <img src="../../images/png/menuBurger.png" alt="Menu" />
+      </label>
+      <!-- Menu latéral de navigation -->
+      <nav class="menu">
+        <ul>
+          <li>
+            <a href="#section1">1 - L'anatomie de l'œil</a>
+            <ul style="margin-left: 20px; margin-top: 10px">
+              <li><a href="#section1-a">A - Définition de la vue</a></li>
+              <li><a href="#section1-b">B - Les trois enveloppes</a></li>
+              <li><a href="#section1-c">C - Détail des enveloppes</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#section2">2 - Le trajet de la lumière</a>
+            <ul style="margin-left: 20px; margin-top: 10px">
+              <li><a href="#section2-a">A - Introduction</a></li>
+              <li><a href="#section2-b">B - Cornée et humeur aqueuse</a></li>
+              <li><a href="#section2-c">C - Pupille et iris</a></li>
+              <li><a href="#section2-d">D - Cristallin et accommodation</a></li>
+              <li><a href="#section2-e">E - Les photorécepteurs</a></li>
+              <li><a href="#section2-f">F - Types de photorécepteurs</a></li>
+              <li><a href="#section2-g">G - Trajet vers le cerveau</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#section3">3 - Activité sensorielle</a>
+            <ul style="margin-left: 20px; margin-top: 10px">
+              <li><a href="#section3-a">A - Introduction</a></li>
+              <li><a href="#section3-b">B - Image de l'activité</a></li>
+              <li><a href="#section3-c">C - Matériel nécessaire</a></li>
+              <li><a href="#section3-d">D - Conseils d'ambiance</a></li>
+              <li><a href="#section3-e">E - Image de séquence</a></li>
+              <li><a href="#section3-f">F - Conclusion</a></li>
+            </ul>
+          </li>
+          <li><a href="#conc">4 - À retenir</a></li>
+        </ul>
+      </nav>
+      <!-- ===========================================
+           CONTENU PRINCIPAL DE LA PAGE
+           =========================================== -->
+      <div class="page-container">
+        <main class="main-content">
+          <!-- ===========================================
+               TITRE PRINCIPAL
+               =========================================== -->
+          <h1 class="intro-title">L'activité sensorielle : la vue</h1>
+
+          <!-- ===========================================
+               VIDÉO PRINCIPALE
+               =========================================== -->
+          <div class="video-container">
+            <video controls>
+              <source src="../../images/png/video.mp4" type="video/mp4" />
+              Votre navigateur ne supporte pas la lecture de vidéos.
+            </video>
+          </div>
+
+          <!-- ===========================================
+               INTRODUCTION
+               =========================================== -->
+          <p>
+            La vue est le sens qui permet d'observer et d'analyser
+            l'environnement à distance au moyen des rayonnements lumineux.
+          </p>
+
+          <p>Le globe oculaire est limité par trois enveloppes emboîtées :</p>
+
+          <div class="block">
+            <div class="is-flex is-flex-wrap-wrap-mobile is-flex-gap">
+              <div class="col-4">
+                <div class="box p-5 bg-primary-color4">
+                  <h4 class="title-h4-definition secondary-color">
+                    La sclérotique
+                  </h4>
+                  <p class="paragraphe">
+                    C'est l'enveloppe la plus externe, elle est blanche. À
+                    l'avant du globe oculaire, elle contient la cornée, et à
+                    l'arrière, elle entoure le nerf optique.
+                  </p>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="box p-5 bg-blue-color10">
+                  <h4 class="title-h4-definition secondary-color">
+                    La choroïde
+                  </h4>
+                  <p class="paragraphe">
+                    Qui contient de nombreux vaisseaux sanguins. À l'avant du
+                    globe oculaire, elle contient les corps ciliaires et l'iris,
+                    et à l'arrière, elle s'interrompt au niveau du nerf optique.
+                  </p>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="box p-5 bg-gray-color6">
+                  <h4 class="title-h4-definition secondary-color">La rétine</h4>
+                  <p class="paragraphe">
+                    C'est la membrane la plus interne, riche en vaisseaux
+                    sanguins et se prolongeant par le nerf optique.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ===========================================
+               SECTION 1
+               =========================================== -->
+          <section id="section1">
+            <div class="section-header">
+              <span class="section-number">01</span>
+              <span class="section-title">L'anatomie de l'œil</span>
+            </div>
+
+            <!-- Image schématique de l'œil -->
+            <div class="block">
+              <div class="is-flex is-justify-content-center">
+                <img
+                  src="../../images/CAP AEPE/page2/1460px-Schéma_œil_humain.svg.png"
+                  alt="Schéma de l'œil humain"
+                  class="intro-image"
+                />
+              </div>
+            </div>
+
+            <!-- Définition de la vue -->
+            <div class="block">
+              <div
+                class="definition-index2-container is-flex is-flex-gap is-flex-wrap-wrap-mobile is-align-items-center"
+              >
+                <div class="img-container col-1">
+                  <img
+                    src="../../images/png/imageRetenir.svg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="txt-container col-11">
+                  <h4 class="title-h4-definition secondary-color">
+                    Définition
+                  </h4>
+                  <p class="paragraphe">
+                    La vue est le sens qui permet d'observer et d'analyser
+                    l'environnement à distance au moyen des rayonnements
+                    lumineux. Le globe oculaire est limité par trois enveloppes
+                    emboîtées qui travaillent ensemble pour capturer et traiter
+                    la lumière.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===========================================
+                 SOUS-SECTION A : DÉFINITION DE LA VUE
+                 =========================================== -->
+            <div id="section1-a">
+              <h3 class="subsection-heading">A. Définition de la vue</h3>
+              <p>
+                La vue est le sens qui permet d'observer et d'analyser
+                l'environnement à distance au moyen des rayonnements lumineux.
+              </p>
+              <p>
+                Le globe oculaire est limité par trois enveloppes emboîtées :
+              </p>
+            </div>
+
+            <!-- ===========================================
+                 SOUS-SECTION B : LES TROIS ENVELOPPES DE L'ŒIL
+                 =========================================== -->
+            <div id="section1-b">
+              <h3 class="subsection-heading">
+                B. Les trois enveloppes de l'œil
+              </h3>
+
+              <!-- Composant flexible - texte et image côte à côte -->
+              <div class="section-flex-container">
+                <div class="section-text">
+                  <p>
+                    ❖ La sclérotique : c'est l'enveloppe la plus externe, elle
+                    est blanche. À l'avant du globe oculaire, elle contient la
+                    cornée, et à l'arrière, elle entoure le nerf optique.
+                  </p>
+                  <p>
+                    ❖ La choroïde : qui contient de nombreux vaisseaux sanguins.
+                    À l'avant du globe oculaire, elle contient les corps
+                    ciliaires et l'iris, et à l'arrière, elle s'interrompt au
+                    niveau du nerf optique.
+                  </p>
+                  <p>
+                    ❖ La rétine : c'est la membrane la plus interne, riche en
+                    vaisseaux sanguins et se prolongeant par le nerf optique.
+                  </p>
+                </div>
+                <div class="section-image">
+                  <img
+                    src="../../../images/CAP AEPE/module3/page1/section1Image1.png"
+                    alt="Schéma de l'œil humain"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- ===========================================
+                 SOUS-SECTION C : CARTES INTERACTIVES DES ENVELOPPES
+                 =========================================== -->
+            <div id="section1-c">
+              <h3 class="subsection-heading">
+                C. Détail des enveloppes (🔁 Survolez les cartes)
+              </h3>
+
+              <!-- Composant cartes qui flippent -->
+              <div class="powers-container">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">La sclérotique</div>
+                    <div class="flip-card-back">
+                      C'est l'enveloppe la plus externe, elle est blanche. À
+                      l'avant du globe oculaire, elle contient la cornée, et à
+                      l'arrière, elle entoure le nerf optique.
+                    </div>
+                  </div>
+                </div>
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">La choroïde</div>
+                    <div class="flip-card-back">
+                      Qui contient de nombreux vaisseaux sanguins. À l'avant du
+                      globe oculaire, elle contient les corps ciliaires et
+                      l'iris, et à l'arrière, elle s'interrompt au niveau du
+                      nerf optique.
+                    </div>
+                  </div>
+                </div>
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">La rétine</div>
+                    <div class="flip-card-back">
+                      C'est la membrane la plus interne, riche en vaisseaux
+                      sanguins et se prolongeant par le nerf optique.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- ===========================================
+               SECTION 2
+               =========================================== -->
+          <section id="section2">
+            <div class="section-header">
+              <span class="section-number">02</span>
+              <span class="section-title"
+                >Le trajet de la lumière dans l'œil</span
+              >
+            </div>
+
+            <!-- ===========================================
+                 SOUS-SECTION A : INTRODUCTION AU TRAJET DE LA LUMIÈRE
+                 =========================================== -->
+            <div id="section2-a">
+              <h3 class="subsection-heading">
+                A. Introduction au trajet de la lumière
+              </h3>
+              <p>
+                La lumière passe en premier par la cornée qui est située dans la
+                partie antérieure du globe oculaire, sous la membrane
+                conjonctive, qui est une fine membrane protectrice. Elle ne
+                contient aucun vaisseau sanguin, ce qui permet sa transparence
+                parfaite, mais la rend aussi vulnérable contre les infections.
+              </p>
+
+              <!-- Image du trajet de la lumière -->
+              <div class="block">
+                <div class="is-flex is-justify-content-center">
+                  <img
+                    src="../../../images/CAP AEPE/module3/page1/section2Image1.png"
+                    alt="Schéma coupe latérale d'un œil"
+                    class="intro-image"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- ===========================================
+                 SOUS-SECTION B : LA CORNÉE ET L'HUMEUR AQUEUSE
+                 =========================================== -->
+            <div id="section2-b">
+              <h3 class="subsection-heading">
+                B. La cornée et l'humeur aqueuse
+              </h3>
+
+              <!-- Composant flexible - texte et image côte à côte -->
+              <div class="section-flex-container">
+                <div class="section-text">
+                  <p>
+                    La cornée joue le rôle d'une lentille naturelle en captant
+                    les rayons de lumière pour la transmettre au cristallin et à
+                    la rétine. Elle traverse ensuite l'humeur aqueuse, qui est
+                    un liquide transparent constitué d'eau, de glucose et de
+                    sels minéraux. Ce liquide remplit l'espace entre la cornée
+                    et le cristallin et nourrit la cornée et le cristallin en
+                    oxygène.
+                  </p>
+                </div>
+                <div class="section-image">
+                  <img
+                    src="../../../images/CAP AEPE/module3/page1/section2Image2.png"
+                    alt="Cornée et humeur aqueuse"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- ===========================================
+                 SOUS-SECTION C : LA PUPILLE ET L'IRIS
+                 =========================================== -->
+            <div id="section2-c">
+              <h3 class="subsection-heading">C. La pupille et l'iris</h3>
+
+              <!-- Composant flexible - texte et image côte à côte -->
+              <div class="section-flex-container">
+                <div class="section-image">
+                  <img
+                    src="../../../images/CAP AEPE/module3/page1/section2Image3.png"
+                    alt="Pupille et iris"
+                  />
+                </div>
+                <div class="section-text">
+                  <p>
+                    Nous sommes donc capables de voir, car notre corps est
+                    capable de transformer la lumière en une information
+                    visuelle. La pupille va être dilatée ou contractée par le
+                    biais de l'iris, qui est la partie colorée de l'œil dont le
+                    rôle est d'adapter la vision à la luminosité ambiante.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Composant image gauche texte droite pour le cristallin -->
+            <div class="block">
+              <div class="is-flex is-flex-wrap-wrap-mobile is-flex-gap">
+                <div class="col-5">
+                  <img
+                    src="../../images/CAP AEPE/page2/800px-Cone_rode.svg.png"
+                    alt="Cristallin et photorécepteurs"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="col-7 is-flex is-align-items-center">
+                  <div
+                    class="left-bloc p-5 bg-white-color b-radius-3 box-shadow"
+                  >
+                    <h4 class="title-h4-definition secondary-color">
+                      Le cristallin et l'accommodation
+                    </h4>
+                    <p class="paragraphe">
+                      La lumière passe ensuite par le cristallin, qui est une
+                      lentille biconvexe transparente. Elle permet également de
+                      distinguer les objets proches ou lointains. Pour cela, le
+                      cristallin change de forme selon la distance de l'œil à
+                      l'objet visible. En effet, il est maintenu par les
+                      ligaments suspenseurs et des muscles ciliaires.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===========================================
+                 SOUS-SECTION D : LE CRISTALLIN ET L'ACCOMMODATION
+                 =========================================== -->
+            <div id="section2-d">
+              <h3 class="subsection-heading">
+                D. Le cristallin et l'accommodation
+              </h3>
+
+              <!-- Composant flexible - texte et image côte à côte -->
+              <div class="section-flex-container">
+                <div class="section-text">
+                  <p>
+                    La lumière passe ensuite par le cristallin, qui est une
+                    lentille biconvexe transparente. Elle permet également de
+                    distinguer les objets proches ou lointains. Pour cela, le
+                    cristallin change de forme selon la distance de l'œil à
+                    l'objet visible. En effet, il est maintenu par les ligaments
+                    suspenseurs et des muscles ciliaires. Les muscles ciliaires
+                    sont contractés lorsque l'objet est rapproché, et relâchés
+                    lorsque l'objet est éloigné.
+                  </p>
+                  <p>
+                    Nous continuons la traversée par l'humeur vitrée (corps
+                    vitré) qui est une substance transparente et gélatineuse qui
+                    constitue l'espace entre la rétine et le cristallin. Il
+                    permet de maintenir la rétine en place et il assure la forme
+                    sphérique du globe oculaire. Il est constitué de 99% d'eau
+                    et représente 80% du volume d'un œil adulte.
+                  </p>
+                </div>
+                <div class="section-image">
+                  <img
+                    src="../../../images/CAP AEPE/module3/page1/section2Image4.png"
+                    alt="Cristallin et photorécepteurs"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- ===========================================
+                 SOUS-SECTION E : LES PHOTORÉCEPTEURS
+                 =========================================== -->
+            <div id="section2-e">
+              <h3 class="subsection-heading">E. Les photorécepteurs</h3>
+
+              <p>
+                La lumière atteint finalement la rétine. Celle-ci est constituée
+                de millions de petits capteurs appelés photorécepteurs. Ce sont
+                eux qui vont transformer les ondes lumineuses en impulsions
+                électriques qui seront ensuite transmises et analysées par notre
+                cerveau.
+              </p>
+
+              <p>Il existe deux types de photorécepteurs :</p>
+            </div>
+
+            <!-- ===========================================
+                 SOUS-SECTION F : TYPES DE PHOTORÉCEPTEURS
+                 =========================================== -->
+            <div id="section2-f">
+              <h3 class="subsection-heading">F. Types de photorécepteurs</h3>
+
+              <div class="is-flex is-flex-wrap-wrap-mobile is-flex-gap">
+                <div class="col-6">
+                  <div class="box p-5 bg-primary-color4">
+                    <h4 class="title-h4-definition secondary-color">
+                      Les cônes
+                    </h4>
+                    <p class="paragraphe">
+                      ❖ Ils sont environ 10 millions et responsables de la
+                      vision diurne. Il en existe trois types chez l'Homme,
+                      chacun ayant une sensibilité plus ou moins grande à
+                      certaines longueurs d'onde comprises entre 400 et 700nm
+                      (longueurs d'onde du visible chez l'Homme).
+                    </p>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="box p-5 bg-blue-color10">
+                    <h4 class="title-h4-definition secondary-color">
+                      Les bâtonnets
+                    </h4>
+                    <p class="paragraphe">
+                      ❖ Ils sont environ 120 millions et permettent la vision
+                      scotopique, c'est-à-dire avec une luminosité faible.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===========================================
+                 SOUS-SECTION G : TRAJET VERS LE CERVEAU
+                 =========================================== -->
+            <div id="section2-g">
+              <h3 class="subsection-heading">G. Trajet vers le cerveau</h3>
+
+              <p>
+                Chacun de ces photorécepteurs est relié à un ou plusieurs
+                neurones qui vont transmettre l'information au système nerveux
+                central par le nerf optique. Le nerf optique droit et le nerf
+                optique gauche s'entrecroisent au niveau du chiasma optique et
+                projettent vers le thalamus au niveau des corps genouillés
+                latéraux. C'est à partir de ceux-ci, que les informations sont
+                relayées vers les aires visuelles du cortex.
+              </p>
+            </div>
+          </section>
+          <!-- ===========================================
+               SECTION 3
+               =========================================== -->
+          <section id="section3">
+            <div class="section-header">
+              <span class="section-number">03</span>
+              <span class="section-title"
+                >Activité sensorielle pour l'enfant : un univers sensoriel
+                visuel</span
+              >
+            </div>
+
+            <!-- ===========================================
+                 SOUS-SECTION A : INTRODUCTION À L'ACTIVITÉ
+                 =========================================== -->
+            <div id="section3-a">
+              <h3 class="subsection-heading">A. Introduction à l'activité</h3>
+              <p>
+                Reproduire une ambiance « univers sensoriel » sollicite le
+                développement sensoriel de l'enfant. Dans cette activité, il
+                développe le sens de la vue, distingue de nouvelles couleurs, de
+                nouvelles formes ou encore renforce ses connaissances.
+              </p>
+
+              <div
+                class="definition-index2-container is-flex is-flex-gap is-flex-wrap-wrap-mobile is-align-items-center"
+              >
+                <div class="img-container col-1">
+                  <img
+                    src="../../images/png/imageRetenir.svg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="txt-container col-11">
+                  <h4 class="title-h4-definition secondary-color">Important</h4>
+                  <p class="paragraphe">
+                    Avant tout début d'activité, il est impératif d'expliquer à
+                    l'enfant les consignes et 5 minutes avant la fin de
+                    celle-ci, de le prévenir qu'elle va s'arrêter, pour le
+                    préparer psychologiquement à stopper son plaisir.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===========================================
+                 SOUS-SECTION B : IMAGE DE L'ACTIVITÉ
+                 =========================================== -->
+            <div id="section3-b">
+              <h3 class="subsection-heading">B. Image de l'activité</h3>
+
+              <div class="block">
+                <div class="is-flex is-justify-content-center">
+                  <img
+                    src="../../../images/CAP AEPE/module3/page1/section3image.png"
+                    alt="Activité sensorielle visuelle"
+                    class="intro-image"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- ===========================================
+                 SOUS-SECTION C : MATÉRIEL NÉCESSAIRE
+                 =========================================== -->
+            <div id="section3-c">
+              <h3 class="subsection-heading">C. Matériel nécessaire</h3>
+
+              <p>Le principe est simple, vous aurez besoin de :</p>
+
+              <div class="is-flex is-flex-wrap-wrap-mobile is-flex-gap">
+                <div class="col-6">
+                  <div class="box p-5 bg-primary-color4">
+                    <h4 class="title-h4-definition secondary-color">
+                      Matériel de base
+                    </h4>
+                    <p class="paragraphe">❖ Bouteilles remplies à 3/4 d'eau</p>
+                    <p class="paragraphe">❖ De savon liquide</p>
+                    <p class="paragraphe">❖ De la glycérine (optionnel)</p>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="box p-5 bg-blue-color10">
+                    <h4 class="title-h4-definition secondary-color">
+                      Éléments fluorescents
+                    </h4>
+                    <p class="paragraphe">
+                      ❖ Des cailloux fluorescents (à peindre soi-même ou à se
+                      procurer)
+                    </p>
+                    <p class="paragraphe">
+                      ❖ Des verres fluorescents (à peindre avec de la peinture
+                      fluorescente si vous en avez envie ou à se procurer)
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===========================================
+                 SOUS-SECTION D : CONSEILS D'AMBIANCE
+                 =========================================== -->
+            <div id="section3-d">
+              <h3 class="subsection-heading">D. Conseils d'ambiance</h3>
+
+              <div class="txt-block-exemple is-flex">
+                <h4 class="title-h4-exemple secondary-color">
+                  Conseils d'ambiance
+                </h4>
+                <p class="paragraphe">
+                  Il est intéressant de le faire dans une pièce sombre pour plus
+                  d'émerveillement, avec d'autres objets à textures différentes,
+                  pour créer un endroit douillet.
+                </p>
+              </div>
+            </div>
+
+            <!-- ===========================================
+                 SOUS-SECTION E : IMAGE DE SÉQUENCE
+                 =========================================== -->
+            <div id="section3-e">
+              <h3 class="subsection-heading">E. Image de séquence</h3>
+
+              <div class="block">
+                <div class="is-flex is-justify-content-center">
+                  <img
+                    src="../../../images/CAP AEPE/module3/page1/section2Image3.png"
+                    alt="Séquence de l'activité"
+                    class="intro-image"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- ===========================================
+                 SOUS-SECTION F : CONCLUSION SUR LE DÉVELOPPEMENT
+                 =========================================== -->
+            <div id="section3-f">
+              <h3 class="subsection-heading">
+                F. Conclusion sur le développement
+              </h3>
+
+              <p>
+                La vue se développe chez l'enfant tout au long de la première
+                année de vie, puis se stabilise. L'œil est un organe complexe
+                constitué de nombreux composants hautement sensibles et jouant
+                un rôle déterminant dans le traitement de la lumière perçue.
+              </p>
+            </div>
+          </section>
+
+          <!-- ===========================================
+               COMPOSANT FINAL - À RETENIR
+               =========================================== -->
+          <section id="conc">
+            <div class="block">
+              <div class="container-a-retenir">
+                <div
+                  class="wrap-title-retenir-conclusion is-flex is-flex-wrap-wrap-mobile"
+                >
+                  <img
+                    alt=""
+                    src="../../images/png/imageRetenir.svg"
+                    class="retenir-img"
+                  />
+                  <h2 class="title-retenir-conclusion">à retenir</h2>
+                </div>
+                <div class="steps">
+                  <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                    <div class="step col-1 is-flex">
+                      <span class="number is-flex">01.</span>
+                    </div>
+                    <div class="step-text col-11">
+                      <p class="text">
+                        La vue est le sens qui permet d'observer et d'analyser
+                        l'environnement à distance
+                      </p>
+                      <p class="sub-text">
+                        Elle fonctionne grâce aux rayonnements lumineux captés
+                        par le globe oculaire, qui est limité par trois
+                        enveloppes emboîtées : la sclérotique, la choroïde et la
+                        rétine.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                    <div class="step col-1 is-flex">
+                      <span class="number is-flex">02.</span>
+                    </div>
+                    <div class="step-text col-11">
+                      <p class="text">
+                        Le trajet de la lumière dans l'œil suit un parcours
+                        précis
+                      </p>
+                      <p class="sub-text">
+                        La lumière traverse successivement : la cornée, l'humeur
+                        aqueuse, la pupille (régulée par l'iris), le cristallin,
+                        l'humeur vitrée, pour finalement atteindre la rétine et
+                        ses photorécepteurs.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                    <div class="step col-1 is-flex">
+                      <span class="number is-flex">03.</span>
+                    </div>
+                    <div class="step-text col-11">
+                      <p class="text">
+                        Les photorécepteurs transforment la lumière en signaux
+                        nerveux
+                      </p>
+                      <p class="sub-text">
+                        La rétine contient environ 10 millions de cônes (vision
+                        diurne) et 120 millions de bâtonnets (vision nocturne)
+                        qui convertissent les ondes lumineuses en impulsions
+                        électriques transmises au cerveau.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="step-content is-flex is-flex-wrap-wrap-mobile">
+                    <div class="step col-1 is-flex">
+                      <span class="number is-flex">04.</span>
+                    </div>
+                    <div class="step-text col-11">
+                      <p class="text">
+                        L'activité sensorielle visuelle stimule le développement
+                        de l'enfant
+                      </p>
+                      <p class="sub-text">
+                        Créer un univers sensoriel visuel avec des éléments
+                        fluorescents dans une pièce sombre permet à l'enfant de
+                        développer son sens de la vue, de distinguer de
+                        nouvelles couleurs et formes, tout en respectant des
+                        consignes claires et un temps défini.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lignes 3</title>
+    <style>
+      /* ===========================================
+           COMPOSANT LIGNES 3
+           =========================================== */
+      .lignes3-container {
+        margin: 30px 0;
+      }
+      .lignes3-rectangle-container {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+      .lignes3-rectangle {
+        flex: 1;
+        min-width: 250px;
+        background: #ffffff;
+        border: 2px solid #5f8bbc;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(95, 139, 188, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .lignes3-rectangle:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(95, 139, 188, 0.25);
+      }
+      .lignes3-title {
+        color: #5f8bbc;
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0 0 15px 0;
+        text-align: center;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #e6f0fb;
+      }
+      .lignes3-yellow-rectangle {
+        background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
+        border-color: #f59e0b;
+      }
+      .lignes3-scroll-content {
+        max-height: 200px;
+        overflow-y: auto;
+        padding-right: 10px;
+      }
+      .lignes3-yellow-text {
+        color: #333;
+        line-height: 1.6;
+        margin-bottom: 12px;
+      }
+      .lignes3-scroll-content::-webkit-scrollbar {
+        width: 8px;
+      }
+      .lignes3-scroll-content::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+      }
+      .lignes3-scroll-content::-webkit-scrollbar-thumb {
+        background: #5f8bbc;
+        border-radius: 4px;
+      }
+      .lignes3-scroll-content::-webkit-scrollbar-thumb:hover {
+        background: #3b6ea5;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT LIGNES 3 */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .lignes3-rectangle-container {
+          gap: 15px;
+        }
+        .lignes3-rectangle {
+          min-width: 200px;
+          padding: 20px;
+        }
+        .lignes3-title {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 767px) {
+        .lignes3-rectangle-container {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .lignes3-rectangle {
+          min-width: auto;
+          padding: 20px;
+        }
+        .lignes3-title {
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 375px) {
+        .lignes3-rectangle {
+          padding: 15px;
+        }
+        .lignes3-title {
+          font-size: 16px;
+        }
+        .lignes3-yellow-text {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="lignes3-container">
+      <div class="lignes3-rectangle-container">
+        <div class="lignes3-rectangle">
+          <h4 class="lignes3-title">Lorem Ipsum</h4>
+          <div class="lignes3-scroll-content">
+            <p class="lignes3-yellow-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <p class="lignes3-yellow-text">
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
+        </div>
+        <div class="lignes3-rectangle lignes3-yellow-rectangle">
+          <h4 class="lignes3-title">Dolor Sit</h4>
+          <div class="lignes3-scroll-content">
+            <p class="lignes3-yellow-text">
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur.
+            </p>
+            <p class="lignes3-yellow-text">
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+              officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+        </div>
+        <div class="lignes3-rectangle">
+          <h4 class="lignes3-title">Amet Consectetur</h4>
+          <div class="lignes3-scroll-content">
+            <p class="lignes3-yellow-text">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium.
+            </p>
+            <p class="lignes3-yellow-text">
+              Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et
+              quasi architecto beatae vitae dicta sunt explicabo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

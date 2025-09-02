@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Composant - Formalités d'Embauche</title>
+    <style>
+      /* ===========================================
+           COMPOSANT FORMALITÉS D'EMBAUCHE
+           =========================================== */
+      /* .formalites-embauche-unique : Container principal des formalités d'embauche */
+      .formalites-embauche-unique {
+        margin: 30px 0;
+      }
+      /* .formalites-container-unique : Container des cartes de formalités */
+      .formalites-container-unique {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin-bottom: 30px;
+      }
+      /* .formalite-card-unique : Carte de formalité individuelle */
+      .formalite-card-unique {
+        background: #ffffff;
+        border: 2px solid #5f8bbc;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(95, 139, 188, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      /* .formalite-card-unique:hover : Effet hover sur la carte */
+      .formalite-card-unique:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(95, 139, 188, 0.25);
+      }
+      /* .formalite-number : Numéro de la formalité */
+      .formalite-number {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        background: #5f8bbc;
+        color: #ffffff;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 18px;
+        box-shadow: 0 2px 8px rgba(95, 139, 188, 0.3);
+      }
+      /* .formalite-card-unique h4 : Titre de la formalité */
+      .formalite-card-unique h4 {
+        color: #5f8bbc;
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0 0 15px 0;
+        padding-right: 60px;
+        line-height: 1.3;
+      }
+      /* .formalite-card-unique p : Paragraphes de la formalité */
+      .formalite-card-unique p {
+        color: #333;
+        line-height: 1.6;
+        margin-bottom: 12px;
+        text-align: justify;
+      }
+      /* .formalite-card-unique ul : Listes de la formalité */
+      .formalite-card-unique ul {
+        margin: 15px 0;
+        padding-left: 20px;
+      }
+      /* .formalite-card-unique li : Éléments de liste */
+      .formalite-card-unique li {
+        color: #333;
+        margin-bottom: 8px;
+        line-height: 1.5;
+      }
+      /* .formalite-card-unique strong : Texte en gras */
+      .formalite-card-unique strong {
+        color: #5f8bbc;
+        font-weight: 600;
+      }
+
+      /* MEDIA QUERIES POUR COMPOSANT FORMALITÉS D'EMBAUCHE */
+      @media (max-width: 1023px) and (min-width: 768px) {
+        .formalites-container-unique {
+          gap: 20px;
+        }
+        .formalite-card-unique {
+          padding: 20px;
+        }
+        .formalite-number {
+          width: 35px;
+          height: 35px;
+          font-size: 16px;
+          top: 12px;
+          right: 15px;
+        }
+        .formalite-card-unique h4 {
+          font-size: 18px;
+          margin-bottom: 12px;
+          padding-right: 50px;
+        }
+      }
+      @media (max-width: 767px) {
+        .formalites-container-unique {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        .formalite-card-unique {
+          padding: 20px;
+        }
+        .formalite-number {
+          width: 35px;
+          height: 35px;
+          font-size: 16px;
+          top: 12px;
+          right: 15px;
+        }
+        .formalite-card-unique h4 {
+          font-size: 18px;
+          margin-bottom: 12px;
+          padding-right: 50px;
+        }
+      }
+      @media (max-width: 375px) {
+        .formalite-card-unique {
+          padding: 15px;
+        }
+        .formalite-number {
+          width: 30px;
+          height: 30px;
+          font-size: 14px;
+          top: 10px;
+          right: 12px;
+        }
+        .formalite-card-unique h4 {
+          font-size: 16px;
+          margin-bottom: 10px;
+          padding-right: 40px;
+        }
+        .formalite-card-unique p,
+        .formalite-card-unique li {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Composant - Formalités d'Embauche</h1>
+      <p>
+        Ce composant définit les cartes de formalités d'embauche utilisées dans
+        page4 pour présenter les étapes obligatoires.
+      </p>
+      <p>Il inclut :</p>
+      <ul>
+        <li>Grille responsive de cartes numérotées</li>
+        <li>Numéros circulaires en haut à droite</li>
+        <li>Bordures bleues et ombres portées</li>
+        <li>Effet hover avec élévation</li>
+        <li>Contenu structuré avec titres et listes</li>
+        <li>Design adaptatif pour tous les formats d'écran</li>
+      </ul>
+
+      <!-- Exemple des formalités d'embauche -->
+      <div class="formalites-embauche-unique">
+        <div class="formalites-container-unique">
+          <div class="formalite-card-unique">
+            <div class="formalite-number">1</div>
+            <h4>Déclaration préalable à l'embauche</h4>
+            <p>
+              L'employeur doit déclarer l'embauche auprès de l'URSSAF dans les
+              <strong>8 jours</strong> qui précèdent l'embauche.
+            </p>
+            <ul>
+              <li>Formulaire de déclaration</li>
+              <li>Informations sur le salarié</li>
+              <li>Date d'embauche prévue</li>
+            </ul>
+          </div>
+          <div class="formalite-card-unique">
+            <div class="formalite-number">2</div>
+            <h4>Contrat de travail écrit</h4>
+            <p>
+              Le contrat de travail doit être rédigé par écrit et remis au
+              salarié dans les <strong>2 jours</strong> suivant l'embauche.
+            </p>
+            <ul>
+              <li>Informations obligatoires</li>
+              <li>Conditions de travail</li>
+              <li>Rémunération et horaires</li>
+            </ul>
+          </div>
+          <div class="formalite-card-unique">
+            <div class="formalite-number">3</div>
+            <h4>Visite médicale d'embauche</h4>
+            <p>
+              Le salarié doit passer une visite médicale d'embauche auprès du
+              <strong>médecin du travail</strong>.
+            </p>
+            <ul>
+              <li>Aptitude au poste</li>
+              <li>Recommandations médicales</li>
+              <li>Suivi médical adapté</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
